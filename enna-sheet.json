@@ -1,0 +1,297 @@
+{
+  "v": 3,
+  "cn": "Enna Naïlo",
+  "cc": "Ranger",
+  "cl": "3",
+  "cr": "Elf (Wood Elf)",
+  "ac": "15",
+  "mhp": "24",
+  "hd": "3d10",
+  "insp": false,
+  "sc": {
+    "str": "11",
+    "dex": "17",
+    "con": "13",
+    "int": "12",
+    "wis": "14",
+    "cha": "10"
+  },
+  "sp": {
+    "sv-str": true,
+    "sv-dex": true,
+    "sv-con": false,
+    "sv-int": false,
+    "sv-wis": false,
+    "sv-cha": false
+  },
+  "sk": {
+    "sk-acr": false,
+    "sk-ani": true,
+    "sk-arc": false,
+    "sk-ath": false,
+    "sk-dec": false,
+    "sk-his": false,
+    "sk-ins": true,
+    "sk-int": false,
+    "sk-inv": true,
+    "sk-med": false,
+    "sk-nat": true,
+    "sk-per": true,
+    "sk-prf": false,
+    "sk-prs": false,
+    "sk-rel": false,
+    "sk-soh": false,
+    "sk-ste": true,
+    "sk-sur": true
+  },
+  "sa": "wis",
+  "slots": {
+    "1": {
+      "t": "3",
+      "u": 0
+    },
+    "2": {
+      "t": "0",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
+  },
+  "port": "",
+  "feats": [
+    {
+      "n": "Trance Élfico",
+      "s": "Elf",
+      "d": "No duermes. Meditas 4 horas. Inmune a sueño mágico.",
+      "o": false
+    },
+    {
+      "n": "Paso del Bosque",
+      "s": "Wood Elf",
+      "d": "Ignorar terreno difícil no mágico. No dejas rastro salvo que elijas.",
+      "o": false
+    },
+    {
+      "n": "Máscara de los Bosques",
+      "s": "Wood Elf",
+      "d": "Intentar esconderse cuando estás ligeramente oscurecida por follaje, lluvia, nieve o niebla.",
+      "o": false
+    },
+    {
+      "n": "Explorador Natural",
+      "s": "Ranger 1",
+      "d": "Terreno favorito: Bosque. Ventajas de orientación, rastreo, supervivencia. Nunca te pierdes (no-mágico).",
+      "o": false
+    },
+    {
+      "n": "Enemigo Favorito",
+      "s": "Ranger 1",
+      "d": "No-muertos: +2 daño, ventaja para rastrear o recordar info sobre ellos.",
+      "o": false
+    },
+    {
+      "n": "Estilo de Combate: Arquería",
+      "s": "Ranger 2",
+      "d": "+2 a tiradas de ataque con armas a distancia.",
+      "o": false
+    },
+    {
+      "n": "Lanzamiento de Conjuros",
+      "s": "Ranger 2",
+      "d": "WIS habilidad de conjuro. DC = 8 + bon. comp. + mod WIS. 3 conjuros conocidos.",
+      "o": false
+    },
+    {
+      "n": "Consciencia Primaria",
+      "s": "Ranger 3",
+      "d": "Acción: detectas no-muertos a 1 milla. Cuántos y dirección general. 1 minuto.",
+      "o": false
+    },
+    {
+      "n": "Arquetipo: Cazador — Matador de Hordas",
+      "s": "Ranger 3 — Hunter",
+      "d": "Cuando golpeas con ataque de melé, puedes atacar a otra criatura adyacente como parte del mismo ataque.",
+      "o": false
+    }
+  ],
+  "atks": [
+    {
+      "n": "Arco largo",
+      "h": "main",
+      "dmg": "1d8+5",
+      "t": "Perforante",
+      "r": "150/600ft",
+      "no": "+2 arquería. Pesado, dos manos."
+    },
+    {
+      "n": "Espada corta",
+      "h": "off",
+      "dmg": "1d6+3",
+      "t": "Perforante",
+      "r": "5ft",
+      "no": "Melé secundario."
+    },
+    {
+      "n": "Cuchillo de caza",
+      "h": "off",
+      "dmg": "1d4+3",
+      "t": "Perforante",
+      "r": "5ft / 20ft",
+      "no": "Arrojadizo."
+    }
+  ],
+  "spells": [
+    {
+      "p": true,
+      "l": "1",
+      "n": "Marca del Cazador",
+      "sc": "Adivinación",
+      "c": "Acción Bonus",
+      "r": "90ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Amistad Animal",
+      "sc": "Encantamiento",
+      "c": "1 Acción",
+      "r": "30ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Trampa de Hechizo",
+      "sc": "Conjuración",
+      "c": "1 min",
+      "r": "Toque",
+      "e": false
+    }
+  ],
+  "sdescs": {},
+  "inv": [
+    {
+      "n": "Arco largo",
+      "q": "1",
+      "v": "50",
+      "e": true,
+      "no": "Arma principal — +2 arquería"
+    },
+    {
+      "n": "Carcaj con flechas (x40)",
+      "q": "1",
+      "v": "5",
+      "e": true,
+      "no": "Munición"
+    },
+    {
+      "n": "Espada corta",
+      "q": "2",
+      "v": "15",
+      "e": true,
+      "no": "Melé secundario"
+    },
+    {
+      "n": "Cuchillo de caza",
+      "q": "2",
+      "v": "2",
+      "e": true,
+      "no": "Arrojadizo / melé"
+    },
+    {
+      "n": "Armadura de cuero",
+      "q": "1",
+      "v": "10",
+      "e": true,
+      "no": "CA 11 + DEX mod"
+    },
+    {
+      "n": "Herramientas de ladrón",
+      "q": "1",
+      "v": "25",
+      "e": false,
+      "no": "Usadas en Casa Durst"
+    },
+    {
+      "n": "Varita de pesca (Rod of Fishing)",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Casa Durst. Garantiza pesca si hay peces."
+    },
+    {
+      "n": "Capa de viaje verde oscuro",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    }
+  ],
+  "rels": [
+    {
+      "n": "Lancelot",
+      "r": "Perro rescatado del grupo",
+      "no": "Lo rescatamos de las ruinas.",
+      "o": false
+    },
+    {
+      "n": "Ismark Kolyanovich",
+      "r": "Aliado en Barovia",
+      "no": "Confiable.",
+      "o": false
+    },
+    {
+      "n": "Ireena Kolyana",
+      "r": "Bajo protección",
+      "no": "La escoltamos a Vallaki.",
+      "o": false
+    },
+    {
+      "n": "Sarda Luthra",
+      "r": "Elfa Paladín — compañera",
+      "no": "A veces demasiado impulsiva. Eficaz.",
+      "o": false
+    },
+    {
+      "n": "Kaelos",
+      "r": "Sátiro Bardo — compañero",
+      "no": "Me cayó bien desde que usó el Thunderwave medio consciente.",
+      "o": false
+    }
+  ],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}

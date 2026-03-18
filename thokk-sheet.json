@@ -1,0 +1,159 @@
+{
+  "v": 3,
+  "cn": "Thokk Rughar",
+  "cc": "Barbarian",
+  "cl": "3",
+  "cr": "Half-Orc",
+  "ac": "13",
+  "mhp": "30",
+  "hd": "3d12",
+  "insp": false,
+  "sc": {
+    "str": "18",
+    "dex": "13",
+    "con": "15",
+    "int": "10",
+    "wis": "12",
+    "cha": "10"
+  },
+  "sp": {
+    "sv-str": true,
+    "sv-dex": false,
+    "sv-con": true,
+    "sv-int": false,
+    "sv-wis": false,
+    "sv-cha": false
+  },
+  "sk": {
+    "sk-acr": false,
+    "sk-ani": false,
+    "sk-arc": false,
+    "sk-ath": true,
+    "sk-dec": false,
+    "sk-his": false,
+    "sk-ins": false,
+    "sk-int": true,
+    "sk-inv": false,
+    "sk-med": false,
+    "sk-nat": true,
+    "sk-per": true,
+    "sk-prf": false,
+    "sk-prs": false,
+    "sk-rel": false,
+    "sk-soh": false,
+    "sk-ste": false,
+    "sk-sur": false
+  },
+  "sa": "wis",
+  "slots": {
+    "1": {"t": "2", "u": 0},
+    "2": {"t": "0", "u": 0},
+    "3": {"t": "0", "u": 0},
+    "4": {"t": "0", "u": 0},
+    "5": {"t": "0", "u": 0},
+    "6": {"t": "0", "u": 0},
+    "7": {"t": "0", "u": 0},
+    "8": {"t": "0", "u": 0},
+    "9": {"t": "0", "u": 0}
+  },
+  "port": "",
+  "feats": [
+    {
+      "n": "Furia",
+      "s": "Barbarian 1",
+      "d": "Acción adicional para entrar en furia. Durante la furia: +2 al daño con armas de melé, ventaja en tiradas de STR y salvaciones de STR, resistencia al daño cortante/perforante/contundente. Dura 1 minuto. Termina si no atacas ni recibes daño en tu turno.",
+      "o": false
+    },
+    {
+      "n": "Defensa Sin Armadura",
+      "s": "Barbarian 1",
+      "d": "Sin armadura: CA = 10 + modificador de DEX + modificador de CON. (10 + 1 + 2 = 13)",
+      "o": false
+    },
+    {
+      "n": "Vagabundo",
+      "s": "Background: Salvaje",
+      "d": "Recuerdas mapas y geografía con facilidad. Puedes encontrar comida y bebida para 6 personas si el terreno lo permite.",
+      "o": false
+    },
+    {
+      "n": "Resistencia Implacable",
+      "s": "Half-Orc",
+      "d": "Cuando caes a 0 PV pero no mueres de golpe, puedes quedar a 1 PV en su lugar. Una vez por descanso largo.",
+      "o": false
+    },
+    {
+      "n": "Ataques Salvajes",
+      "s": "Half-Orc",
+      "d": "En golpes críticos con armas cuerpo a cuerpo, lanza uno de los dados de daño del arma una vez más y añádelo al daño extra del crítico.",
+      "o": false
+    },
+    {
+      "n": "Reducir Daño",
+      "s": "Barbarian 3 (Totem Warrior)",
+      "d": "Reducir el daño recibido en 2 (÷2). Tótem de oso y pelo.",
+      "o": false
+    }
+  ],
+  "atks": [
+    {
+      "n": "Hacha de dos manos",
+      "h": "main",
+      "dmg": "1d12+4",
+      "t": "Cortante",
+      "r": "5ft",
+      "no": "Pesada, dos manos. En furia: +2 daño adicional"
+    },
+    {
+      "n": "Ballesta Pesada",
+      "h": "off",
+      "dmg": "1d10",
+      "t": "Perforante",
+      "r": "100/400ft",
+      "no": "Pesada, munición, dos manos. Carga."
+    }
+  ],
+  "spells": [
+    {
+      "p": true,
+      "l": "1",
+      "n": "Hablar con los Animales",
+      "sc": "Adivinación",
+      "c": "1 Acción",
+      "r": "Personal",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Sentidos de la Bestia",
+      "sc": "Adivinación",
+      "c": "1 Acción",
+      "r": "Toque",
+      "e": false
+    }
+  ],
+  "sdescs": {
+    "1": "Puedes hablar con los animales durante 10 minutos. También puedes entender lo que dicen. Componentes: V, S.",
+    "2": "Tocas a una bestia dispuesta. Hasta que termine el conjuro, puedes usar los sentidos de esa criatura en lugar de los tuyos. Duración: 1 hora. Componentes: S."
+  },
+  "inv": [
+    {"n": "Hacha de dos manos", "q": "1", "v": "30", "e": true, "no": "Arma principal"},
+    {"n": "Ballesta Pesada", "q": "1", "v": "50", "e": true, "no": "Arma a distancia"},
+    {"n": "Sacos de dormir (Sleeping Bag)", "q": "1", "v": "", "e": false, "no": ""},
+    {"n": "Cuerda", "q": "1", "v": "", "e": false, "no": "50 pies"},
+    {"n": "Acordeón desafinado", "q": "1", "v": "", "e": false, "no": ""},
+    {"n": "Pincho en una rana verde", "q": "1", "v": "", "e": false, "no": "Objeto misterioso"},
+    {"n": "Tótem de hueso de oso y pelo", "q": "1", "v": "", "e": true, "no": "Foco de conjuro / rasgo de tótem"}
+  ],
+  "rels": [
+    {"n": "Ismark Kolyanovich", "r": "Burgomaster's son — Barovia Village", "no": "", "o": false},
+    {"n": "Ireena Kolyana", "r": "Burgomaster's daughter — Strahd's target", "no": "", "o": false},
+    {"n": "Father Donavich", "r": "Priest of the Morning Lord", "no": "", "o": false},
+    {"n": "Doru", "r": "Donavich's son — vampire spawn, chained", "no": "", "o": false},
+    {"n": "Rose Durst", "r": "Ghost of the Durst house", "no": "", "o": false},
+    {"n": "Thorn Durst", "r": "Ghost of the Durst house", "no": "", "o": false},
+    {"n": "Kaelos", "r": "Satyr Bard — party member", "no": "", "o": false}
+  ],
+  "ds": [false, false, false, false, false, false]
+}

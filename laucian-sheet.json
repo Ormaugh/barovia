@@ -1,0 +1,358 @@
+{
+  "v": 3,
+  "cn": "Laucian Caerdonel",
+  "cc": "Cleric",
+  "cl": "3",
+  "cr": "Elf (High Elf)",
+  "ac": "14",
+  "mhp": "22",
+  "hd": "3d8",
+  "insp": false,
+  "sc": {
+    "str": "10",
+    "dex": "14",
+    "con": "13",
+    "int": "14",
+    "wis": "18",
+    "cha": "11"
+  },
+  "sp": {
+    "sv-str": false,
+    "sv-dex": false,
+    "sv-con": false,
+    "sv-int": false,
+    "sv-wis": true,
+    "sv-cha": true
+  },
+  "sk": {
+    "sk-acr": false,
+    "sk-ani": false,
+    "sk-arc": true,
+    "sk-ath": false,
+    "sk-dec": false,
+    "sk-his": true,
+    "sk-ins": true,
+    "sk-int": false,
+    "sk-inv": false,
+    "sk-med": true,
+    "sk-nat": false,
+    "sk-per": false,
+    "sk-prf": false,
+    "sk-prs": false,
+    "sk-rel": true,
+    "sk-soh": false,
+    "sk-ste": false,
+    "sk-sur": false
+  },
+  "sa": "wis",
+  "slots": {
+    "1": {
+      "t": "4",
+      "u": 0
+    },
+    "2": {
+      "t": "2",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
+  },
+  "port": "",
+  "feats": [
+    {
+      "n": "Trance Élfico",
+      "s": "Elf",
+      "d": "No duermes. Meditas 4 horas. Inmune a sueño mágico.",
+      "o": false
+    },
+    {
+      "n": "Cantrip de Alto Elfo",
+      "s": "Elf — High Elf",
+      "d": "Mage Hand — cantrip de mago adicional.",
+      "o": false
+    },
+    {
+      "n": "Lanzamiento de Conjuros (Clérigo)",
+      "s": "Cleric 1",
+      "d": "WIS habilidad de conjuro. DC = 8 + bon. comp. + mod WIS.",
+      "o": false
+    },
+    {
+      "n": "Dominio Divino: Conocimiento",
+      "s": "Cleric 1 — Knowledge Domain",
+      "d": "Conjuros de dominio: Identify, Command (Niv.1), Augury, Suggestion (Niv.2). Competencia en Arcanos, Historia, Naturaleza, Religión.",
+      "o": false
+    },
+    {
+      "n": "Canal de Divinidad",
+      "s": "Cleric 2",
+      "d": "1 uso por descanso corto. Turno No Muerto (DC 13 WIS) o Conocimiento de las Eras (competencia en habilidad 10 min).",
+      "o": false
+    },
+    {
+      "n": "Lectura de Pensamientos",
+      "s": "Cleric 3 — Knowledge",
+      "d": "Acción: lee la mente 1 min (WIS save DC 13). Preguntas telepáticas 1/turno. 1 uso por descanso largo.",
+      "o": false
+    }
+  ],
+  "atks": [
+    {
+      "n": "Maza",
+      "h": "main",
+      "dmg": "1d6+1",
+      "t": "Contundente",
+      "r": "5ft",
+      "no": "Arma sencilla de melé."
+    },
+    {
+      "n": "Sagrado Llama",
+      "h": "off",
+      "dmg": "1d8",
+      "t": "Radiante",
+      "r": "60ft",
+      "no": "DEX save DC 13. Sin cobertura. Cantrip."
+    }
+  ],
+  "spells": [
+    {
+      "p": true,
+      "l": "C",
+      "n": "Sagrado Llama",
+      "sc": "Evocación",
+      "c": "1 Acción",
+      "r": "60ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "C",
+      "n": "Guía",
+      "sc": "Adivinación",
+      "c": "1 Acción",
+      "r": "Toque",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "C",
+      "n": "Luz",
+      "sc": "Evocación",
+      "c": "1 Acción",
+      "r": "Toque",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "C",
+      "n": "Mage Hand",
+      "sc": "Conjuración",
+      "c": "1 Acción",
+      "r": "30ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Curar Heridas",
+      "sc": "Evocación",
+      "c": "1 Acción",
+      "r": "Toque",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Palabra de Curación",
+      "sc": "Evocación",
+      "c": "Acción Bonus",
+      "r": "60ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Detectar Magia",
+      "sc": "Adivinación",
+      "c": "1 Acción (Ritual)",
+      "r": "Yo",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Escudo de la Fe",
+      "sc": "Abjuración",
+      "c": "Acción Bonus",
+      "r": "60ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Identify",
+      "sc": "Adivinación",
+      "c": "1 min (Ritual)",
+      "r": "Toque",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Command",
+      "sc": "Encantamiento",
+      "c": "1 Acción",
+      "r": "60ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "2",
+      "n": "Augury",
+      "sc": "Adivinación",
+      "c": "1 min (Ritual)",
+      "r": "Yo",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "2",
+      "n": "Arma Espiritual",
+      "sc": "Evocación",
+      "c": "Acción Bonus",
+      "r": "60ft",
+      "e": false
+    }
+  ],
+  "sdescs": {},
+  "inv": [
+    {
+      "n": "Maza",
+      "q": "1",
+      "v": "5",
+      "e": true,
+      "no": "Arma principal"
+    },
+    {
+      "n": "Armadura de cuero tachonado",
+      "q": "1",
+      "v": "45",
+      "e": true,
+      "no": "CA 12 + DEX mod"
+    },
+    {
+      "n": "Escudo",
+      "q": "1",
+      "v": "10",
+      "e": true,
+      "no": "+2 CA"
+    },
+    {
+      "n": "Medallón solar de hierro",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Foco sagrado principal"
+    },
+    {
+      "n": "Cruces de hierro",
+      "q": "3",
+      "v": "",
+      "e": true,
+      "no": "Símbolo sagrado adicional"
+    },
+    {
+      "n": "Máscara de pico de ave",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Protección y distancia psicológica"
+    },
+    {
+      "n": "Kit de sanador",
+      "q": "1",
+      "v": "5",
+      "e": false,
+      "no": "Vendas y suministros"
+    },
+    {
+      "n": "Cuaderno de investigación",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Notas arcanas y análisis de criaturas"
+    }
+  ],
+  "rels": [
+    {
+      "n": "Ismark Kolyanovich",
+      "r": "Hijo del Burgómaestre — aliado",
+      "no": "Fuente de información. Confiable.",
+      "o": false
+    },
+    {
+      "n": "Ireena Kolyana",
+      "r": "Objetivo de Strahd — bajo protección",
+      "no": "Escolta a Vallaki. Objetivo operativo.",
+      "o": false
+    },
+    {
+      "n": "Padre Donavich",
+      "r": "Sacerdote — informador",
+      "no": "Datos sobre debilidades vampíricas. Psicológicamente roto.",
+      "o": false
+    },
+    {
+      "n": "Doru",
+      "r": "Engendro vampírico de Donavich",
+      "no": "Encadenado. Si Strahd muere, se libera.",
+      "o": false
+    },
+    {
+      "n": "Kaelos",
+      "r": "Sátiro Bardo — compañero",
+      "no": "Útil. Lo examinaré más cuando sea conveniente.",
+      "o": false
+    },
+    {
+      "n": "Sarda Luthra",
+      "r": "Elfa Paladín — compañera",
+      "no": "Impulsiva. Fiable. Sus heridas me preocupan.",
+      "o": false
+    }
+  ],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}

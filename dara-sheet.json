@@ -1,0 +1,291 @@
+{
+  "v": 3,
+  "cn": "Dara Sylvaranth",
+  "cc": "Ranger",
+  "cl": "3",
+  "cr": "Elf (High Elf)",
+  "ac": "15",
+  "mhp": "26",
+  "hd": "3d10",
+  "insp": false,
+  "sc": {
+    "str": "13",
+    "dex": "17",
+    "con": "14",
+    "int": "13",
+    "wis": "14",
+    "cha": "10"
+  },
+  "sp": {
+    "sv-str": true,
+    "sv-dex": true,
+    "sv-con": false,
+    "sv-int": false,
+    "sv-wis": false,
+    "sv-cha": false
+  },
+  "sk": {
+    "sk-acr": false,
+    "sk-ani": true,
+    "sk-arc": false,
+    "sk-ath": true,
+    "sk-dec": false,
+    "sk-his": false,
+    "sk-ins": false,
+    "sk-int": false,
+    "sk-inv": true,
+    "sk-med": false,
+    "sk-nat": true,
+    "sk-per": true,
+    "sk-prf": false,
+    "sk-prs": false,
+    "sk-rel": false,
+    "sk-soh": false,
+    "sk-ste": false,
+    "sk-sur": true
+  },
+  "sa": "wis",
+  "slots": {
+    "1": {
+      "t": "3",
+      "u": 0
+    },
+    "2": {
+      "t": "0",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
+  },
+  "port": "",
+  "feats": [
+    {
+      "n": "Trance Élfico",
+      "s": "Elf",
+      "d": "No duermes. Meditas 4 horas. Inmune a sueño mágico.",
+      "o": false
+    },
+    {
+      "n": "Cantrip de Alto Elfo",
+      "s": "Elf — High Elf",
+      "d": "Prestidigitación — cantrip de mago.",
+      "o": false
+    },
+    {
+      "n": "Explorador Natural",
+      "s": "Ranger 1",
+      "d": "Terreno favorito: Bosque. Nunca te pierdes. Rastrea a ritmo normal.",
+      "o": false
+    },
+    {
+      "n": "Enemigo Favorito",
+      "s": "Ranger 1",
+      "d": "No-muertos: +2 daño, ventaja para rastrear o recordar info.",
+      "o": false
+    },
+    {
+      "n": "Estilo de Combate: Arquería",
+      "s": "Ranger 2",
+      "d": "+2 a tiradas de ataque con armas a distancia.",
+      "o": false
+    },
+    {
+      "n": "Lanzamiento de Conjuros",
+      "s": "Ranger 2",
+      "d": "WIS habilidad de conjuro. DC = 8 + bon. comp. + mod WIS.",
+      "o": false
+    },
+    {
+      "n": "Consciencia Primaria",
+      "s": "Ranger 3",
+      "d": "Acción: detecta no-muertos a 1 milla. Cuántos y dirección general.",
+      "o": false
+    },
+    {
+      "n": "Arquetipo: Cazador — Esquiva Multitudinaria",
+      "s": "Ranger 3 — Hunter",
+      "d": "Reacción: impones desventaja en un ataque contra ti si hay otra criatura a 5ft del atacante.",
+      "o": false
+    },
+    {
+      "n": "Cartógrafa",
+      "s": "Background",
+      "d": "Competencia con instrumentos de navegación. Siempre sabes el norte.",
+      "o": false
+    }
+  ],
+  "atks": [
+    {
+      "n": "Arco largo",
+      "h": "main",
+      "dmg": "1d8+5",
+      "t": "Perforante",
+      "r": "150/600ft",
+      "no": "+2 arquería. Pesado, dos manos."
+    },
+    {
+      "n": "Espada corta",
+      "h": "off",
+      "dmg": "1d6+3",
+      "t": "Perforante",
+      "r": "5ft",
+      "no": "Melé secundario."
+    },
+    {
+      "n": "Hacha de mano",
+      "h": "off",
+      "dmg": "1d6+3",
+      "t": "Cortante",
+      "r": "5ft / 20ft",
+      "no": "Arrojadiza."
+    }
+  ],
+  "spells": [
+    {
+      "p": true,
+      "l": "1",
+      "n": "Marca del Cazador",
+      "sc": "Adivinación",
+      "c": "Acción Bonus",
+      "r": "90ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Trampa de Hechizo",
+      "sc": "Conjuración",
+      "c": "1 min",
+      "r": "Toque",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Absorber Elementos",
+      "sc": "Abjuración",
+      "c": "Reacción",
+      "r": "Yo",
+      "e": false
+    }
+  ],
+  "sdescs": {},
+  "inv": [
+    {
+      "n": "Arco largo",
+      "q": "1",
+      "v": "50",
+      "e": true,
+      "no": "Arma principal"
+    },
+    {
+      "n": "Carcaj con flechas (x40)",
+      "q": "1",
+      "v": "5",
+      "e": true,
+      "no": "Munición"
+    },
+    {
+      "n": "Espada corta",
+      "q": "1",
+      "v": "10",
+      "e": true,
+      "no": "Melé secundario"
+    },
+    {
+      "n": "Hacha de mano",
+      "q": "2",
+      "v": "5",
+      "e": true,
+      "no": "Arrojadiza"
+    },
+    {
+      "n": "Armadura de cuero tachonado",
+      "q": "1",
+      "v": "45",
+      "e": true,
+      "no": "CA 12 + DEX mod"
+    },
+    {
+      "n": "Colgante de escudo naranja",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Objeto personal. Significado propio."
+    },
+    {
+      "n": "Mapa de Barovia (sin nombres)",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Leído e interpretado por Dara."
+    },
+    {
+      "n": "Instrumentos de navegación",
+      "q": "1",
+      "v": "25",
+      "e": false,
+      "no": "Competencia de background"
+    }
+  ],
+  "rels": [
+    {
+      "n": "Ismark Kolyanovich",
+      "r": "Aliado en Barovia",
+      "no": "Fuente fiable. Nos dio contexto del valle.",
+      "o": false
+    },
+    {
+      "n": "Ireena Kolyana",
+      "r": "Bajo protección",
+      "no": "Escolta a Vallaki.",
+      "o": false
+    },
+    {
+      "n": "Kaelos",
+      "r": "Sátiro Bardo — compañero",
+      "no": "Encontró el mapa. Tardó en compartirlo. Actitud calculada — reconocible.",
+      "o": false
+    },
+    {
+      "n": "Enna Naïlo",
+      "r": "Elfa Exploradora — compañera",
+      "no": "Complementaria. Operamos bien en paralelo.",
+      "o": false
+    }
+  ],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}

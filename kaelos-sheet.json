@@ -1,0 +1,322 @@
+{
+  "v": 3,
+  "cn": "Kaelos",
+  "cc": "Bard",
+  "cl": "3",
+  "cr": "Satyr",
+  "ac": "14",
+  "mhp": "24",
+  "hd": "3d8",
+  "insp": false,
+  "sc": {
+    "str": "10",
+    "dex": "16",
+    "con": "13",
+    "int": "13",
+    "wis": "10",
+    "cha": "17"
+  },
+  "sp": {
+    "sv-str": false,
+    "sv-dex": true,
+    "sv-con": false,
+    "sv-int": false,
+    "sv-wis": false,
+    "sv-cha": true
+  },
+  "sk": {
+    "sk-acr": true,
+    "sk-ani": false,
+    "sk-arc": false,
+    "sk-ath": false,
+    "sk-dec": true,
+    "sk-his": true,
+    "sk-ins": true,
+    "sk-int": false,
+    "sk-inv": false,
+    "sk-med": false,
+    "sk-nat": false,
+    "sk-per": true,
+    "sk-prf": true,
+    "sk-prs": true,
+    "sk-rel": false,
+    "sk-soh": true,
+    "sk-ste": false,
+    "sk-sur": false
+  },
+  "sa": "cha",
+  "slots": {
+    "1": {
+      "t": "4",
+      "u": 0
+    },
+    "2": {
+      "t": "2",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
+  },
+  "port": "",
+  "feats": [
+    {
+      "n": "Resistencia Mágica",
+      "s": "Satyr",
+      "d": "Ventaja en salvaciones contra conjuros y efectos mágicos.",
+      "o": false
+    },
+    {
+      "n": "Paso Feérico",
+      "s": "Satyr",
+      "d": "Puedes moverte a través de criaturas de tamaño Grande o mayor.",
+      "o": false
+    },
+    {
+      "n": "Inspiración Bárdica",
+      "s": "Bard 1",
+      "d": "Acción bonus: aliado en 60ft añade 1d8 a ataque, habilidad o salvación. CHA mod usos/descanso largo. Dado: d8.",
+      "o": false
+    },
+    {
+      "n": "Lanzamiento de Conjuros (Bardo)",
+      "s": "Bard 1",
+      "d": "CHA habilidad de conjuro. DC = 8 + bon. comp. + mod CHA. 6 conjuros conocidos.",
+      "o": false
+    },
+    {
+      "n": "Todoterreno",
+      "s": "Bard 2",
+      "d": "Competencia con todas las habilidades.",
+      "o": false
+    },
+    {
+      "n": "Experto",
+      "s": "Bard 3",
+      "d": "Competencia doble en 2 habilidades: Engaño y Actuación (= +6 al nivel 3).",
+      "o": false
+    },
+    {
+      "n": "Colegio de Bardos: College of Lore",
+      "s": "Bard 3 — Lore",
+      "d": "3 habilidades adicionales: Perspicacia, Manos Rápidas, Historia. Palabras Mordaces activo.",
+      "o": false
+    },
+    {
+      "n": "Palabras Mordaces",
+      "s": "Bard 3 — College of Lore",
+      "d": "Reacción: gasta inspiración bárdica para restar 1d8 de ataque, habilidad o daño enemigo.",
+      "o": false
+    }
+  ],
+  "atks": [
+    {
+      "n": "Rapier",
+      "h": "main",
+      "dmg": "1d8+4",
+      "t": "Perforante",
+      "r": "5ft",
+      "no": "Finura. Arma principal."
+    },
+    {
+      "n": "Daga",
+      "h": "off",
+      "dmg": "1d4+4",
+      "t": "Perforante",
+      "r": "5ft / 20ft",
+      "no": "Arrojadiza / melé secundario."
+    },
+    {
+      "n": "Thunderwave",
+      "h": "off",
+      "dmg": "2d8",
+      "t": "Trueno",
+      "r": "15ft cubo",
+      "no": "CON save DC 14. Empuja 10ft. MUY ruidoso."
+    }
+  ],
+  "spells": [
+    {
+      "p": true,
+      "l": "C",
+      "n": "Ilusión Menor",
+      "sc": "Ilusión",
+      "c": "1 Acción",
+      "r": "30ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "C",
+      "n": "Prestidigitación",
+      "sc": "Transmutación",
+      "c": "1 Acción",
+      "r": "10ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "C",
+      "n": "Palabra de Burla",
+      "sc": "Encantamiento",
+      "c": "1 Acción",
+      "r": "60ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Thunderwave",
+      "sc": "Evocación",
+      "c": "1 Acción",
+      "r": "15ft cubo",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Detectar Magia",
+      "sc": "Adivinación",
+      "c": "1 Acción (Ritual)",
+      "r": "Yo",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "2",
+      "n": "Silencio",
+      "sc": "Ilusión",
+      "c": "1 Acción",
+      "r": "120ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "2",
+      "n": "Sugestión",
+      "sc": "Encantamiento",
+      "c": "1 Acción",
+      "r": "30ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "2",
+      "n": "Ver Invisibilidad",
+      "sc": "Adivinación",
+      "c": "1 Acción",
+      "r": "Yo",
+      "e": false
+    }
+  ],
+  "sdescs": {},
+  "inv": [
+    {
+      "n": "Rapier",
+      "q": "1",
+      "v": "25",
+      "e": true,
+      "no": "Arma principal"
+    },
+    {
+      "n": "Daga",
+      "q": "2",
+      "v": "1",
+      "e": true,
+      "no": "Arrojadiza / melé secundario"
+    },
+    {
+      "n": "Armadura de cuero",
+      "q": "1",
+      "v": "10",
+      "e": true,
+      "no": "CA 11 + DEX mod"
+    },
+    {
+      "n": "Flauta de madera",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Instrumento de conjuro y actuación"
+    },
+    {
+      "n": "Poción de aspecto extraño",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Encontrada en ruinas. Sin identificar."
+    },
+    {
+      "n": "Bolsa de cuero con cerradura",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Para cosas que nadie necesita saber."
+    }
+  ],
+  "rels": [
+    {
+      "n": "Vistani del Río",
+      "r": "Mujer vistani — contacto en taberna",
+      "no": "Me conoce. Quiere verme en el campamento vistani.",
+      "o": false
+    },
+    {
+      "n": "Sarda Luthra",
+      "r": "Elfa Paladín — me salvó la vida",
+      "no": "Me sacó del suelo en las ruinas. No se lo he agradecido formalmente.",
+      "o": false
+    },
+    {
+      "n": "Thokk Rughar",
+      "r": "Semiorco Bárbaro — compañero",
+      "no": "Levantamos juntos la viga de Lancelot. Buen músculo.",
+      "o": false
+    },
+    {
+      "n": "Ismark Kolyanovich",
+      "r": "Hijo del Burgómaestre",
+      "no": "Fuente de información. Utilizable.",
+      "o": false
+    },
+    {
+      "n": "Ireena Kolyana",
+      "r": "Bajo protección del grupo",
+      "no": "Strahd la persigue personalmente. Material para al menos tres canciones.",
+      "o": false
+    }
+  ],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}

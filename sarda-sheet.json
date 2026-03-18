@@ -1,0 +1,312 @@
+{
+  "v": 3,
+  "cn": "Sarda Luthra",
+  "cc": "Paladin",
+  "cl": "3",
+  "cr": "Elf (Wood Elf)",
+  "ac": "18",
+  "mhp": "28",
+  "hd": "3d10",
+  "insp": false,
+  "sc": {
+    "str": "16",
+    "dex": "10",
+    "con": "14",
+    "int": "10",
+    "wis": "12",
+    "cha": "15"
+  },
+  "sp": {
+    "sv-str": false,
+    "sv-dex": false,
+    "sv-con": false,
+    "sv-int": false,
+    "sv-wis": true,
+    "sv-cha": true
+  },
+  "sk": {
+    "sk-acr": false,
+    "sk-ani": false,
+    "sk-arc": false,
+    "sk-ath": true,
+    "sk-dec": false,
+    "sk-his": false,
+    "sk-ins": true,
+    "sk-int": false,
+    "sk-inv": false,
+    "sk-med": false,
+    "sk-nat": false,
+    "sk-per": true,
+    "sk-prf": false,
+    "sk-prs": true,
+    "sk-rel": true,
+    "sk-soh": false,
+    "sk-ste": false,
+    "sk-sur": false
+  },
+  "sa": "cha",
+  "slots": {
+    "1": {
+      "t": "3",
+      "u": 0
+    },
+    "2": {
+      "t": "0",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
+  },
+  "port": "",
+  "feats": [
+    {
+      "n": "Trance Élfico",
+      "s": "Elf",
+      "d": "No duermes. Meditas 4 horas. Inmune a sueño mágico.",
+      "o": false
+    },
+    {
+      "n": "Paso del Bosque",
+      "s": "Wood Elf",
+      "d": "Ignorar terreno difícil no mágico.",
+      "o": false
+    },
+    {
+      "n": "Sentido Divino",
+      "s": "Paladin 1",
+      "d": "Acción: detectas celestiales, infernales o no-muertos a 60ft. 1 + mod CHA usos por descanso largo.",
+      "o": false
+    },
+    {
+      "n": "Imposición de Manos",
+      "s": "Paladin 1",
+      "d": "Piscina de 15 PV. Gastar como acción: cura PV, o 5 PV para curar enfermedad/veneno.",
+      "o": false
+    },
+    {
+      "n": "Estilo de Combate: Defensa",
+      "s": "Paladin 2",
+      "d": "+1 CA cuando llevas armadura. CA total: 18 = cota malla (16) + escudo (+2).",
+      "o": false
+    },
+    {
+      "n": "Lanzamiento de Conjuros (Paladín)",
+      "s": "Paladin 2",
+      "d": "CHA habilidad de conjuro. DC = 8 + bon. comp. + mod CHA.",
+      "o": false
+    },
+    {
+      "n": "Golpe Divino",
+      "s": "Paladin 2",
+      "d": "Acción bonus al golpear: gasta espacio de conjuro. Niv.1: +2d8 radiante.",
+      "o": false
+    },
+    {
+      "n": "Sagrado Juramento: Devoción",
+      "s": "Paladin 3 — Oath of Devotion",
+      "d": "Conjuros adicionales siempre preparados: Protección del Bien y del Mal, Santuario (Niv.1), Menor Restauración, Zona de Verdad (Niv.2).",
+      "o": false
+    },
+    {
+      "n": "Canal de Divinidad",
+      "s": "Paladin 3",
+      "d": "1 uso por descanso corto. Arma Sagrada (+CHA mod a ataques 1 min) o Turno de los Impíos (WIS save DC 13, huyen).",
+      "o": false
+    }
+  ],
+  "atks": [
+    {
+      "n": "Lucero de la Alba (Maza)",
+      "h": "main",
+      "dmg": "1d6+4",
+      "t": "Contundente",
+      "r": "5ft",
+      "no": "+CHA mod (Arma Sagrada). Golpe Divino: +2d8 radiante."
+    },
+    {
+      "n": "Jabalina",
+      "h": "off",
+      "dmg": "1d6+3",
+      "t": "Perforante",
+      "r": "5ft / 30ft",
+      "no": "Arrojadiza. Reserva."
+    }
+  ],
+  "spells": [
+    {
+      "p": true,
+      "l": "1",
+      "n": "Curar Heridas",
+      "sc": "Evocación",
+      "c": "1 Acción",
+      "r": "Toque",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Palabra de Curación",
+      "sc": "Evocación",
+      "c": "Acción Bonus",
+      "r": "60ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Escudo de la Fe",
+      "sc": "Abjuración",
+      "c": "Acción Bonus",
+      "r": "60ft",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Protección del Bien y del Mal",
+      "sc": "Abjuración",
+      "c": "1 Acción",
+      "r": "Toque",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Santuario",
+      "sc": "Abjuración",
+      "c": "Acción Bonus",
+      "r": "30ft",
+      "e": false
+    }
+  ],
+  "sdescs": {},
+  "inv": [
+    {
+      "n": "Lucero de la Alba (Maza)",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Arma principal con nombre propio"
+    },
+    {
+      "n": "Cota de malla",
+      "q": "1",
+      "v": "75",
+      "e": true,
+      "no": "CA 16"
+    },
+    {
+      "n": "Escudo",
+      "q": "1",
+      "v": "10",
+      "e": true,
+      "no": "CA +2"
+    },
+    {
+      "n": "Jabalina",
+      "q": "3",
+      "v": "1.5",
+      "e": true,
+      "no": "Arrojadiza x3"
+    },
+    {
+      "n": "Símbolo sagrado (colgante)",
+      "q": "1",
+      "v": "5",
+      "e": true,
+      "no": "Foco de conjuro"
+    },
+    {
+      "n": "Lancelot (perro)",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Rescatado en las ruinas. Duerme a mis pies."
+    },
+    {
+      "n": "Kit de curación",
+      "q": "1",
+      "v": "5",
+      "e": false,
+      "no": ""
+    }
+  ],
+  "rels": [
+    {
+      "n": "Lancelot",
+      "r": "Perro rescatado — compañero leal",
+      "no": "Duerme a mis pies. No lo abandono.",
+      "o": false
+    },
+    {
+      "n": "Rose Durst",
+      "r": "Fantasma de la Casa Durst",
+      "no": "Le prometí que mataríamos al monstruo. Deuda pendiente.",
+      "o": false
+    },
+    {
+      "n": "Thorn Durst",
+      "r": "Fantasma de la Casa Durst",
+      "no": "Entró en mi cuerpo por el pánico. No guardo rencor.",
+      "o": false
+    },
+    {
+      "n": "Ismark Kolyanovich",
+      "r": "Hijo del Burgómaestre — aliado",
+      "no": "Responsable. Directo. Confiamos en él.",
+      "o": false
+    },
+    {
+      "n": "Ireena Kolyana",
+      "r": "Bajo protección del grupo",
+      "no": "La escoltamos a Vallaki. Aliada, no víctima.",
+      "o": false
+    },
+    {
+      "n": "Padre Donavich",
+      "r": "Sacerdote — quebrado pero informativo",
+      "no": "Entiendo lo que siente por Doru.",
+      "o": false
+    },
+    {
+      "n": "Kaelos",
+      "r": "Bardo Sátiro — compañero",
+      "no": "Lo salvé en las ruinas. No me lo agradeció. Me importa igual.",
+      "o": false
+    }
+  ],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
+}
