@@ -1,0 +1,61 @@
+{
+  "id": 4,
+  "roman": "IV",
+  "eyebrow": "One Must Die",
+  "title": "The Altar & the Escape",
+  "subtitle": "Death House — The Deep Basement · The Altar Room · The Flight",
+  "opener": "Before the altar room, before the decision that would define the session, there was a statue. Strahd carved in dark wood — one hand on a wolf, the other extended. The cult used it for offerings. Thokk tried to set it on fire. Kaelos cast Tasha's Hideous Laughter on him. Thokk spent the next few rounds laughing uncontrollably on the floor.",
+  "sections": [
+    {
+      "heading": "Gustav Durst",
+      "paragraphs": [
+        "Near what had once been an office — papers, names of the missing, records of what the cult had done here — the ghasts attacked. Two of them, fast and foul-smelling, emerging from the tunnel walls. The fight was close quarters and brutal. On the final perception check, someone recognised the face of one of the ghasts. Gustav Durst. The patriarch in the family portrait, the empty sarcophagus, now this. The cult consumed its own leader in the end."
+      ]
+    },
+    {
+      "heading": "The Iron Gate",
+      "paragraphs": [
+        "An iron gate with the mechanism on the wrong side blocked the passage deeper. Laucian reached through the bars with Mage Hand and pulled the lever. The gate opened. Before crossing, Dara spent her last spell slot on Detect Evil and Good, reading the altar through the bars. It was there. It was waiting. It was not something that could be reasoned with."
+      ]
+    },
+    {
+      "heading": "The Altar Room",
+      "paragraphs": [
+        "Eight-by-eight. The perimeter flooded, ankle-deep. A four-by-four platform of dry stone in the centre, the altar on it. And from the altar, the chanting finally made sense: One must die. Over and over. Not a request.",
+        "The figures chanting were not fully present in this world — attacks passed through them. The altar wanted a sacrifice to be appeased. The group looked at each other. Someone looked at Lancelot.",
+        "Sarda said no. The group said no. Whatever Thorn's fear was doing inside Sarda, on this point there was no hesitation. They turned and walked back through the gate. Laucian used Mage Hand to close it behind them, hoping to slow what came next."
+      ]
+    },
+    {
+      "heading": "The Shambling Mound",
+      "paragraphs": [
+        "The altar did not wait. The house invoked a Shambling Mound — a mass of animate plant matter and rot, large enough to fill the tunnel. The iron gate barely slowed it. One pull and it was open again, the creature moving with terrible purpose behind them.",
+        "The group ran. Basement to ground floor to upper floors and back down — the house rearranged its hostility around them as they moved. Most of the party made it to the front door, which finally opened. Thokk reached the second floor window, tied a rope, and descended last. Below, the Shambling Mound appeared on the balcony. It looked down at them in the mud and rain. Then it went back inside.",
+        "It could leave. It chose not to."
+      ]
+    },
+    {
+      "heading": "Outside",
+      "paragraphs": [
+        "Lancelot was alive. Rose and Thorn's ghosts were not visible. The Death House stood behind them, unchanged and patient. The group took their first full breath of outside air since entering and reached level 3."
+      ]
+    }
+  ],
+  "sidebar": {
+    "acquired": [],
+    "known": [
+      "Gustav Durst became a ghast — the cult destroyed its own founder",
+      "The altar demanded a life. The group refused.",
+      "The Shambling Mound could have followed them outside. It didn't.",
+      "The Death House is still standing. Still waiting.",
+      "Rose and Thorn have not been given the rest they were promised"
+    ],
+    "unanswered": [
+      "What would have happened if they had sacrificed someone?",
+      "Will Rose and Thorn ever find rest?",
+      "Is Thorn still inside Sarda?"
+    ],
+    "people": [],
+    "milestone": "Party reaches Level 3"
+  }
+}

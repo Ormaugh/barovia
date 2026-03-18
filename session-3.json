@@ -1,0 +1,67 @@
+{
+  "id": 3,
+  "roman": "III",
+  "eyebrow": "Voices Under the House",
+  "title": "The Hidden Study & the Descent",
+  "subtitle": "Death House — Upper Floors · The Attic · The Catacombs",
+  "opener": "In a house that wanted to be feared, Kaelos took out his violin. The melody was soft and out of place — a small act of defiance, or maybe just habit. Laucian told him quietly that noise in this house might wake something below. Thokk admitted the music reminded him of home. For a moment, the house felt almost survivable.",
+  "sections": [
+    {
+      "heading": "The Library & Durst's Secret",
+      "paragraphs": [
+        "A library on the upper floors held one book that didn't belong — a red volume, too deliberate in its placement. Enna pulled it. A section of shelving swung open into a hidden study.",
+        "Inside: a locked chest. Kaelos picked it. A poison needle caught him — minor damage, a warning. The chest held spell scrolls, valuables, documents, and one letter signed by Strahd himself. In it, he mocked the Durst family with casual contempt. The cult they built, the lives they spent — all of it amounted to nothing more than a convenience for him. The house was an offering box. The Dursts were the offering."
+      ]
+    },
+    {
+      "heading": "The Animated Armour",
+      "paragraphs": [
+        "Third floor. Cold air, thick dust, paintings that seemed to shift when you looked away from them. At the end of a hall: a full suit of plate armour, standing. Enna approached. The armour turned its head and attacked. The fight in the narrow corridor was brutal — Enna was knocked unconscious and hit the floor hard. The group held together. Laucian stabilised her. They finished it."
+      ]
+    },
+    {
+      "heading": "The Nursemaid & the Ghost",
+      "paragraphs": [
+        "The nursemaid's bedroom door was stuck. Thokk opened it by force. Inside: frozen time, covered furniture, and the spectral form of the nursemaid herself, furious and swinging. Kaelos used one of the scrolls from the hidden study — a spectral weapon materialised and cut through the ghost alongside the rest of the group's attacks. It dissipated.",
+        "In the adjacent room, the baby's room: an empty crib, and the nursemaid's decomposed corpse on the floor. Laucian tried to carry it downstairs for proper burial. The front door would not open. The house would not let them leave. Rose and Thorn were no longer visible outside."
+      ]
+    },
+    {
+      "heading": "The Attic & the Truth",
+      "paragraphs": [
+        "The children's room in the attic held two small beds, forgotten toys, and a dollhouse — a perfect replica of the Durst mansion in miniature. Sarda examined it carefully and it revealed everything: all the hidden passages, all the secret doors, and most importantly, a secret staircase descending directly from this room into the basement.",
+        "When Enna opened the toy chest, Rose and Thorn appeared — not as the children on the road, but as ghosts. They did not recognise the group. They told what happened: their parents locked them in this room to protect them from the monster below. Men and women in black robes visited regularly. There was a baby called Walter they never saw. Every time they tried to leave, something pulled them back.",
+        "The group promised to go below and face the monster. Thorn panicked. He crossed the room and entered Sarda's body — his childhood terror now running through her, underneath her own will but present, making her reluctant to move far from this room. The group reached level 2. Then the staircase opened before them."
+      ]
+    },
+    {
+      "heading": "The Catacombs",
+      "paragraphs": [
+        "Below the house, a network of earthen tunnels braced with wet timber. From the moment their feet touched the ground, a chanting began — many voices, no bodies, repeating something none of them could quite make out. The Durst family crypts lined the walls. Gustav's sarcophagus was open and empty. Elisabeth's was closed. Dara slid the lid aside and a swarm of giant centipedes poured out. The group fought in inches, retreating into a ritual dining hall with a stone table and skeletal figures in black robes chained to the walls. Sarda's Divine Strike with Lucero pulverised most of the swarm at once.",
+        "From a side door, a ghoul attacked. Then two more. Kaelos improvised — a Minor Illusion of a spiked stone wall sent one of them circling in confusion while the group handled the others. One ghoul took an arrow from Enna directly through the eye and collapsed onto Sarda, pinning her briefly under its weight.",
+        "The chanting continued. Deeper."
+      ]
+    }
+  ],
+  "sidebar": {
+    "acquired": [
+      "Rod of Fishing (Enna)",
+      "Spell scrolls from Durst's hidden study",
+      "Jewellery and a platinum collar"
+    ],
+    "known": [
+      "Strahd considered the Durst cult worthless — a convenience, nothing more",
+      "Rose and Thorn died locked in their room by their own parents",
+      "The house will not let them leave — the front door is sealed",
+      "Something below the house demanded sacrifices and may still be active",
+      "Sarda is partially possessed by Thorn's ghost"
+    ],
+    "unanswered": [
+      "What is the chanting saying?",
+      "What happened to baby Walter?",
+      "What awaits at the source of the chanting?"
+    ],
+    "people": [],
+    "milestone": ""
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": 5,
+  "roman": "V",
+  "eyebrow": "The Valley Opens",
+  "title": "The Werewolf & the Village",
+  "subtitle": "Svalich Road · The Village of Barovia · The Tavern",
+  "opener": "The road between the Death House and the village did not offer a quiet walk. A pack of wolves emerged from the treeline, and with them something larger — a werewolf. Not feral, not random. It moved with the deliberate coordination of something receiving orders, and when the group finally brought it down, that impression did not go away. Strahd was still testing them. This was not the last test.",
+  "sections": [
+    {
+      "heading": null,
+      "paragraphs": [
+        "They arrived at the Village of Barovia at dusk. The mist sat low between the houses. Windows were shuttered. Doors were bolted. The few silhouettes they glimpsed disappeared the moment they sensed movement on the road. This is a village that learned long ago that strangers after dark are not a good sign."
+      ]
+    },
+    {
+      "heading": "The Tavern & Ismark",
+      "paragraphs": [
+        "The only light came from the tavern. Inside they found Ismark Kolyanovich — son of the dead burgomaster, broad-shouldered, carrying the weight of a village on his face. He recognised immediately that they were not from Barovia, and he did not waste time. His father was dead. His sister Ireena was in danger. The attacks on the mansion had been escalating. He needed help he could not find here.",
+        "Kaelos, true to form, found his own point of interest in the tavern — a Vistani woman who made clear she was happy to see him and that she expected to see him again, at the Vistani camp by the river. Kaelos filed this away with a smile."
+      ]
+    },
+    {
+      "heading": "The Burgomaster's Mansion",
+      "paragraphs": [
+        "Ismark walked them to the mansion. In the dark, the damage was visible enough: deep claw marks in the doors, gouges in the shutters, tracks in the mud of the garden that didn't belong to anything natural. Whatever had been coming here was not subtle. It was not trying to be. The attacks were a message as much as an assault, and the message was directed at whoever was inside.",
+        "The session ended here, at the threshold of the mansion, with the evidence of Strahd's attention written into every scarred surface."
+      ]
+    }
+  ],
+  "sidebar": {
+    "acquired": [],
+    "known": [
+      "The werewolf on the road was under Strahd's control",
+      "Burgomaster Kolyan Indirovich is dead",
+      "Ireena Kolyana is being actively targeted by Strahd's forces",
+      "Ismark wants the group to escort Ireena to Vallaki",
+      "There is a Vistani camp by the river near the village"
+    ],
+    "unanswered": [
+      "Why is Strahd so fixated on Ireena specifically?",
+      "What does the Vistani woman know?"
+    ],
+    "people": [
+      "Ismark Kolyanovich — burgomaster's son, trustworthy",
+      "Vistani woman in the tavern — knows Kaelos, wants to meet again"
+    ],
+    "milestone": ""
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": 1,
+  "roman": "I",
+  "eyebrow": "The Beginning",
+  "title": "The Mist & the Wolves",
+  "subtitle": "The Wayfarer Tavern · Svalich Road · The Iron Gates",
+  "opener": "The group met in The Wayfarer, a tavern where an uneasy military presence made clear that not everyone was welcome. A conflict with the king's soldiers ended the night early — and a Vistani woman with a deck of tarokka cards ended it with something else entirely.",
+  "sections": [
+    {
+      "heading": null,
+      "paragraphs": [
+        "She read their futures without being asked. The cards spoke of five things needed to face a lord of darkness: a book of secrets, a sacred symbol, a weapon of light, an unexpected ally, and the place where the enemy waits. She told them they would be drawn to that place whether they wished it or not."
+      ]
+    },
+    {
+      "heading": "The Mists Take Them",
+      "paragraphs": [
+        "They didn't cross a border. The mist absorbed them. One moment The Wayfarer, the next a dirt road through a silent forest where the birds had forgotten how to sing. Every attempt to leave the path returned them to it. Barovia does not release what it takes.",
+        "On the road they found a corpse — a man half-devoured by animals, still clutching a letter. Sarda read it aloud. It was from Kolyan Indirovich, Burgomaster of Barovia Village, a desperate plea for help against a vampire no one could stop. The letter was genuine. The man was already dead."
+      ]
+    },
+    {
+      "heading": "The Iron Gates",
+      "paragraphs": [
+        "The forest parted enough to reveal enormous iron gates flanked by crumbling statues. The gates opened on their own as the party approached. When they looked back, the gates had closed. The valley had sealed itself around them."
+      ]
+    },
+    {
+      "heading": "The Wolves",
+      "paragraphs": [
+        "Two encounters with wolves on the road. The first pack was ordinary — dangerous but natural. The second was led by a dire wolf, a creature built like a siege engine and just as hard to bring down. When it finally fell, those who stood closest saw something wrong: a faint red glow in its eyes, fading as it exhaled its last breath. As if something had been looking through those eyes and decided to look elsewhere.",
+        "Laucian examined the body. He found no magic. Whatever it was, it had already left."
+      ]
+    }
+  ],
+  "sidebar": {
+    "known": [
+      "The mist is a one-way door — there is no leaving",
+      "The Tarokka reading was genuine — five objects, one enemy",
+      "Burgomaster Kolyan Indirovich asked for help. He is already dead.",
+      "Something was controlling — or watching through — the dire wolf",
+      "Strahd already knows they are here"
+    ],
+    "unanswered": [
+      "What exactly was behind the dire wolf's eyes?",
+      "Where are the five objects the cards spoke of?",
+      "Who — or what — is Ireena Kolyana?"
+    ],
+    "acquired": [],
+    "people": [],
+    "milestone": ""
+  }
+}

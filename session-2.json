@@ -1,0 +1,57 @@
+{
+  "id": 2,
+  "roman": "II",
+  "eyebrow": "New Faces, Old Ruins",
+  "title": "Kaelos, Lancelot & the Durst House",
+  "subtitle": "The Ruined Farmsteads · The Road to the Village · Death House",
+  "opener": "The ruins between the iron gates and the village should have been empty. They weren't. The sound of a flute — then screaming — then a satyr flying through a doorway headfirst into the mud.",
+  "sections": [
+    {
+      "heading": null,
+      "paragraphs": [
+        "Kaelos was already half-dead when the group arrived. Skeletons and a rat swarm had cornered him inside what remained of a farmhouse. Sarda ran to him before she knew his name and spent her Lay on Hands to pull him back from the edge. He regained consciousness and immediately cast Thunderwave. No thank you. Just action.",
+        "In another ruined building, they heard an animal whimpering. Lancelot — a farm dog, collar still on — was trapped under a collapsed beam. Thokk and Kaelos lifted the beam. Laucian healed him. The dog read the room and decided Sarda was the safest person present. He has not left her side since."
+      ]
+    },
+    {
+      "heading": "The Dark Carriage",
+      "paragraphs": [
+        "They sheltered in the ruins for the night. During Dara's watch, a black carriage drawn by a single horse came down the road from the direction they were heading. It stopped. It faced the ruins for a long moment. Then it turned and disappeared into the mist. Dara did not wake anyone — noise felt like the wrong move. She told the group in the morning. Whoever drove that carriage knows exactly where they are."
+      ]
+    },
+    {
+      "heading": "The Map and the House",
+      "paragraphs": [
+        "Kaelos found a leather pouch in the rubble — a strange potion and a map of Barovia without place names. He tried to keep it to himself. The group caught him. Using the map and her ranger instincts, Dara confirmed they were somewhere in the eastern farmlands, far from mountains or lakes. The only way forward was the road.",
+        "At midday, Rose and Thorn Durst appeared in the middle of the path — two children, clean clothes, dry eyes, unnaturally still. They said there was a monster in the basement of their house. They said their parents had left. They said they were very scared. They would not go inside."
+      ]
+    },
+    {
+      "heading": "Inside the Durst House",
+      "paragraphs": [
+        "The mansion was pristine in a valley of rot. Inside: carved wood panels, a trophy room with three stuffed wolves and five mounted deer heads — Enna's expression made her feelings clear. A formal dining room with silver cutlery laid out on a long mahogany table. Enna and Kaelos began quietly pocketing silverware while the rest of the group weighed the ethics of robbing a house whose owners appeared to be absent children.",
+        "They found a dumbwaiter hidden behind a panel, ascending through the house. They took the stairs. On the second floor landing, a family portrait confirmed what they already half-suspected about the children. In the music room: a piano, a harp, and shelves of black stone sculptures. From a distance, figures of dancers. Up close — skulls."
+      ]
+    }
+  ],
+  "sidebar": {
+    "acquired": [
+      "Kaelos joins the party",
+      "Lancelot joins the party",
+      "Map of Barovia (no place names)",
+      "Unidentified potion (Kaelos)"
+    ],
+    "known": [
+      "The dark carriage is watching them",
+      "Rose and Thorn Durst are not normal children",
+      "There is something in the basement"
+    ],
+    "unanswered": [
+      "Who was driving the dark carriage?",
+      "What is in the potion?",
+      "What is in the basement?"
+    ],
+    "people": [],
+    "milestone": ""
+  }
+}
