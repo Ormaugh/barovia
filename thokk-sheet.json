@@ -1,15 +1,12 @@
 {
   "v": 3,
   "cn": "Thokk Rughar",
-  "cc": "Barbarian",
+  "cc": "Salvaje",
   "cl": "3",
   "cr": "Half-Orc",
-  "bg": "Salvaje",
-  "al": "Chaotic Neutral",
   "ac": "13",
   "mhp": "30",
   "hd": "3d12",
-  "speed": "30ft",
   "insp": false,
   "sc": {
     "str": "18",
@@ -86,14 +83,7 @@
       "u": 0
     }
   },
-  "port": "portraits/thokk.png",
-  "personality": {
-    "traits": "Cuido de mis compañeros como si fueran mis cachorros. Actúo antes de pensar. La sonrisa es mi armadura.",
-    "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
-    "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
-    "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
-  },
-  "proficiencies": "Idiomas: Común, Orco. Armaduras: ligeras, medianas, escudos. Armas: sencillas y marciales. Instrumentos: Acordeón. Foco arcano: Tótem de hueso de oso y pelo.",
+  "port": "https://ormaugh.github.io/barovia/portraits/thokk.png",
   "feats": [
     {
       "n": "Furia",
@@ -154,20 +144,20 @@
     {
       "n": "Hacha de Dos Manos",
       "h": "main",
+      "st": "str",
       "dmg": "1d12+4",
       "t": "Cortante",
       "r": "5ft",
-      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes).",
-      "st": "str"
+      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes)."
     },
     {
       "n": "Ballesta Pesada",
       "h": "ranged",
+      "st": "dex",
       "dmg": "1d10",
       "t": "Perforante",
       "r": "100/400ft",
-      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar.",
-      "st": "dex"
+      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar."
     }
   ],
   "spells": [
@@ -194,80 +184,23 @@
   ],
   "sdescs": {
     "1": {
-      "desc": "Puedes comprender y comunicarte verbalmente con bestias durante la duración. El conocimiento y la conciencia de muchas bestias es limitado por su inteligencia, pero como mínimo, pueden darte información sobre los lugares cercanos y los monstruos, incluyendo lo que puedan percibir o hayan percibido el día pasado.",
+      "desc": "",
       "dur": "10 minutos",
-      "comp": "V, S",
-      "target": "—",
-      "classes": "Druida, Explorador",
+      "comp": "",
+      "target": "",
+      "classes": "",
       "higher": ""
     },
     "2": {
-      "desc": "Tocas a una bestia que acepta el conjuro. Durante la duración, puedes usar los sentidos de esa bestia en lugar de los tuyos propios. Mientras percibes a través de los sentidos de la bestia, ganas los beneficios de cualquier sentido especial que posea la bestia.",
+      "desc": "",
       "dur": "1 hora",
-      "comp": "S",
-      "target": "Una bestia dispuesta",
-      "classes": "Druida, Explorador",
+      "comp": "",
+      "target": "",
+      "classes": "",
       "higher": ""
     }
   },
-  "coins": {
-    "cp": 0,
-    "sp": 0,
-    "gp": 10,
-    "ep": 0,
-    "pp": 0
-  },
-  "inv": [
-    {
-      "n": "Hacha de Dos Manos",
-      "q": "1",
-      "v": "30",
-      "e": true,
-      "no": "Arma principal"
-    },
-    {
-      "n": "Ballesta Pesada",
-      "q": "1",
-      "v": "50",
-      "e": true,
-      "no": "Arma a distancia"
-    },
-    {
-      "n": "Tótem de oso y pelo",
-      "q": "1",
-      "v": "",
-      "e": true,
-      "no": "Foco arcano — Totem Warrior"
-    },
-    {
-      "n": "Cuerda de cáñamo",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": "50 pies"
-    },
-    {
-      "n": "Saco de dormir",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": ""
-    },
-    {
-      "n": "Acordeón desafinado",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": "Instrumento. Terriblemente desafinado."
-    },
-    {
-      "n": "Pincho en una rana verde",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": "Objeto misterioso. Origen desconocido."
-    }
-  ],
+  "inv": [],
   "rels": [
     {
       "n": "Ismark Kolyanovich",
@@ -320,5 +253,11 @@
     false,
     false
   ],
-  "player": "Miguel"
+  "personality": {
+    "traits": "Cuido de mis compañeros como si fueran mis cachorros. Actúo antes de pensar. La sonrisa es mi armadura.",
+    "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
+    "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
+    "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
+  },
+  "proficiencies": "Idiomas: Común, OrcoArmaduras: ligeras, medianas, escudosArmas: sencillas y marciales. Instrumentos: AcordeónFoco arcano: Tótem de hueso de oso y pelo."
 }
