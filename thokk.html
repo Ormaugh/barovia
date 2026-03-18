@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -34,15 +34,26 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .always-edit[data-ph]:empty::before{content:attr(data-ph);color:var(--text-faint);font-style:italic;pointer-events:none;}
 
 /* HEADER */
-.sheet-header{background:linear-gradient(to bottom,var(--bg-deep),var(--bg-parchment));border-bottom:1px solid var(--border-gold);padding:0.9rem 1.5rem 0.7rem;position:sticky;top:0;z-index:50;}
-.sheet-header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
-.header-main{flex:1;min-width:180px;}
-.char-name-field{font-family:var(--font-display);font-size:clamp(1rem,2.2vw,1.55rem);color:var(--ink-gold);text-shadow:0 0 30px var(--shadow-warm);display:block;width:100%;}
-.header-meta{display:flex;flex-wrap:wrap;gap:0.7rem;margin-top:0.25rem;}
+.sheet-header{background:linear-gradient(to bottom,var(--bg-deep),var(--bg-parchment));border-bottom:1px solid var(--border-gold);padding:0.55rem 1.5rem;position:sticky;top:0;z-index:50;transition:padding 0.2s ease;}
+.sheet-header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:1rem;}
+.header-main{flex:1;min-width:0;}
+.char-name-field{font-family:var(--font-display);font-size:clamp(0.95rem,2vw,1.35rem);color:var(--ink-gold);text-shadow:0 0 30px var(--shadow-warm);display:block;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .mfw{display:flex;flex-direction:column;gap:0.05rem;}
 .mlb{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-faint);}
 .mfv{font-family:var(--font-heading);font-size:0.92rem;font-weight:700;color:var(--text-body);min-width:44px;}
-.header-actions{display:flex;gap:0.45rem;flex-shrink:0;align-items:center;}
+.header-actions{display:flex;gap:0.45rem;flex-shrink:0;align-items:center;transition:opacity 0.22s ease,max-height 0.22s ease;max-height:60px;overflow:hidden;}
+.header-actions.hidden{opacity:0;pointer-events:none;max-height:0;}
+/* CHAR INFO BOX */
+.char-info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem 0.9rem;}
+@media(max-width:580px){.char-info-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* SAVE INDICATOR */
+.save-indicator{font-family:var(--font-heading);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);opacity:0;transition:opacity 0.3s;white-space:nowrap;}
+.save-indicator.unsaved{opacity:1;color:var(--ink-gold-dim);}
+.save-indicator.saving{opacity:1;color:var(--ink-gold);animation:pulse-txt 0.8s ease-in-out infinite alternate;}
+.save-indicator.saved{opacity:1;color:var(--ink-green);}
+.save-indicator.error{opacity:1;color:var(--ink-red-bright);}
+@keyframes pulse-txt{from{opacity:0.5;}to{opacity:1;}}
 .btn{font-family:var(--font-heading);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.38rem 0.85rem;background:transparent;border:1px solid var(--border-gold);color:var(--ink-gold-dim);cursor:pointer;transition:all 0.2s;}
 .btn:hover{background:rgba(200,169,110,0.08);color:var(--ink-gold);border-color:var(--border-gold-b);}
 .edit-btn{display:inline-flex;align-items:center;gap:0.38rem;font-family:var(--font-heading);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.38rem 0.85rem;background:transparent;border:1px solid var(--border-gold);color:var(--text-faint);cursor:pointer;transition:all 0.2s;}
@@ -70,12 +81,14 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 
 /* ABILITY SCORES */
 .ability-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.45rem;}
-.ab-block{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.45rem 0.25rem;text-align:center;}
+.ab-block{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.45rem 0.25rem 0 0.25rem;text-align:center;display:flex;flex-direction:column;}
 .ab-label{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-red-bright);display:block;margin-bottom:0.1rem;}
 .ab-wrap{border:1px solid var(--border-gold);width:52px;height:52px;display:flex;align-items:center;justify-content:center;margin:0.15rem auto;}
-.ab-score{font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--text-bright);width:44px;text-align:center;cursor:pointer;}
+.ab-score{font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--text-bright);width:44px;text-align:center;cursor:default;}
 .ab-mod{font-family:var(--font-display);font-size:1.15rem;color:var(--ink-gold);display:block;margin-top:0.1rem;cursor:pointer;transition:color 0.2s;}
-.ab-mod:hover,.ab-score:hover{color:var(--ink-gold-bright);}
+.ab-mod:hover{color:var(--ink-gold-bright);}
+.ab-roll-btn{font-family:var(--font-heading);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:none;border:none;border-top:1px solid rgba(200,169,110,0.15);color:var(--text-faint);cursor:pointer;padding:0.32rem 0;margin-top:0.3rem;width:100%;transition:background 0.15s,color 0.15s;}
+.ab-roll-btn:hover{background:rgba(200,169,110,0.07);color:var(--ink-gold);}
 
 /* SKILLS & SAVES */
 .skill-row{display:flex;align-items:center;gap:0.42rem;padding:0.2rem 0.22rem;border-radius:2px;transition:background 0.12s;}
@@ -149,15 +162,18 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .atk-table{width:100%;border-collapse:collapse;}
 .atk-table th{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);padding:0.32rem 0.52rem;border-bottom:1px solid var(--border-gold);text-align:left;}
 .atk-table td{padding:0.38rem 0.52rem;border-bottom:1px solid rgba(200,169,110,0.07);vertical-align:middle;}
-.atk-table tr:hover td{background:rgba(200,169,110,0.022);}
+.atk-table tbody tr{transition:background 0.12s,box-shadow 0.12s;}
+body:not(.edit-mode) .atk-table tbody tr{cursor:pointer;}
+body:not(.edit-mode) .atk-table tbody tr:hover td{background:rgba(200,169,110,0.055);}
+/* roll-btn: hidden in edit mode, row click triggers roll outside edit */
+.roll-btn{display:none;}
+body:not(.edit-mode) .roll-btn{display:none;}/* row click handles it */
 .atk-name{font-family:var(--font-body);font-size:0.97rem;color:var(--text-body);min-width:75px;}
 .atk-bon{font-family:var(--font-heading);font-size:0.97rem;font-weight:700;color:var(--ink-gold);}
 .atk-bon.spell{color:#7ab8c8;}
 .atk-dmg{font-family:var(--font-body);font-size:0.95rem;color:var(--text-dim);min-width:55px;}
 .atk-type{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;color:var(--text-faint);}
 .atk-notes{font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;min-width:65px;}
-.roll-btn{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;background:none;border:1px solid rgba(200,169,110,0.2);color:var(--ink-gold-dim);padding:0.22rem 0.48rem;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
-.roll-btn:hover{border-color:var(--border-gold);color:var(--ink-gold);background:rgba(200,169,110,0.045);}
 .hand-sel{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;background:var(--bg-card);border:1px solid var(--border-gold);color:var(--text-dim);padding:0.14rem 0.3rem;cursor:pointer;}
 .hand-sel option{background:var(--bg-card);}
 
@@ -171,26 +187,54 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .slot-pip{width:11px;height:11px;border-radius:50%;border:1px solid var(--ink-gold-dim);cursor:pointer;transition:background 0.18s;}
 .slot-pip.used{background:var(--ink-red);border-color:var(--ink-red);}
 .slot-tot{font-family:var(--font-heading);font-size:0.75rem;font-weight:700;color:var(--text-dim);text-align:center;display:block;margin-top:0.15rem;min-width:8px;}
-.spell-row{display:grid;grid-template-columns:15px 70px 1fr 68px 65px 65px 24px 26px 22px;gap:0.4rem;align-items:center;padding:0.26rem 0.42rem;border-bottom:1px solid rgba(200,169,110,0.055);}
+/* Spell row — flex so name column is fluid */
+.spell-row{display:flex;align-items:center;gap:0.4rem;padding:0.26rem 0.42rem;border-bottom:1px solid rgba(200,169,110,0.055);}
 .spell-row:hover{background:rgba(200,169,110,0.022);}
 .spell-row.hdr{border-bottom:1px solid var(--border-gold);padding-bottom:0.36rem;}
 .scl{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-faint);}
-.sp-prep{width:12px;height:12px;accent-color:var(--ink-gold);}
-.sp-lvl{font-family:var(--font-heading);font-size:0.85rem;font-weight:700;color:var(--ink-gold-dim);}
+.sp-prep{width:12px;height:12px;accent-color:var(--ink-gold);flex-shrink:0;}
+.sp-lvl{font-family:var(--font-heading);font-size:0.85rem;font-weight:700;color:var(--ink-gold-dim);flex-shrink:0;min-width:20px;}
+/* name cell: flex:1 so it grows to fill available space */
+.sp-name-cell{flex:1;min-width:0;display:flex;flex-direction:column;gap:0.05rem;}
 .sp-name{font-family:var(--font-body);font-size:1rem;color:var(--text-body);}
-.sp-school,.sp-cast,.sp-range{font-family:var(--font-body);font-size:0.85rem;color:var(--text-faint);}
-.sp-equipped{width:12px;height:12px;accent-color:var(--ink-red-bright);}
-.sp-info{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;background:none;border:1px solid rgba(200,169,110,0.2);color:var(--ink-gold-dim);padding:0.12rem 0.3rem;cursor:pointer;transition:all 0.18s;}
-.sp-info:hover{border-color:var(--border-gold);color:var(--ink-gold);}
+/* meta shown inline on desktop, as sub-line on mobile */
+.sp-meta-inline{display:contents;}
+.sp-meta-sub{display:none;}
+.sp-school,.sp-cast,.sp-range{font-family:var(--font-body);font-size:0.85rem;color:var(--text-faint);flex-shrink:0;min-width:0;}
+.sp-school{min-width:70px;}
+.sp-cast{min-width:70px;}
+.sp-range{min-width:55px;}
+.sp-dur{font-family:var(--font-body);font-size:0.85rem;color:var(--text-faint);flex-shrink:0;min-width:55px;}
+.sp-equipped{width:12px;height:12px;accent-color:var(--ink-red-bright);flex-shrink:0;}
+.sp-info{display:none;}/* ? button removed */
+/* Mobile: collapse school/cast/range/dur into sub-line under name */
+@media(max-width:680px){
+  .sp-meta-inline{display:none;}
+  .sp-meta-sub{display:block;font-family:var(--font-body);font-size:0.72rem;color:var(--text-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .sp-school,.sp-cast,.sp-range,.sp-dur{display:none;}
+  .spell-row.hdr .scl.hdr-school,.spell-row.hdr .scl.hdr-cast,.spell-row.hdr .scl.hdr-range,.spell-row.hdr .scl.hdr-dur{display:none;}
+}
+/* Spell rows clickable outside edit */
+body:not(.edit-mode) .spell-row:not(.hdr){cursor:pointer;}
+body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05);}
 
-/* SPELL DESC */
-.sdesc-overlay{position:fixed;inset:0;z-index:900;background:rgba(4,3,2,0.8);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;backdrop-filter:blur(2px);}
-.sdesc-overlay.active{opacity:1;pointer-events:auto;}
-.sdesc-modal{width:450px;max-width:92vw;background:linear-gradient(160deg,#1a1208,#0d0a05);border:1px solid rgba(200,169,110,0.44);box-shadow:0 0 80px rgba(0,0,0,0.9);overflow:hidden;animation:popIn 0.24s cubic-bezier(0.34,1.56,0.64,1) forwards;}
-.sdesc-hdr{display:flex;align-items:center;justify-content:space-between;padding:0.65rem 1.05rem;background:rgba(139,26,26,0.1);border-bottom:1px solid rgba(139,26,26,0.2);}
-.sdesc-name{font-family:var(--font-heading);font-size:0.97rem;font-weight:700;color:var(--ink-gold);}
-.sdesc-meta{font-family:var(--font-accent);font-size:0.8rem;color:var(--text-faint);}
-.sdesc-body{padding:1rem;font-family:var(--font-body);font-size:1rem;color:var(--text-dim);line-height:1.8;min-height:55px;max-height:48vh;overflow-y:auto;}
+/* SPELL CARD (Roll20 style) */
+.sc-overlay{position:fixed;inset:0;z-index:900;background:rgba(4,3,2,0.82);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity 0.22s;backdrop-filter:blur(3px);}
+.sc-overlay.active{opacity:1;pointer-events:auto;}
+.sc-card{width:100%;max-width:480px;max-height:88vh;overflow-y:auto;background:#f5ead0;border:2px solid #8b6914;border-top:4px solid #7a1a1a;box-shadow:0 0 0 1px #c8a050,0 20px 60px rgba(0,0,0,0.85);animation:popIn 0.26s cubic-bezier(0.34,1.4,0.64,1) forwards;position:relative;}
+.sc-card-inner{padding:1.4rem 1.5rem 1.6rem;}
+.sc-close{position:absolute;top:0.6rem;right:0.7rem;background:none;border:none;font-size:1rem;color:#5a3a10;cursor:pointer;opacity:0.55;transition:opacity 0.15s;line-height:1;padding:0.1rem 0.3rem;}
+.sc-close:hover{opacity:1;}
+.sc-name{font-family:'Cinzel Decorative',serif;font-size:1.55rem;color:#5a1010;line-height:1.15;margin-bottom:0.2rem;}
+.sc-subtitle{font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;color:#7a5a2a;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid rgba(139,105,20,0.3);}
+.sc-fields{display:flex;flex-direction:column;gap:0.3rem;margin-bottom:1rem;}
+.sc-field{font-family:'IM Fell English',serif;font-size:0.96rem;color:#2a1a08;line-height:1.5;}
+.sc-field strong{font-family:'Cinzel',serif;font-size:0.82rem;font-weight:700;letter-spacing:0.04em;color:#2a1a08;}
+.sc-desc{font-family:'IM Fell English',serif;font-size:0.96rem;color:#2a1a08;line-height:1.75;white-space:pre-wrap;}
+.sc-desc-edit{font-family:'IM Fell English',serif;font-size:0.96rem;color:#2a1a08;line-height:1.75;min-height:60px;padding:0.3rem;border:1px dashed rgba(139,105,20,0.4);background:rgba(255,255,255,0.25);outline:none;width:100%;}
+.sc-desc-edit:focus{background:rgba(255,255,255,0.5);}
+.sc-higher{font-family:'IM Fell English',serif;font-size:0.92rem;color:#5a3a10;line-height:1.7;margin-top:0.8rem;padding-top:0.7rem;border-top:1px solid rgba(139,105,20,0.25);}
+.sc-higher strong{font-family:'Cinzel',serif;font-size:0.8rem;}
 .x-btn{background:none;border:none;color:var(--text-faint);font-size:0.95rem;cursor:pointer;padding:0 0.28rem;transition:color 0.18s;line-height:1;}
 .x-btn:hover{color:var(--ink-gold);}
 
@@ -211,7 +255,7 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .inv-eqp-cb{width:12px;height:12px;accent-color:var(--ink-gold);}
 
 /* DICE */
-.dice-overlay{position:fixed;inset:0;z-index:1000;background:rgba(4,3,2,0.85);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.22s;backdrop-filter:blur(2px);}
+.dice-overlay{position:fixed;inset:0;z-index:1000;background:rgba(4,3,2,0.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.22s;backdrop-filter:blur(3px);}
 .dice-overlay.active{opacity:1;pointer-events:auto;}
 .dice-modal{position:relative;width:370px;background:linear-gradient(160deg,#1a1208 0%,#100c07 60%,#0d0a05 100%);border:1px solid rgba(200,169,110,0.5);box-shadow:0 0 0 1px rgba(139,26,26,0.18),0 0 80px rgba(0,0,0,0.9);overflow:hidden;animation:popIn 0.28s cubic-bezier(0.34,1.56,0.64,1) forwards;}
 @keyframes popIn{from{transform:scale(0.85) translateY(10px);opacity:0;}to{transform:scale(1) translateY(0);opacity:1;}}
@@ -219,14 +263,72 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .dice-rname{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-gold);}
 .dice-rtype{font-family:var(--font-accent);font-size:0.78rem;color:var(--text-faint);letter-spacing:0.1em;}
 .dice-arena{padding:1.5rem 1.3rem 0.9rem;display:flex;flex-direction:column;align-items:center;}
-.d3d-wrap{width:105px;height:105px;position:relative;margin-bottom:1.15rem;perspective:400px;}
-.d3d{width:100%;height:100%;position:relative;transform-style:preserve-3d;}
-.d3d.spinning{animation:spin3d 0.7s cubic-bezier(0.4,0,0.2,1) forwards;}
-@keyframes spin3d{0%{transform:rotateX(0)rotateY(0)rotateZ(0);}30%{transform:rotateX(180deg)rotateY(90deg)rotateZ(45deg)scale(1.14);}60%{transform:rotateX(360deg)rotateY(270deg)rotateZ(180deg)scale(0.9);}80%{transform:rotateX(440deg)rotateY(340deg)rotateZ(220deg)scale(1.04);}100%{transform:rotateX(360deg)rotateY(360deg)rotateZ(360deg)scale(1);}}
-.d3d svg{width:100%;height:100%;filter:drop-shadow(0 0 9px rgba(200,169,110,0.26));}
-.d3d.crit svg{filter:drop-shadow(0 0 17px rgba(255,215,0,0.62));}
-.d3d.fumb svg{filter:drop-shadow(0 0 17px rgba(139,26,26,0.68));}
-.dface{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.65rem;color:var(--ink-gold-bright);pointer-events:none;text-shadow:0 0 9px rgba(200,169,110,0.55);opacity:0;transition:opacity 0.27s ease 0.48s;}
+
+/* ── ICOSAHEDRON 3D ── */
+.d3d-wrap{width:110px;height:110px;position:relative;margin-bottom:1.15rem;perspective:320px;}
+.ico{width:110px;height:110px;position:relative;transform-style:preserve-3d;transform:rotateX(20deg) rotateY(0deg);}
+.ico.rolling{animation:icoRoll 0.85s cubic-bezier(0.2,0.8,0.4,1) forwards;}
+.ico.crit{filter:drop-shadow(0 0 18px rgba(255,215,0,0.7));}
+.ico.fumb{filter:drop-shadow(0 0 18px rgba(180,30,30,0.8));}
+@keyframes icoRoll{
+  0%  {transform:rotateX(20deg)  rotateY(0deg)   rotateZ(0deg);}
+  25% {transform:rotateX(200deg) rotateY(130deg) rotateZ(80deg) scale(1.12);}
+  55% {transform:rotateX(420deg) rotateY(310deg) rotateZ(200deg) scale(0.92);}
+  80% {transform:rotateX(560deg) rotateY(420deg) rotateZ(300deg) scale(1.05);}
+  100%{transform:rotateX(680deg) rotateY(520deg) rotateZ(360deg) scale(1);}
+}
+/* 20 triangular faces of an icosahedron rendered as CSS 3D planes */
+.ico-face{
+  position:absolute;
+  width:0;height:0;
+  border-left:  32px solid transparent;
+  border-right: 32px solid transparent;
+  border-bottom:55px solid rgba(26,18,8,0.92);
+  transform-origin:32px 37px;
+  transition:border-bottom-color 0.3s;
+}
+/* Each face gets a slightly different shade for depth */
+.ico-face:nth-child(odd) {border-bottom-color:rgba(30,22,10,0.95);}
+.ico-face:nth-child(3n)  {border-bottom-color:rgba(20,14,6,0.88);}
+/* Gold edges via box-shadow trick on pseudo-elements isn't feasible for triangles;
+   use outline on the wrapper instead */
+.ico-face::after{
+  content:'';
+  position:absolute;
+  top:2px;left:-28px;
+  width:0;height:0;
+  border-left:  28px solid transparent;
+  border-right: 28px solid transparent;
+  border-bottom:48px solid rgba(200,169,110,0.08);
+}
+/* Face transforms — 20 faces of icosahedron
+   Using pre-calculated rotations for a regular icosahedron */
+.ico-face:nth-child(1) {transform:rotateY(0deg)   rotateX(10.8deg)  translateZ(38px);}
+.ico-face:nth-child(2) {transform:rotateY(72deg)  rotateX(10.8deg)  translateZ(38px);}
+.ico-face:nth-child(3) {transform:rotateY(144deg) rotateX(10.8deg)  translateZ(38px);}
+.ico-face:nth-child(4) {transform:rotateY(216deg) rotateX(10.8deg)  translateZ(38px);}
+.ico-face:nth-child(5) {transform:rotateY(288deg) rotateX(10.8deg)  translateZ(38px);}
+.ico-face:nth-child(6) {transform:rotateY(36deg)  rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
+.ico-face:nth-child(7) {transform:rotateY(108deg) rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
+.ico-face:nth-child(8) {transform:rotateY(180deg) rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
+.ico-face:nth-child(9) {transform:rotateY(252deg) rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
+.ico-face:nth-child(10){transform:rotateY(324deg) rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
+.ico-face:nth-child(11){transform:rotateY(0deg)   rotateX(52deg)    translateZ(28px);}
+.ico-face:nth-child(12){transform:rotateY(72deg)  rotateX(52deg)    translateZ(28px);}
+.ico-face:nth-child(13){transform:rotateY(144deg) rotateX(52deg)    translateZ(28px);}
+.ico-face:nth-child(14){transform:rotateY(216deg) rotateX(52deg)    translateZ(28px);}
+.ico-face:nth-child(15){transform:rotateY(288deg) rotateX(52deg)    translateZ(28px);}
+.ico-face:nth-child(16){transform:rotateY(36deg)  rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
+.ico-face:nth-child(17){transform:rotateY(108deg) rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
+.ico-face:nth-child(18){transform:rotateY(180deg) rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
+.ico-face:nth-child(19){transform:rotateY(252deg) rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
+.ico-face:nth-child(20){transform:rotateY(324deg) rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
+
+/* Gold stroke overlay — SVG on top of 3D */
+.ico-svg{position:absolute;inset:0;width:110px;height:110px;pointer-events:none;opacity:0.55;}
+.ico.crit .ico-svg{opacity:1;}
+
+.dface{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.55rem;color:var(--ink-gold-bright);pointer-events:none;text-shadow:0 0 9px rgba(200,169,110,0.55);opacity:0;transition:opacity 0.27s ease 0.55s;z-index:2;}
 .dface.vis{opacity:1;}.dface.crit{color:#ffd700;text-shadow:0 0 17px rgba(255,215,0,0.88);}.dface.fumb{color:#cc2222;text-shadow:0 0 17px rgba(200,50,50,0.75);}
 .dtotal{font-family:var(--font-display);font-size:3.5rem;line-height:1;color:var(--ink-gold);text-shadow:0 0 38px rgba(200,169,110,0.36);margin-bottom:0.22rem;opacity:0;transform:scale(0.72);transition:opacity 0.3s ease 0.5s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1) 0.5s;}
 .dtotal.vis{opacity:1;transform:scale(1);}.dtotal.crit{color:#ffd700;text-shadow:0 0 52px rgba(255,215,0,0.62);}.dtotal.fumb{color:#cc2222;text-shadow:0 0 36px rgba(200,50,50,0.52);}
@@ -270,9 +372,10 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
   .tab1-bottom{grid-template-columns:1fr;}
   .spell-meta-grid{grid-template-columns:1fr 1fr;}
   .slot-grid{grid-template-columns:repeat(5,1fr);}
-  .spell-row{grid-template-columns:14px 55px 1fr 22px 24px 20px;}
-  .spell-row .sp-school,.spell-row .sp-cast,.spell-row .sp-range{display:none;}
   .tab-btn{font-size:0.72rem;padding:0.75rem 0;}
+  /* char-info box floats to top on mobile */
+  .char-info-box{order:-1;}
+  .tab1-col:nth-child(3){display:contents;}
 }
 @media(max-width:580px){
   html{font-size:15px;}
@@ -309,22 +412,36 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
     </div>
     <div class="dice-arena">
       <div class="d3d-wrap">
-        <div class="d3d" id="d3d">
-          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="60,4 114,34 114,86 60,116 6,86 6,34" fill="rgba(20,16,10,0.9)" stroke="#c8a96e" stroke-width="1.2" opacity="0.9"/>
-            <polygon points="60,18 100,40 100,80 60,102 20,80 20,40" fill="none" stroke="rgba(139,26,26,0.5)" stroke-width="0.7"/>
-            <line x1="60" y1="4" x2="60" y2="18" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-            <line x1="114" y1="34" x2="100" y2="40" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-            <line x1="114" y1="86" x2="100" y2="80" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-            <line x1="60" y1="116" x2="60" y2="102" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-            <line x1="6" y1="86" x2="20" y2="80" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-            <line x1="6" y1="34" x2="20" y2="40" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-            <circle cx="60" cy="18" r="1.4" fill="#8a7248" opacity="0.6"/>
-            <circle cx="100" cy="40" r="1.4" fill="#8a7248" opacity="0.6"/>
-            <circle cx="100" cy="80" r="1.4" fill="#8a7248" opacity="0.6"/>
-            <circle cx="60" cy="102" r="1.4" fill="#8a7248" opacity="0.6"/>
-            <circle cx="20" cy="80" r="1.4" fill="#8a7248" opacity="0.6"/>
-            <circle cx="20" cy="40" r="1.4" fill="#8a7248" opacity="0.6"/>
+        <div class="ico" id="d3d">
+          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
+          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
+          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
+          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
+          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
+          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
+          <div class="ico-face"></div><div class="ico-face"></div>
+          <!-- SVG wire overlay — icosahedron silhouette in gold -->
+          <svg class="ico-svg" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="55,4 103,32 103,78 55,106 7,78 7,32" fill="none" stroke="#c8a96e" stroke-width="1" opacity="0.7"/>
+            <polygon points="55,18 88,38 88,72 55,92 22,72 22,38" fill="none" stroke="#c8a96e" stroke-width="0.6" opacity="0.35"/>
+            <line x1="55" y1="4"   x2="55" y2="18"  stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+            <line x1="103" y1="32" x2="88" y2="38"  stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+            <line x1="103" y1="78" x2="88" y2="72"  stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+            <line x1="55"  y1="106" x2="55" y2="92" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+            <line x1="7"   y1="78"  x2="22" y2="72" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+            <line x1="7"   y1="32"  x2="22" y2="38" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+            <!-- internal triangulation lines -->
+            <line x1="55" y1="4"   x2="88" y2="72"  stroke="#8a7248" stroke-width="0.4" opacity="0.25"/>
+            <line x1="55" y1="4"   x2="22" y2="72"  stroke="#8a7248" stroke-width="0.4" opacity="0.25"/>
+            <line x1="103" y1="32" x2="22" y2="72"  stroke="#8a7248" stroke-width="0.4" opacity="0.2"/>
+            <line x1="7"   y1="32" x2="88" y2="72"  stroke="#8a7248" stroke-width="0.4" opacity="0.2"/>
+            <line x1="55" y1="106" x2="88" y2="38"  stroke="#8a7248" stroke-width="0.4" opacity="0.25"/>
+            <line x1="55" y1="106" x2="22" y2="38"  stroke="#8a7248" stroke-width="0.4" opacity="0.25"/>
+            <line x1="55" y1="18"  x2="55" y2="92"  stroke="#8a7248" stroke-width="0.4" opacity="0.18"/>
+            <!-- "20" label at center -->
+            <text x="55" y="59" text-anchor="middle" dominant-baseline="middle"
+              font-family="'Cinzel', serif" font-size="13" font-weight="700"
+              fill="#c8a96e" opacity="0.6">20</text>
           </svg>
         </div>
         <div class="dface" id="dFace">—</div>
@@ -343,37 +460,30 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
   </div>
 </div>
 
-<!-- SPELL DESC OVERLAY -->
-<div class="sdesc-overlay" id="sdescOverlay">
-  <div class="sdesc-modal">
-    <div class="sdesc-hdr">
-      <div><div class="sdesc-name" id="sdName">—</div><div class="sdesc-meta" id="sdMeta">—</div></div>
-      <button class="x-btn" onclick="closeSdesc()">✕</button>
+<!-- SPELL CARD OVERLAY -->
+<div class="sc-overlay" id="scOverlay" onclick="if(event.target===this)closeSpellCard()">
+  <div class="sc-card" id="scCard">
+    <button class="sc-close" onclick="closeSpellCard()">✕</button>
+    <div class="sc-card-inner">
+      <div class="sc-name" id="scName">—</div>
+      <div class="sc-subtitle" id="scSubtitle">—</div>
+      <div class="sc-fields" id="scFields"></div>
+      <div id="scDescWrap"></div>
     </div>
-    <div class="sdesc-body always-edit" id="sdBody" contenteditable="true" data-ph="Add spell description..."></div>
   </div>
 </div>
 
 <!-- HEADER -->
-<header class="sheet-header">
+<header class="sheet-header" id="sheetHeader">
   <div class="sheet-header-inner">
     <div class="header-main">
       <span class="char-name-field editable" data-ph="Character Name" id="charName">Character Name</span>
-      <div class="header-meta">
-        <div class="mfw"><span class="mlb">Class</span><span class="mfv editable" data-ph="—" id="charClass">—</span></div>
-        <div class="mfw"><span class="mlb">Level</span><span class="mfv editable" data-ph="1" id="charLevel" oninput="recalc()">1</span></div>
-        <div class="mfw"><span class="mlb">Race</span><span class="mfv editable" data-ph="—" id="charRace">—</span></div>
-        <div class="mfw"><span class="mlb">Background</span><span class="mfv editable" data-ph="—">—</span></div>
-        <div class="mfw"><span class="mlb">Alignment</span><span class="mfv editable" data-ph="—">—</span></div>
-        <div class="mfw"><span class="mlb">Prof Bonus</span><span class="mfv" id="profBonus">+2</span></div>
-      </div>
     </div>
-    <div class="header-actions">
-      <button class="btn" onclick="window.location.href='index.html'">Overview</button>
+    <div class="header-actions" id="headerActions">
+      <a href="index.html" class="btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">⬡ Overview</a>
       <button class="edit-btn" id="editBtn" onclick="toggleEdit()"><span class="dot"></span><span id="editLbl">Edit</span></button>
-      <button class="btn" id="exportBtn" onclick="doExport()" style="display:none">⬇ Export</button>
-      <button class="btn" onclick="document.getElementById('importInput').click()">⬆ Import</button>
-      <input type="file" id="importInput" accept=".json" style="display:none" onchange="doImport(event)">
+      <button class="btn" id="saveBtn" onclick="saveToGitHub()" style="display:none">⬆ Save</button>
+      <span class="save-indicator" id="saveIndicator"></span>
     </div>
   </div>
 </header>
@@ -414,7 +524,6 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
         <div class="combat-grid">
           <div class="cs"><span class="cs-lbl">Armor Class</span><span class="cs-val editable" data-ph="10" id="armorClass">10</span></div>
           <div class="cs"><span class="cs-lbl">Initiative</span><span class="cs-val" id="initiative">+0</span></div>
-          <div class="cs"><span class="cs-lbl">Speed</span><span class="cs-val editable" data-ph="30ft">30ft</span></div>
           <div class="cs"><span class="cs-lbl">Hit Dice</span><span class="cs-val editable" data-ph="1d8" id="hitDice" style="font-size:0.88rem;">1d8</span></div>
           <div class="cs"><span class="cs-lbl">HD Used</span><span class="cs-val always-edit" data-ph="0" contenteditable="true">0</span></div>
           <div class="cs"><span class="cs-lbl">Pass. Percep.</span><span class="cs-val" id="pp">10</span></div>
@@ -469,8 +578,21 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
       </div>
     </div>
 
-    <!-- COL 3: Features & Traits -->
+    <!-- COL 3: Character Info → Features & Traits -->
     <div class="tab1-col">
+      <div class="sb char-info-box">
+        <div class="stitle">Character Info</div>
+        <div class="char-info-grid">
+          <div class="mfw"><span class="mlb">Class</span><span class="mfv editable" data-ph="—" id="charClass">—</span></div>
+          <div class="mfw"><span class="mlb">Level</span><span class="mfv editable" data-ph="1" id="charLevel" oninput="recalc()">1</span></div>
+          <div class="mfw"><span class="mlb">Race</span><span class="mfv editable" data-ph="—" id="charRace">—</span></div>
+          <div class="mfw"><span class="mlb">Background</span><span class="mfv editable" data-ph="—">—</span></div>
+          <div class="mfw"><span class="mlb">Alignment</span><span class="mfv editable" data-ph="—">—</span></div>
+          <div class="mfw"><span class="mlb">Prof Bonus</span><span class="mfv" id="profBonus">+2</span></div>
+          <div class="mfw"><span class="mlb">Speed</span><span class="mfv editable" data-ph="30ft">30ft</span></div>
+          <div class="mfw"><span class="mlb">XP</span><span class="mfv editable always-edit" data-ph="0" contenteditable="true">0</span></div>
+        </div>
+      </div>
       <div class="sb" style="flex:1;">
         <div class="stitle">Features & Traits</div>
         <div id="featList"></div>
@@ -510,10 +632,11 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
     <div class="stitle">Attacks & Spellcasting</div>
     <p style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;margin-bottom:0.75rem;">Main hand adds Prof. Bonus. Off-hand does not. Equipped spells sync automatically.</p>
     <table class="atk-table">
-      <thead><tr><th>Name</th><th>Hand</th><th>To Hit</th><th>Damage</th><th>Type</th><th>Range</th><th>Notes</th><th></th><th></th></tr></thead>
+      <thead><tr><th>Name</th><th>Hand</th><th>To Hit</th><th>Damage</th><th>Type</th><th>Range</th><th>Notes</th><th></th></tr></thead>
       <tbody id="atkBody"></tbody>
     </table>
-    <button class="add-btn" id="addAtkBtn" onclick="addAtk()" style="margin-top:0.45rem;">+ Add Weapon Attack</button>
+    <p style="font-family:var(--font-body);font-size:0.75rem;color:var(--text-faint);font-style:italic;margin-top:0.45rem;opacity:0.7;">Click a row to roll · Edit mode to modify</p>
+    <button class="add-btn" id="addAtkBtn" onclick="addAtk()" style="margin-top:0.35rem;">+ Add Weapon Attack</button>
   </div>
   <div class="sb">
     <div class="stitle">Combat Notes</div>
@@ -545,9 +668,14 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
   <div class="sb">
     <div class="stitle">Spells Known / Prepared</div>
     <div class="spell-row hdr">
-      <span class="scl" title="Prepared">P</span><span class="scl">Lvl</span><span class="scl">Name</span>
-      <span class="scl">School</span><span class="scl">Cast</span><span class="scl">Range</span>
-      <span class="scl" title="Add to Attacks">⚔</span><span class="scl" title="Info">?</span>
+      <span class="scl" title="Prepared">P</span>
+      <span class="scl">Lvl</span>
+      <span class="scl" style="flex:1">Name</span>
+      <span class="scl sp-meta-inline hdr-school">School</span>
+      <span class="scl sp-meta-inline hdr-cast">Cast</span>
+      <span class="scl sp-meta-inline hdr-range">Range</span>
+      <span class="scl sp-meta-inline hdr-dur">Dur.</span>
+      <span class="scl" title="Add to Attacks">⚔</span>
     </div>
     <div id="spellList"></div>
     <button class="add-btn" id="addSpellBtn" onclick="addSpell()" style="margin-top:0.38rem;">+ Add Spell</button>
@@ -586,7 +714,6 @@ const ABILITIES=['str','dex','con','int','wis','cha'];
 const AL={str:'STR',dex:'DEX',con:'CON',int:'INT',wis:'WIS',cha:'CHA'};
 const SAVES=[{id:'sv-str',label:'Strength',s:'str'},{id:'sv-dex',label:'Dexterity',s:'dex'},{id:'sv-con',label:'Constitution',s:'con'},{id:'sv-int',label:'Intelligence',s:'int'},{id:'sv-wis',label:'Wisdom',s:'wis'},{id:'sv-cha',label:'Charisma',s:'cha'}];
 const SKILLS=[{id:'sk-acr',l:'Acrobatics',s:'dex'},{id:'sk-ani',l:'Animal Handling',s:'wis'},{id:'sk-arc',l:'Arcana',s:'int'},{id:'sk-ath',l:'Athletics',s:'str'},{id:'sk-dec',l:'Deception',s:'cha'},{id:'sk-his',l:'History',s:'int'},{id:'sk-ins',l:'Insight',s:'wis'},{id:'sk-int',l:'Intimidation',s:'cha'},{id:'sk-inv',l:'Investigation',s:'int'},{id:'sk-med',l:'Medicine',s:'wis'},{id:'sk-nat',l:'Nature',s:'int'},{id:'sk-per',l:'Perception',s:'wis'},{id:'sk-prf',l:'Performance',s:'cha'},{id:'sk-prs',l:'Persuasion',s:'cha'},{id:'sk-rel',l:'Religion',s:'int'},{id:'sk-soh',l:'Sleight of Hand',s:'dex'},{id:'sk-ste',l:'Stealth',s:'dex'},{id:'sk-sur',l:'Survival',s:'wis'}];
-const NPCS=[{n:'Ismark Kolyanovich',r:'Burgomaster\'s son — Barovia Village'},{n:'Ireena Kolyana',r:'Burgomaster\'s daughter — Strahd\'s target'},{n:'Father Donavich',r:'Priest of the Morning Lord'},{n:'Doru',r:'Donavich\'s son — vampire spawn, chained'},{n:'Rose Durst',r:'Ghost of the Durst house'},{n:'Thorn Durst',r:'Ghost of the Durst house'},{n:'Kaelos',r:'Satyr Bard — party member'}];
 const PW='Braunschweig';
 
 // EDIT MODE
@@ -598,7 +725,7 @@ function checkPw(){const v=document.getElementById('pwInput').value;if(v===PW){e
 function enableEdit(){
   editMode=true;document.body.classList.add('edit-mode');
   document.getElementById('editBtn').classList.add('active');document.getElementById('editLbl').textContent='Editing';
-  document.getElementById('exportBtn').style.display='';
+  document.getElementById('saveBtn').style.display='';
   document.querySelectorAll('.editable').forEach(el=>el.contentEditable='true');
   document.querySelectorAll('.add-btn,.del-btn').forEach(el=>el.style.display='');
   document.querySelectorAll('.hand-sel').forEach(s=>s.disabled=false);
@@ -607,7 +734,7 @@ function enableEdit(){
 function lockEdit(){
   editMode=false;document.body.classList.remove('edit-mode');
   document.getElementById('editBtn').classList.remove('active');document.getElementById('editLbl').textContent='Edit';
-  document.getElementById('exportBtn').style.display='none';
+  document.getElementById('saveBtn').style.display='none';
   document.querySelectorAll('.editable').forEach(el=>el.contentEditable='false');
   document.querySelectorAll('.add-btn,.del-btn').forEach(el=>el.style.display='none');
   document.querySelectorAll('.hand-sel').forEach(s=>s.disabled=true);
@@ -643,7 +770,7 @@ function buildAbils(){
   const g=document.getElementById('abilGrid');g.innerHTML='';
   ABILITIES.forEach(a=>{
     const b=document.createElement('div');b.className='ab-block';
-    b.innerHTML=`<span class="ab-label">${AL[a]}</span><div class="ab-wrap"><span class="ab-score editable" data-ph="10" id="sc-${a}" oninput="recalc()" onclick="rollAbil('${a}')"  title="Roll ${AL[a]}">${a==='str'?'10':'10'}</span></div><span class="ab-mod" id="md-${a}" onclick="rollAbil('${a}')" title="Roll ${AL[a]}">+0</span>`;
+    b.innerHTML=`<span class="ab-label">${AL[a]}</span><div class="ab-wrap"><span class="ab-score editable" data-ph="10" id="sc-${a}" oninput="recalc()">${a==='str'?'10':'10'}</span></div><span class="ab-mod" id="md-${a}" onclick="rollAbil('${a}')" title="Roll ${AL[a]} check">+0</span><button class="ab-roll-btn" onclick="rollAbil('${a}')">⚄ Roll</button>`;
     g.appendChild(b);
   });
 }
@@ -686,14 +813,15 @@ function addRel(n='',r='',notes=''){
 
 // ATTACKS
 let atkCtr=0;
-function addAtk(n='',hand='main',bonus='',dmg='',type='',range='',notes='',isSpell=false,sid=null){
-  const tb=document.getElementById('atkBody');const id=++atkCtr;const tr=document.createElement('tr');tr.dataset.aid=id;if(sid)tr.dataset.sid=sid;
-  const compBonus=isSpell?bonus:calcWpnBonus(hand);
-  tr.innerHTML=`<td><span class="atk-name editable" data-ph="Name">${n}</span></td><td>${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}" ${!editMode?'disabled':''}><option value="main"${hand==='main'?' selected':''}>Main</option><option value="off"${hand==='off'?' selected':''}>Off</option></select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td><span class="atk-dmg editable" data-ph="1d6">${dmg}</span></td><td><span class="atk-type editable" data-ph="Type">${type}</span></td><td><span class="atk-type editable" data-ph="Range">${range}</span></td><td><span class="atk-notes editable" data-ph="Notes">${notes}</span></td><td><button class="roll-btn" onclick="rollAtkRow(${id})">⚄ Roll</button></td><td>${sid?'':`<button class="del-btn" style="display:none" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
+function addAtk(n='',hand='main',bonus='',dmg='',type='',range='',notes='',isSpell=false,sid=null,stat='str'){
+  const tb=document.getElementById('atkBody');const id=++atkCtr;const tr=document.createElement('tr');tr.dataset.aid=id;tr.dataset.stat=stat;if(sid)tr.dataset.sid=sid;
+  const compBonus=isSpell?bonus:calcWpnBonus(hand,stat);
+  tr.innerHTML=`<td><span class="atk-name editable" data-ph="Name">${n}</span></td><td>${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}" ${!editMode?'disabled':''}><option value="main"${hand==='main'?' selected':''}>Main</option><option value="ranged"${hand==='ranged'?' selected':''}>Ranged</option><option value="off"${hand==='off'?' selected':''}>Off</option></select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td><span class="atk-dmg editable" data-ph="1d6">${dmg}</span></td><td><span class="atk-type editable" data-ph="Type">${type}</span></td><td><span class="atk-type editable" data-ph="Range">${range}</span></td><td><span class="atk-notes editable" data-ph="Notes">${notes}</span></td><td>${sid?'':`<button class="del-btn" style="display:none" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
+  tr.addEventListener('click',()=>{ if(!editMode) rollAtkRow(id); });
   tb.appendChild(tr);applyEditToEl(tr);
 }
-function calcWpnBonus(hand){const pb=prof();const m=aMod('str');return hand==='main'?fmt(m+pb):fmt(m);}
-function updateHand(id){const s=document.getElementById('hs-'+id);if(!s)return;const el=document.getElementById('ab-'+id);if(el)el.textContent=calcWpnBonus(s.value);}
+function calcWpnBonus(hand, stat='str'){const pb=prof();const m=aMod(stat);return hand==='main'||hand==='ranged'?fmt(m+pb):fmt(m);}
+function updateHand(id){const tr=document.querySelector(`[data-aid="${id}"]`);if(!tr)return;const s=document.getElementById('hs-'+id);const stat=tr.dataset.stat||'str';const el=document.getElementById('ab-'+id);if(el)el.textContent=calcWpnBonus(s?s.value:'main',stat);}
 function syncSpellAtks(){
   const tb=document.getElementById('atkBody');const pb=prof();const sa=document.getElementById('spellAbility').value;const sm=aMod(sa);const bon=fmt(pb+sm);
   tb.querySelectorAll('[data-sid]').forEach(tr=>tr.remove());
@@ -712,24 +840,77 @@ function rollAtkRow(id){
 }
 
 // SPELLS
+// spellDescs stores rich data: {desc, higher, dur, comp, target, classes}
 let spellCtr=0;const spellDescs={};
-function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc=''){
-  const l=document.getElementById('spellList');const id=++spellCtr;if(desc)spellDescs[id]=desc;
+
+function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',dur='',comp='',target='',classes='',higher=''){
+  const l=document.getElementById('spellList');const id=++spellCtr;
+  if(desc||dur||comp||target||classes||higher){
+    spellDescs[id]={desc:desc||'',dur:dur||'',comp:comp||'',target:target||'',classes:classes||'',higher:higher||''};
+  }
   const row=document.createElement('div');row.className='spell-row';row.dataset.sid=id;
-  row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''}><span class="sp-lvl editable" data-ph="0">${lv}</span><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-school editable" data-ph="School">${sch}</span><span class="sp-cast editable" data-ph="1 action">${cast}</span><span class="sp-range editable" data-ph="Self">${rng}</span><input type="checkbox" class="sp-equipped" ${eq?'checked':''} onchange="syncSpellAtks();save()"><button class="sp-info" onclick="openSdesc(${id})">?</button>`;
-  const db=document.createElement('button');db.className='del-btn';db.style.display='none';db.textContent='✕';db.onclick=()=>{removeSpellAtk(row.dataset.sid);row.remove();save();};row.appendChild(db);
+  const subMeta=[sch,cast,rng,dur].filter(Boolean).join(' · ');
+  row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''}><span class="sp-lvl editable" data-ph="0">${lv}</span><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-school editable sp-meta-inline" data-ph="School">${sch}</span><span class="sp-cast editable sp-meta-inline" data-ph="1 action">${cast}</span><span class="sp-range editable sp-meta-inline" data-ph="Self">${rng}</span><span class="sp-dur editable sp-meta-inline" data-ph="Instant">${dur}</span><input type="checkbox" class="sp-equipped" ${eq?'checked':''} onchange="syncSpellAtks();save()">`;
+  const db=document.createElement('button');db.className='del-btn';db.style.display='none';db.textContent='✕';db.onclick=(e)=>{e.stopPropagation();removeSpellAtk(row.dataset.sid);row.remove();save();};row.appendChild(db);
+  // Click → open card (non-edit only)
+  row.addEventListener('click',(e)=>{
+    if(editMode||e.target.closest('.del-btn')||e.target.closest('.sp-equipped')||e.target.closest('.sp-prep'))return;
+    openSpellCard(id);
+  });
   l.appendChild(row);applyEditToEl(row);
 }
-function openSdesc(id){
-  const row=document.querySelector(`[data-sid="${id}"]`);if(!row)return;
-  document.getElementById('sdName').textContent=row.querySelector('.sp-name').textContent||'Spell';
-  const lv=row.querySelector('.sp-lvl').textContent;const sch=row.querySelector('.sp-school').textContent;
-  document.getElementById('sdMeta').textContent=`${lv?'Level '+lv:'Cantrip'}${sch?' · '+sch:''}`;
-  const body=document.getElementById('sdBody');body.textContent=spellDescs[id]||'';body.dataset.sid=id;
-  document.getElementById('sdescOverlay').classList.add('active');
+
+function openSpellCard(id){
+  const row=document.querySelector(`#spellList [data-sid="${id}"]`);if(!row)return;
+  const nm   = row.querySelector('.sp-name').textContent.trim()||'Spell';
+  const lv   = row.querySelector('.sp-lvl').textContent.trim();
+  const sch  = row.querySelector('.sp-school').textContent.trim();
+  const cast = row.querySelector('.sp-cast').textContent.trim();
+  const rng  = row.querySelector('.sp-range').textContent.trim();
+  const dur  = row.querySelector('.sp-dur').textContent.trim();
+  const sd   = spellDescs[id]||{};
+
+  // Subtitle: "Xst/nd/rd/th level Evocation" or "Cantrip"
+  const lvLabel = lv?`${lv}${['','st','nd','rd'][lv]||'th'} level${sch?' '+sch:''}` : (sch?sch+' cantrip':'Cantrip');
+  document.getElementById('scName').textContent = nm;
+  document.getElementById('scSubtitle').textContent = lvLabel;
+
+  // Build fields list
+  const fields = document.getElementById('scFields');
+  fields.innerHTML='';
+  const addField=(label,val)=>{
+    if(!val)return;
+    const d=document.createElement('div');d.className='sc-field';
+    d.innerHTML=`<strong>${label}:</strong> ${val}`;
+    fields.appendChild(d);
+  };
+  addField('Casting Time', cast);
+  addField('Range',        rng);
+  if(sd.target)  addField('Target',     sd.target);
+  addField('Duration',     dur||sd.dur||'');
+  if(sd.comp)    addField('Components', sd.comp);
+  if(sd.classes) addField('Classes',    sd.classes);
+
+  // Description — editable in edit mode
+  const wrap=document.getElementById('scDescWrap');wrap.innerHTML='';
+  if(editMode){
+    const ta=document.createElement('textarea');ta.className='sc-desc-edit';ta.rows=6;ta.value=sd.desc||'';
+    ta.oninput=()=>{if(!spellDescs[id])spellDescs[id]={};spellDescs[id].desc=ta.value;save();};
+    wrap.appendChild(ta);
+  } else {
+    if(sd.desc){const p=document.createElement('p');p.className='sc-desc';p.textContent=sd.desc;wrap.appendChild(p);}
+    if(sd.higher){const h=document.createElement('p');h.className='sc-higher';h.innerHTML=`<strong>At Higher Levels.</strong> ${sd.higher}`;wrap.appendChild(h);}
+  }
+  document.getElementById('scOverlay').classList.add('active');
 }
-function closeSdesc(){const b=document.getElementById('sdBody');const id=b.dataset.sid;if(id)spellDescs[id]=b.textContent;document.getElementById('sdescOverlay').classList.remove('active');save();}
+
+function closeSpellCard(){
+  document.getElementById('scOverlay').classList.remove('active');
+}
 function removeSpellAtk(sid){document.querySelector(`#atkBody [data-sid="${sid}"]`)?.remove();}
+
+function openSdesc(){} // stub — no longer used
+function closeSdesc(){closeSpellCard();}
 
 // INVENTORY
 function addInv(n='',q='1',v='',eq=false,notes=''){
@@ -745,23 +926,37 @@ function loadPortrait(ev){const f=ev.target.files[0];if(!f)return;const r=new Fi
 // TABS
 document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active');});});
 
+// HIDE HEADER BUTTONS ON SCROLL
+(function(){
+  const actions=document.getElementById('headerActions');
+  let lastY=0;let ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(!ticking){window.requestAnimationFrame(()=>{
+      const y=window.scrollY;
+      if(y>60&&y>lastY){actions.classList.add('hidden');}
+      else if(y<lastY||y<=60){actions.classList.remove('hidden');}
+      lastY=y;ticking=false;
+    });ticking=true;}
+  });
+})();
+
 // DICE
 let curRoll=null;
 function rollDice(cfg){curRoll=cfg;execRoll(cfg);}
 function execRoll(cfg){
   const{name,type,bon,dmg,comps}=cfg;
-  const d3d=document.getElementById('d3d'),face=document.getElementById('dFace'),tot=document.getElementById('dTotal'),badge=document.getElementById('dBadge'),bkp=document.getElementById('dBkPanel'),cr=document.getElementById('dCalcRows'),ds=document.getElementById('dDmgSec'),dr=document.getElementById('dDmgRows');
+  const ico=document.getElementById('d3d'),face=document.getElementById('dFace'),tot=document.getElementById('dTotal'),badge=document.getElementById('dBadge'),bkp=document.getElementById('dBkPanel'),cr=document.getElementById('dCalcRows'),ds=document.getElementById('dDmgSec'),dr=document.getElementById('dDmgRows');
   [face,tot,badge,bkp].forEach(e=>e.classList.remove('vis','crit','fumb','norm'));
-  d3d.classList.remove('crit','fumb');
+  ico.classList.remove('crit','fumb','rolling');
   document.getElementById('dRollName').textContent=name;document.getElementById('dRollType').textContent=type||'d20';
   cr.innerHTML='';dr.innerHTML='';ds.style.display='none';
   const d20=Math.floor(Math.random()*20)+1;const total=d20+(bon||0);const ic=d20===20,ifm=d20===1;
   document.getElementById('diceOverlay').classList.add('active');
-  d3d.classList.remove('spinning');void d3d.offsetWidth;d3d.classList.add('spinning');
+  void ico.offsetWidth;ico.classList.add('rolling');
   setTimeout(()=>{
-    d3d.classList.remove('spinning');
-    if(ic){d3d.classList.add('crit');face.classList.add('crit');tot.classList.add('crit');badge.className='dbadge crit vis';badge.textContent='✦ Critical Hit ✦';}
-    else if(ifm){d3d.classList.add('fumb');face.classList.add('fumb');tot.classList.add('fumb');badge.className='dbadge fumb vis';badge.textContent='✗ Fumble';}
+    ico.classList.remove('rolling');
+    if(ic){ico.classList.add('crit');face.classList.add('crit');tot.classList.add('crit');badge.className='dbadge crit vis';badge.textContent='✦ Critical Hit ✦';}
+    else if(ifm){ico.classList.add('fumb');face.classList.add('fumb');tot.classList.add('fumb');badge.className='dbadge fumb vis';badge.textContent='✗ Fumble';}
     else{badge.className='dbadge norm';}
     face.textContent=d20;face.classList.add('vis');tot.textContent=total;tot.classList.add('vis');
     cr.appendChild(mkRow('d20 Roll','D20',d20,ic?'pos':ifm?'neg':''));
@@ -769,25 +964,29 @@ function execRoll(cfg){
     cr.appendChild(mkRow('Total','=',total,'tot',true));
     if(dmg&&dmg!=='—'&&dmg.trim()){const dr2=rollFormula(dmg,ic);if(dr2){ds.style.display='block';dr.appendChild(mkRow(dmg,'DMG',dr2.total,''));if(dr2.rolls.length>1||ic){const e=document.createElement('div');e.className='dcalcrow';e.innerHTML=`<span class="dclbl" style="color:var(--text-faint);font-style:italic;">Rolls: [${dr2.rolls.join(', ')}]${dr2.mod?(dr2.mod>0?'+':'')+dr2.mod:''}${ic?' (doubled)':''}</span>`;dr.appendChild(e);}}}
     bkp.classList.add('vis');
-  },720);
+  },870);
 }
 function mkRow(label,icon,val,vc,tot=false){const r=document.createElement('div');r.className='dcalcrow'+(tot?' totrow':'');const vs=typeof val==='number'?(val>0&&icon!=='D20'&&icon!=='='?'+'+val:''+val):''+val;r.innerHTML=`<span class="dclbl"><span class="dico">${icon}</span>${label}</span><span class="dcval ${vc}">${vs}</span>`;return r;}
 function rollFormula(f,crit=false){const m=f.match(/(\d+)d(\d+)([+-]\d+)?/i);if(!m)return null;let cnt=parseInt(m[1]);const si=parseInt(m[2]);const mo=parseInt(m[3]||'0');if(crit)cnt*=2;const rolls=[];for(let i=0;i<cnt;i++)rolls.push(Math.floor(Math.random()*si)+1);return{rolls,mod:mo,total:rolls.reduce((a,b)=>a+b,0)+mo};}
 function reroll(){if(curRoll)execRoll(curRoll);}
 function closeDice(){document.getElementById('diceOverlay').classList.remove('active');}
 document.getElementById('diceOverlay').addEventListener('click',function(e){if(e.target===this)closeDice();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSdesc();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSpellCard();}});
 
 // SAVE / LOAD
 function gather(){
-  const d={v:3,cn:g('charName'),cc:g('charClass'),cl:g('charLevel'),cr:g('charRace'),ac:g('armorClass'),mhp:g('maxHP'),hd:g('hitDice'),insp:document.getElementById('inspBtn').classList.contains('lit'),sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,slots:{},port:document.getElementById('portImg').src,feats:[],atks:[],spells:[],sdescs:spellDescs,inv:[],rels:[],ds:[]};
+  const pEl=k=>document.querySelector(`[data-ph="${k}"]`)?.textContent||'';
+  const d={v:3,cn:g('charName'),cc:g('charClass'),cl:g('charLevel'),cr:g('charRace'),ac:g('armorClass'),mhp:g('maxHP'),hd:g('hitDice'),insp:document.getElementById('inspBtn').classList.contains('lit'),sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,slots:{},port:document.getElementById('portImg').src,feats:[],atks:[],spells:[],sdescs:spellDescs,inv:[],rels:[],ds:[],
+    personality:{traits:pEl('Personality traits...'),ideals:pEl('Ideals...'),bonds:pEl('Bonds...'),flaws:pEl('Flaws...')},
+    proficiencies:pEl('Armor, weapons, tools, languages...')
+  };
   ABILITIES.forEach(a=>d.sc[a]=g('sc-'+a));
   SAVES.forEach(s=>{const e=document.getElementById(s.id+'-p');d.sp[s.id]=e?e.checked:false;});
   SKILLS.forEach(s=>{const e=document.getElementById(s.id+'-p');d.sk[s.id]=e?e.checked:false;});
   for(let i=1;i<=9;i++){const t=document.getElementById('st-'+i);const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);d.slots[i]={t:t?t.textContent:'0',u:Array.from(ps).filter(p=>p.classList.contains('used')).length};}
   document.querySelectorAll('#featList .feat-item').forEach(it=>d.feats.push({n:it.querySelector('.feat-name').textContent,s:it.querySelector('.feat-src').textContent,d:it.querySelector('.feat-desc').textContent,o:it.classList.contains('open')}));
-  document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,h:hs?hs.value:'main',dmg:tr.querySelector('.atk-dmg').textContent,t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
-  document.querySelectorAll('#spellList .spell-row').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.querySelector('.sp-lvl').textContent,n:row.querySelector('.sp-name').textContent,sc:row.querySelector('.sp-school').textContent,c:row.querySelector('.sp-cast').textContent,r:row.querySelector('.sp-range').textContent,e:row.querySelector('.sp-equipped').checked}));
+  document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,h:hs?hs.value:'main',st:tr.dataset.stat||'str',dmg:tr.querySelector('.atk-dmg').textContent,t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
+  document.querySelectorAll('#spellList .spell-row').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.querySelector('.sp-lvl').textContent,n:row.querySelector('.sp-name').textContent,sc:row.querySelector('.sp-school').textContent,c:row.querySelector('.sp-cast').textContent,r:row.querySelector('.sp-range').textContent,du:row.querySelector('.sp-dur').textContent,e:row.querySelector('.sp-equipped').checked}));
   document.querySelectorAll('#invBody tr').forEach(tr=>{const tds=tr.querySelectorAll('td');d.inv.push({n:tds[0]?.querySelector('[data-ph]')?.textContent||'',q:tds[1]?.querySelector('[data-ph]')?.textContent||'1',v:tds[2]?.querySelector('[data-ph]')?.textContent||'',e:tds[3]?.querySelector('input')?.checked||false,no:tds[4]?.querySelector('[data-ph]')?.textContent||''});});
   document.querySelectorAll('#relList .rel-item').forEach(it=>d.rels.push({n:it.querySelector('.rel-name').textContent,r:it.querySelector('.rel-role').textContent,no:it.querySelector('.rel-notes').textContent,o:it.classList.contains('open')}));
   d.ds=Array.from(document.querySelectorAll('.dm')).map(m=>m.classList.contains('marked'));
@@ -802,18 +1001,32 @@ function applyData(d){
   if(d.sc)ABILITIES.forEach(a=>set('sc-'+a,d.sc[a]||'10'));
   if(d.sp)SAVES.forEach(sv=>{const e=document.getElementById(sv.id+'-p');if(e)e.checked=d.sp[sv.id]||false;});
   if(d.sk)SKILLS.forEach(sk=>{const e=document.getElementById(sk.id+'-p');if(e)e.checked=d.sk[sk.id]||false;});
+  // Personality & proficiencies — always apply regardless of source
+  const setph=(ph,val)=>{ if(!val)return; document.querySelectorAll(`[data-ph="${ph}"]`).forEach(el=>el.textContent=val); };
+  if(d.personality){
+    setph('Personality traits...',d.personality.traits);
+    setph('Ideals...',d.personality.ideals);
+    setph('Bonds...',d.personality.bonds);
+    setph('Flaws...',d.personality.flaws);
+  }
+  if(d.proficiencies) setph('Armor, weapons, tools, languages...',d.proficiencies);
   if(d.sa){document.getElementById('spellAbility').value=d.sa;}
   if(d.slots)for(let i=1;i<=9;i++){const s=d.slots[i];if(!s)continue;const t=document.getElementById('st-'+i);if(t){t.textContent=s.t||'0';rebuildPips(i);}const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);for(let j=0;j<(s.u||0);j++){if(ps[j])ps[j].classList.add('used');}}
-  if(d.port&&d.port.startsWith('data:')){document.getElementById('portImg').src=d.port;document.getElementById('portImg').style.display='block';document.getElementById('portPlaceholder').style.display='none';}
-  if(d.sdescs)Object.assign(spellDescs,d.sdescs);
+  if(d.port&&d.port.trim()){const img=document.getElementById('portImg');img.src=d.port;img.style.display='block';document.getElementById('portPlaceholder').style.display='none';}
   document.getElementById('featList').innerHTML='';
   (d.feats||[]).forEach(f=>{addFeat(f.n,f.s,f.d);if(f.o){const its=document.querySelectorAll('#featList .feat-item');its[its.length-1].classList.add('open');}});
   document.getElementById('atkBody').innerHTML='';atkCtr=0;
-  (d.atks||[]).forEach(a=>addAtk(a.n,a.h||'main','',a.dmg,a.t,a.r,a.no));
+  (d.atks||[]).forEach(a=>addAtk(a.n,a.h||'main','',a.dmg,a.t,a.r,a.no,false,null,a.st||'str'));
   document.getElementById('spellList').innerHTML='';spellCtr=0;
-  (d.spells||[]).forEach(s=>addSpell(s.n,s.l,s.sc,s.c,s.r,s.p,s.e));
+  // First restore sdescs so addSpell can pick them up if needed
+  if(d.sdescs){
+    Object.keys(d.sdescs).forEach(k=>{
+      const val=d.sdescs[k];
+      spellDescs[k]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;
+    });
+  }
+  (d.spells||[]).forEach(s=>addSpell(s.n,s.l,s.sc,s.c,s.r,s.p,s.e,'',s.du||'','','','',''));
   document.getElementById('invBody').innerHTML='';
-  (d.inv||[]).forEach(i=>addInv(i.n,i.q,i.v,i.e,i.no));
   document.getElementById('relList').innerHTML='';
   (d.rels||[]).forEach(r=>{addRel(r.n,r.r,r.no);if(r.o){const its=document.querySelectorAll('#relList .rel-item');its[its.length-1].classList.add('open');}});
   if(d.ds){const ms=document.querySelectorAll('.dm');d.ds.forEach((m,i)=>{if(ms[i]&&m)ms[i].classList.add('marked');});}
@@ -822,8 +1035,86 @@ function applyData(d){
 let saveTimer;
 function save(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{try{localStorage.setItem('cos-thokk',JSON.stringify(gather()));}catch(e){}},1500);}
 document.addEventListener('input',save);document.addEventListener('change',save);
-function doExport(){const d=gather();const n=(d.cn||'character').replace(/\s+/g,'-').toLowerCase();const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n+'-sheet.json';a.click();URL.revokeObjectURL(a.href);}
-function doImport(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{try{applyData(JSON.parse(e.target.result));}catch{alert('Invalid JSON.');}};r.readAsText(f);ev.target.value='';}
+// ── GITHUB SAVE ──────────────────────────────────────────────────────────────
+// Token is XOR-obfuscated with key 'BaroviaD20' — not true security,
+// but prevents casual inspection. Repo is public-read only anyway.
+const _tk=[37,8,6,7,3,11,62,52,83,68,29,80,67,46,52,38,41,30,126,105,114,45,48,90,19,5,44,42,85,7,27,82,30,48,37,62,35,46,104,105,119,14,43,87,78,25,44,40,99,2,113,84,31,33,18,57,0,35,75,127,21,50,27,22,47,36,16,41,74,86,53,14,55,62,70,8,88,16,113,118,6,35,42,37,38,19,56,113,69,72,118,81,4];
+const _kk='BaroviaD20';
+function _rt(){return _tk.map((c,i)=>String.fromCharCode(c^_kk.charCodeAt(i%_kk.length))).join('');}
+
+const GH_USER  = 'ormaugh';
+const GH_REPO  = 'barovia';
+
+function setIndicator(state, msg){
+  const el=document.getElementById('saveIndicator');
+  el.className='save-indicator '+state;
+  el.textContent=msg;
+  if(state==='saved'){setTimeout(()=>{el.className='save-indicator';el.textContent='';},3000);}
+}
+
+async function saveToGitHub(){
+  const btn=document.getElementById('saveBtn');
+  btn.disabled=true;
+  setIndicator('saving','Saving…');
+
+  // Gather current sheet data — strip portrait base64 to keep JSON small,
+  // keep the path reference instead
+  const data=gather();
+  const portSrc=document.getElementById('portImg').src||'';
+  if(portSrc.startsWith('data:')){
+    // Keep only the path from the original JSON, not the base64 blob
+    data.port=_lastJsonPort||'';
+  }
+
+  const content=JSON.stringify(data,null,2);
+  const encoded=btoa(unescape(encodeURIComponent(content)));
+
+  // Determine file path from current HTML filename
+  const htmlFile=location.pathname.split('/').pop().replace('.html','')||'thokk';
+  const filePath=`${htmlFile}-sheet.json`;
+
+  try {
+    // 1. Get current SHA (needed to update existing file)
+    const shaRes=await fetch(
+      `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`,
+      {headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json'}}
+    );
+    let sha='';
+    if(shaRes.ok){const shaData=await shaRes.json();sha=shaData.sha||'';}
+
+    // 2. PUT updated file
+    const putRes=await fetch(
+      `https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`,
+      {
+        method:'PUT',
+        headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
+        body:JSON.stringify({
+          message:`Update ${filePath} — ${new Date().toLocaleString('es-ES',{timeZone:'Europe/Madrid'})}`,
+          content:encoded,
+          sha:sha||undefined
+        })
+      }
+    );
+
+    if(putRes.ok){
+      setIndicator('saved','✓ Saved');
+      // Also update localStorage so next fetch sees the right data
+      try{localStorage.setItem('cos-thokk',JSON.stringify(data));}catch(e){}
+    } else {
+      const err=await putRes.json();
+      console.error('GitHub API error:',err);
+      setIndicator('error','✗ Error: '+putRes.status);
+    }
+  } catch(e){
+    console.error('Save failed:',e);
+    setIndicator('error','✗ No connection');
+  }
+
+  btn.disabled=false;
+}
+
+// Track the original port path from JSON so we don't overwrite it with base64
+let _lastJsonPort='';
 
 // INIT
 buildAbils();buildSaves();buildSkills();buildSlots();
@@ -833,67 +1124,32 @@ else{recalc();initDefaults();}
 lockEdit();
 
 function initDefaults(){
-  // Ability scores
-  set('sc-str','18'); set('sc-dex','13'); set('sc-con','15');
-  set('sc-int','10'); set('sc-wis','12'); set('sc-cha','10');
-  // Header
-  set('charName','Thokk Rughar'); set('charClass','Barbarian');
-  set('charLevel','3'); set('charRace','Half-Orc');
-  set('armorClass','13'); set('maxHP','30');
-  set('hitDice','3d12');
-  // Saves
-  document.getElementById('sv-str-p').checked=true;
-  document.getElementById('sv-con-p').checked=true;
-  // Skills
-  document.getElementById('sk-ath-p').checked=true;
-  document.getElementById('sk-int-p').checked=true;
-  document.getElementById('sk-nat-p').checked=true;
-  document.getElementById('sk-per-p').checked=true;
-  // Spell slots (level 1: 2 slots)
-  const st1=document.getElementById('st-1'); if(st1){st1.textContent='2'; rebuildPips(1);}
-  // Personality fields — inject into DOM after build
-  setTimeout(()=>{
-    const pFields=document.querySelectorAll('.feat-desc.editable');
-    // Personality section is in tab1-bottom first sb
-    // We target by data-ph
-    document.querySelectorAll('[data-ph="Personality traits..."]').forEach(el=>{
-      el.textContent='Cuido de mis amigos como si fueran mis cachorros';});
-    document.querySelectorAll('[data-ph="Ideals..."]').forEach(el=>{
-      el.textContent='Honor por encima de todo';});
-    document.querySelectorAll('[data-ph="Bonds..."]').forEach(el=>{
-      el.textContent='El clan es lo más importante';});
-    document.querySelectorAll('[data-ph="Flaws..."]').forEach(el=>{
-      el.textContent='Actúo sin cautela';});
-    document.querySelectorAll('[data-ph="Armor, weapons, tools, languages..."]').forEach(el=>{
-      el.textContent='Común, Orco +1. Armaduras ligeras, medianas, escudos. Armas sencillas y marciales. Acordeón. Tótem de hueso de oso y pelo.';});
-  },50);
-  // Features
-  addFeat('Furia','Barbarian 1','Acción adicional para entrar en furia. +2 daño melé, ventaja en STR checks/saves, resistencia a daño B/P/C. Dura 1 minuto. Termina si no atacas ni recibes daño.');
-  addFeat('Defensa Sin Armadura','Barbarian 1','Sin armadura: CA = 10 + DEX + CON = 13. Puedes usar escudo.');
-  addFeat('Ataques Salvajes','Half-Orc','En críticos con armas melé, lanza un dado de daño extra adicional.');
-  addFeat('Resistencia Implacable','Half-Orc','Cuando caes a 0 PV sin morir de golpe, puedes quedarte a 1 PV. Una vez por descanso largo.');
-  addFeat('Reducir Daño','Totem Warrior — Oso','Reducir el daño recibido en 2 (÷2).');
-  // Attacks
-  addAtk('Hacha de dos manos','main','','1d12+4','Cortante','5ft','Pesada, dos manos. +2 en furia.');
-  addAtk('Ballesta Pesada','off','','1d10','Perforante','100/400ft','Pesada, carga.');
-  // Spells
-  addSpell('Hablar con los Animales','1','Adivinación','1 Acción','Personal',true,false,'Hablas con animales durante 10 minutos. Entiendes lo que dicen. V, S.');
-  addSpell('Sentidos de la Bestia','1','Adivinación','1 Acción','Toque',true,false,'Usas los sentidos de una bestia tocada. Duración: 1 hora. S.');
-  // Inventory
-  addInv('Hacha de dos manos','1','30',true,'Arma principal');
-  addInv('Ballesta Pesada','1','50',true,'Arma a distancia');
-  addInv('Cuerda','1','','false','50 pies');
-  addInv('Saco de dormir','1','','false','');
-  addInv('Acordeón desafinado','1','','false','');
-  addInv('Pincho en una rana verde','1','','false','Objeto misterioso');
-  addInv('Tótem de hueso de oso y pelo','1','','true','Foco de conjuro');
-  // Gold
-  document.querySelectorAll('.coin-gp').forEach(el=>{
-    const amt=el.nextElementSibling; if(amt)amt.textContent='10';});
-  // Relations
-  NPCS.forEach(npc=>addRel(npc.n,npc.r,''));
-  recalc();
-  save();
+  // Load defaults from JSON file — only runs when no localStorage data exists
+  fetch('thokk-sheet.json')
+    .then(r=>{ if(!r.ok) throw new Error('JSON not found'); return r.json(); })
+    .then(d=>{
+      _lastJsonPort = d.port||'';
+      applyData(d);
+      // Apply coins from JSON (not in standard applyData schema)
+      if(d.coins){
+        const coinMap={cp:'.coin-cp',sp:'.coin-sp',gp:'.coin-gp'};
+        Object.entries(coinMap).forEach(([key,cls])=>{
+          const lbl=document.querySelector(cls);
+          if(lbl&&lbl.nextElementSibling) lbl.nextElementSibling.textContent=d.coins[key]||'0';
+        });
+      }
+      // Apply background and alignment to char-info box
+      if(d.bg) document.querySelectorAll('[data-ph="—"]').forEach((el,i)=>{
+        if(el.closest('.char-info-box') && i===3) el.textContent=d.bg;
+      });
+      recalc();
+      save();
+    })
+    .catch(()=>{
+      // Fallback if JSON can't be fetched (e.g. opened as file://)
+      console.warn('thokk-sheet.json not found — sheet will be empty. Open via Live Server or GitHub Pages.');
+      recalc();
+    });
 }
 </script>
 </body>

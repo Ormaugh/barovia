@@ -4,9 +4,12 @@
   "cc": "Barbarian",
   "cl": "3",
   "cr": "Half-Orc",
+  "bg": "Salvaje",
+  "al": "Chaotic Neutral",
   "ac": "13",
   "mhp": "30",
   "hd": "3d12",
+  "speed": "30ft",
   "insp": false,
   "sc": {
     "str": "18",
@@ -46,71 +49,125 @@
   },
   "sa": "wis",
   "slots": {
-    "1": {"t": "2", "u": 0},
-    "2": {"t": "0", "u": 0},
-    "3": {"t": "0", "u": 0},
-    "4": {"t": "0", "u": 0},
-    "5": {"t": "0", "u": 0},
-    "6": {"t": "0", "u": 0},
-    "7": {"t": "0", "u": 0},
-    "8": {"t": "0", "u": 0},
-    "9": {"t": "0", "u": 0}
+    "1": {
+      "t": "2",
+      "u": 0
+    },
+    "2": {
+      "t": "0",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
   },
-  "port": "",
+  "port": "portraits/thokk.png",
+  "personality": {
+    "traits": "Cuido de mis compañeros como si fueran mis cachorros. Actúo antes de pensar. La sonrisa es mi armadura.",
+    "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
+    "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
+    "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
+  },
+  "proficiencies": "Idiomas: Común, Orco. Armaduras: ligeras, medianas, escudos. Armas: sencillas y marciales. Instrumentos: Acordeón. Foco arcano: Tótem de hueso de oso y pelo.",
   "feats": [
     {
       "n": "Furia",
       "s": "Barbarian 1",
-      "d": "Acción adicional para entrar en furia. Durante la furia: +2 al daño con armas de melé, ventaja en tiradas de STR y salvaciones de STR, resistencia al daño cortante/perforante/contundente. Dura 1 minuto. Termina si no atacas ni recibes daño en tu turno.",
+      "d": "Acción adicional para entrar en furia. Durante la furia: +2 al daño con armas de melé, ventaja en tiradas de STR y salvaciones de STR, resistencia al daño cortante/perforante/contundente. Dura 1 minuto. Termina si no atacas ni recibes daño en tu turno. Usos: ilimitados (Lv.1-2), 3/descanso largo (Lv.3-5).",
       "o": false
     },
     {
       "n": "Defensa Sin Armadura",
       "s": "Barbarian 1",
-      "d": "Sin armadura: CA = 10 + modificador de DEX + modificador de CON. (10 + 1 + 2 = 13)",
+      "d": "Sin armadura: CA = 10 + modificador DEX + modificador CON = 10 + 1 + 2 = 13. Puedes seguir usando un escudo.",
       "o": false
     },
     {
-      "n": "Vagabundo",
-      "s": "Background: Salvaje",
-      "d": "Recuerdas mapas y geografía con facilidad. Puedes encontrar comida y bebida para 6 personas si el terreno lo permite.",
+      "n": "Ataque Temerario",
+      "s": "Barbarian 2",
+      "d": "Cuando realizas el primer ataque de melé en tu turno, puedes decidir atacar de forma temeraria. Si lo haces, tienes ventaja en las tiradas de ataque con STR durante ese turno, pero las tiradas de ataque contra ti también tienen ventaja hasta tu siguiente turno.",
       "o": false
     },
     {
-      "n": "Resistencia Implacable",
-      "s": "Half-Orc",
-      "d": "Cuando caes a 0 PV pero no mueres de golpe, puedes quedar a 1 PV en su lugar. Una vez por descanso largo.",
+      "n": "Sentido del Peligro",
+      "s": "Barbarian 2",
+      "d": "Ventaja en tiradas de salvación de DEX contra efectos que puedas ver, como trampas y conjuros. Para beneficiarte de este rasgo no debes estar cegado, ensordecido ni incapacitado.",
+      "o": false
+    },
+    {
+      "n": "Camino del Tótem: Espíritu Tótem (Oso)",
+      "s": "Barbarian 3 — Totem Warrior",
+      "d": "Mientras estás en furia, tienes resistencia a todos los daños excepto psíquico. Los espíritus de la naturaleza ven un guerrero de gran fuerza digno de imitar. Foco tótem: hueso de oso y pelo.",
+      "o": false
+    },
+    {
+      "n": "Conjuros de Tótem",
+      "s": "Barbarian 3 — Totem Warrior",
+      "d": "Puedes lanzar 'Hablar con los Animales' y 'Sentidos de la Bestia' como rituales. Estos conjuros no requieren espacios de conjuro pero sí el tótem como foco.",
       "o": false
     },
     {
       "n": "Ataques Salvajes",
-      "s": "Half-Orc",
-      "d": "En golpes críticos con armas cuerpo a cuerpo, lanza uno de los dados de daño del arma una vez más y añádelo al daño extra del crítico.",
+      "s": "Rasgo Racial — Half-Orc",
+      "d": "Cuando obtienes un golpe crítico con un arma cuerpo a cuerpo, puedes lanzar uno de los dados de daño del arma una vez más y añadir ese resultado al daño extra del golpe crítico.",
       "o": false
     },
     {
-      "n": "Reducir Daño",
-      "s": "Barbarian 3 (Totem Warrior)",
-      "d": "Reducir el daño recibido en 2 (÷2). Tótem de oso y pelo.",
+      "n": "Resistencia Implacable",
+      "s": "Rasgo Racial — Half-Orc",
+      "d": "Cuando eres reducido a 0 puntos de vida pero no mueres de golpe, puedes quedar a 1 punto de vida en su lugar. No puedes volver a usar este rasgo hasta que finalices un descanso largo.",
+      "o": false
+    },
+    {
+      "n": "Vagabundo",
+      "s": "Background — Outlander",
+      "d": "Tienes una excelente memoria para los mapas y la geografía, y siempre puedes recordar el diseño general del terreno, los asentamientos y otras características de tu entorno. Además, puedes encontrar comida y agua dulce para ti y hasta 5 personas más cada día, siempre que el terreno ofrezca bayas, caza menor, agua, etc.",
       "o": false
     }
   ],
   "atks": [
     {
-      "n": "Hacha de dos manos",
+      "n": "Hacha de Dos Manos",
       "h": "main",
       "dmg": "1d12+4",
       "t": "Cortante",
       "r": "5ft",
-      "no": "Pesada, dos manos. En furia: +2 daño adicional"
+      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes).",
+      "st": "str"
     },
     {
       "n": "Ballesta Pesada",
-      "h": "off",
+      "h": "ranged",
       "dmg": "1d10",
       "t": "Perforante",
       "r": "100/400ft",
-      "no": "Pesada, munición, dos manos. Carga."
+      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar.",
+      "st": "dex"
     }
   ],
   "spells": [
@@ -119,8 +176,9 @@
       "l": "1",
       "n": "Hablar con los Animales",
       "sc": "Adivinación",
-      "c": "1 Acción",
+      "c": "1 Acción (Ritual)",
       "r": "Personal",
+      "du": "10 minutos",
       "e": false
     },
     {
@@ -128,32 +186,139 @@
       "l": "1",
       "n": "Sentidos de la Bestia",
       "sc": "Adivinación",
-      "c": "1 Acción",
+      "c": "1 Acción (Ritual)",
       "r": "Toque",
+      "du": "1 hora",
       "e": false
     }
   ],
   "sdescs": {
-    "1": "Puedes hablar con los animales durante 10 minutos. También puedes entender lo que dicen. Componentes: V, S.",
-    "2": "Tocas a una bestia dispuesta. Hasta que termine el conjuro, puedes usar los sentidos de esa criatura en lugar de los tuyos. Duración: 1 hora. Componentes: S."
+    "1": {
+      "desc": "Puedes comprender y comunicarte verbalmente con bestias durante la duración. El conocimiento y la conciencia de muchas bestias es limitado por su inteligencia, pero como mínimo, pueden darte información sobre los lugares cercanos y los monstruos, incluyendo lo que puedan percibir o hayan percibido el día pasado.",
+      "dur": "10 minutos",
+      "comp": "V, S",
+      "target": "—",
+      "classes": "Druida, Explorador",
+      "higher": ""
+    },
+    "2": {
+      "desc": "Tocas a una bestia que acepta el conjuro. Durante la duración, puedes usar los sentidos de esa bestia en lugar de los tuyos propios. Mientras percibes a través de los sentidos de la bestia, ganas los beneficios de cualquier sentido especial que posea la bestia.",
+      "dur": "1 hora",
+      "comp": "S",
+      "target": "Una bestia dispuesta",
+      "classes": "Druida, Explorador",
+      "higher": ""
+    }
+  },
+  "coins": {
+    "cp": 0,
+    "sp": 0,
+    "gp": 10,
+    "ep": 0,
+    "pp": 0
   },
   "inv": [
-    {"n": "Hacha de dos manos", "q": "1", "v": "30", "e": true, "no": "Arma principal"},
-    {"n": "Ballesta Pesada", "q": "1", "v": "50", "e": true, "no": "Arma a distancia"},
-    {"n": "Sacos de dormir (Sleeping Bag)", "q": "1", "v": "", "e": false, "no": ""},
-    {"n": "Cuerda", "q": "1", "v": "", "e": false, "no": "50 pies"},
-    {"n": "Acordeón desafinado", "q": "1", "v": "", "e": false, "no": ""},
-    {"n": "Pincho en una rana verde", "q": "1", "v": "", "e": false, "no": "Objeto misterioso"},
-    {"n": "Tótem de hueso de oso y pelo", "q": "1", "v": "", "e": true, "no": "Foco de conjuro / rasgo de tótem"}
+    {
+      "n": "Hacha de Dos Manos",
+      "q": "1",
+      "v": "30",
+      "e": true,
+      "no": "Arma principal"
+    },
+    {
+      "n": "Ballesta Pesada",
+      "q": "1",
+      "v": "50",
+      "e": true,
+      "no": "Arma a distancia"
+    },
+    {
+      "n": "Tótem de oso y pelo",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Foco arcano — Totem Warrior"
+    },
+    {
+      "n": "Cuerda de cáñamo",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "50 pies"
+    },
+    {
+      "n": "Saco de dormir",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Acordeón desafinado",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Instrumento. Terriblemente desafinado."
+    },
+    {
+      "n": "Pincho en una rana verde",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Objeto misterioso. Origen desconocido."
+    }
   ],
   "rels": [
-    {"n": "Ismark Kolyanovich", "r": "Burgomaster's son — Barovia Village", "no": "", "o": false},
-    {"n": "Ireena Kolyana", "r": "Burgomaster's daughter — Strahd's target", "no": "", "o": false},
-    {"n": "Father Donavich", "r": "Priest of the Morning Lord", "no": "", "o": false},
-    {"n": "Doru", "r": "Donavich's son — vampire spawn, chained", "no": "", "o": false},
-    {"n": "Rose Durst", "r": "Ghost of the Durst house", "no": "", "o": false},
-    {"n": "Thorn Durst", "r": "Ghost of the Durst house", "no": "", "o": false},
-    {"n": "Kaelos", "r": "Satyr Bard — party member", "no": "", "o": false}
+    {
+      "n": "Ismark Kolyanovich",
+      "r": "Hijo del Burgómaestre — Aldea de Barovia",
+      "no": "Nos pidió escolta para Ireena hasta Vallaki. Confiable. Carga con el peso de todo el pueblo.",
+      "o": false
+    },
+    {
+      "n": "Ireena Kolyana",
+      "r": "Hija del Burgómaestre — objetivo de Strahd",
+      "no": "Capaz y directa. No necesita que la rescaten. El objetivo es llevarla a Vallaki sana y salva.",
+      "o": false
+    },
+    {
+      "n": "Padre Donavich",
+      "r": "Sacerdote de la Mañana del Señor",
+      "no": "Roto por lo de su hijo. Nos dio información útil sobre las debilidades de los vampiros.",
+      "o": false
+    },
+    {
+      "n": "Doru",
+      "r": "Hijo de Donavich — engendro vampírico encadenado",
+      "no": "Encadenado en el sótano de la iglesia. Si Strahd muere, Doru se libera de su control.",
+      "o": false
+    },
+    {
+      "n": "Rose Durst",
+      "r": "Fantasma de la Casa Durst",
+      "no": "Niña fantasma. Le prometimos que acabaríamos con el monstruo del sótano. Aún sin descanso.",
+      "o": false
+    },
+    {
+      "n": "Thorn Durst",
+      "r": "Fantasma de la Casa Durst",
+      "no": "Niño fantasma. Entró brevemente en el cuerpo de Sarda por el pánico.",
+      "o": false
+    },
+    {
+      "n": "Kaelos",
+      "r": "Sátiro Bardo — compañero de partido",
+      "no": "Lo rescatamos en las ruinas. Toca la flauta. Tiene mano larga. Me fío de él en combate.",
+      "o": false
+    }
   ],
-  "ds": [false, false, false, false, false, false]
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "player": "Miguel"
 }
