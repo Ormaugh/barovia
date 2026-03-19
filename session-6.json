@@ -13,9 +13,17 @@
       ]
     },
     {
+      "heading": "What Ismark Carried",
+      "paragraphs": [
+        "Before the burial, Ismark told them why Strahd wanted Ireena above anyone else. He said it without preamble and without comfort — the words of a man who had been carrying the weight of them for a long time and had grown tired of the carrying. Ireena bore the soul of Tatyana, Strahd's ancient beloved. The vampire had been losing her for centuries, watching her reincarnate and die, and he had not stopped wanting her back.",
+        "Ireena was not present for the conversation. Whether Ismark had told her directly, or whether she had pieced it together herself, was left unsaid. The group absorbed it in silence. There was nothing useful to say about it yet."
+      ]
+    },
+    {
       "heading": "The Church — Before the Funeral",
       "paragraphs": [
-        "They entered the church of the Morning Lord before the burial service. Something was audible from below — a sound from the basement, something between an animal and a human voice, intermittent and wrong. They asked Father Donavich about it. He looked at them the way a man looks at something he has decided not to see. He said nothing and returned to his preparations."
+        "They entered the church of the Morning Lord before the burial service. Something was audible from below — a sound from the basement, something between an animal and a human voice, intermittent and wrong. They did not accept it. Several of them moved toward the door that led down, wanting to see. Father Donavich stepped in front of it. He did not explain. He did not ask. He simply stood there until they stopped.",
+        "The sounds continued through the preparations. No one mentioned them again."
       ]
     },
     {
@@ -27,10 +35,9 @@
     {
       "heading": "Donavich Speaks",
       "paragraphs": [
-        "After the earth covered Kolyan Indirovich, the father finally talked. His son Doru had followed the monster hunter Rudolph van Richten to Castle Ravenloft, believing they could end Strahd. Doru came back changed — a vampire spawn, barely recognisable, chained in the church basement where his father had been keeping him for months, praying for a miracle that had not come.",
+        "After the earth covered Kolyan Indirovich, the father finally talked. His son Doru had gone to Castle Ravenloft with a monster hunter, believing they could end Strahd. Doru came back changed — a vampire spawn, barely recognisable, chained in the church basement where his father had been keeping him for months, praying for a miracle that had not come. The monster hunter's name meant nothing to the group. What mattered was the result.",
         "Donavich gave the group something useful alongside the grief: a clear account of vampire weaknesses, the tools that could hurt them, the conditions that could kill them. And one more thing — if Strahd were destroyed, Doru would be freed from his control. The spawn do not outlast their master.",
-        "The group looked at each other. Killing Strahd was already the implicit objective. Now it had a secondary reward attached to it.",
-        "They left Doru chained in the basement. There was nothing else to do."
+        "Sarda wanted to go down. She said so clearly — the son was still in there somewhere, and leaving him in the dark felt like abandonment dressed up as practicality. The others were less certain. The debate was real, not comfortable. In the end, the door stayed shut. Doru remained a sound from below, nothing more. There was no version of opening that door that ended well tonight."
       ]
     },
     {
@@ -40,9 +47,9 @@
       ]
     },
     {
-      "heading": "The Village Shop",
+      "heading": "Bildrath's Mercantile",
       "paragraphs": [
-        "Before returning to Ismark's, the group visited the village's only shop. The proprietor was a study in cheerful dishonesty — always smiling, aggressively optimistic about the quality of goods that did not merit optimism, and pricing things with the confidence of a man who knows he is the only option for fifty miles. They bought what they needed, paid too much, and left with the faint sense of having been robbed by someone who genuinely enjoyed it.",
+        "Before returning to Ismark's, the group passed through the village's only shop. Bildrath Cantemir received them with the specific warmth of a man who has no competition and knows it — cooperative in manner, useless in substance. His nephew Parriwimple stood nearby, large and quiet in the way that serves as a statement. The shop's inventory matched its owner: an oil lamp and a frayed cloak were among the offerings. The group left without buying anything.",
         "Back at the mansion, Ireena had a bag ready. Kolyan was in the ground. Vallaki was on the map. The route existed. Strahd knew where they were.",
         "The road would not be quiet."
       ]
@@ -51,22 +58,26 @@
   "sidebar": {
     "acquired": [],
     "known": [
-      "Doru followed Van Richten to Ravenloft and returned as a vampire spawn",
+      "Ireena carries the soul of Tatyana, Strahd's ancient beloved — this is why he wants her",
+      "Doru followed a monster hunter to Ravenloft and returned as a vampire spawn",
       "If Strahd dies, Doru is freed from his control",
       "Vampire weaknesses: sunlight, running water, holy symbols, stakes",
       "Ireena is ready and willing to leave for Vallaki",
-      "The village shop owner will rob you with a smile"
+      "Bildrath runs the only shop in the village — Parriwimple is his nephew and enforcer"
     ],
     "unanswered": [
-      "Why is Strahd fixated on Ireena above all others?",
-      "Where is Rudolph van Richten now?",
+      "Who was the monster hunter who led Doru to Ravenloft — and where are they now?",
+      "Does Ireena know what she carries? Has she accepted it?",
       "What awaits on the road to Vallaki?"
     ],
     "people": [
-      "Ireena Kolyana — composed, capable, Strahd's target",
-      "Father Donavich — broken but informative",
-      "Doru — chained in the church basement, left there"
+      "Ireena Kolyana — composed, capable, bearer of Tatyana's soul",
+      "Ismark — Ireena's brother, exhausted and ashamed of what he had to say",
+      "Father Donavich — broken but informative, guardian of a door he will not open",
+      "Doru — chained in the church basement, heard but never seen",
+      "Bildrath Cantemir — village shopkeeper, cooperative and useless",
+      "Parriwimple — Bildrath's nephew, large, quiet, present"
     ],
-    "milestone": ""
+    "milestone": "Kolyan Indirovich is buried. The group has committed to escorting Ireena to Vallaki."
   }
 }
