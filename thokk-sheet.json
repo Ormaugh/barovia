@@ -93,60 +93,67 @@
     "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
     "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
   },
-  "proficiencies": "Idiomas: Común, Orco. Armaduras: ligeras, medianas, escudos. Armas: sencillas y marciales. Instrumentos: Acordeón. Foco arcano: Tótem de hueso de oso y pelo.",
+  "proficiencies": {
+    "languages": "Común, Orco",
+    "armor": "Armaduras ligeras, medianas, escudos",
+    "weapons": "Armas sencillas y marciales",
+    "instruments": "Acordeón",
+    "tools": "—",
+    "other": "Tótem de hueso de oso y pelo (foco arcano)"
+  },
   "feats": [
     {
       "n": "Furia",
       "s": "Barbarian 1",
-      "d": "Acción adicional para entrar en furia. Durante la furia: +2 al daño con armas de melé, ventaja en tiradas de STR y salvaciones de STR, resistencia al daño cortante/perforante/contundente. Dura 1 minuto. Termina si no atacas ni recibes daño en tu turno. Usos: ilimitados (Lv.1-2), 3/descanso largo (Lv.3-5).",
+      "d": "En tu turno, puedes entrar en furia como acción adicional.\nMientras estás en furia, obtienes los siguientes beneficios si no llevas armadura pesada:\n• Tienes ventaja en las tiradas de Fuerza y en las salvaciones de Fuerza.\n• Cuando realizas un ataque con arma cuerpo a cuerpo usando Fuerza, obtienes un bonificador de +2 a la tirada de daño.\n• Tienes resistencia al daño contundente, perforante y cortante.\n\nSi eres capaz de lanzar conjuros, no puedes lanzarlos ni concentrarte en ellos mientras estás en furia.\nTu furia dura 1 minuto. Termina antes de tiempo si quedas inconsciente o si tu turno finaliza y no has atacado a ninguna criatura hostil desde tu último turno ni has recibido daño desde entonces. También puedes terminar tu furia en tu turno como acción adicional.\nUna vez has entrado en furia el número máximo de veces para tu nivel de bárbaro, debes finalizar un descanso largo antes de poder entrar en furia de nuevo. (Nivel 3: 3 furias por descanso largo, +2 daño.)",
       "o": false
     },
     {
       "n": "Defensa Sin Armadura",
       "s": "Barbarian 1",
-      "d": "Sin armadura: CA = 10 + modificador DEX + modificador CON = 10 + 1 + 2 = 13. Puedes seguir usando un escudo.",
+      "d": "Cuando no llevas armadura, tu Clase de Armadura es igual a 10 + tu modificador de Destreza + tu modificador de Constitución. Puedes usar un escudo y seguir beneficiándote de este rasgo.\n(CA actual: 10 + 1 DEX + 2 CON = 13)",
       "o": false
     },
     {
       "n": "Ataque Temerario",
       "s": "Barbarian 2",
-      "d": "Cuando realizas el primer ataque de melé en tu turno, puedes decidir atacar de forma temeraria. Si lo haces, tienes ventaja en las tiradas de ataque con STR durante ese turno, pero las tiradas de ataque contra ti también tienen ventaja hasta tu siguiente turno.",
+      "d": "A partir del nivel 2, puedes desechar toda precaución defensiva para atacar con feroz desesperación. Cuando realizas tu primer ataque en tu turno, puedes decidir atacar de forma temeraria. Si lo haces, tienes ventaja en las tiradas de ataque con armas cuerpo a cuerpo que usen Fuerza durante ese turno, pero las tiradas de ataque contra ti tienen ventaja hasta tu siguiente turno.",
       "o": false
     },
     {
       "n": "Sentido del Peligro",
       "s": "Barbarian 2",
-      "d": "Ventaja en tiradas de salvación de DEX contra efectos que puedas ver, como trampas y conjuros. Para beneficiarte de este rasgo no debes estar cegado, ensordecido ni incapacitado.",
+      "d": "En el nivel 2, adquieres un extraordinario sentido de cuándo las cosas cercanas no son lo que deberían ser, lo que te da una ventaja cuando esquivas el peligro.\nTienes ventaja en las salvaciones de Destreza contra efectos que puedas ver, como trampas y conjuros. Para obtener este beneficio, no puedes estar cegado, ensordecido ni incapacitado.",
       "o": false
     },
     {
-      "n": "Camino del Tótem: Espíritu Tótem (Oso)",
-      "s": "Barbarian 3 — Totem Warrior",
-      "d": "Mientras estás en furia, tienes resistencia a todos los daños excepto psíquico. Los espíritus de la naturaleza ven un guerrero de gran fuerza digno de imitar. Foco tótem: hueso de oso y pelo.",
+      "n": "Rastreador de Espíritus (Spirit Seeker)",
+      "s": "Barbarian 3 — Path of the Totem Warrior",
+      "d": "Tuyo es un camino que busca la comunión con el mundo natural, dándote afinidad con las bestias.\nEn el nivel 3, cuando adoptas este camino, obtienes la capacidad de lanzar los conjuros Sentidos de la Bestia (Beast Sense) y Hablar con los Animales (Speak with Animals), pero solo como rituales.",
       "o": false
     },
     {
-      "n": "Conjuros de Tótem",
-      "s": "Barbarian 3 — Totem Warrior",
-      "d": "Puedes lanzar 'Hablar con los Animales' y 'Sentidos de la Bestia' como rituales. Estos conjuros no requieren espacios de conjuro pero sí el tótem como foco.",
+      "n": "Espíritu Tótem: Oso (Totem Spirit — Bear)",
+      "s": "Barbarian 3 — Path of the Totem Warrior",
+      "d": "En el nivel 3, cuando adoptas este camino, eliges un espíritu tótem y obtienes su rasgo. Debes confeccionar o adquirir un objeto tótem físico — un amuleto o adorno similar — que incorpore piel, plumas, garras, dientes o huesos del animal tótem.\n\nEspíritu Tótem Oso: Mientras estás en furia, tienes resistencia a todos los daños excepto el psíquico. Los espíritus de la naturaleza ven a un guerrero de gran fortaleza digno de imitar.",
       "o": false
     },
     {
       "n": "Ataques Salvajes",
-      "s": "Rasgo Racial — Half-Orc",
+      "s": "Half-Orc racial trait",
       "d": "Cuando obtienes un golpe crítico con un arma cuerpo a cuerpo, puedes lanzar uno de los dados de daño del arma una vez más y añadir ese resultado al daño extra del golpe crítico.",
       "o": false
     },
     {
       "n": "Resistencia Implacable",
-      "s": "Rasgo Racial — Half-Orc",
-      "d": "Cuando eres reducido a 0 puntos de vida pero no mueres de golpe, puedes quedar a 1 punto de vida en su lugar. No puedes volver a usar este rasgo hasta que finalices un descanso largo.",
+      "s": "Half-Orc racial trait",
+      "d": "Cuando eres reducido a 0 puntos de golpe pero no mueres de golpe, puedes quedar a 1 punto de golpe en su lugar. No puedes volver a usar este rasgo hasta que finalices un descanso largo.",
       "o": false
     },
     {
       "n": "Vagabundo",
-      "s": "Background — Outlander",
-      "d": "Tienes una excelente memoria para los mapas y la geografía, y siempre puedes recordar el diseño general del terreno, los asentamientos y otras características de tu entorno. Además, puedes encontrar comida y agua dulce para ti y hasta 5 personas más cada día, siempre que el terreno ofrezca bayas, caza menor, agua, etc.",
+      "s": "Background — Outlander / Salvaje",
+      "d": "Tienes una excelente memoria para los mapas y la geografía, y siempre puedes recordar el diseño general del terreno, los asentamientos y otras características de tu entorno.\nAdemás, puedes encontrar comida y agua dulce para ti y hasta cinco personas más cada día, siempre que el terreno ofrezca bayas, caza menor, agua, etc.",
       "o": false
     }
   ],
@@ -194,19 +201,19 @@
   ],
   "sdescs": {
     "1": {
-      "desc": "Puedes comprender y comunicarte verbalmente con bestias durante la duración. El conocimiento y la conciencia de muchas bestias es limitado por su inteligencia, pero como mínimo, pueden darte información sobre los lugares cercanos y los monstruos, incluyendo lo que puedan percibir o hayan percibido el día pasado.",
+      "desc": "Obtienes la capacidad de comprender y comunicarte verbalmente con bestias durante la duración. El conocimiento y la conciencia de muchas bestias está limitado por su inteligencia, pero como mínimo, las bestias pueden darte información sobre los lugares cercanos y los monstruos, incluyendo lo que puedan percibir o hayan percibido durante el último día. Podrías convencer a una bestia de que realice un pequeño favor, a discreción del DM.",
       "dur": "10 minutos",
       "comp": "V, S",
-      "target": "—",
-      "classes": "Druida, Explorador",
+      "target": "Self",
+      "classes": "Bardo, Druida, Explorador (Ritual) / Bárbaro Tótem (solo ritual)",
       "higher": ""
     },
     "2": {
-      "desc": "Tocas a una bestia que acepta el conjuro. Durante la duración, puedes usar los sentidos de esa bestia en lugar de los tuyos propios. Mientras percibes a través de los sentidos de la bestia, ganas los beneficios de cualquier sentido especial que posea la bestia.",
-      "dur": "1 hora",
+      "desc": "Tocas a una bestia dispuesta. Durante la duración, puedes usar los sentidos de esa bestia en lugar de los tuyos propios. Mientras percibes a través de los sentidos de la bestia, obtienes los beneficios de los sentidos especiales que posea esa bestia, aunque estás cegado y ensordecido a tus propios alrededores.\nComo acción, puedes cambiar entre usar los sentidos de la bestia y los tuyos propios, o viceversa.",
+      "dur": "1 hora (Concentración)",
       "comp": "S",
-      "target": "Una bestia dispuesta",
-      "classes": "Druida, Explorador",
+      "target": "Una bestia dispuesta (Toque)",
+      "classes": "Druida, Explorador (Ritual) / Bárbaro Tótem (solo ritual)",
       "higher": ""
     }
   },

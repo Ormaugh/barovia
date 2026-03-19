@@ -368,14 +368,34 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 
 /* MOBILE */
 @media(max-width:900px){
-  .tab1-layout{grid-template-columns:1fr;}
+  .tab1-layout{display:flex;flex-direction:column;}
   .tab1-bottom{grid-template-columns:1fr;}
   .spell-meta-grid{grid-template-columns:1fr 1fr;}
   .slot-grid{grid-template-columns:repeat(5,1fr);}
   .tab-btn{font-size:0.72rem;padding:0.75rem 0;}
-  /* char-info box floats to top on mobile */
-  .char-info-box{order:-1;}
+  /* col2 and col3 become display:contents so their children participate in flex directly */
+  .tab1-col:nth-child(2){display:contents;}
   .tab1-col:nth-child(3){display:contents;}
+  /* Explicit mobile order:
+     1. char-info (col3 first child)
+     2. Combat (col2 first child .sb-combat)
+     3. Inspiration
+     4. Senses
+     5. Features & Traits (col3 second child)
+     6. Portrait
+     7. col1: Abilities / Skills / Saves / Personality
+     8. Proficiencies
+     9. Relations (full-width, after everything)
+  */
+  .char-info-box { order: 1; }
+  .sb-combat     { order: 2; }
+  .sb-insp       { order: 3; }
+  .sb-senses     { order: 4; }
+  .sb-features   { order: 5; }
+  .portrait-sb   { order: 6; }
+  .tab1-col:nth-child(1) { order: 7; display:flex; flex-direction:column; }
+  .sb-profs      { order: 8; }
+  .sb-relations  { order: 9; }
 }
 @media(max-width:580px){
   html{font-size:15px;}
@@ -501,7 +521,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 <div class="sheet-body">
   <div class="tab1-layout">
 
-    <!-- COL 1: Abilities → Skills → Saves -->
+    <!-- COL 1: Abilities → Skills → Saves → Personality -->
     <div class="tab1-col">
       <div class="sb">
         <div class="stitle">Ability Scores</div>
@@ -515,11 +535,20 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
         <div class="stitle">Saving Throws</div>
         <div id="savesList"></div>
       </div>
+      <div class="sb">
+        <div class="stitle">Personality</div>
+        <div style="display:flex;flex-direction:column;gap:0.55rem;">
+          <div><div class="mlb">Traits</div><div class="feat-desc editable" data-ph="Personality traits..."></div></div>
+          <div><div class="mlb">Ideals</div><div class="feat-desc editable" data-ph="Ideals..."></div></div>
+          <div><div class="mlb">Bonds</div><div class="feat-desc editable" data-ph="Bonds..."></div></div>
+          <div><div class="mlb">Flaws</div><div class="feat-desc editable" data-ph="Flaws..."></div></div>
+        </div>
+      </div>
     </div>
 
-    <!-- COL 2: Combat → Portrait → Inspiration → Senses -->
+    <!-- COL 2: Combat → Inspiration → Senses → Proficiencies → Portrait -->
     <div class="tab1-col">
-      <div class="sb">
+      <div class="sb sb-combat">
         <div class="stitle">Combat</div>
         <div class="combat-grid">
           <div class="cs"><span class="cs-lbl">Armor Class</span><span class="cs-val editable" data-ph="10" id="armorClass">10</span></div>
@@ -555,26 +584,38 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
         </div>
       </div>
 
-      <div class="sb" style="padding:0.45rem;">
-        <div class="portrait-wrap" id="portraitWrap" onclick="document.getElementById('portInput').click()">
-          <div class="portrait-placeholder" id="portPlaceholder"><span class="portrait-icon">⚔</span><span>Click to add portrait</span></div>
-          <img id="portImg" src="" alt="" style="display:none;">
-        </div>
-        <input type="file" id="portInput" accept="image/*" style="display:none" onchange="loadPortrait(event)">
-      </div>
-
-      <div class="sb">
+      <div class="sb sb-insp">
         <div class="stitle">Inspiration</div>
         <button class="insp-btn" id="inspBtn" onclick="toggleInsp()">
           <span class="insp-rune">✦</span><span id="inspLbl">No Inspiration</span>
         </button>
       </div>
 
-      <div class="sb">
+      <div class="sb sb-senses">
         <div class="stitle">Senses</div>
         <div style="margin-bottom:0.3rem;"><span class="mlb">Passive Perception</span> <span class="passive-val" id="pp2">10</span></div>
-        <div><span class="mlb">Darkvision</span> <span class="editable" data-ph="—" style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);">—</span></div>
-        <div style="margin-top:0.3rem;"><span class="mlb">Other Senses</span> <span class="editable" data-ph="—" style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);">—</span></div>
+        <div><span class="mlb">Darkvision</span> <span class="editable" data-ph="—" id="sensesDarkvision" style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);">—</span></div>
+        <div style="margin-top:0.3rem;"><span class="mlb">Other Senses</span> <span class="editable" data-ph="—" id="sensesOther" style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);">—</span></div>
+      </div>
+
+      <div class="sb sb-profs">
+        <div class="stitle">Proficiencies & Languages</div>
+        <div style="display:flex;flex-direction:column;gap:0.45rem;">
+          <div><div class="mlb">Languages</div><div class="feat-desc editable" data-ph="Languages..." id="profLanguages"></div></div>
+          <div><div class="mlb">Armor</div><div class="feat-desc editable" data-ph="Armor..." id="profArmor"></div></div>
+          <div><div class="mlb">Weapons</div><div class="feat-desc editable" data-ph="Weapons..." id="profWeapons"></div></div>
+          <div><div class="mlb">Instruments</div><div class="feat-desc editable" data-ph="Instruments..." id="profInstruments"></div></div>
+          <div><div class="mlb">Tools</div><div class="feat-desc editable" data-ph="Tools..." id="profTools"></div></div>
+          <div><div class="mlb">Other</div><div class="feat-desc editable" data-ph="Other..." id="profOther"></div></div>
+        </div>
+      </div>
+
+      <div class="sb portrait-sb" style="padding:0.45rem;">
+        <div class="portrait-wrap" id="portraitWrap" onclick="document.getElementById('portInput').click()">
+          <div class="portrait-placeholder" id="portPlaceholder"><span class="portrait-icon">⚔</span><span>Click to add portrait</span></div>
+          <img id="portImg" src="" alt="" style="display:none;">
+        </div>
+        <input type="file" id="portInput" accept="image/*" style="display:none" onchange="loadPortrait(event)">
       </div>
     </div>
 
@@ -593,7 +634,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
           <div class="mfw"><span class="mlb">XP</span><span class="mfv editable always-edit" data-ph="0" contenteditable="true">0</span></div>
         </div>
       </div>
-      <div class="sb" style="flex:1;">
+      <div class="sb sb-features" style="flex:1;">
         <div class="stitle">Features & Traits</div>
         <div id="featList"></div>
         <button class="add-btn" id="addFeatBtn" onclick="addFeat()">+ Add Feature</button>
@@ -601,27 +642,13 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
     </div>
   </div>
 
-  <!-- BOTTOM ROW -->
-  <div class="tab1-bottom">
-    <div class="sb">
-      <div class="stitle">Personality</div>
-      <div style="display:flex;flex-direction:column;gap:0.55rem;">
-        <div><div class="mlb">Traits</div><div class="feat-desc editable" data-ph="Personality traits..."></div></div>
-        <div><div class="mlb">Ideals</div><div class="feat-desc editable" data-ph="Ideals..."></div></div>
-        <div><div class="mlb">Bonds</div><div class="feat-desc editable" data-ph="Bonds..."></div></div>
-        <div><div class="mlb">Flaws</div><div class="feat-desc editable" data-ph="Flaws..."></div></div>
-      </div>
-    </div>
-    <div class="sb">
-      <div class="stitle">Proficiencies & Languages</div>
-      <div class="feat-desc editable" data-ph="Armor, weapons, tools, languages..." style="min-height:75px;"></div>
-    </div>
-    <div class="sb">
-      <div class="stitle">Relations</div>
-      <div id="relList"></div>
-      <button class="add-btn" id="addRelBtn" onclick="addRel()">+ Add Relation</button>
-    </div>
+  <!-- RELATIONS — full width below the 3-col grid -->
+  <div class="sb sb-relations" style="margin-top:0.9rem;">
+    <div class="stitle">Relations</div>
+    <div id="relList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.45rem;"></div>
+    <button class="add-btn" id="addRelBtn" onclick="addRel()" style="margin-top:0.3rem;">+ Add Relation</button>
   </div>
+
 </div>
 </div>
 
@@ -976,9 +1003,17 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSp
 // SAVE / LOAD
 function gather(){
   const pEl=k=>document.querySelector(`[data-ph="${k}"]`)?.textContent||'';
+  const gId=k=>document.getElementById(k)?.textContent||'';
   const d={v:3,cn:g('charName'),cc:g('charClass'),cl:g('charLevel'),cr:g('charRace'),ac:g('armorClass'),mhp:g('maxHP'),hd:g('hitDice'),insp:document.getElementById('inspBtn').classList.contains('lit'),sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,slots:{},port:document.getElementById('portImg').src,feats:[],atks:[],spells:[],sdescs:spellDescs,inv:[],rels:[],ds:[],
     personality:{traits:pEl('Personality traits...'),ideals:pEl('Ideals...'),bonds:pEl('Bonds...'),flaws:pEl('Flaws...')},
-    proficiencies:pEl('Armor, weapons, tools, languages...')
+    proficiencies:{
+      languages:gId('profLanguages'),
+      armor:gId('profArmor'),
+      weapons:gId('profWeapons'),
+      instruments:gId('profInstruments'),
+      tools:gId('profTools'),
+      other:gId('profOther')
+    }
   };
   ABILITIES.forEach(a=>d.sc[a]=g('sc-'+a));
   SAVES.forEach(s=>{const e=document.getElementById(s.id+'-p');d.sp[s.id]=e?e.checked:false;});
@@ -1009,7 +1044,21 @@ function applyData(d){
     setph('Bonds...',d.personality.bonds);
     setph('Flaws...',d.personality.flaws);
   }
-  if(d.proficiencies) setph('Armor, weapons, tools, languages...',d.proficiencies);
+  if(d.proficiencies){
+    if(typeof d.proficiencies === 'string'){
+      // legacy: single string → put in Other
+      const el=document.getElementById('profOther'); if(el) el.textContent=d.proficiencies;
+    } else {
+      const p=d.proficiencies;
+      const sId=(id,v)=>{if(!v)return;const el=document.getElementById(id);if(el)el.textContent=v;};
+      sId('profLanguages',p.languages);
+      sId('profArmor',p.armor);
+      sId('profWeapons',p.weapons);
+      sId('profInstruments',p.instruments);
+      sId('profTools',p.tools);
+      sId('profOther',p.other);
+    }
+  }
   if(d.sa){document.getElementById('spellAbility').value=d.sa;}
   if(d.slots)for(let i=1;i<=9;i++){const s=d.slots[i];if(!s)continue;const t=document.getElementById('st-'+i);if(t){t.textContent=s.t||'0';rebuildPips(i);}const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);for(let j=0;j<(s.u||0);j++){if(ps[j])ps[j].classList.add('used');}}
   if(d.port&&d.port.trim()){const img=document.getElementById('portImg');img.src=d.port;img.style.display='block';document.getElementById('portPlaceholder').style.display='none';}
