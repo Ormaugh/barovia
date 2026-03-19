@@ -89,55 +89,55 @@
       "n": "Furia",
       "s": "Barbarian 1",
       "d": "Acción adicional para entrar en furia. Durante la furia: +2 al daño con armas de melé, ventaja en tiradas de STR y salvaciones de STR, resistencia al daño cortante/perforante/contundente. Dura 1 minuto. Termina si no atacas ni recibes daño en tu turno. Usos: ilimitados (Lv.1-2), 3/descanso largo (Lv.3-5).",
-      "o": false
+      "o": true
     },
     {
       "n": "Defensa Sin Armadura",
       "s": "Barbarian 1",
       "d": "Sin armadura: CA = 10 + modificador DEX + modificador CON = 10 + 1 + 2 = 13. Puedes seguir usando un escudo.",
-      "o": false
+      "o": true
     },
     {
       "n": "Ataque Temerario",
       "s": "Barbarian 2",
       "d": "Cuando realizas el primer ataque de melé en tu turno, puedes decidir atacar de forma temeraria. Si lo haces, tienes ventaja en las tiradas de ataque con STR durante ese turno, pero las tiradas de ataque contra ti también tienen ventaja hasta tu siguiente turno.",
-      "o": false
+      "o": true
     },
     {
       "n": "Sentido del Peligro",
       "s": "Barbarian 2",
       "d": "Ventaja en tiradas de salvación de DEX contra efectos que puedas ver, como trampas y conjuros. Para beneficiarte de este rasgo no debes estar cegado, ensordecido ni incapacitado.",
-      "o": false
+      "o": true
     },
     {
       "n": "Camino del Tótem: Espíritu Tótem (Oso)",
       "s": "Barbarian 3 — Totem Warrior",
       "d": "Mientras estás en furia, tienes resistencia a todos los daños excepto psíquico. Los espíritus de la naturaleza ven un guerrero de gran fuerza digno de imitar. Foco tótem: hueso de oso y pelo.",
-      "o": false
+      "o": true
     },
     {
       "n": "Conjuros de Tótem",
       "s": "Barbarian 3 — Totem Warrior",
       "d": "Puedes lanzar 'Hablar con los Animales' y 'Sentidos de la Bestia' como rituales. Estos conjuros no requieren espacios de conjuro pero sí el tótem como foco.",
-      "o": false
+      "o": true
     },
     {
       "n": "Ataques Salvajes",
       "s": "Rasgo Racial — Half-Orc",
       "d": "Cuando obtienes un golpe crítico con un arma cuerpo a cuerpo, puedes lanzar uno de los dados de daño del arma una vez más y añadir ese resultado al daño extra del golpe crítico.",
-      "o": false
+      "o": true
     },
     {
       "n": "Resistencia Implacable",
       "s": "Rasgo Racial — Half-Orc",
       "d": "Cuando eres reducido a 0 puntos de vida pero no mueres de golpe, puedes quedar a 1 punto de vida en su lugar. No puedes volver a usar este rasgo hasta que finalices un descanso largo.",
-      "o": false
+      "o": true
     },
     {
       "n": "Vagabundo",
       "s": "Background — Outlander",
       "d": "Tienes una excelente memoria para los mapas y la geografía, y siempre puedes recordar el diseño general del terreno, los asentamientos y otras características de tu entorno. Además, puedes encontrar comida y agua dulce para ti y hasta 5 personas más cada día, siempre que el terreno ofrezca bayas, caza menor, agua, etc.",
-      "o": false
+      "o": true
     }
   ],
   "atks": [
@@ -259,5 +259,5 @@
     "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
     "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
   },
-  "proficiencies": "Idiomas: Común, OrcoArmaduras: ligeras, medianas, escudosArmas: sencillas y marciales. Instrumentos: AcordeónFoco arcano: Tótem de hueso de oso y pelo."
+  "proficiencies": "Idiomas: Común, OrcoArmaduras: ligeras, medianas, escudosArmas: sencillas y marciales. Instrumentos: AcordeónFoco arcano: Tótem de hueso de oso y pelo.Test111"
 }
