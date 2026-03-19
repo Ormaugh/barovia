@@ -106,7 +106,7 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .cs{text-align:center;padding:0.42rem 0.15rem;background:var(--bg-parchment);border:1px solid var(--border-gold);min-width:0;}
 .cs-lbl{font-family:var(--font-heading);font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-faint);display:block;margin-bottom:0.12rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .cs-val{font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--ink-gold);display:block;}
-.hp-block{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.55rem 0.75rem;}
+.hp-block{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.45rem 0.52rem;}
 .hp-row{display:flex;gap:0.38rem;align-items:center;margin-bottom:0.3rem;}
 .hp-lbl{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-faint);min-width:76px;}
 .hp-val{font-family:var(--font-heading);font-size:1.08rem;font-weight:700;color:var(--text-bright);min-width:36px;border-bottom:1px solid var(--border-gold);padding-bottom:1px;}
@@ -144,20 +144,20 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .feat-body{display:none;padding:0.6rem;background:var(--bg-card);border-top:1px solid var(--border-gold);}
 .feat-item.open .feat-body{display:block;}
 .feat-desc{font-family:var(--font-body);font-size:0.95rem;color:var(--text-dim);line-height:1.75;min-height:32px;}
-.add-btn{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-gold-dim);background:none;border:1px dashed rgba(200,169,110,0.2);padding:0.38rem 0.7rem;cursor:pointer;width:100%;transition:all 0.18s;margin-top:0.3rem;}
+.add-btn{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-gold-dim);background:none;border:1px dashed rgba(200,169,110,0.2);padding:0.38rem 0.7rem;cursor:pointer;width:100%;transition:all 0.18s;margin-top:0.42rem;}
 .add-btn:hover{border-color:var(--border-gold);color:var(--ink-gold);background:rgba(200,169,110,0.025);}
 .del-btn{background:none;border:none;color:rgba(139,26,26,0.3);cursor:pointer;font-size:0.9rem;transition:color 0.18s;padding:0 0.18rem;}
 .del-btn:hover{color:var(--ink-red-bright);}
 
 /* RELATIONS — see also MOBILE section for full styles */
-.rel-item{border:1px solid var(--border-gold);margin-bottom:0.35rem;overflow:hidden;}
+.rel-item{border:1px solid var(--border-gold);margin-bottom:0.45rem;overflow:hidden;}
 .rel-item.open .rel-body{display:block;}
 .rel-notes{font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);line-height:1.65;min-height:24px;}
 
 /* ATTACKS */
 .atk-table{width:100%;border-collapse:collapse;}
-.atk-table th{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);padding:0.32rem 0.52rem;border-bottom:1px solid var(--border-gold);text-align:left;}
-.atk-table td{padding:0.38rem 0.52rem;border-bottom:1px solid rgba(200,169,110,0.07);vertical-align:middle;}
+.atk-table th{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.42rem;border-bottom:1px solid var(--border-gold);text-align:left;}
+.atk-table td{padding:0.3rem 0.42rem;border-bottom:1px solid rgba(200,169,110,0.07);vertical-align:middle;}
 .atk-table tbody tr{transition:background 0.12s,box-shadow 0.12s;}
 body:not(.edit-mode) .atk-table tbody tr{cursor:pointer;}
 body:not(.edit-mode) .atk-table tbody tr:hover td{background:rgba(200,169,110,0.055);}
@@ -179,12 +179,12 @@ body:not(.edit-mode) .roll-btn{display:none;}/* row click handles it */
 
 /* Spell level section */
 .spell-level-sec{margin-bottom:0.75rem;}
-.spell-level-hdr{display:flex;align-items:center;gap:0.55rem;padding:0.38rem 0.42rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;}
+.spell-level-hdr{display:flex;align-items:center;gap:0.42rem;padding:0.42rem 0.6rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;}
 .spell-level-hdr:hover{background:rgba(200,169,110,0.06);}
 .spell-level-tog{font-size:0.62rem;color:var(--ink-gold-dim);transition:transform 0.18s;flex-shrink:0;}
 .spell-level-sec.open .spell-level-tog{transform:rotate(90deg);}
 .spell-level-title{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-gold);flex-shrink:0;}
-.spell-level-pips{display:flex;gap:4px;align-items:center;flex-wrap:wrap;}
+.spell-level-pips{display:flex;gap:0.25rem;align-items:center;flex-wrap:wrap;}
 /* Slot pips styled like inspiration button — larger, animated */
 .slot-pip{
   width:18px;height:18px;border-radius:50%;
@@ -244,7 +244,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .sc-overlay{position:fixed;inset:0;z-index:900;background:rgba(4,3,2,0.82);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity 0.22s;backdrop-filter:blur(3px);}
 .sc-overlay.active{opacity:1;pointer-events:auto;}
 .sc-card{width:100%;max-width:480px;max-height:88vh;overflow-y:auto;background:#f5ead0;border:2px solid #8b6914;border-top:4px solid #7a1a1a;box-shadow:0 0 0 1px #c8a050,0 20px 60px rgba(0,0,0,0.85);animation:popIn 0.26s cubic-bezier(0.34,1.4,0.64,1) forwards;position:relative;}
-.sc-card-inner{padding:1.4rem 1.5rem 1.6rem;}
+.sc-card-inner{padding:1.5rem;}
 .sc-close{position:absolute;top:0.6rem;right:0.7rem;background:none;border:none;font-size:1rem;color:#5a3a10;cursor:pointer;opacity:0.55;transition:opacity 0.15s;line-height:1;padding:0.1rem 0.3rem;}
 .sc-close:hover{opacity:1;}
 .sc-name{font-family:'Cinzel Decorative',serif;font-size:1.55rem;color:#5a1010;line-height:1.15;margin-bottom:0.2rem;}
@@ -386,13 +386,15 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 
 /* Relations — single line per NPC, no columns */
 .rel-item{margin-bottom:0.3rem;}
-.rel-hdr{display:flex;align-items:center;gap:0.5rem;padding:0.32rem 0.55rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;min-width:0;}
+.rel-hdr{display:flex;align-items:center;gap:0.42rem;padding:0.42rem 0.6rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;min-width:0;}
 .rel-hdr:hover{background:rgba(200,169,110,0.06);}
 .rel-name{font-family:var(--font-heading);font-size:0.82rem;font-weight:700;color:var(--text-body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;max-width:35%;}
 .rel-role{font-family:var(--font-body);font-size:0.78rem;color:var(--text-faint);font-style:italic;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
-.rel-body{display:none;padding:0.5rem 0.55rem;border:1px solid var(--border-gold);border-top:none;background:var(--bg-card);}
+.rel-body{display:none;padding:0.6rem;background:var(--bg-card);border-top:1px solid var(--border-gold);}
 .rel-item.open .rel-body{display:block;}
 .rel-notes{font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);line-height:1.6;}
+
+.sb-relations{margin-top:0.9rem !important;}
 
 /* MISC */
 .passive-val{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--ink-gold);}
@@ -588,13 +590,13 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
         <div class="stitle">Combat</div>
         <div class="combat-grid">
           <div class="cs"><span class="cs-lbl">Armor Class</span><span class="cs-val editable" data-ph="10" id="armorClass">10</span></div>
-          <div class="cs"><span class="cs-lbl">Initiative</span><span class="cs-val" id="initiative">+0</span></div>
+          <div class="cs" onclick="rollInitiative()" title="Roll Initiative" style="cursor:pointer;transition:background 0.15s;" onmouseenter="this.style.background='rgba(200,169,110,0.07)'" onmouseleave="this.style.background=''"><span class="cs-lbl">Initiative ⚄</span><span class="cs-val" id="initiative">+0</span></div>
           <div class="cs"><span class="cs-lbl">Hit Dice</span><span class="cs-val editable" data-ph="1d8" id="hitDice" style="font-size:0.88rem;">1d8</span></div>
           <div class="cs"><span class="cs-lbl">HD Used</span><span class="cs-val always-edit" id="hdUsed" data-ph="0" contenteditable="true">0</span></div>
           <div class="cs"><span class="cs-lbl">Pass. Percep.</span><span class="cs-val" id="pp">10</span></div>
+          <div class="cs"><span class="cs-lbl">Max HP</span><span class="cs-val mxhp editable" data-ph="0" id="maxHP">0</span></div>
         </div>
         <div class="hp-block">
-          <div class="hp-row"><span class="hp-lbl">Max HP</span><span class="hp-val mxhp editable" data-ph="0" id="maxHP">0</span></div>
           <div class="hp-row">
             <span class="hp-lbl">Current HP</span>
             <span class="hp-val always-edit" id="currentHP" data-ph="0" contenteditable="true">0</span>
@@ -629,9 +631,11 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 
       <div class="sb sb-senses">
         <div class="stitle">Senses</div>
-        <div style="margin-bottom:0.3rem;"><span class="mlb">Passive Perception</span> <span class="passive-val" id="pp2">10</span></div>
-        <div><span class="mlb">Darkvision</span> <span class="editable" data-ph="—" id="sensesDarkvision" style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);">—</span></div>
-        <div style="margin-top:0.3rem;"><span class="mlb">Other Senses</span> <span class="editable" data-ph="—" id="sensesOther" style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);">—</span></div>
+        <div style="display:flex;flex-direction:column;gap:0.3rem;">
+          <div><span class="mlb">Passive Perception</span> <span class="passive-val" id="pp2">10</span></div>
+          <div><span class="mlb">Darkvision</span> <span class="editable" data-ph="—" id="sensesDarkvision" style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);">—</span></div>
+          <div><span class="mlb">Other Senses</span> <span class="editable" data-ph="—" id="sensesOther" style="font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);">—</span></div>
+        </div>
       </div>
 
       <div class="sb sb-profs">
@@ -646,7 +650,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
         </div>
       </div>
 
-      <div class="sb portrait-sb" style="padding:0.45rem;">
+      <div class="sb portrait-sb">
         <div class="portrait-wrap" id="portraitWrap" onclick="document.getElementById('portInput').click()">
           <div class="portrait-placeholder" id="portPlaceholder"><span class="portrait-icon">⚔</span><span>Click to add portrait</span></div>
           <img id="portImg" src="" alt="" style="display:none;">
@@ -679,10 +683,10 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
   </div>
 
   <!-- RELATIONS — full width below the 3-col grid -->
-  <div class="sb sb-relations" style="margin-top:0.9rem;">
+  <div class="sb sb-relations">
     <div class="stitle">Relations</div>
     <div id="relList"></div>
-    <button class="add-btn" id="addRelBtn" onclick="addRel()" style="margin-top:0.3rem;">+ Add Relation</button>
+    <button class="add-btn" id="addRelBtn" onclick="addRel()">+ Add Relation</button>
   </div>
 
 </div>
@@ -699,7 +703,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
       <tbody id="atkBody"></tbody>
     </table>
     <p style="font-family:var(--font-body);font-size:0.75rem;color:var(--text-faint);font-style:italic;margin-top:0.45rem;opacity:0.7;">Click a row to roll · Edit mode to modify</p>
-    <button class="add-btn" id="addAtkBtn" onclick="addAtk()" style="margin-top:0.35rem;">+ Add Weapon Attack</button>
+    <button class="add-btn" id="addAtkBtn" onclick="addAtk()" >+ Add Weapon Attack</button>
   </div>
   <div class="sb">
     <div class="stitle">Combat Notes</div>
@@ -743,12 +747,12 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
           <span class="scl" title="Add to Attacks">⚔</span>
         </div>
         <div id="spellList-0"></div>
-        <button class="add-btn" style="display:none;margin:0.3rem 0.52rem;" onclick="addSpell('','0','','','',false,false,'','','','','','','0')">+ Add Cantrip</button>
+        <button class="add-btn" style="display:none;margin-left:0.52rem;margin-right:0.52rem;" onclick="addSpell('','0','','','',false,false,'','','','','','','0')">+ Add Cantrip</button>
       </div>
     </div>
     <!-- Levels 1–9 -->
     <div id="spellLevelSections"></div>
-    <button class="add-btn" id="addSpellBtn" onclick="openAddSpellModal()" style="margin-top:0.5rem;">+ Add Spell</button>
+    <button class="add-btn" id="addSpellBtn" onclick="openAddSpellModal()" >+ Add Spell</button>
   </div>
 </div>
 </div>
@@ -770,7 +774,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
       <thead><tr><th style="width:38%">Item</th><th style="width:8%;text-align:center">Qty</th><th style="width:11%">Value (gp)</th><th style="width:9%;text-align:center">Eqp</th><th>Notes</th><th style="width:26px"></th></tr></thead>
       <tbody id="invBody"></tbody>
     </table>
-    <button class="add-btn" id="addInvBtn" onclick="addInv()" style="margin-top:0.38rem;">+ Add Item</button>
+    <button class="add-btn" id="addInvBtn" onclick="addInv()" >+ Add Item</button>
   </div>
   <div class="sb">
     <div class="stitle">Notes</div>
@@ -850,6 +854,7 @@ function buildAbils(){
   });
 }
 function rollAbil(a){const m=aMod(a);rollDice({name:AL[a]+' Check',type:'Ability Check',bon:m,dmg:'',comps:[{l:AL[a]+' Modifier',i:a.toUpperCase(),v:m}]});}
+function rollInitiative(){const m=aMod('dex');rollDice({name:'Initiative',type:'Initiative Roll',bon:m,dmg:'',comps:[{l:'DEX Modifier',i:'DEX',v:m}]});}
 
 // BUILD SAVES
 function buildSaves(){
@@ -894,7 +899,7 @@ function buildSlots(){
           <span class="scl" title="Add to Attacks">⚔</span>
         </div>
         <div id="spellList-${i}"></div>
-        <button class="add-btn" style="display:none;margin:0.3rem 0.52rem;" onclick="addSpell('','${i}','','','',false,false,'','','','','','','${i}')">+ Add Spell</button>
+        <button class="add-btn" style="display:none;margin-left:0.52rem;margin-right:0.52rem;" onclick="addSpell('','${i}','','','',false,false,'','','','','','','${i}')">+ Add Spell</button>
       </div>`;
     container.appendChild(sec);
     applyEditToEl(sec);
@@ -968,10 +973,17 @@ function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',d
   const lvNum=parseInt(lv)||0;
   const secId=section!==null?parseInt(section):lvNum;
   const listEl=document.getElementById('spellList-'+secId)||document.getElementById('spellList-0');
-  const id=++spellCtr;
-  if(desc||dur||comp||target||classes||higher){
-    spellDescs[id]={desc:desc||'',dur:dur||'',comp:comp||'',target:target||'',classes:classes||'',higher:higher||''};
-  }
+  const id=String(++spellCtr); // always string key
+  // Merge with existing sdesc (may have been restored from JSON before addSpell was called)
+  const existing=spellDescs[id]||{};
+  spellDescs[id]={
+    desc:    desc    || existing.desc    || '',
+    dur:     dur     || existing.dur     || '',
+    comp:    comp    || existing.comp    || '',
+    target:  target  || existing.target  || '',
+    classes: classes || existing.classes || '',
+    higher:  higher  || existing.higher  || '',
+  };
   const row=document.createElement('div');row.className='spell-row';row.dataset.sid=id;row.dataset.lvl=lvNum;
   const subMeta=[sch,cast,rng,dur].filter(Boolean).join(' · ');
   row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''}><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-school editable sp-meta-inline" data-ph="School">${sch}</span><span class="sp-cast editable sp-meta-inline" data-ph="1 action">${cast}</span><span class="sp-range editable sp-meta-inline" data-ph="Self">${rng}</span><span class="sp-dur editable sp-meta-inline" data-ph="Instant">${dur}</span><input type="checkbox" class="sp-equipped" ${eq?'checked':''} onchange="syncSpellAtks();save()">`;
@@ -980,10 +992,9 @@ function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',d
   row.appendChild(db);
   row.addEventListener('click',(e)=>{
     if(editMode||e.target.closest('.del-btn')||e.target.closest('.sp-equipped')||e.target.closest('.sp-prep'))return;
-    openSpellCard(id);
+    openSpellCard(id); // pass string id
   });
   listEl.appendChild(row);applyEditToEl(row);
-  // Open the section when a spell is added
   const sec=document.getElementById('spell-sec-'+secId);
   if(sec) sec.classList.add('open');
 }
@@ -997,6 +1008,8 @@ function openAddSpellModal(){
 }
 
 function openSpellCard(id){
+  // id can be string or number — normalise to string to match spellDescs keys
+  id=String(id);
   const row=document.querySelector(`.spell-row[data-sid="${id}"]`);if(!row)return;
   const nm   = row.querySelector('.sp-name').textContent.trim()||'Spell';
   const lv   = row.dataset.lvl||'0';
@@ -1006,8 +1019,8 @@ function openSpellCard(id){
   const dur  = row.querySelector('.sp-dur')?.textContent.trim()||'';
   const sd   = spellDescs[id]||{};
 
-  // Subtitle: "Xst/nd/rd/th level Evocation" or "Cantrip"
-  const lvLabel = lv?`${lv}${['','st','nd','rd'][lv]||'th'} level${sch?' '+sch:''}` : (sch?sch+' cantrip':'Cantrip');
+  // Subtitle: "1st level Adivinación" or "Cantrip"
+  const lvLabel = lv&&lv!=='0' ? `${lv}${['','st','nd','rd'][lv]||'th'} level${sch?' '+sch:''}` : (sch?sch+' cantrip':'Cantrip');
   document.getElementById('scName').textContent = nm;
   document.getElementById('scSubtitle').textContent = lvLabel;
 
@@ -1016,9 +1029,9 @@ function openSpellCard(id){
   fields.innerHTML='';
   const addField=(label,val)=>{
     if(!val)return;
-    const d=document.createElement('div');d.className='sc-field';
-    d.innerHTML=`<strong>${label}:</strong> ${val}`;
-    fields.appendChild(d);
+    const el=document.createElement('div');el.className='sc-field';
+    el.innerHTML=`<strong>${label}:</strong> ${val}`;
+    fields.appendChild(el);
   };
   addField('Casting Time', cast);
   addField('Range',        rng);
@@ -1027,15 +1040,27 @@ function openSpellCard(id){
   if(sd.comp)    addField('Components', sd.comp);
   if(sd.classes) addField('Classes',    sd.classes);
 
-  // Description — editable in edit mode
+  // Description block
   const wrap=document.getElementById('scDescWrap');wrap.innerHTML='';
   if(editMode){
+    // Editable textarea in edit mode
+    if(sd.desc!==undefined||true){ // always show in edit mode
+      const lbl=document.createElement('div');lbl.className='sc-field';lbl.style.marginBottom='0.3rem';
+      lbl.innerHTML='<strong>Description:</strong>';wrap.appendChild(lbl);
+    }
     const ta=document.createElement('textarea');ta.className='sc-desc-edit';ta.rows=6;ta.value=sd.desc||'';
     ta.oninput=()=>{if(!spellDescs[id])spellDescs[id]={};spellDescs[id].desc=ta.value;save();};
     wrap.appendChild(ta);
   } else {
-    if(sd.desc){const p=document.createElement('p');p.className='sc-desc';p.textContent=sd.desc;wrap.appendChild(p);}
-    if(sd.higher){const h=document.createElement('p');h.className='sc-higher';h.innerHTML=`<strong>At Higher Levels.</strong> ${sd.higher}`;wrap.appendChild(h);}
+    if(sd.desc){
+      const lbl=document.createElement('div');lbl.className='sc-field';lbl.style.marginBottom='0.4rem';
+      lbl.innerHTML='<strong>Description:</strong>';wrap.appendChild(lbl);
+      const p=document.createElement('p');p.className='sc-desc';p.textContent=sd.desc;wrap.appendChild(p);
+    }
+    if(sd.higher){
+      const h=document.createElement('p');h.className='sc-higher';
+      h.innerHTML=`<strong>At Higher Levels.</strong> ${sd.higher}`;wrap.appendChild(h);
+    }
   }
   document.getElementById('scOverlay').classList.add('active');
 }
@@ -1190,12 +1215,12 @@ function applyData(d){
   // Clear all spell level lists
   for(let i=0;i<=9;i++){const el=document.getElementById('spellList-'+i);if(el)el.innerHTML='';}
   spellCtr=0;
-  // Clear and restore spellDescs with numeric keys to match spellCtr
+  // Clear and restore spellDescs with STRING keys to match data-sid (always string from dataset)
   Object.keys(spellDescs).forEach(k=>delete spellDescs[k]);
   if(d.sdescs){
     Object.keys(d.sdescs).forEach(k=>{
       const val=d.sdescs[k];
-      spellDescs[parseInt(k)]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;
+      spellDescs[String(k)]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;
     });
   }
   (d.spells||[]).forEach(s=>addSpell(s.n,s.l,s.sc,s.c,s.r,s.p,s.e,'',s.du||'','','','','',s.l));
@@ -1312,46 +1337,39 @@ fetch('thokk-sheet.json')
     let lsData=null;
     if(saved){try{lsData=JSON.parse(saved);}catch(e){}}
     if(lsData){
-      // Use localStorage for session state (current HP, slots used, inspiration, death saves)
-      // but override with JSON for structural data (feats, spells, proficiencies, personality)
+      // JSON always wins for ALL structural/content data.
+      // localStorage only wins for live session state: HP, slots used, inspiration, death saves, XP.
       const merged={
-        ...lsData,
-        // JSON always wins for structural data
-        feats:       jsonData.feats       ?? lsData.feats,
-        spells:      jsonData.spells      ?? lsData.spells,
-        sdescs:      jsonData.sdescs      ?? lsData.sdescs,
-        rels:        jsonData.rels        ?? lsData.rels,
-        proficiencies: jsonData.proficiencies ?? lsData.proficiencies,
-        personality: jsonData.personality ?? lsData.personality,
-        sc:  jsonData.sc  ?? lsData.sc,
-        sp:  jsonData.sp  ?? lsData.sp,
-        sk:  jsonData.sk  ?? lsData.sk,
-        cn:  jsonData.cn  ?? lsData.cn,
-        cc:  jsonData.cc  ?? lsData.cc,
-        cl:  jsonData.cl  ?? lsData.cl,
-        cr:  jsonData.cr  ?? lsData.cr,
-        bg:  jsonData.bg  ?? lsData.bg,
-        al:  jsonData.al  ?? lsData.al,
-        ac:  jsonData.ac  ?? lsData.ac,
-        mhp: jsonData.mhp ?? lsData.mhp,
-        hd:  jsonData.hd  ?? lsData.hd,
-        speed: jsonData.speed ?? lsData.speed,
-        port: _lastJsonPort || lsData.port,
-        coins: jsonData.coins ?? lsData.coins,
-        atks: jsonData.atks ?? lsData.atks,
-        spellClass: jsonData.spellClass ?? lsData.spellClass,
-        sensesDarkvision: jsonData.sensesDarkvision ?? lsData.sensesDarkvision,
-        sensesOther: jsonData.sensesOther ?? lsData.sensesOther,
-        combatNotes: jsonData.combatNotes ?? lsData.combatNotes,
-        invNotes: jsonData.invNotes ?? lsData.invNotes,
-        // localStorage wins for live session state
-        chp: lsData.chp,
-        thp: lsData.thp,
-        hdu: lsData.hdu,
-        xp:  lsData.xp,
-        insp: lsData.insp,
-        slots: lsData.slots ?? jsonData.slots,
-        ds:  lsData.ds,
+        // ── structural: always from JSON ──────────────────────────────
+        v:    jsonData.v,
+        cn:   jsonData.cn,   cc:  jsonData.cc,  cl:  jsonData.cl,  cr:  jsonData.cr,
+        bg:   jsonData.bg,   al:  jsonData.al,
+        ac:   jsonData.ac,   mhp: jsonData.mhp, hd:  jsonData.hd,
+        speed:jsonData.speed,
+        sc:   jsonData.sc,   sp:  jsonData.sp,   sk:  jsonData.sk,  sa:  jsonData.sa,
+        port: jsonData.port  || lsData.port,  // keep base64 upload if no path in JSON
+        feats:       jsonData.feats,
+        atks:        jsonData.atks,
+        spells:      jsonData.spells,
+        sdescs:      jsonData.sdescs,
+        inv:         jsonData.inv,
+        coins:       jsonData.coins,
+        rels:        jsonData.rels,
+        proficiencies: jsonData.proficiencies,
+        personality:   jsonData.personality,
+        spellClass:    jsonData.spellClass,
+        sensesDarkvision: jsonData.sensesDarkvision,
+        sensesOther:      jsonData.sensesOther,
+        combatNotes: jsonData.combatNotes,
+        invNotes:    jsonData.invNotes,
+        // ── session state: always from localStorage ───────────────────
+        insp:  lsData.insp,
+        chp:   lsData.chp,
+        thp:   lsData.thp,
+        hdu:   lsData.hdu,
+        xp:    lsData.xp,
+        slots: lsData.slots  ?? jsonData.slots,  // use JSON slots if no ls slots
+        ds:    lsData.ds,
       };
       recalc();
       applyData(merged);
