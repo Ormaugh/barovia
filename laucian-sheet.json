@@ -9,7 +9,16 @@
   "ac": "12",
   "mhp": "13",
   "hd": "1d8",
+  "chp": "",
+  "thp": "",
+  "hdu": "",
   "speed": "30ft",
+  "xp": "",
+  "spellClass": "Clérigo",
+  "combatNotes": "",
+  "invNotes": "",
+  "sensesDarkvision": "",
+  "sensesOther": "",
   "insp": false,
   "sc": {
     "str": "9",
@@ -86,21 +95,7 @@
       "u": 0
     }
   },
-  "port": "portraits/laucian.png",
-  "personality": {
-    "traits": "Gasto dinero sin preocupación.",
-    "ideals": "Mato monstruos para hacer el mundo más seguro.",
-    "bonds": "Hay un mal dentro de mí.",
-    "flaws": "Sigo rituales a diario de manera fija."
-  },
-  "proficiencies": {
-    "languages": "Común, Élfico, Infernal, Orc",
-    "armor": "Armaduras ligeras, medianas, escudos",
-    "weapons": "Armas sencillas",
-    "instruments": "—",
-    "tools": "—",
-    "other": "Símbolo sagrado (foco de lanzamiento de conjuros)"
-  },
+  "port": "https://ormaugh.github.io/barovia/portraits/laucian.png",
   "feats": [
     {
       "n": "Visión en la Oscuridad",
@@ -363,13 +358,7 @@
       "e": false
     }
   ],
-  "coins": {
-    "cp": 8,
-    "sp": 9,
-    "gp": 9,
-    "ep": 0,
-    "pp": 0
-  },
+  "sdescs": {},
   "inv": [
     {
       "n": "Armadura de cuero",
@@ -550,5 +539,23 @@
     false,
     false
   ],
-  "player": "Victor"
+  "personality": {
+    "traits": "Gasto dinero sin preocupación.",
+    "ideals": "Mato monstruos para hacer el mundo más seguro.",
+    "bonds": "Hay un mal dentro de mí.",
+    "flaws": "Sigo rituales a diario de manera fija."
+  },
+  "proficiencies": {
+    "languages": "Común, Élfico, Infernal, Orc",
+    "armor": "Armaduras ligeras, medianas, escudos",
+    "weapons": "Armas sencillas",
+    "instruments": "—",
+    "tools": "—",
+    "other": "Símbolo sagrado (foco de lanzamiento de conjuros)"
+  },
+  "coins": {
+    "gp": "6",
+    "sp": "9",
+    "cp": "5"
+  }
 }
