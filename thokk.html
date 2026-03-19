@@ -554,18 +554,18 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
           <div class="cs"><span class="cs-lbl">Armor Class</span><span class="cs-val editable" data-ph="10" id="armorClass">10</span></div>
           <div class="cs"><span class="cs-lbl">Initiative</span><span class="cs-val" id="initiative">+0</span></div>
           <div class="cs"><span class="cs-lbl">Hit Dice</span><span class="cs-val editable" data-ph="1d8" id="hitDice" style="font-size:0.88rem;">1d8</span></div>
-          <div class="cs"><span class="cs-lbl">HD Used</span><span class="cs-val always-edit" data-ph="0" contenteditable="true">0</span></div>
+          <div class="cs"><span class="cs-lbl">HD Used</span><span class="cs-val always-edit" id="hdUsed" data-ph="0" contenteditable="true">0</span></div>
           <div class="cs"><span class="cs-lbl">Pass. Percep.</span><span class="cs-val" id="pp">10</span></div>
         </div>
         <div class="hp-block">
           <div class="hp-row"><span class="hp-lbl">Max HP</span><span class="hp-val mxhp editable" data-ph="0" id="maxHP">0</span></div>
           <div class="hp-row">
             <span class="hp-lbl">Current HP</span>
-            <span class="hp-val always-edit" data-ph="0" contenteditable="true">0</span>
+            <span class="hp-val always-edit" id="currentHP" data-ph="0" contenteditable="true">0</span>
             <span style="color:var(--text-faint);margin:0 0.3rem;">/</span>
             <span style="font-family:var(--font-heading);font-size:0.78rem;font-weight:700;color:var(--text-faint)" id="maxHPref">0</span>
           </div>
-          <div class="hp-row"><span class="hp-lbl">Temp HP</span><span class="hp-val always-edit" data-ph="—" contenteditable="true">—</span></div>
+          <div class="hp-row"><span class="hp-lbl">Temp HP</span><span class="hp-val always-edit" id="tempHP" data-ph="—" contenteditable="true">—</span></div>
           <div class="death-row">
             <span class="death-lbl">Death Saves</span>
             <span class="death-sep">✦</span>
@@ -627,11 +627,11 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
           <div class="mfw"><span class="mlb">Class</span><span class="mfv editable" data-ph="—" id="charClass">—</span></div>
           <div class="mfw"><span class="mlb">Level</span><span class="mfv editable" data-ph="1" id="charLevel" oninput="recalc()">1</span></div>
           <div class="mfw"><span class="mlb">Race</span><span class="mfv editable" data-ph="—" id="charRace">—</span></div>
-          <div class="mfw"><span class="mlb">Background</span><span class="mfv editable" data-ph="—">—</span></div>
-          <div class="mfw"><span class="mlb">Alignment</span><span class="mfv editable" data-ph="—">—</span></div>
+          <div class="mfw"><span class="mlb">Background</span><span class="mfv editable" data-ph="—" id="charBg">—</span></div>
+          <div class="mfw"><span class="mlb">Alignment</span><span class="mfv editable" data-ph="—" id="charAl">—</span></div>
           <div class="mfw"><span class="mlb">Prof Bonus</span><span class="mfv" id="profBonus">+2</span></div>
-          <div class="mfw"><span class="mlb">Speed</span><span class="mfv editable" data-ph="30ft">30ft</span></div>
-          <div class="mfw"><span class="mlb">XP</span><span class="mfv editable always-edit" data-ph="0" contenteditable="true">0</span></div>
+          <div class="mfw"><span class="mlb">Speed</span><span class="mfv editable" data-ph="30ft" id="charSpeed">30ft</span></div>
+          <div class="mfw"><span class="mlb">XP</span><span class="mfv editable always-edit" data-ph="0" id="charXP" contenteditable="true">0</span></div>
         </div>
       </div>
       <div class="sb sb-features" style="flex:1;">
@@ -667,7 +667,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
   </div>
   <div class="sb">
     <div class="stitle">Combat Notes</div>
-    <div class="feat-desc editable" data-ph="Actions, bonus actions, reactions..." style="min-height:75px;"></div>
+    <div class="feat-desc editable" id="combatNotes" data-ph="Actions, bonus actions, reactions..." style="min-height:75px;"></div>
   </div>
 </div>
 </div>
@@ -678,7 +678,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
   <div class="sb">
     <div class="stitle">Spellcasting</div>
     <div class="spell-meta-grid">
-      <div class="smi"><span class="mlb">Spellcasting Class</span><span class="mfv editable" data-ph="—">—</span></div>
+      <div class="smi"><span class="mlb">Spellcasting Class</span><span class="mfv editable" data-ph="—" id="spellClass">—</span></div>
       <div class="smi"><span class="mlb">Spellcasting Ability</span>
         <select id="spellAbility" onchange="recalc()" style="background:var(--bg-card);border:1px solid var(--border-gold);color:var(--text-body);font-family:var(--font-heading);font-size:0.8rem;font-weight:700;padding:0.16rem 0.3rem;">
           <option value="int">INT</option><option value="wis">WIS</option><option value="cha">CHA</option>
@@ -731,7 +731,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
   </div>
   <div class="sb">
     <div class="stitle">Notes</div>
-    <div class="feat-desc editable" data-ph="Additional notes, treasure, special items..." style="min-height:75px;"></div>
+    <div class="feat-desc editable" id="invNotes" data-ph="Additional notes, treasure, special items..." style="min-height:75px;"></div>
   </div>
 </div>
 </div>
@@ -1004,7 +1004,12 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSp
 function gather(){
   const pEl=k=>document.querySelector(`[data-ph="${k}"]`)?.textContent||'';
   const gId=k=>document.getElementById(k)?.textContent||'';
-  const d={v:3,cn:g('charName'),cc:g('charClass'),cl:g('charLevel'),cr:g('charRace'),ac:g('armorClass'),mhp:g('maxHP'),hd:g('hitDice'),insp:document.getElementById('inspBtn').classList.contains('lit'),sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,slots:{},port:document.getElementById('portImg').src,feats:[],atks:[],spells:[],sdescs:spellDescs,inv:[],rels:[],ds:[],
+  const d={v:3,cn:g('charName'),cc:g('charClass'),cl:g('charLevel'),cr:g('charRace'),bg:g('charBg'),al:g('charAl'),ac:g('armorClass'),mhp:g('maxHP'),hd:g('hitDice'),
+    chp:gId('currentHP'), thp:gId('tempHP'), hdu:gId('hdUsed'),
+    speed:gId('charSpeed'), xp:gId('charXP'),
+    spellClass:gId('spellClass'), combatNotes:gId('combatNotes'), invNotes:gId('invNotes'),
+    sensesDarkvision:gId('sensesDarkvision'), sensesOther:gId('sensesOther'),
+    insp:document.getElementById('inspBtn').classList.contains('lit'),sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,slots:{},port:document.getElementById('portImg').src,feats:[],atks:[],spells:[],sdescs:spellDescs,inv:[],rels:[],ds:[],
     personality:{traits:pEl('Personality traits...'),ideals:pEl('Ideals...'),bonds:pEl('Bonds...'),flaws:pEl('Flaws...')},
     proficiencies:{
       languages:gId('profLanguages'),
@@ -1031,7 +1036,11 @@ function g(id){const e=document.getElementById(id);return e?e.textContent:'';}
 function set(id,v){const e=document.getElementById(id);if(e)e.textContent=v||'';}
 function applyData(d){
   if(!d)return;
-  set('charName',d.cn);set('charClass',d.cc);set('charLevel',d.cl);set('charRace',d.cr);set('armorClass',d.ac);set('maxHP',d.mhp);set('hitDice',d.hd);
+  set('charName',d.cn);set('charClass',d.cc);set('charLevel',d.cl);set('charRace',d.cr);set('charBg',d.bg);set('charAl',d.al);set('armorClass',d.ac);set('maxHP',d.mhp);set('hitDice',d.hd);
+  set('currentHP',d.chp);set('tempHP',d.thp);set('hdUsed',d.hdu);
+  set('charSpeed',d.speed);set('charXP',d.xp);
+  set('spellClass',d.spellClass);set('combatNotes',d.combatNotes);set('invNotes',d.invNotes);
+  set('sensesDarkvision',d.sensesDarkvision);set('sensesOther',d.sensesOther);
   if(d.insp)document.getElementById('inspBtn').classList.add('lit');
   if(d.sc)ABILITIES.forEach(a=>set('sc-'+a,d.sc[a]||'10'));
   if(d.sp)SAVES.forEach(sv=>{const e=document.getElementById(sv.id+'-p');if(e)e.checked=d.sp[sv.id]||false;});
@@ -1183,13 +1192,13 @@ fetch('thokk-sheet.json')
       // but override with JSON for structural data (feats, spells, proficiencies, personality)
       const merged={
         ...lsData,
+        // JSON always wins for structural data
         feats:       jsonData.feats       ?? lsData.feats,
         spells:      jsonData.spells      ?? lsData.spells,
         sdescs:      jsonData.sdescs      ?? lsData.sdescs,
         rels:        jsonData.rels        ?? lsData.rels,
         proficiencies: jsonData.proficiencies ?? lsData.proficiencies,
         personality: jsonData.personality ?? lsData.personality,
-        // Stats from JSON always win (player keeps editing JSON)
         sc:  jsonData.sc  ?? lsData.sc,
         sp:  jsonData.sp  ?? lsData.sp,
         sk:  jsonData.sk  ?? lsData.sk,
@@ -1197,12 +1206,28 @@ fetch('thokk-sheet.json')
         cc:  jsonData.cc  ?? lsData.cc,
         cl:  jsonData.cl  ?? lsData.cl,
         cr:  jsonData.cr  ?? lsData.cr,
+        bg:  jsonData.bg  ?? lsData.bg,
+        al:  jsonData.al  ?? lsData.al,
         ac:  jsonData.ac  ?? lsData.ac,
         mhp: jsonData.mhp ?? lsData.mhp,
         hd:  jsonData.hd  ?? lsData.hd,
+        speed: jsonData.speed ?? lsData.speed,
         port: _lastJsonPort || lsData.port,
         coins: jsonData.coins ?? lsData.coins,
         atks: jsonData.atks ?? lsData.atks,
+        spellClass: jsonData.spellClass ?? lsData.spellClass,
+        sensesDarkvision: jsonData.sensesDarkvision ?? lsData.sensesDarkvision,
+        sensesOther: jsonData.sensesOther ?? lsData.sensesOther,
+        combatNotes: jsonData.combatNotes ?? lsData.combatNotes,
+        invNotes: jsonData.invNotes ?? lsData.invNotes,
+        // localStorage wins for live session state
+        chp: lsData.chp,
+        thp: lsData.thp,
+        hdu: lsData.hdu,
+        xp:  lsData.xp,
+        insp: lsData.insp,
+        slots: lsData.slots ?? jsonData.slots,
+        ds:  lsData.ds,
       };
       recalc();
       applyData(merged);
