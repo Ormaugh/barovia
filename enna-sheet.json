@@ -9,8 +9,17 @@
   "ac": "14",
   "mhp": "18",
   "hd": "3d8",
+  "chp": "18",
+  "thp": "",
+  "hdu": "",
   "speed": "30ft",
-  "insp": false,
+  "xp": "",
+  "spellClass": "Rogue",
+  "combatNotes": "",
+  "invNotes": "",
+  "sensesDarkvision": "",
+  "sensesOther": "",
+  "insp": true,
   "sc": {
     "str": "12",
     "dex": "16",
@@ -50,7 +59,7 @@
   "sa": "int",
   "slots": {
     "1": {
-      "t": "0",
+      "t": "3",
       "u": 0
     },
     "2": {
@@ -86,21 +95,7 @@
       "u": 0
     }
   },
-  "port": "portraits/enna.png",
-  "personality": {
-    "traits": "Me gusta que haya pelea.",
-    "ideals": "Busco mi libertad.",
-    "bonds": "El navío es lo más importante.",
-    "flaws": "Cleptomanía."
-  },
-  "proficiencies": {
-    "languages": "Common, Elvish, Sylvan",
-    "armor": "Light armor",
-    "weapons": "Simple weapons, hand crossbows, longswords, rapiers, shortswords, shortbows, longbows (racial)",
-    "instruments": "Navigator's tools",
-    "tools": "Thieves' tools",
-    "other": "Water vehicles"
-  },
+  "port": "https://ormaugh.github.io/barovia/portraits/enna.png",
   "feats": [
     {
       "n": "Fey Ancestry",
@@ -190,12 +185,31 @@
     }
   ],
   "spells": [],
-  "coins": {
-    "cp": 9,
-    "sp": 9,
-    "gp": 8,
-    "ep": 0,
-    "pp": 0
+  "sdescs": {
+    "1": {
+      "desc": "Conc. 1 hora. +1d6 por golpe al objetivo marcado. Transferible si muere.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    },
+    "2": {
+      "desc": "WIS save o bestia encantada 24h. No funciona en bestias INT 4+.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    },
+    "3": {
+      "desc": "Trampa mágica permanente (hasta activarse). DEX save o 2d6 + detenido.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    }
   },
   "inv": [
     {
@@ -356,5 +370,23 @@
     false,
     false
   ],
-  "player": "Maria"
+  "personality": {
+    "traits": "Me gusta que haya pelea.",
+    "ideals": "Busco mi libertad.",
+    "bonds": "El navío es lo más importante.",
+    "flaws": "Cleptomanía."
+  },
+  "proficiencies": {
+    "languages": "Common, Elvish, Sylvan",
+    "armor": "Light armor",
+    "weapons": "Simple weapons, hand crossbows, longswords, rapiers, shortswords, shortbows, longbows (racial)",
+    "instruments": "",
+    "tools": "Thieves' tools, Navigator's tools",
+    "other": "Water vehicles"
+  },
+  "coins": {
+    "gp": "8",
+    "sp": "9",
+    "cp": "9"
+  }
 }
