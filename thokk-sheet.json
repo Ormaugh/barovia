@@ -1,7 +1,7 @@
 {
   "v": 3,
   "cn": "Thokk Rughar",
-  "cc": "Salvaje",
+  "cc": "Bárbaro",
   "cl": "3",
   "cr": "Half-Orc",
   "ac": "13",
@@ -83,21 +83,7 @@
       "u": 0
     }
   },
-  "port": "portraits/thokk.png",
-  "personality": {
-    "traits": "Cuido de mis compañeros como si fueran mis cachorros. Actúo antes de pensar. La sonrisa es mi armadura.",
-    "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
-    "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
-    "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
-  },
-  "proficiencies": {
-    "languages": "Común, Orco",
-    "armor": "Armaduras ligeras, medianas, escudos",
-    "weapons": "Armas sencillas y marciales",
-    "instruments": "Acordeón",
-    "tools": "—",
-    "other": "Tótem de hueso de oso y pelo (foco arcano)"
-  },
+  "port": "https://ormaugh.github.io/barovia/portraits/thokk.png",
   "feats": [
     {
       "n": "Furia",
@@ -139,7 +125,7 @@
       "n": "Ataques Salvajes",
       "s": "Half-Orc racial trait",
       "d": "Cuando obtienes un golpe crítico con un arma cuerpo a cuerpo, puedes lanzar uno de los dados de daño del arma una vez más y añadir ese resultado al daño extra del golpe crítico.",
-      "o": true
+      "o": false
     },
     {
       "n": "Resistencia Implacable",
@@ -198,19 +184,19 @@
   ],
   "sdescs": {
     "1": {
-      "desc": "Obtienes la capacidad de comprender y comunicarte verbalmente con bestias durante la duración. El conocimiento y la conciencia de muchas bestias está limitado por su inteligencia, pero como mínimo, las bestias pueden darte información sobre los lugares cercanos y los monstruos, incluyendo lo que puedan percibir o hayan percibido durante el último día. Podrías convencer a una bestia de que realice un pequeño favor, a discreción del DM.",
+      "desc": "",
       "dur": "10 minutos",
-      "comp": "V, S",
-      "target": "Self",
-      "classes": "Bardo, Druida, Explorador (Ritual) / Bárbaro Tótem (solo ritual)",
+      "comp": "",
+      "target": "",
+      "classes": "",
       "higher": ""
     },
     "2": {
-      "desc": "Tocas a una bestia dispuesta. Durante la duración, puedes usar los sentidos de esa bestia en lugar de los tuyos propios. Mientras percibes a través de los sentidos de la bestia, obtienes los beneficios de los sentidos especiales que posea esa bestia, aunque estás cegado y ensordecido a tus propios alrededores.\nComo acción, puedes cambiar entre usar los sentidos de la bestia y los tuyos propios, o viceversa.",
-      "dur": "1 hora (Concentración)",
-      "comp": "S",
-      "target": "Una bestia dispuesta (Toque)",
-      "classes": "Druida, Explorador (Ritual) / Bárbaro Tótem (solo ritual)",
+      "desc": "",
+      "dur": "1 hora",
+      "comp": "",
+      "target": "",
+      "classes": "",
       "higher": ""
     }
   },
@@ -272,5 +258,13 @@
     "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
     "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
     "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
+  },
+  "proficiencies": {
+    "languages": "Común, Orco",
+    "armor": "Armaduras ligeras, medianas, escudos",
+    "weapons": "Armas sencillas y marciales",
+    "instruments": "Acordeón",
+    "tools": "—",
+    "other": "Tótem de hueso de oso y pelo (foco arcano)"
   }
 }
