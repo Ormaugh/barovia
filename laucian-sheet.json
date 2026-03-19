@@ -187,7 +187,7 @@
       "p": true,
       "l": "0",
       "n": "Sacred Flame",
-      "e": false
+      "e": true
     },
     {
       "p": true,
@@ -277,7 +277,7 @@
       "p": true,
       "l": "1",
       "n": "Inflict Wounds",
-      "e": false
+      "e": true
     },
     {
       "p": true,
