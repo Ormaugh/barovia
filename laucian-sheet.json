@@ -9,7 +9,7 @@
   "ac": "12",
   "mhp": "13",
   "hd": "1d8",
-  "chp": "",
+  "chp": "13",
   "thp": "",
   "hdu": "",
   "speed": "30ft",
@@ -19,7 +19,7 @@
   "invNotes": "",
   "sensesDarkvision": "",
   "sensesOther": "",
-  "insp": false,
+  "insp": true,
   "sc": {
     "str": "9",
     "dex": "12",
