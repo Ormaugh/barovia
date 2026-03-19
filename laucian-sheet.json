@@ -17,7 +17,7 @@
   "spellClass": "Clérigo",
   "combatNotes": "",
   "invNotes": "",
-  "sensesDarkvision": "",
+  "sensesDarkvision": "60 ft.",
   "sensesOther": "",
   "insp": true,
   "sc": {
@@ -101,7 +101,7 @@
       "n": "Visión en la Oscuridad",
       "s": "Semi-elfo",
       "d": "Gracias a tu sangre élfica, tienes visión superior en condiciones de oscuridad y poca luz. Puedes ver en luz tenue dentro de 60 pies como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes discernir el color en la oscuridad, solo tonos de gris.",
-      "o": false
+      "o": true
     },
     {
       "n": "Ventaja contra el Encantamiento",
