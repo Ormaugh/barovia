@@ -17,7 +17,7 @@
   "spellClass": "Rogue",
   "combatNotes": "",
   "invNotes": "",
-  "sensesDarkvision": "60 ft",
+  "sensesDarkvision": "",
   "sensesOther": "",
   "insp": true,
   "sc": {
@@ -380,8 +380,8 @@
     "languages": "Common, Elvish, Sylvan",
     "armor": "Light armor",
     "weapons": "Simple weapons, hand crossbows, longswords, rapiers, shortswords, shortbows, longbows (racial)",
-    "instruments": "Navigator's tools",
-    "tools": "Thieves' tools",
+    "instruments": "",
+    "tools": "Thieves' tools, Navigator's tools",
     "other": "Water vehicles"
   },
   "coins": {
