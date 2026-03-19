@@ -1,15 +1,12 @@
 {
   "v": 3,
   "cn": "Thokk Rughar",
-  "cc": "Barbarian",
+  "cc": "Salvaje",
   "cl": "3",
   "cr": "Half-Orc",
-  "bg": "Salvaje",
-  "al": "Chaotic Neutral",
   "ac": "13",
   "mhp": "30",
   "hd": "3d12",
-  "speed": "30ft",
   "insp": false,
   "sc": {
     "str": "18",
@@ -142,7 +139,7 @@
       "n": "Ataques Salvajes",
       "s": "Half-Orc racial trait",
       "d": "Cuando obtienes un golpe crítico con un arma cuerpo a cuerpo, puedes lanzar uno de los dados de daño del arma una vez más y añadir ese resultado al daño extra del golpe crítico.",
-      "o": false
+      "o": true
     },
     {
       "n": "Resistencia Implacable",
@@ -161,20 +158,20 @@
     {
       "n": "Hacha de Dos Manos",
       "h": "main",
+      "st": "str",
       "dmg": "1d12+4",
       "t": "Cortante",
       "r": "5ft",
-      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes).",
-      "st": "str"
+      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes)."
     },
     {
       "n": "Ballesta Pesada",
       "h": "ranged",
+      "st": "dex",
       "dmg": "1d10",
       "t": "Perforante",
       "r": "100/400ft",
-      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar.",
-      "st": "dex"
+      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar."
     }
   ],
   "spells": [
@@ -217,64 +214,7 @@
       "higher": ""
     }
   },
-  "coins": {
-    "cp": 0,
-    "sp": 0,
-    "gp": 10,
-    "ep": 0,
-    "pp": 0
-  },
-  "inv": [
-    {
-      "n": "Hacha de Dos Manos",
-      "q": "1",
-      "v": "30",
-      "e": true,
-      "no": "Arma principal"
-    },
-    {
-      "n": "Ballesta Pesada",
-      "q": "1",
-      "v": "50",
-      "e": true,
-      "no": "Arma a distancia"
-    },
-    {
-      "n": "Tótem de oso y pelo",
-      "q": "1",
-      "v": "",
-      "e": true,
-      "no": "Foco arcano — Totem Warrior"
-    },
-    {
-      "n": "Cuerda de cáñamo",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": "50 pies"
-    },
-    {
-      "n": "Saco de dormir",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": ""
-    },
-    {
-      "n": "Acordeón desafinado",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": "Instrumento. Terriblemente desafinado."
-    },
-    {
-      "n": "Pincho en una rana verde",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": "Objeto misterioso. Origen desconocido."
-    }
-  ],
+  "inv": [],
   "rels": [
     {
       "n": "Ismark Kolyanovich",
@@ -327,5 +267,11 @@
     false,
     false
   ],
-  "player": "Miguel"
+  "personality": {
+    "traits": "Cuido de mis compañeros como si fueran mis cachorros. Actúo antes de pensar. La sonrisa es mi armadura.",
+    "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
+    "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
+    "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
+  },
+  "proficiencies": "Idiomas: Común, OrcoArmaduras: ligeras, medianas, escudosArmas: sencillas y marciales. Instrumentos: AcordeónFoco arcano: Tótem de hueso de oso y pelo.Test111"
 }
