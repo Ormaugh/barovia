@@ -180,33 +180,59 @@ body:not(.edit-mode) .roll-btn{display:none;}/* row click handles it */
 /* SPELLS */
 .spell-meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.65rem;margin-bottom:0.85rem;}
 .smi{display:flex;flex-direction:column;gap:0.1rem;}
-.slot-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:0.38rem;margin-bottom:0.9rem;}
-.slot-blk{text-align:center;background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.32rem 0.12rem;}
-.slot-num{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;color:var(--ink-red-bright);display:block;margin-bottom:0.22rem;}
-.slot-pips{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;min-height:16px;}
-.slot-pip{width:11px;height:11px;border-radius:50%;border:1px solid var(--ink-gold-dim);cursor:pointer;transition:background 0.18s;}
-.slot-pip.used{background:var(--ink-red);border-color:var(--ink-red);}
-.slot-tot{font-family:var(--font-heading);font-size:0.75rem;font-weight:700;color:var(--text-dim);text-align:center;display:block;margin-top:0.15rem;min-width:8px;}
+
+/* Spell level section */
+.spell-level-sec{margin-bottom:0.75rem;}
+.spell-level-hdr{display:flex;align-items:center;gap:0.55rem;padding:0.38rem 0.42rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;}
+.spell-level-hdr:hover{background:rgba(200,169,110,0.06);}
+.spell-level-tog{font-size:0.62rem;color:var(--ink-gold-dim);transition:transform 0.18s;flex-shrink:0;}
+.spell-level-sec.open .spell-level-tog{transform:rotate(90deg);}
+.spell-level-title{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-gold);flex-shrink:0;}
+.spell-level-pips{display:flex;gap:4px;align-items:center;flex-wrap:wrap;}
+/* Slot pips styled like inspiration button — larger, animated */
+.slot-pip{
+  width:18px;height:18px;border-radius:50%;
+  border:1px solid var(--ink-gold-dim);
+  cursor:pointer;
+  background:transparent;
+  transition:background 0.22s, border-color 0.22s, box-shadow 0.22s;
+  flex-shrink:0;
+  position:relative;
+}
+.slot-pip::after{
+  content:'✦';
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.52rem;color:var(--ink-gold-dim);
+  opacity:0;transition:opacity 0.22s;
+}
+.slot-pip.used{background:var(--ink-red);border-color:var(--ink-red);box-shadow:0 0 6px rgba(180,30,30,0.4);}
+.slot-pip.used::after{content:'✕';color:rgba(255,255,255,0.7);opacity:1;font-size:0.5rem;}
+.slot-pip:not(.used):hover{border-color:var(--ink-gold);box-shadow:0 0 5px rgba(200,169,110,0.3);}
+.slot-pip:not(.used):hover::after{opacity:1;}
+.spell-level-total{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;color:var(--text-faint);margin-left:auto;display:flex;align-items:center;gap:0.28rem;flex-shrink:0;}
+.spell-level-tot-val{font-family:var(--font-heading);font-size:0.82rem;font-weight:700;color:var(--ink-gold-dim);}
+.spell-level-body{display:none;border:1px solid var(--border-gold);border-top:none;}
+.spell-level-sec.open .spell-level-body{display:block;}
 /* Spell row — flex so name column is fluid */
-.spell-row{display:flex;align-items:center;gap:0.4rem;padding:0.26rem 0.42rem;border-bottom:1px solid rgba(200,169,110,0.055);}
+.spell-row{display:flex;align-items:center;gap:0.55rem;padding:0.28rem 0.52rem;border-bottom:1px solid rgba(200,169,110,0.055);}
 .spell-row:hover{background:rgba(200,169,110,0.022);}
-.spell-row.hdr{border-bottom:1px solid var(--border-gold);padding-bottom:0.36rem;}
+.spell-row.hdr{border-bottom:1px solid rgba(200,169,110,0.15);padding-bottom:0.32rem;background:rgba(200,169,110,0.025);}
 .scl{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-faint);}
 .sp-prep{width:12px;height:12px;accent-color:var(--ink-gold);flex-shrink:0;}
-.sp-lvl{font-family:var(--font-heading);font-size:0.85rem;font-weight:700;color:var(--ink-gold-dim);flex-shrink:0;min-width:20px;}
 /* name cell: flex:1 so it grows to fill available space */
 .sp-name-cell{flex:1;min-width:0;display:flex;flex-direction:column;gap:0.05rem;}
 .sp-name{font-family:var(--font-body);font-size:1rem;color:var(--text-body);}
 /* meta shown inline on desktop, as sub-line on mobile */
 .sp-meta-inline{display:contents;}
 .sp-meta-sub{display:none;}
-.sp-school,.sp-cast,.sp-range{font-family:var(--font-body);font-size:0.85rem;color:var(--text-faint);flex-shrink:0;min-width:0;}
-.sp-school{min-width:70px;}
-.sp-cast{min-width:70px;}
-.sp-range{min-width:55px;}
-.sp-dur{font-family:var(--font-body);font-size:0.85rem;color:var(--text-faint);flex-shrink:0;min-width:55px;}
+.sp-school,.sp-cast,.sp-range{font-family:var(--font-body);font-size:0.85rem;color:var(--text-faint);flex-shrink:0;min-width:0;padding:0 0.3rem;}
+.sp-school{min-width:80px;}
+.sp-cast{min-width:80px;}
+.sp-range{min-width:65px;}
+.sp-dur{font-family:var(--font-body);font-size:0.85rem;color:var(--text-faint);flex-shrink:0;min-width:65px;padding:0 0.3rem;}
 .sp-equipped{width:12px;height:12px;accent-color:var(--ink-red-bright);flex-shrink:0;}
-.sp-info{display:none;}/* ? button removed */
+.sp-info{display:none;}
 /* Mobile: collapse school/cast/range/dur into sub-line under name */
 @media(max-width:680px){
   .sp-meta-inline{display:none;}
@@ -362,48 +388,47 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .pw-err{font-family:var(--font-body);font-size:0.88rem;color:var(--ink-red-bright);font-style:italic;margin-bottom:0.55rem;min-height:1.2em;}
 .pw-actions{display:flex;gap:0.45rem;justify-content:center;}
 
+/* Relations — always single line per NPC */
+.rel-item{margin-bottom:0.3rem;}
+.rel-hdr{display:flex;align-items:center;gap:0.5rem;padding:0.32rem 0.55rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;}
+.rel-hdr:hover{background:rgba(200,169,110,0.06);}
+.rel-name{font-family:var(--font-heading);font-size:0.82rem;font-weight:700;color:var(--text-body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38%;}
+.rel-role{font-family:var(--font-body);font-size:0.78rem;color:var(--text-faint);font-style:italic;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rel-body{display:none;padding:0.5rem 0.55rem;border:1px solid var(--border-gold);border-top:none;background:var(--bg-card);}
+.rel-item.open .rel-body{display:block;}
+.rel-notes{font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);line-height:1.6;}
+
 /* MISC */
 .passive-val{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--ink-gold);}
-.tab1-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.9rem;margin-top:0.9rem;}
 
 /* MOBILE */
 @media(max-width:900px){
+  /* All 3 columns become display:contents so every .sb participates directly in flex */
   .tab1-layout{display:flex;flex-direction:column;}
-  .tab1-bottom{grid-template-columns:1fr;}
-  .spell-meta-grid{grid-template-columns:1fr 1fr;}
-  .slot-grid{grid-template-columns:repeat(5,1fr);}
-  .tab-btn{font-size:0.72rem;padding:0.75rem 0;}
-  /* col2 and col3 become display:contents so their children participate in flex directly */
-  .tab1-col:nth-child(2){display:contents;}
-  .tab1-col:nth-child(3){display:contents;}
-  /* Explicit mobile order:
-     1. char-info (col3 first child)
-     2. Combat (col2 first child .sb-combat)
-     3. Inspiration
-     4. Senses
-     5. Features & Traits (col3 second child)
-     6. Portrait
-     7. col1: Abilities / Skills / Saves / Personality
-     8. Proficiencies
-     9. Relations (full-width, after everything)
-  */
-  .char-info-box { order: 1; }
+  .tab1-col{display:contents;}
+  /* Explicit mobile order */
+  .char-info-box { order: 1; display:flex; flex-direction:column; }
   .sb-combat     { order: 2; }
   .sb-insp       { order: 3; }
   .sb-senses     { order: 4; }
   .sb-features   { order: 5; }
-  .portrait-sb   { order: 6; }
-  .tab1-col:nth-child(1) { order: 7; display:flex; flex-direction:column; }
-  .sb-profs      { order: 8; }
-  .sb-relations  { order: 9; }
+  .portrait-sb   { order: 6; min-height:200px; display:block !important; visibility:visible !important; }
+  /* col1 boxes (Abilities/Skills/Saves/Personality) */
+  .sb-abilities  { order: 7; }
+  .sb-skills     { order: 8; }
+  .sb-saves      { order: 9; }
+  .sb-personality{ order: 10; }
+  .sb-profs      { order: 11; }
+  .sb-relations  { order: 12; }
+  /* spell tab */
+  .spell-meta-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:580px){
   html{font-size:15px;}
   .sheet-body{padding:0.75rem 0.75rem 3rem;}
   .header-meta{gap:0.45rem;}
-  .dice-modal,.sdesc-modal,.pw-modal{width:96vw;}
+  .dice-modal,.pw-modal{width:96vw;}
   .atk-table th:nth-child(n+5),.atk-table td:nth-child(n+5){display:none;}
-  .tab1-bottom{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -523,19 +548,19 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 
     <!-- COL 1: Abilities → Skills → Saves → Personality -->
     <div class="tab1-col">
-      <div class="sb">
+      <div class="sb sb-abilities">
         <div class="stitle">Ability Scores</div>
         <div class="ability-grid" id="abilGrid"></div>
       </div>
-      <div class="sb">
+      <div class="sb sb-skills">
         <div class="stitle">Skills</div>
         <div id="skillsList"></div>
       </div>
-      <div class="sb">
+      <div class="sb sb-saves">
         <div class="stitle">Saving Throws</div>
         <div id="savesList"></div>
       </div>
-      <div class="sb">
+      <div class="sb sb-personality">
         <div class="stitle">Personality</div>
         <div style="display:flex;flex-direction:column;gap:0.55rem;">
           <div><div class="mlb">Traits</div><div class="feat-desc editable" data-ph="Personality traits..."></div></div>
@@ -688,24 +713,31 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
       <div class="smi"><span class="mlb">Spell Atk Bonus</span><span class="mfv" id="spellAtk" style="font-size:1rem;color:var(--ink-gold);">—</span></div>
     </div>
   </div>
-  <div class="sb">
-    <div class="stitle">Spell Slots</div>
-    <div class="slot-grid" id="slotGrid"></div>
-  </div>
-  <div class="sb">
+  <div class="sb" id="spellsKnownSb">
     <div class="stitle">Spells Known / Prepared</div>
-    <div class="spell-row hdr">
-      <span class="scl" title="Prepared">P</span>
-      <span class="scl">Lvl</span>
-      <span class="scl" style="flex:1">Name</span>
-      <span class="scl sp-meta-inline hdr-school">School</span>
-      <span class="scl sp-meta-inline hdr-cast">Cast</span>
-      <span class="scl sp-meta-inline hdr-range">Range</span>
-      <span class="scl sp-meta-inline hdr-dur">Dur.</span>
-      <span class="scl" title="Add to Attacks">⚔</span>
+    <!-- Cantrips -->
+    <div class="spell-level-sec open" id="spell-sec-0">
+      <div class="spell-level-hdr" onclick="this.parentElement.classList.toggle('open')">
+        <span class="spell-level-tog">▶</span>
+        <span class="spell-level-title">Cantrips</span>
+      </div>
+      <div class="spell-level-body">
+        <div class="spell-row hdr">
+          <span class="scl" title="Prepared">P</span>
+          <span class="scl" style="flex:1">Name</span>
+          <span class="scl sp-meta-inline hdr-school">School</span>
+          <span class="scl sp-meta-inline hdr-cast">Cast</span>
+          <span class="scl sp-meta-inline hdr-range">Range</span>
+          <span class="scl sp-meta-inline hdr-dur">Dur.</span>
+          <span class="scl" title="Add to Attacks">⚔</span>
+        </div>
+        <div id="spellList-0"></div>
+        <button class="add-btn" style="display:none;margin:0.3rem 0.52rem;" onclick="addSpell('','0','','','',false,false,'','','','','','','0')">+ Add Cantrip</button>
+      </div>
     </div>
-    <div id="spellList"></div>
-    <button class="add-btn" id="addSpellBtn" onclick="addSpell()" style="margin-top:0.38rem;">+ Add Spell</button>
+    <!-- Levels 1–9 -->
+    <div id="spellLevelSections"></div>
+    <button class="add-btn" id="addSpellBtn" onclick="openAddSpellModal()" style="margin-top:0.5rem;">+ Add Spell</button>
   </div>
 </div>
 </div>
@@ -716,9 +748,9 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
   <div class="sb">
     <div class="stitle">Currency</div>
     <div class="coins-row">
-      <div class="coin-blk"><span class="coin-lbl coin-cp">Copper</span><span class="coin-amt editable always-edit" data-ph="0">0</span></div>
-      <div class="coin-blk"><span class="coin-lbl coin-sp">Silver</span><span class="coin-amt editable always-edit" data-ph="0">0</span></div>
       <div class="coin-blk"><span class="coin-lbl coin-gp">Gold</span><span class="coin-amt editable always-edit" data-ph="0">0</span></div>
+      <div class="coin-blk"><span class="coin-lbl coin-sp">Silver</span><span class="coin-amt editable always-edit" data-ph="0">0</span></div>
+      <div class="coin-blk"><span class="coin-lbl coin-cp">Copper</span><span class="coin-amt editable always-edit" data-ph="0">0</span></div>
     </div>
   </div>
   <div class="sb">
@@ -757,6 +789,10 @@ function enableEdit(){
   document.querySelectorAll('.add-btn,.del-btn').forEach(el=>el.style.display='');
   document.querySelectorAll('.hand-sel').forEach(s=>s.disabled=false);
   document.getElementById('spellAbility').disabled=false;
+  // Show per-level add buttons
+  document.querySelectorAll('.spell-level-body .add-btn').forEach(el=>el.style.display='');
+  // Make slot totals editable
+  document.querySelectorAll('.spell-level-tot-val').forEach(el=>el.contentEditable='true');
 }
 function lockEdit(){
   editMode=false;document.body.classList.remove('edit-mode');
@@ -766,6 +802,7 @@ function lockEdit(){
   document.querySelectorAll('.add-btn,.del-btn').forEach(el=>el.style.display='none');
   document.querySelectorAll('.hand-sel').forEach(s=>s.disabled=true);
   document.getElementById('spellAbility').disabled=true;
+  document.querySelectorAll('.spell-level-tot-val').forEach(el=>el.contentEditable='false');
 }
 function applyEditToEl(el){
   el.querySelectorAll('.editable').forEach(e=>e.contentEditable=editMode?'true':'false');
@@ -817,12 +854,56 @@ function buildSkills(){
 }
 function rollSkill(id,l,s){const pb=prof();const pe=document.getElementById(id+'-p');const m=aMod(s);const ip=pe&&pe.checked;const t=m+(ip?pb:0);const c=[{l:AL[s]+' Modifier',i:s.toUpperCase(),v:m}];if(ip)c.push({l:'Prof Bonus',i:'PB',v:pb});rollDice({name:l,type:'Skill Check',bon:t,dmg:'',comps:c});}
 
-// BUILD SPELL SLOTS
+// BUILD SPELL LEVEL SECTIONS (1–9) with slot pips in header
 function buildSlots(){
-  const g=document.getElementById('slotGrid');g.innerHTML='';
-  for(let i=1;i<=9;i++){const b=document.createElement('div');b.className='slot-blk';b.innerHTML=`<span class="slot-num">${i}</span><div class="slot-pips" id="sp-${i}"></div><span class="slot-tot editable" data-ph="0" id="st-${i}" oninput="rebuildPips(${i})">0</span>`;g.appendChild(b);}
+  const container=document.getElementById('spellLevelSections');
+  container.innerHTML='';
+  const ordinals=['','1st','2nd','3rd','4th','5th','6th','7th','8th','9th'];
+  for(let i=1;i<=9;i++){
+    const sec=document.createElement('div');
+    sec.className='spell-level-sec';sec.id='spell-sec-'+i;
+    sec.innerHTML=`
+      <div class="spell-level-hdr" onclick="this.parentElement.classList.toggle('open')">
+        <span class="spell-level-tog">▶</span>
+        <span class="spell-level-title">${ordinals[i]} Level</span>
+        <div class="spell-level-pips" id="sp-${i}" onclick="event.stopPropagation()"></div>
+        <div class="spell-level-total">
+          <span style="font-size:0.65rem;color:var(--text-faint);letter-spacing:0.06em;">SLOTS</span>
+          <span class="spell-level-tot-val editable" data-ph="0" id="st-${i}" oninput="rebuildPips(${i})" onclick="event.stopPropagation()">0</span>
+        </div>
+      </div>
+      <div class="spell-level-body">
+        <div class="spell-row hdr">
+          <span class="scl" title="Prepared">P</span>
+          <span class="scl" style="flex:1">Name</span>
+          <span class="scl sp-meta-inline hdr-school">School</span>
+          <span class="scl sp-meta-inline hdr-cast">Cast</span>
+          <span class="scl sp-meta-inline hdr-range">Range</span>
+          <span class="scl sp-meta-inline hdr-dur">Dur.</span>
+          <span class="scl" title="Add to Attacks">⚔</span>
+        </div>
+        <div id="spellList-${i}"></div>
+        <button class="add-btn" style="display:none;margin:0.3rem 0.52rem;" onclick="addSpell('','${i}','','','',false,false,'','','','','','','${i}')">+ Add Spell</button>
+      </div>`;
+    container.appendChild(sec);
+    applyEditToEl(sec);
+  }
 }
-function rebuildPips(l){const tot=parseInt(document.getElementById('st-'+l)?.textContent)||0;const pc=document.getElementById('sp-'+l);const ex=pc.querySelectorAll('.slot-pip');const us=Array.from(ex).map(p=>p.classList.contains('used'));pc.innerHTML='';for(let i=0;i<tot;i++){const p=document.createElement('div');p.className='slot-pip'+(us[i]?' used':'');p.onclick=function(){this.classList.toggle('used');save();};pc.appendChild(p);}}
+function rebuildPips(l){
+  const tot=parseInt(document.getElementById('st-'+l)?.textContent)||0;
+  const pc=document.getElementById('sp-'+l);
+  const ex=pc.querySelectorAll('.slot-pip');
+  const us=Array.from(ex).map(p=>p.classList.contains('used'));
+  pc.innerHTML='';
+  for(let i=0;i<tot;i++){
+    const p=document.createElement('div');p.className='slot-pip'+(us[i]?' used':'');
+    p.onclick=function(e){e.stopPropagation();this.classList.toggle('used');save();};
+    pc.appendChild(p);
+  }
+  // Open section if it has slots
+  const sec=document.getElementById('spell-sec-'+l);
+  if(sec&&tot>0) sec.classList.add('open');
+}
 
 // FEATURES
 function addFeat(n='',s='',d=''){
@@ -852,10 +933,11 @@ function updateHand(id){const tr=document.querySelector(`[data-aid="${id}"]`);if
 function syncSpellAtks(){
   const tb=document.getElementById('atkBody');const pb=prof();const sa=document.getElementById('spellAbility').value;const sm=aMod(sa);const bon=fmt(pb+sm);
   tb.querySelectorAll('[data-sid]').forEach(tr=>tr.remove());
-  document.querySelectorAll('#spellList .spell-row').forEach(row=>{
+  document.querySelectorAll('.spell-row[data-sid]').forEach(row=>{
     const eq=row.querySelector('.sp-equipped');if(!eq||!eq.checked)return;
-    const sid=row.dataset.sid;const nm=row.querySelector('.sp-name').textContent.trim()||'Spell';const lv=row.querySelector('.sp-lvl').textContent.trim();
-    addAtk(nm,'',bon,'—','Spell','—',lv?`Lvl ${lv}`:'Cantrip',true,sid);
+    const sid=row.dataset.sid;const nm=row.querySelector('.sp-name').textContent.trim()||'Spell';
+    const lv=row.dataset.lvl||'0';
+    addAtk(nm,'',bon,'—','Spell','—',lv==='0'?'Cantrip':`Lvl ${lv}`,true,sid);
   });
 }
 function rollAtkRow(id){
@@ -870,31 +952,47 @@ function rollAtkRow(id){
 // spellDescs stores rich data: {desc, higher, dur, comp, target, classes}
 let spellCtr=0;const spellDescs={};
 
-function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',dur='',comp='',target='',classes='',higher=''){
-  const l=document.getElementById('spellList');const id=++spellCtr;
+function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',dur='',comp='',target='',classes='',higher='',section=null){
+  // Determine which level section to add to
+  const lvNum=parseInt(lv)||0;
+  const secId=section!==null?parseInt(section):lvNum;
+  const listEl=document.getElementById('spellList-'+secId)||document.getElementById('spellList-0');
+  const id=++spellCtr;
   if(desc||dur||comp||target||classes||higher){
     spellDescs[id]={desc:desc||'',dur:dur||'',comp:comp||'',target:target||'',classes:classes||'',higher:higher||''};
   }
-  const row=document.createElement('div');row.className='spell-row';row.dataset.sid=id;
+  const row=document.createElement('div');row.className='spell-row';row.dataset.sid=id;row.dataset.lvl=lvNum;
   const subMeta=[sch,cast,rng,dur].filter(Boolean).join(' · ');
-  row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''}><span class="sp-lvl editable" data-ph="0">${lv}</span><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-school editable sp-meta-inline" data-ph="School">${sch}</span><span class="sp-cast editable sp-meta-inline" data-ph="1 action">${cast}</span><span class="sp-range editable sp-meta-inline" data-ph="Self">${rng}</span><span class="sp-dur editable sp-meta-inline" data-ph="Instant">${dur}</span><input type="checkbox" class="sp-equipped" ${eq?'checked':''} onchange="syncSpellAtks();save()">`;
-  const db=document.createElement('button');db.className='del-btn';db.style.display='none';db.textContent='✕';db.onclick=(e)=>{e.stopPropagation();removeSpellAtk(row.dataset.sid);row.remove();save();};row.appendChild(db);
-  // Click → open card (non-edit only)
+  row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''}><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-school editable sp-meta-inline" data-ph="School">${sch}</span><span class="sp-cast editable sp-meta-inline" data-ph="1 action">${cast}</span><span class="sp-range editable sp-meta-inline" data-ph="Self">${rng}</span><span class="sp-dur editable sp-meta-inline" data-ph="Instant">${dur}</span><input type="checkbox" class="sp-equipped" ${eq?'checked':''} onchange="syncSpellAtks();save()">`;
+  const db=document.createElement('button');db.className='del-btn';db.style.display='none';db.textContent='✕';
+  db.onclick=(e)=>{e.stopPropagation();removeSpellAtk(row.dataset.sid);row.remove();save();};
+  row.appendChild(db);
   row.addEventListener('click',(e)=>{
     if(editMode||e.target.closest('.del-btn')||e.target.closest('.sp-equipped')||e.target.closest('.sp-prep'))return;
     openSpellCard(id);
   });
-  l.appendChild(row);applyEditToEl(row);
+  listEl.appendChild(row);applyEditToEl(row);
+  // Open the section when a spell is added
+  const sec=document.getElementById('spell-sec-'+secId);
+  if(sec) sec.classList.add('open');
+}
+
+function openAddSpellModal(){
+  // Simple prompt-style: ask level then addSpell
+  const lv=prompt('Spell level (0 for cantrip, 1-9):','1');
+  if(lv===null)return;
+  addSpell('',lv,'','','',false,false,'','','','','','',lv);
+  save();
 }
 
 function openSpellCard(id){
-  const row=document.querySelector(`#spellList [data-sid="${id}"]`);if(!row)return;
+  const row=document.querySelector(`.spell-row[data-sid="${id}"]`);if(!row)return;
   const nm   = row.querySelector('.sp-name').textContent.trim()||'Spell';
-  const lv   = row.querySelector('.sp-lvl').textContent.trim();
-  const sch  = row.querySelector('.sp-school').textContent.trim();
-  const cast = row.querySelector('.sp-cast').textContent.trim();
-  const rng  = row.querySelector('.sp-range').textContent.trim();
-  const dur  = row.querySelector('.sp-dur').textContent.trim();
+  const lv   = row.dataset.lvl||'0';
+  const sch  = row.querySelector('.sp-school')?.textContent.trim()||'';
+  const cast = row.querySelector('.sp-cast')?.textContent.trim()||'';
+  const rng  = row.querySelector('.sp-range')?.textContent.trim()||'';
+  const dur  = row.querySelector('.sp-dur')?.textContent.trim()||'';
   const sd   = spellDescs[id]||{};
 
   // Subtitle: "Xst/nd/rd/th level Evocation" or "Cantrip"
@@ -1026,7 +1124,7 @@ function gather(){
   for(let i=1;i<=9;i++){const t=document.getElementById('st-'+i);const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);d.slots[i]={t:t?t.textContent:'0',u:Array.from(ps).filter(p=>p.classList.contains('used')).length};}
   document.querySelectorAll('#featList .feat-item').forEach(it=>d.feats.push({n:it.querySelector('.feat-name').textContent,s:it.querySelector('.feat-src').textContent,d:it.querySelector('.feat-desc').textContent,o:it.classList.contains('open')}));
   document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,h:hs?hs.value:'main',st:tr.dataset.stat||'str',dmg:tr.querySelector('.atk-dmg').textContent,t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
-  document.querySelectorAll('#spellList .spell-row').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.querySelector('.sp-lvl').textContent,n:row.querySelector('.sp-name').textContent,sc:row.querySelector('.sp-school').textContent,c:row.querySelector('.sp-cast').textContent,r:row.querySelector('.sp-range').textContent,du:row.querySelector('.sp-dur').textContent,e:row.querySelector('.sp-equipped').checked}));
+  document.querySelectorAll('.spell-row[data-sid]').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.dataset.lvl||'0',n:row.querySelector('.sp-name').textContent,sc:row.querySelector('.sp-school')?.textContent||'',c:row.querySelector('.sp-cast')?.textContent||'',r:row.querySelector('.sp-range')?.textContent||'',du:row.querySelector('.sp-dur')?.textContent||'',e:row.querySelector('.sp-equipped').checked}));
   document.querySelectorAll('#invBody tr').forEach(tr=>{const tds=tr.querySelectorAll('td');d.inv.push({n:tds[0]?.querySelector('[data-ph]')?.textContent||'',q:tds[1]?.querySelector('[data-ph]')?.textContent||'1',v:tds[2]?.querySelector('[data-ph]')?.textContent||'',e:tds[3]?.querySelector('input')?.checked||false,no:tds[4]?.querySelector('[data-ph]')?.textContent||''});});
   document.querySelectorAll('#relList .rel-item').forEach(it=>d.rels.push({n:it.querySelector('.rel-name').textContent,r:it.querySelector('.rel-role').textContent,no:it.querySelector('.rel-notes').textContent,o:it.classList.contains('open')}));
   d.ds=Array.from(document.querySelectorAll('.dm')).map(m=>m.classList.contains('marked'));
@@ -1075,7 +1173,9 @@ function applyData(d){
   (d.feats||[]).forEach(f=>{addFeat(f.n,f.s,f.d);if(f.o){const its=document.querySelectorAll('#featList .feat-item');its[its.length-1].classList.add('open');}});
   document.getElementById('atkBody').innerHTML='';atkCtr=0;
   (d.atks||[]).forEach(a=>addAtk(a.n,a.h||'main','',a.dmg,a.t,a.r,a.no,false,null,a.st||'str'));
-  document.getElementById('spellList').innerHTML='';spellCtr=0;
+  // Clear all spell level lists
+  for(let i=0;i<=9;i++){const el=document.getElementById('spellList-'+i);if(el)el.innerHTML='';}
+  spellCtr=0;
   // First restore sdescs so addSpell can pick them up if needed
   if(d.sdescs){
     Object.keys(d.sdescs).forEach(k=>{
@@ -1083,7 +1183,7 @@ function applyData(d){
       spellDescs[k]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;
     });
   }
-  (d.spells||[]).forEach(s=>addSpell(s.n,s.l,s.sc,s.c,s.r,s.p,s.e,'',s.du||'','','','',''));
+  (d.spells||[]).forEach(s=>addSpell(s.n,s.l,s.sc,s.c,s.r,s.p,s.e,'',s.du||'','','','','',s.l));
   document.getElementById('invBody').innerHTML='';
   document.getElementById('relList').innerHTML='';
   (d.rels||[]).forEach(r=>{addRel(r.n,r.r,r.no);if(r.o){const its=document.querySelectorAll('#relList .rel-item');its[its.length-1].classList.add('open');}});
