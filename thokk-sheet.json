@@ -219,43 +219,43 @@
     {
       "n": "Ismark Kolyanovich",
       "r": "Hijo del Burgómaestre — Aldea de Barovia",
-      "no": "Nos pidió escolta para Ireena hasta Vallaki. Confiable. Carga con el peso de todo el pueblo.",
+      "no": "No conocido",
       "o": false
     },
     {
       "n": "Ireena Kolyana",
       "r": "Hija del Burgómaestre — objetivo de Strahd",
-      "no": "Capaz y directa. No necesita que la rescaten. El objetivo es llevarla a Vallaki sana y salva.",
+      "no": "No conocido",
       "o": false
     },
     {
       "n": "Padre Donavich",
       "r": "Sacerdote de la Mañana del Señor",
-      "no": "Roto por lo de su hijo. Nos dio información útil sobre las debilidades de los vampiros.",
+      "no": "No conocido",
       "o": false
     },
     {
       "n": "Doru",
       "r": "Hijo de Donavich — engendro vampírico encadenado",
-      "no": "Encadenado en el sótano de la iglesia. Si Strahd muere, Doru se libera de su control.",
+      "no": "No conocido",
       "o": false
     },
     {
       "n": "Rose Durst",
       "r": "Fantasma de la Casa Durst",
-      "no": "Niña fantasma. Le prometimos que acabaríamos con el monstruo del sótano. Aún sin descanso.",
+      "no": "No conocido",
       "o": false
     },
     {
       "n": "Thorn Durst",
       "r": "Fantasma de la Casa Durst",
-      "no": "Niño fantasma. Entró brevemente en el cuerpo de Sarda por el pánico.",
+      "no": "No conocido",
       "o": false
     },
     {
       "n": "Kaelos",
       "r": "Sátiro Bardo — compañero de partido",
-      "no": "Lo rescatamos en las ruinas. Toca la flauta. Tiene mano larga. Me fío de él en combate.",
+      "no": "No conocido",
       "o": false
     }
   ],
@@ -272,6 +272,5 @@
     "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
     "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
     "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
-  },
-  "proficiencies": "Idiomas: Común, OrcoArmaduras: ligeras, medianas, escudosArmas: sencillas y marciales. Instrumentos: AcordeónFoco arcano: Tótem de hueso de oso y pelo.Test111"
+  }
 }
