@@ -160,21 +160,19 @@
   "atks": [
     {
       "n": "Hacha de Dos Manos",
-      "h": "main",
+      "h": "main-s",
       "dmg": "1d12+4",
       "t": "Cortante",
       "r": "5ft",
-      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes).",
-      "st": "str"
+      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes)."
     },
     {
       "n": "Ballesta Pesada",
-      "h": "ranged",
+      "h": "ranged-d",
       "dmg": "1d10",
       "t": "Perforante",
       "r": "100/400ft",
-      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar.",
-      "st": "dex"
+      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar."
     }
   ],
   "spells": [

@@ -90,7 +90,11 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .ab-roll-btn{font-family:var(--font-heading);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:none;border:none;border-top:1px solid rgba(200,169,110,0.15);color:var(--text-faint);cursor:pointer;padding:0.32rem 0;margin-top:0.3rem;width:100%;transition:background 0.15s,color 0.15s;}
 .ab-roll-btn:hover{background:rgba(200,169,110,0.07);color:var(--ink-gold);}
 
-/* SKILLS & SAVES */
+/* Ability block clickable in view mode */
+body:not(.edit-mode) .ab-block{cursor:pointer;transition:background 0.15s;}
+body:not(.edit-mode) .ab-block:hover{background:rgba(200,169,110,0.06);}
+body:not(.edit-mode) .ab-roll-btn{display:none;}
+body.edit-mode .ab-block{cursor:default;}
 .skill-row{display:flex;align-items:center;gap:0.42rem;padding:0.2rem 0.22rem;border-radius:2px;transition:background 0.12s;}
 .skill-row:hover{background:rgba(200,169,110,0.04);}
 .prof-cb{width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-gold-dim);background:transparent;cursor:pointer;flex-shrink:0;transition:all 0.18s;appearance:none;-webkit-appearance:none;}
@@ -106,18 +110,30 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .cs{text-align:center;padding:0.42rem 0.15rem;background:var(--bg-parchment);border:1px solid var(--border-gold);min-width:0;}
 .cs-lbl{font-family:var(--font-heading);font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-faint);display:block;margin-bottom:0.12rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .cs-val{font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--ink-gold);display:block;}
-.hp-block{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.45rem 0.52rem;}
+.hp-block{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.75rem 0.52rem 0.6rem;}
 .hp-row{display:flex;gap:0.38rem;align-items:center;margin-bottom:0.3rem;}
 .hp-lbl{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-faint);min-width:76px;}
 .hp-val{font-family:var(--font-heading);font-size:1.08rem;font-weight:700;color:var(--text-bright);min-width:36px;border-bottom:1px solid var(--border-gold);padding-bottom:1px;}
 .hp-val.mxhp{color:var(--ink-gold);}
-/* Death saves — gothic */
-.death-row{display:flex;align-items:center;gap:0.4rem;margin-top:0.35rem;flex-wrap:wrap;}
-.death-lbl{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-faint);}
-.death-marks{display:flex;gap:0.25rem;}
-.dm{width:20px;height:20px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:0.75rem;font-weight:700;border:1px solid var(--border-gold);color:var(--text-faint);transition:all 0.18s;background:none;user-select:none;}
-.dm.success.marked{border-color:var(--ink-gold-dim);color:var(--ink-gold);}
-.dm.failure.marked{border-color:rgba(200,169,110,0.35);color:var(--ink-gold-dim);}
+/* HP centre section */
+.hp-centre{display:flex;gap:0.6rem;margin-bottom:0.55rem;}
+.hp-box{flex:1;display:flex;flex-direction:column;align-items:center;gap:0.12rem;background:var(--bg-card);border:1px solid var(--border-gold);padding:0.45rem 0.3rem;}
+.hp-box-lbl{font-family:var(--font-heading);font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);}
+.hp-box-val{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--ink-gold);line-height:1;min-width:48px;text-align:center;}
+.hp-box-val.chp{color:var(--text-bright);}
+.hp-box-val.thp{color:#7ab8c8;font-size:1.55rem;}
+/* Death saves redesign */
+.death-row{display:flex;flex-direction:column;align-items:center;gap:0.35rem;margin-top:0.1rem;}
+.death-lbl{font-family:var(--font-heading);font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);}
+.death-marks-row{display:flex;align-items:center;gap:0.55rem;}
+.death-marks-group{display:flex;flex-direction:column;align-items:center;gap:0.2rem;}
+.death-marks-group-lbl{font-family:var(--font-heading);font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;}
+.death-marks-group-lbl.success-lbl{color:var(--ink-gold-dim);}
+.death-marks-group-lbl.failure-lbl{color:rgba(180,30,30,0.6);}
+.death-marks{display:flex;gap:0.28rem;}
+.dm{width:22px;height:22px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:0.78rem;font-weight:700;border:1px solid var(--border-gold);color:var(--text-faint);transition:all 0.18s;background:none;user-select:none;border-radius:2px;}
+.dm.success.marked{border-color:var(--ink-gold);color:var(--ink-gold);background:rgba(200,169,110,0.1);}
+.dm.failure.marked{border-color:rgba(180,30,30,0.7);color:var(--ink-red-bright);background:rgba(139,26,26,0.1);}
 .death-sep{color:var(--text-faint);font-size:0.7rem;font-family:var(--font-heading);}
 
 /* PORTRAIT */
@@ -137,7 +153,7 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 /* FEATURES */
 .feat-item{border:1px solid var(--border-gold);margin-bottom:0.45rem;overflow:hidden;}
 .feat-hdr{display:flex;align-items:center;gap:0.42rem;padding:0.42rem 0.6rem;cursor:pointer;background:var(--bg-parchment);user-select:none;}
-.feat-tog{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;color:var(--ink-gold-dim);flex-shrink:0;transition:transform 0.18s;}
+.feat-tog{font-family:'Cinzel',Georgia,serif;font-size:0.68rem;font-weight:700;color:var(--ink-gold-dim);flex-shrink:0;transition:transform 0.18s;speak:none;font-style:normal;}
 .feat-item.open .feat-tog{transform:rotate(90deg);}
 .feat-name{font-family:var(--font-heading);font-size:0.9rem;font-weight:700;color:var(--ink-gold);flex:1;}
 .feat-src{font-family:var(--font-body);font-size:0.8rem;color:var(--text-faint);font-style:italic;flex-shrink:0;}
@@ -181,7 +197,7 @@ body:not(.edit-mode) .roll-btn{display:none;}/* row click handles it */
 .spell-level-sec{margin-bottom:0.75rem;}
 .spell-level-hdr{display:flex;align-items:center;gap:0.42rem;padding:0.42rem 0.6rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;}
 .spell-level-hdr:hover{background:rgba(200,169,110,0.06);}
-.spell-level-tog{font-size:0.62rem;color:var(--ink-gold-dim);transition:transform 0.18s;flex-shrink:0;}
+.spell-level-tog{font-family:'Cinzel',Georgia,serif;font-size:0.62rem;color:var(--ink-gold-dim);transition:transform 0.18s;flex-shrink:0;speak:none;font-style:normal;}
 .spell-level-sec.open .spell-level-tog{transform:rotate(90deg);}
 .spell-level-title{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-gold);flex-shrink:0;}
 .spell-level-pips{display:flex;gap:0.25rem;align-items:center;flex-wrap:wrap;}
@@ -287,71 +303,8 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .dice-arena{padding:1.5rem 1.3rem 0.9rem;display:flex;flex-direction:column;align-items:center;}
 
 /* ── ICOSAHEDRON 3D ── */
-.d3d-wrap{width:110px;height:110px;position:relative;margin-bottom:1.15rem;perspective:320px;}
-.ico{width:110px;height:110px;position:relative;transform-style:preserve-3d;transform:rotateX(20deg) rotateY(0deg);}
-.ico.rolling{animation:icoRoll 0.85s cubic-bezier(0.2,0.8,0.4,1) forwards;}
-.ico.crit{filter:drop-shadow(0 0 18px rgba(255,215,0,0.7));}
-.ico.fumb{filter:drop-shadow(0 0 18px rgba(180,30,30,0.8));}
-@keyframes icoRoll{
-  0%  {transform:rotateX(20deg)  rotateY(0deg)   rotateZ(0deg);}
-  25% {transform:rotateX(200deg) rotateY(130deg) rotateZ(80deg) scale(1.12);}
-  55% {transform:rotateX(420deg) rotateY(310deg) rotateZ(200deg) scale(0.92);}
-  80% {transform:rotateX(560deg) rotateY(420deg) rotateZ(300deg) scale(1.05);}
-  100%{transform:rotateX(680deg) rotateY(520deg) rotateZ(360deg) scale(1);}
-}
-/* 20 triangular faces of an icosahedron rendered as CSS 3D planes */
-.ico-face{
-  position:absolute;
-  width:0;height:0;
-  border-left:  32px solid transparent;
-  border-right: 32px solid transparent;
-  border-bottom:55px solid rgba(26,18,8,0.92);
-  transform-origin:32px 37px;
-  transition:border-bottom-color 0.3s;
-}
-/* Each face gets a slightly different shade for depth */
-.ico-face:nth-child(odd) {border-bottom-color:rgba(30,22,10,0.95);}
-.ico-face:nth-child(3n)  {border-bottom-color:rgba(20,14,6,0.88);}
-/* Gold edges via box-shadow trick on pseudo-elements isn't feasible for triangles;
-   use outline on the wrapper instead */
-.ico-face::after{
-  content:'';
-  position:absolute;
-  top:2px;left:-28px;
-  width:0;height:0;
-  border-left:  28px solid transparent;
-  border-right: 28px solid transparent;
-  border-bottom:48px solid rgba(200,169,110,0.08);
-}
-/* Face transforms — 20 faces of icosahedron
-   Using pre-calculated rotations for a regular icosahedron */
-.ico-face:nth-child(1) {transform:rotateY(0deg)   rotateX(10.8deg)  translateZ(38px);}
-.ico-face:nth-child(2) {transform:rotateY(72deg)  rotateX(10.8deg)  translateZ(38px);}
-.ico-face:nth-child(3) {transform:rotateY(144deg) rotateX(10.8deg)  translateZ(38px);}
-.ico-face:nth-child(4) {transform:rotateY(216deg) rotateX(10.8deg)  translateZ(38px);}
-.ico-face:nth-child(5) {transform:rotateY(288deg) rotateX(10.8deg)  translateZ(38px);}
-.ico-face:nth-child(6) {transform:rotateY(36deg)  rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
-.ico-face:nth-child(7) {transform:rotateY(108deg) rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
-.ico-face:nth-child(8) {transform:rotateY(180deg) rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
-.ico-face:nth-child(9) {transform:rotateY(252deg) rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
-.ico-face:nth-child(10){transform:rotateY(324deg) rotateX(-10.8deg) translateZ(38px) rotateZ(180deg);}
-.ico-face:nth-child(11){transform:rotateY(0deg)   rotateX(52deg)    translateZ(28px);}
-.ico-face:nth-child(12){transform:rotateY(72deg)  rotateX(52deg)    translateZ(28px);}
-.ico-face:nth-child(13){transform:rotateY(144deg) rotateX(52deg)    translateZ(28px);}
-.ico-face:nth-child(14){transform:rotateY(216deg) rotateX(52deg)    translateZ(28px);}
-.ico-face:nth-child(15){transform:rotateY(288deg) rotateX(52deg)    translateZ(28px);}
-.ico-face:nth-child(16){transform:rotateY(36deg)  rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
-.ico-face:nth-child(17){transform:rotateY(108deg) rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
-.ico-face:nth-child(18){transform:rotateY(180deg) rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
-.ico-face:nth-child(19){transform:rotateY(252deg) rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
-.ico-face:nth-child(20){transform:rotateY(324deg) rotateX(-52deg)   translateZ(28px) rotateZ(180deg);}
-
-/* Gold stroke overlay — SVG on top of 3D */
-.ico-svg{position:absolute;inset:0;width:110px;height:110px;pointer-events:none;opacity:0.55;}
-.ico.crit .ico-svg{opacity:1;}
-
-.dface{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.55rem;color:var(--ink-gold-bright);pointer-events:none;text-shadow:0 0 9px rgba(200,169,110,0.55);opacity:0;transition:opacity 0.27s ease 0.55s;z-index:2;}
-.dface.vis{opacity:1;}.dface.crit{color:#ffd700;text-shadow:0 0 17px rgba(255,215,0,0.88);}.dface.fumb{color:#cc2222;text-shadow:0 0 17px rgba(200,50,50,0.75);}
+.d3d-wrap{width:180px;height:180px;position:relative;margin-bottom:0.7rem;cursor:default;}
+#diceCanvas{display:block;width:180px;height:180px;background:transparent;}
 .dtotal{font-family:var(--font-display);font-size:3.5rem;line-height:1;color:var(--ink-gold);text-shadow:0 0 38px rgba(200,169,110,0.36);margin-bottom:0.22rem;opacity:0;transform:scale(0.72);transition:opacity 0.3s ease 0.5s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1) 0.5s;}
 .dtotal.vis{opacity:1;transform:scale(1);}.dtotal.crit{color:#ffd700;text-shadow:0 0 52px rgba(255,215,0,0.62);}.dtotal.fumb{color:#cc2222;text-shadow:0 0 36px rgba(200,50,50,0.52);}
 .dbadge{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:0.16rem 0.72rem;margin-bottom:0.82rem;border:1px solid;opacity:0;transition:opacity 0.26s ease 0.64s;}
@@ -367,11 +320,6 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .dcval.pos{color:var(--ink-green);}.dcval.neg{color:var(--ink-red-bright);}.dcval.tot{font-family:var(--font-display);font-size:1.02rem;color:var(--ink-gold);}
 .ddmgsec{margin-top:0.42rem;padding-top:0.42rem;border-top:1px dashed rgba(200,169,110,0.13);}
 .ddmglbl{font-family:var(--font-heading);font-size:0.6rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.32rem;display:block;}
-.dfooter{display:flex;gap:0.52rem;justify-content:center;padding:0.75rem 1.05rem;border-top:1px solid rgba(200,169,110,0.08);background:rgba(0,0,0,0.16);}
-.dreroll{font-family:var(--font-heading);font-size:0.76rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:0.4rem 1.05rem;background:transparent;border:1px solid var(--border-gold);color:var(--ink-gold-dim);cursor:pointer;transition:all 0.18s;}
-.dreroll:hover{background:rgba(200,169,110,0.065);color:var(--ink-gold);}
-.ddismiss{font-family:var(--font-heading);font-size:0.76rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:0.4rem 1.05rem;background:transparent;border:1px solid rgba(139,26,26,0.26);color:var(--text-faint);cursor:pointer;transition:all 0.18s;}
-.ddismiss:hover{border-color:var(--border-red);color:var(--ink-red-bright);}
 
 /* PASSWORD MODAL */
 .pw-overlay{position:fixed;inset:0;z-index:2000;background:rgba(4,3,2,0.9);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.18s;backdrop-filter:blur(3px);}
@@ -470,50 +418,14 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
     </div>
     <div class="dice-arena">
       <div class="d3d-wrap">
-        <div class="ico" id="d3d">
-          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
-          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
-          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
-          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
-          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
-          <div class="ico-face"></div><div class="ico-face"></div><div class="ico-face"></div>
-          <div class="ico-face"></div><div class="ico-face"></div>
-          <!-- SVG wire overlay — icosahedron silhouette in gold -->
-          <svg class="ico-svg" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="55,4 103,32 103,78 55,106 7,78 7,32" fill="none" stroke="#c8a96e" stroke-width="1" opacity="0.7"/>
-            <polygon points="55,18 88,38 88,72 55,92 22,72 22,38" fill="none" stroke="#c8a96e" stroke-width="0.6" opacity="0.35"/>
-            <line x1="55" y1="4"   x2="55" y2="18"  stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
-            <line x1="103" y1="32" x2="88" y2="38"  stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
-            <line x1="103" y1="78" x2="88" y2="72"  stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
-            <line x1="55"  y1="106" x2="55" y2="92" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
-            <line x1="7"   y1="78"  x2="22" y2="72" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
-            <line x1="7"   y1="32"  x2="22" y2="38" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
-            <!-- internal triangulation lines -->
-            <line x1="55" y1="4"   x2="88" y2="72"  stroke="#8a7248" stroke-width="0.4" opacity="0.25"/>
-            <line x1="55" y1="4"   x2="22" y2="72"  stroke="#8a7248" stroke-width="0.4" opacity="0.25"/>
-            <line x1="103" y1="32" x2="22" y2="72"  stroke="#8a7248" stroke-width="0.4" opacity="0.2"/>
-            <line x1="7"   y1="32" x2="88" y2="72"  stroke="#8a7248" stroke-width="0.4" opacity="0.2"/>
-            <line x1="55" y1="106" x2="88" y2="38"  stroke="#8a7248" stroke-width="0.4" opacity="0.25"/>
-            <line x1="55" y1="106" x2="22" y2="38"  stroke="#8a7248" stroke-width="0.4" opacity="0.25"/>
-            <line x1="55" y1="18"  x2="55" y2="92"  stroke="#8a7248" stroke-width="0.4" opacity="0.18"/>
-            <!-- "20" label at center -->
-            <text x="55" y="59" text-anchor="middle" dominant-baseline="middle"
-              font-family="'Cinzel', serif" font-size="13" font-weight="700"
-              fill="#c8a96e" opacity="0.6">20</text>
-          </svg>
-        </div>
-        <div class="dface" id="dFace">—</div>
+        <canvas id="diceCanvas" width="180" height="180"></canvas>
       </div>
-      <div class="dtotal" id="dTotal">—</div>
-      <div class="dbadge norm" id="dBadge">—</div>
+      <div class="dtotal" id="dTotal"></div>
+      <div class="dbadge norm" id="dBadge"></div>
       <div class="dbkpanel" id="dBkPanel">
         <div id="dCalcRows"></div>
         <div class="ddmgsec" id="dDmgSec" style="display:none;"><span class="ddmglbl">Damage Roll</span><div id="dDmgRows"></div></div>
       </div>
-    </div>
-    <div class="dfooter">
-      <button class="dreroll" onclick="reroll()">⟳ Reroll</button>
-      <button class="ddismiss" onclick="closeDice()">Dismiss</button>
     </div>
   </div>
 </div>
@@ -597,26 +509,36 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
           <div class="cs"><span class="cs-lbl">Max HP</span><span class="cs-val mxhp editable" data-ph="0" id="maxHP">0</span></div>
         </div>
         <div class="hp-block">
-          <div class="hp-row">
-            <span class="hp-lbl">Current HP</span>
-            <span class="hp-val always-edit" id="currentHP" data-ph="0" contenteditable="true">0</span>
-            <span style="color:var(--text-faint);margin:0 0.3rem;">/</span>
-            <span style="font-family:var(--font-heading);font-size:0.78rem;font-weight:700;color:var(--text-faint)" id="maxHPref">0</span>
+          <div class="hp-centre">
+            <div class="hp-box">
+              <span class="hp-box-lbl">Current HP</span>
+              <span class="hp-box-val chp always-edit" id="currentHP" data-ph="0" contenteditable="true">0</span>
+              <span style="font-family:var(--font-heading);font-size:0.65rem;color:var(--text-faint);letter-spacing:0.06em;">/ <span id="maxHPref">0</span></span>
+            </div>
+            <div class="hp-box">
+              <span class="hp-box-lbl">Temp HP</span>
+              <span class="hp-box-val thp always-edit" id="tempHP" data-ph="—" contenteditable="true">—</span>
+            </div>
           </div>
-          <div class="hp-row"><span class="hp-lbl">Temp HP</span><span class="hp-val always-edit" id="tempHP" data-ph="—" contenteditable="true">—</span></div>
           <div class="death-row">
             <span class="death-lbl">Death Saves</span>
-            <span class="death-sep">✦</span>
-            <div class="death-marks">
-              <div class="dm success" onclick="this.classList.toggle('marked');save()">I</div>
-              <div class="dm success" onclick="this.classList.toggle('marked');save()">I</div>
-              <div class="dm success" onclick="this.classList.toggle('marked');save()">I</div>
-            </div>
-            <span class="death-sep">✦</span>
-            <div class="death-marks">
-              <div class="dm failure" onclick="this.classList.toggle('marked');save()">X</div>
-              <div class="dm failure" onclick="this.classList.toggle('marked');save()">X</div>
-              <div class="dm failure" onclick="this.classList.toggle('marked');save()">X</div>
+            <div class="death-marks-row">
+              <div class="death-marks-group">
+                <span class="death-marks-group-lbl success-lbl">Successes</span>
+                <div class="death-marks">
+                  <div class="dm success" onclick="this.classList.toggle('marked');save()">✦</div>
+                  <div class="dm success" onclick="this.classList.toggle('marked');save()">✦</div>
+                  <div class="dm success" onclick="this.classList.toggle('marked');save()">✦</div>
+                </div>
+              </div>
+              <div class="death-marks-group">
+                <span class="death-marks-group-lbl failure-lbl">Failures</span>
+                <div class="death-marks">
+                  <div class="dm failure" onclick="this.classList.toggle('marked');save()">✕</div>
+                  <div class="dm failure" onclick="this.classList.toggle('marked');save()">✕</div>
+                  <div class="dm failure" onclick="this.classList.toggle('marked');save()">✕</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -720,8 +642,9 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
     <div class="spell-meta-grid">
       <div class="smi"><span class="mlb">Spellcasting Class</span><span class="mfv editable" data-ph="—" id="spellClass">—</span></div>
       <div class="smi"><span class="mlb">Spellcasting Ability</span>
-        <select id="spellAbility" onchange="recalc()" style="background:var(--bg-card);border:1px solid var(--border-gold);color:var(--text-body);font-family:var(--font-heading);font-size:0.8rem;font-weight:700;padding:0.16rem 0.3rem;">
-          <option value="int">INT</option><option value="wis">WIS</option><option value="cha">CHA</option>
+        <span class="mfv" id="spellAbilityTxt" style="font-size:1rem;color:var(--ink-gold);">WIS</span>
+        <select id="spellAbility" onchange="recalc();document.getElementById('spellAbilityTxt').textContent=this.options[this.selectedIndex].text;" style="display:none;background:var(--bg-card);border:1px solid var(--border-gold);color:var(--text-body);font-family:var(--font-heading);font-size:0.8rem;font-weight:700;padding:0.16rem 0.3rem;">
+          <option value="int">INT</option><option value="wis" selected>WIS</option><option value="cha">CHA</option>
         </select>
       </div>
       <div class="smi"><span class="mlb">Spell Save DC</span><span class="mfv" id="spellDC" style="font-size:1rem;color:var(--ink-gold);">—</span></div>
@@ -803,10 +726,12 @@ function enableEdit(){
   document.querySelectorAll('.editable').forEach(el=>el.contentEditable='true');
   document.querySelectorAll('.add-btn,.del-btn').forEach(el=>el.style.display='');
   document.querySelectorAll('.hand-sel').forEach(s=>s.disabled=false);
+  // Show spell ability select in edit mode
+  document.getElementById('spellAbility').style.display='';
+  document.getElementById('spellAbilityTxt').style.display='none';
   document.getElementById('spellAbility').disabled=false;
   // Show per-level add buttons
   document.querySelectorAll('.spell-level-body .add-btn').forEach(el=>el.style.display='');
-  // Make slot totals editable
   document.querySelectorAll('.spell-level-tot-val').forEach(el=>el.contentEditable='true');
 }
 function lockEdit(){
@@ -816,8 +741,16 @@ function lockEdit(){
   document.querySelectorAll('.editable').forEach(el=>el.contentEditable='false');
   document.querySelectorAll('.add-btn,.del-btn').forEach(el=>el.style.display='none');
   document.querySelectorAll('.hand-sel').forEach(s=>s.disabled=true);
+  // Show spell ability as text in view mode
+  document.getElementById('spellAbility').style.display='none';
+  document.getElementById('spellAbilityTxt').style.display='';
   document.getElementById('spellAbility').disabled=true;
   document.querySelectorAll('.spell-level-tot-val').forEach(el=>el.contentEditable='false');
+}
+function syncSpellClass(){
+  const sc=document.getElementById('spellClass');
+  const cc=document.getElementById('charClass');
+  if(sc&&cc&&(!sc.textContent||sc.textContent==='—')) sc.textContent=cc.textContent||'—';
 }
 function applyEditToEl(el){
   el.querySelectorAll('.editable').forEach(e=>e.contentEditable=editMode?'true':'false');
@@ -839,6 +772,12 @@ function recalc(){
   const pm=aMod('wis');const ppe=document.getElementById('sk-per-p');const ppv=10+pm+(ppe&&ppe.checked?pb:0);
   document.getElementById('pp').textContent=ppv;document.getElementById('pp2').textContent=ppv;
   document.getElementById('maxHPref').textContent=document.getElementById('maxHP').textContent;
+  // Recalc weapon bonuses
+  document.querySelectorAll('#atkBody .hand-sel').forEach(sel=>{
+    const id=sel.id.replace('hs-','');
+    const el=document.getElementById('ab-'+id);
+    if(el&&!el.classList.contains('spell')) el.textContent=calcWpnBonus(sel.value);
+  });
   const sa=document.getElementById('spellAbility').value;const sm=aMod(sa);
   document.getElementById('spellDC').textContent=8+pb+sm;document.getElementById('spellAtk').textContent=fmt(pb+sm);
   syncSpellAtks();
@@ -849,7 +788,8 @@ function buildAbils(){
   const g=document.getElementById('abilGrid');g.innerHTML='';
   ABILITIES.forEach(a=>{
     const b=document.createElement('div');b.className='ab-block';
-    b.innerHTML=`<span class="ab-label">${AL[a]}</span><div class="ab-wrap"><span class="ab-score editable" data-ph="10" id="sc-${a}" oninput="recalc()">${a==='str'?'10':'10'}</span></div><span class="ab-mod" id="md-${a}" onclick="rollAbil('${a}')" title="Roll ${AL[a]} check">+0</span><button class="ab-roll-btn" onclick="rollAbil('${a}')">⚄ Roll</button>`;
+    b.onclick=()=>{ if(!editMode) rollAbil(a); };
+    b.innerHTML=`<span class="ab-label">${AL[a]}</span><div class="ab-wrap"><span class="ab-score editable" data-ph="10" id="sc-${a}" oninput="recalc()" onclick="event.stopPropagation()">${'10'}</span></div><span class="ab-mod" id="md-${a}">+0</span><button class="ab-roll-btn" onclick="event.stopPropagation();rollAbil('${a}')">⚄ Roll</button>`;
     g.appendChild(b);
   });
 }
@@ -936,16 +876,34 @@ function addRel(n='',r='',notes=''){
 }
 
 // ATTACKS
+// hand values: main-s, main-d, ranged-d, off-s, off-d
+// main/ranged → +Prof; off → no Prof
+// -s → STR; -d → DEX
+const HAND_OPTS=[
+  {v:'main-s',  l:'Main (S)',   prof:true,  stat:'str'},
+  {v:'main-d',  l:'Main (D)',   prof:true,  stat:'dex'},
+  {v:'ranged-d',l:'Ranged (D)', prof:true,  stat:'dex'},
+  {v:'off-s',   l:'Off (S)',    prof:false, stat:'str'},
+  {v:'off-d',   l:'Off (D)',    prof:false, stat:'dex'},
+];
+function handOpt(v){return HAND_OPTS.find(o=>o.v===v)||HAND_OPTS[0];}
+function calcWpnBonus(hand){
+  const o=handOpt(hand);const pb=prof();const m=aMod(o.stat);
+  return fmt(o.prof?m+pb:m);
+}
 let atkCtr=0;
-function addAtk(n='',hand='main',bonus='',dmg='',type='',range='',notes='',isSpell=false,sid=null,stat='str'){
-  const tb=document.getElementById('atkBody');const id=++atkCtr;const tr=document.createElement('tr');tr.dataset.aid=id;tr.dataset.stat=stat;if(sid)tr.dataset.sid=sid;
-  const compBonus=isSpell?bonus:calcWpnBonus(hand,stat);
-  tr.innerHTML=`<td><span class="atk-name editable" data-ph="Name">${n}</span></td><td>${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}" ${!editMode?'disabled':''}><option value="main"${hand==='main'?' selected':''}>Main</option><option value="ranged"${hand==='ranged'?' selected':''}>Ranged</option><option value="off"${hand==='off'?' selected':''}>Off</option></select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td><span class="atk-dmg editable" data-ph="1d6">${dmg}</span></td><td><span class="atk-type editable" data-ph="Type">${type}</span></td><td><span class="atk-type editable" data-ph="Range">${range}</span></td><td><span class="atk-notes editable" data-ph="Notes">${notes}</span></td><td>${sid?'':`<button class="del-btn" style="display:none" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
+function addAtk(n='',hand='main-s',bonus='',dmg='',type='',range='',notes='',isSpell=false,sid=null){
+  const tb=document.getElementById('atkBody');const id=++atkCtr;const tr=document.createElement('tr');tr.dataset.aid=id;if(sid)tr.dataset.sid=sid;
+  const compBonus=isSpell?bonus:calcWpnBonus(hand);
+  const selOpts=HAND_OPTS.map(o=>`<option value="${o.v}"${hand===o.v?' selected':''}>${o.l}</option>`).join('');
+  tr.innerHTML=`<td><span class="atk-name editable" data-ph="Name">${n}</span></td><td>${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}" ${!editMode?'disabled':''}>${selOpts}</select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td><span class="atk-dmg editable" data-ph="1d6">${dmg}</span></td><td><span class="atk-type editable" data-ph="Type">${type}</span></td><td><span class="atk-type editable" data-ph="Range">${range}</span></td><td><span class="atk-notes editable" data-ph="Notes">${notes}</span></td><td>${sid?'':`<button class="del-btn" style="display:none" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
   tr.addEventListener('click',()=>{ if(!editMode) rollAtkRow(id); });
   tb.appendChild(tr);applyEditToEl(tr);
 }
-function calcWpnBonus(hand, stat='str'){const pb=prof();const m=aMod(stat);return hand==='main'||hand==='ranged'?fmt(m+pb):fmt(m);}
-function updateHand(id){const tr=document.querySelector(`[data-aid="${id}"]`);if(!tr)return;const s=document.getElementById('hs-'+id);const stat=tr.dataset.stat||'str';const el=document.getElementById('ab-'+id);if(el)el.textContent=calcWpnBonus(s?s.value:'main',stat);}
+function updateHand(id){
+  const s=document.getElementById('hs-'+id);if(!s)return;
+  const el=document.getElementById('ab-'+id);if(el)el.textContent=calcWpnBonus(s.value);
+}
 function syncSpellAtks(){
   const tb=document.getElementById('atkBody');const pb=prof();const sa=document.getElementById('spellAbility').value;const sm=aMod(sa);const bon=fmt(pb+sm);
   tb.querySelectorAll('[data-sid]').forEach(tr=>tr.remove());
@@ -1103,34 +1061,150 @@ document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=
 
 // DICE
 let curRoll=null;
+// ── D20 CANVAS ENGINE ─────────────────────────────────────────────────────────
+const diceEngine=(function(){
+const VERTS=[
+  [ 34.895, 60.694, 48.204],[-34.895, 77.340, -5.089],
+  [ 45.169, 59.488,-40.570],[-45.169, 25.822, 67.216],
+  [ 28.545,-23.870, 76.422],[ 84.377, -3.063,  9.807],
+  [-45.169,-59.488, 40.570],[ 45.169,-25.822,-67.216],
+  [-84.377,  3.063, -9.808],[-28.545, 23.870,-76.422],
+  [ 34.895,-77.340,  5.089],[-34.895,-60.694,-48.204]
+];
+const FACES=[
+  [0,1,2],[0,1,3],[0,2,5],[0,3,4],[0,4,5],
+  [1,2,9],[1,3,8],[1,8,9],[2,5,7],[2,7,9],
+  [3,4,6],[3,6,8],[4,5,10],[4,6,10],[5,7,10],
+  [6,8,11],[6,10,11],[7,9,11],[7,10,11],[8,9,11]
+];
+const REST_RX=-44.435,REST_RY=-35.901;
+const D2R=Math.PI/180;
+const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]];
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const nrm=v=>{const l=Math.sqrt(dot(v,v));return l<1e-9?v:[v[0]/l,v[1]/l,v[2]/l]};
+const rxF=(v,a)=>{const c=Math.cos(a),s=Math.sin(a);return[v[0],v[1]*c-v[2]*s,v[1]*s+v[2]*c]};
+const ryF=(v,a)=>{const c=Math.cos(a),s=Math.sin(a);return[v[0]*c+v[2]*s,v[1],-v[0]*s+v[2]*c]};
+const rotat=(v,a,b)=>ryF(rxF(v,a),b);
+const proj=v=>[v[0]+90,-v[1]+90];
+const short=(f,t)=>f+(((t-f)%360+540)%360-180);
+const easeOutBack=t=>{const c=2.70158;return 1+c*(t-1)**3+(c-1)*(t-1)**2;};
+const LIGHT=nrm([0.5,0.85,1.0]);
+let rx=REST_RX,ry=REST_RY,dState='idle';
+let spinStart=0,spinDur=0,sfRx=0,sfRy=0,stRx=0,stRy=0,settleStart=0;
+const SETTLE_DUR=700;
+let dResult=0,resultOp=0,showNum=false,loopActive=false,rafId=null,lastT=0,onDone=null;
+function draw(){
+  const canvas=document.getElementById('diceCanvas');if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,180,180);
+  const rxR=rx*D2R,ryR=ry*D2R,rv=VERTS.map(v=>rotat(v,rxR,ryR));
+  FACES.map((f,i)=>({i,cz:(rv[f[0]][2]+rv[f[1]][2]+rv[f[2]][2])/3}))
+    .sort((a,b)=>a.cz-b.cz).forEach(({i})=>{
+      const f=FACES[i],a=rv[f[0]],b=rv[f[1]],c=rv[f[2]];
+      let fn=nrm(cross(sub(b,a),sub(c,a)));
+      const fc=[(a[0]+b[0]+c[0])/3,(a[1]+b[1]+c[1])/3,(a[2]+b[2]+c[2])/3];
+      if(dot(fn,fc)<0)fn=[-fn[0],-fn[1],-fn[2]];
+      const front=fn[2]<=0,litN=front?fn:[-fn[0],-fn[1],-fn[2]];
+      const diff=Math.max(0,dot(litN,LIGHT)),bright=front?(0.22+diff*0.70):0.08;
+      const[ax,ay]=proj(a),[bx,by]=proj(b),[cx2,cy2]=proj(c);
+      ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.lineTo(cx2,cy2);ctx.closePath();
+      const t2=(i%5)*2;
+      ctx.fillStyle=`rgb(${(14+t2+bright*105)|0},${(11+t2+bright*80)|0},${(6+t2+bright*48)|0})`;
+      ctx.fill();
+      ctx.strokeStyle=`rgba(200,169,110,${(front?(0.28+diff*0.50):0.10).toFixed(2)})`;
+      ctx.lineWidth=1.8;ctx.lineJoin='round';ctx.stroke();
+    });
+  if(showNum&&resultOp>0){
+    ctx.save();ctx.globalAlpha=resultOp;
+    ctx.font=`700 ${dResult>=10?52:60}px Georgia,serif`;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    if(dResult===20){ctx.shadowColor='rgba(255,215,0,.9)';ctx.shadowBlur=22;ctx.fillStyle='#ffd700';}
+    else if(dResult===1){ctx.shadowColor='rgba(200,50,50,.9)';ctx.shadowBlur=22;ctx.fillStyle='#cc3322';}
+    else{ctx.shadowColor='rgba(0,0,0,.95)';ctx.shadowBlur=10;ctx.fillStyle='rgba(200,169,110,.95)';}
+    ctx.fillText(String(dResult),90,90);ctx.restore();
+  }
+}
+function loop(t){
+  if(!loopActive){rafId=null;return;}
+  const dt=Math.min((t-lastT)/1000,.05);lastT=t;
+  if(dState==='idle'){
+    ry+=dt*18;rx+=dt*5;
+    rx=((rx%360)+360)%360;ry=((ry%360)+360)%360;
+  }else if(dState==='spinning'){
+    const el=(t-spinStart)/1000,p=Math.min(1,el/spinDur);
+    const spd=(1-Math.pow(p,0.32))*720;
+    rx+=dt*spd*0.7*(1+.25*Math.sin(el*3.1));
+    ry+=dt*spd*(1+.25*Math.cos(el*2.3));
+    if(p>=1){
+      rx=((rx%360)+360)%360;ry=((ry%360)+360)%360;
+      sfRx=rx;sfRy=ry;stRx=short(rx,REST_RX);stRy=short(ry,REST_RY);
+      settleStart=t;dState='settling';
+    }
+  }else if(dState==='settling'){
+    const p=Math.min(1,(t-settleStart)/SETTLE_DUR),e=easeOutBack(p);
+    rx=sfRx+(stRx-sfRx)*e;ry=sfRy+(stRy-sfRy)*e;
+    if(p>=1){
+      rx=REST_RX;ry=REST_RY;dState='done';showNum=true;
+      const fade=()=>{resultOp=Math.min(1,resultOp+.08);draw();if(resultOp<1)requestAnimationFrame(fade);};
+      setTimeout(fade,60);if(onDone)setTimeout(onDone,80);
+    }
+  }
+  draw();rafId=requestAnimationFrame(loop);
+}
+return{
+  open(){
+    rx=REST_RX;ry=REST_RY;dState='idle';showNum=false;resultOp=0;onDone=null;
+    if(loopActive)return;
+    loopActive=true;lastT=performance.now();
+    rafId=requestAnimationFrame(t=>{lastT=t;rafId=requestAnimationFrame(loop);});
+  },
+  close(){loopActive=false;if(rafId){cancelAnimationFrame(rafId);rafId=null;}},
+  roll(result,cb){
+    if(dState==='spinning'||dState==='settling')return;
+    dResult=result;showNum=false;resultOp=0;onDone=cb;
+    spinDur=0.9+Math.random()*0.3;spinStart=performance.now();dState='spinning';
+  }
+};
+})();
 function rollDice(cfg){curRoll=cfg;execRoll(cfg);}
 function execRoll(cfg){
   const{name,type,bon,dmg,comps}=cfg;
-  const ico=document.getElementById('d3d'),face=document.getElementById('dFace'),tot=document.getElementById('dTotal'),badge=document.getElementById('dBadge'),bkp=document.getElementById('dBkPanel'),cr=document.getElementById('dCalcRows'),ds=document.getElementById('dDmgSec'),dr=document.getElementById('dDmgRows');
-  [face,tot,badge,bkp].forEach(e=>e.classList.remove('vis','crit','fumb','norm'));
-  ico.classList.remove('crit','fumb','rolling');
-  document.getElementById('dRollName').textContent=name;document.getElementById('dRollType').textContent=type||'d20';
+  const tot=document.getElementById('dTotal'),badge=document.getElementById('dBadge'),
+        bkp=document.getElementById('dBkPanel'),cr=document.getElementById('dCalcRows'),
+        ds=document.getElementById('dDmgSec'),dr=document.getElementById('dDmgRows');
+  tot.textContent='';tot.className='dtotal';
+  badge.textContent='';badge.className='dbadge norm';
+  bkp.className='dbkpanel';
   cr.innerHTML='';dr.innerHTML='';ds.style.display='none';
-  const d20=Math.floor(Math.random()*20)+1;const total=d20+(bon||0);const ic=d20===20,ifm=d20===1;
+  document.getElementById('dRollName').textContent=name;
+  document.getElementById('dRollType').textContent=type||'d20';
+  const d20=Math.floor(Math.random()*20)+1;
+  const total=d20+(bon||0);const ic=d20===20,ifm=d20===1;
   document.getElementById('diceOverlay').classList.add('active');
-  void ico.offsetWidth;ico.classList.add('rolling');
-  setTimeout(()=>{
-    ico.classList.remove('rolling');
-    if(ic){ico.classList.add('crit');face.classList.add('crit');tot.classList.add('crit');badge.className='dbadge crit vis';badge.textContent='✦ Critical Hit ✦';}
-    else if(ifm){ico.classList.add('fumb');face.classList.add('fumb');tot.classList.add('fumb');badge.className='dbadge fumb vis';badge.textContent='✗ Fumble';}
+  diceEngine.open();
+  diceEngine.roll(d20,()=>{
+    if(ic){badge.className='dbadge crit vis';badge.textContent='✦ Critical Hit ✦';tot.classList.add('crit');}
+    else if(ifm){badge.className='dbadge fumb vis';badge.textContent='✗ Fumble';tot.classList.add('fumb');}
     else{badge.className='dbadge norm';}
-    face.textContent=d20;face.classList.add('vis');tot.textContent=total;tot.classList.add('vis');
+    tot.textContent=total;tot.classList.add('vis');
     cr.appendChild(mkRow('d20 Roll','D20',d20,ic?'pos':ifm?'neg':''));
     if(comps)comps.forEach(c=>cr.appendChild(mkRow(c.l,c.i,c.v,c.v>=0?'pos':'neg')));
     cr.appendChild(mkRow('Total','=',total,'tot',true));
-    if(dmg&&dmg!=='—'&&dmg.trim()){const dr2=rollFormula(dmg,ic);if(dr2){ds.style.display='block';dr.appendChild(mkRow(dmg,'DMG',dr2.total,''));if(dr2.rolls.length>1||ic){const e=document.createElement('div');e.className='dcalcrow';e.innerHTML=`<span class="dclbl" style="color:var(--text-faint);font-style:italic;">Rolls: [${dr2.rolls.join(', ')}]${dr2.mod?(dr2.mod>0?'+':'')+dr2.mod:''}${ic?' (doubled)':''}</span>`;dr.appendChild(e);}}}
+    if(dmg&&dmg!=='—'&&dmg.trim()){
+      const dr2=rollFormula(dmg,ic);
+      if(dr2){ds.style.display='block';dr.appendChild(mkRow(dmg,'DMG',dr2.total,''));
+        if(dr2.rolls.length>1||ic){const e=document.createElement('div');e.className='dcalcrow';
+          e.innerHTML=`<span class="dclbl" style="color:var(--text-faint);font-style:italic;">Rolls: [${dr2.rolls.join(', ')}]${dr2.mod?(dr2.mod>0?'+':'')+dr2.mod:''}${ic?' (doubled)':''}</span>`;
+          dr.appendChild(e);}}
+    }
     bkp.classList.add('vis');
-  },870);
+  });
 }
 function mkRow(label,icon,val,vc,tot=false){const r=document.createElement('div');r.className='dcalcrow'+(tot?' totrow':'');const vs=typeof val==='number'?(val>0&&icon!=='D20'&&icon!=='='?'+'+val:''+val):''+val;r.innerHTML=`<span class="dclbl"><span class="dico">${icon}</span>${label}</span><span class="dcval ${vc}">${vs}</span>`;return r;}
 function rollFormula(f,crit=false){const m=f.match(/(\d+)d(\d+)([+-]\d+)?/i);if(!m)return null;let cnt=parseInt(m[1]);const si=parseInt(m[2]);const mo=parseInt(m[3]||'0');if(crit)cnt*=2;const rolls=[];for(let i=0;i<cnt;i++)rolls.push(Math.floor(Math.random()*si)+1);return{rolls,mod:mo,total:rolls.reduce((a,b)=>a+b,0)+mo};}
 function reroll(){if(curRoll)execRoll(curRoll);}
-function closeDice(){document.getElementById('diceOverlay').classList.remove('active');}
+function closeDice(){document.getElementById('diceOverlay').classList.remove('active');diceEngine.close();}
 document.getElementById('diceOverlay').addEventListener('click',function(e){if(e.target===this)closeDice();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSpellCard();}});
 
@@ -1159,7 +1233,7 @@ function gather(){
   SKILLS.forEach(s=>{const e=document.getElementById(s.id+'-p');d.sk[s.id]=e?e.checked:false;});
   for(let i=1;i<=9;i++){const t=document.getElementById('st-'+i);const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);d.slots[i]={t:t?t.textContent:'0',u:Array.from(ps).filter(p=>p.classList.contains('used')).length};}
   document.querySelectorAll('#featList .feat-item').forEach(it=>d.feats.push({n:it.querySelector('.feat-name').textContent,s:it.querySelector('.feat-src').textContent,d:it.querySelector('.feat-desc').textContent,o:it.classList.contains('open')}));
-  document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,h:hs?hs.value:'main',st:tr.dataset.stat||'str',dmg:tr.querySelector('.atk-dmg').textContent,t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
+  document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,h:hs?hs.value:'main-s',dmg:tr.querySelector('.atk-dmg').textContent,t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
   document.querySelectorAll('.spell-row[data-sid]').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.dataset.lvl||'0',n:row.querySelector('.sp-name').textContent,sc:row.querySelector('.sp-school')?.textContent||'',c:row.querySelector('.sp-cast')?.textContent||'',r:row.querySelector('.sp-range')?.textContent||'',du:row.querySelector('.sp-dur')?.textContent||'',e:row.querySelector('.sp-equipped').checked}));
   document.querySelectorAll('#invBody tr').forEach(tr=>{const tds=tr.querySelectorAll('td');d.inv.push({n:tds[0]?.querySelector('[data-ph]')?.textContent||'',q:tds[1]?.querySelector('[data-ph]')?.textContent||'1',v:tds[2]?.querySelector('[data-ph]')?.textContent||'',e:tds[3]?.querySelector('input')?.checked||false,no:tds[4]?.querySelector('[data-ph]')?.textContent||''});});
   // Coins
@@ -1205,13 +1279,28 @@ function applyData(d){
       sId('profOther',      p.other);
     }
   }
-  if(d.sa){document.getElementById('spellAbility').value=d.sa;}
+  if(d.sa){
+    document.getElementById('spellAbility').value=d.sa;
+    const opts={int:'INT',wis:'WIS',cha:'CHA'};
+    document.getElementById('spellAbilityTxt').textContent=opts[d.sa]||d.sa.toUpperCase();
+  }
+  // Sync spellClass from class if not set
+  setTimeout(syncSpellClass, 100);
   if(d.slots)for(let i=1;i<=9;i++){const s=d.slots[i];if(!s)continue;const t=document.getElementById('st-'+i);if(t){t.textContent=s.t||'0';rebuildPips(i);}const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);for(let j=0;j<(s.u||0);j++){if(ps[j])ps[j].classList.add('used');}}
   if(d.port&&d.port.trim()){const img=document.getElementById('portImg');img.src=d.port;img.style.display='block';document.getElementById('portPlaceholder').style.display='none';}
   document.getElementById('featList').innerHTML='';
   (d.feats||[]).forEach(f=>{addFeat(f.n,f.s,f.d);if(f.o){const its=document.querySelectorAll('#featList .feat-item');its[its.length-1].classList.add('open');}});
   document.getElementById('atkBody').innerHTML='';atkCtr=0;
-  (d.atks||[]).forEach(a=>addAtk(a.n,a.h||'main','',a.dmg,a.t,a.r,a.no,false,null,a.st||'str'));
+  (d.atks||[]).forEach(a=>{
+    // migrate legacy format: h='main'/'off'/'ranged' + st='str'/'dex' → combined
+    let hand=a.h||'main-s';
+    if(!hand.includes('-')){
+      const s=a.st||'str';
+      const map={main:`main-${s[0]}`,ranged:`ranged-${s[0]}`,off:`off-${s[0]}`};
+      hand=map[hand]||'main-s';
+    }
+    addAtk(a.n,hand,'',a.dmg,a.t,a.r,a.no);
+  });
   // Clear all spell level lists
   for(let i=0;i<=9;i++){const el=document.getElementById('spellList-'+i);if(el)el.innerHTML='';}
   spellCtr=0;
