@@ -149,14 +149,10 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .del-btn{background:none;border:none;color:rgba(139,26,26,0.3);cursor:pointer;font-size:0.9rem;transition:color 0.18s;padding:0 0.18rem;}
 .del-btn:hover{color:var(--ink-red-bright);}
 
-/* RELATIONS */
-.rel-item{border:1px solid var(--border-gold);margin-bottom:0.45rem;}
-.rel-hdr{display:flex;align-items:center;gap:0.45rem;padding:0.38rem 0.6rem;background:var(--bg-parchment);cursor:pointer;user-select:none;}
-.rel-name{font-family:var(--font-heading);font-size:0.88rem;font-weight:700;color:var(--ink-gold);flex:1;}
-.rel-role{font-family:var(--font-body);font-size:0.8rem;color:var(--text-faint);font-style:italic;}
-.rel-body{display:none;padding:0.6rem;border-top:1px solid var(--border-gold);}
+/* RELATIONS — see also MOBILE section for full styles */
+.rel-item{border:1px solid var(--border-gold);margin-bottom:0.35rem;overflow:hidden;}
 .rel-item.open .rel-body{display:block;}
-.rel-notes{font-family:var(--font-body);font-size:0.95rem;color:var(--text-dim);line-height:1.75;min-height:28px;}
+.rel-notes{font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);line-height:1.65;min-height:24px;}
 
 /* ATTACKS */
 .atk-table{width:100%;border-collapse:collapse;}
@@ -388,12 +384,12 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .pw-err{font-family:var(--font-body);font-size:0.88rem;color:var(--ink-red-bright);font-style:italic;margin-bottom:0.55rem;min-height:1.2em;}
 .pw-actions{display:flex;gap:0.45rem;justify-content:center;}
 
-/* Relations — always single line per NPC */
+/* Relations — single line per NPC, no columns */
 .rel-item{margin-bottom:0.3rem;}
-.rel-hdr{display:flex;align-items:center;gap:0.5rem;padding:0.32rem 0.55rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;}
+.rel-hdr{display:flex;align-items:center;gap:0.5rem;padding:0.32rem 0.55rem;background:var(--bg-parchment);border:1px solid var(--border-gold);cursor:pointer;user-select:none;min-width:0;}
 .rel-hdr:hover{background:rgba(200,169,110,0.06);}
-.rel-name{font-family:var(--font-heading);font-size:0.82rem;font-weight:700;color:var(--text-body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38%;}
-.rel-role{font-family:var(--font-body);font-size:0.78rem;color:var(--text-faint);font-style:italic;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rel-name{font-family:var(--font-heading);font-size:0.82rem;font-weight:700;color:var(--text-body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;max-width:35%;}
+.rel-role{font-family:var(--font-body);font-size:0.78rem;color:var(--text-faint);font-style:italic;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
 .rel-body{display:none;padding:0.5rem 0.55rem;border:1px solid var(--border-gold);border-top:none;background:var(--bg-card);}
 .rel-item.open .rel-body{display:block;}
 .rel-notes{font-family:var(--font-body);font-size:0.88rem;color:var(--text-dim);line-height:1.6;}
@@ -401,32 +397,47 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 /* MISC */
 .passive-val{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--ink-gold);}
 
-/* MOBILE */
+/* ── MOBILE ────────────────────────────────────────────────────────────── */
 @media(max-width:900px){
-  /* All 3 columns become display:contents so every .sb participates directly in flex */
-  .tab1-layout{display:flex;flex-direction:column;}
-  .tab1-col{display:contents;}
-  /* Explicit mobile order */
-  .char-info-box { order: 1; display:flex; flex-direction:column; }
-  .sb-combat     { order: 2; }
-  .sb-insp       { order: 3; }
-  .sb-senses     { order: 4; }
-  .sb-features   { order: 5; }
-  .portrait-sb   { order: 6; min-height:200px; display:block !important; visibility:visible !important; }
-  /* col1 boxes (Abilities/Skills/Saves/Personality) */
-  .sb-abilities  { order: 7; }
-  .sb-skills     { order: 8; }
-  .sb-saves      { order: 9; }
-  .sb-personality{ order: 10; }
-  .sb-profs      { order: 11; }
-  .sb-relations  { order: 12; }
-  /* spell tab */
+  /* Tab1 layout: flatten all 3 columns into a single flex column.
+     display:contents on every col means all .sb children become
+     direct flex children of .tab1-layout, so order: works on them. */
+  .tab1-layout{display:flex !important;flex-direction:column;gap:0;}
+  .tab1-col{display:contents !important;}
+
+  /* Assign explicit stacking order to every named box */
+  .char-info-box { order:1; }
+  .sb-combat     { order:2; }
+  .sb-insp       { order:3; }
+  .sb-senses     { order:4; }
+  .sb-features   { order:5; }
+  .portrait-sb   { order:6; }
+  .sb-abilities  { order:7; }
+  .sb-skills     { order:8; }
+  .sb-saves      { order:9; }
+  .sb-personality{ order:10; }
+  .sb-profs      { order:11; }
+  .sb-relations  { order:12; }
+
+  /* Portrait: always visible, never collapse */
+  .portrait-sb{
+    display:block !important;
+    visibility:visible !important;
+    min-height:180px;
+    width:100%;
+    box-sizing:border-box;
+  }
+  .portrait-wrap{max-height:320px;}
+
+  /* Each .sb takes full width automatically as a flex column child */
+  .tab1-layout > .sb,
+  .tab1-layout .tab1-col > .sb { width:100%; box-sizing:border-box; }
+
   .spell-meta-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:580px){
   html{font-size:15px;}
   .sheet-body{padding:0.75rem 0.75rem 3rem;}
-  .header-meta{gap:0.45rem;}
   .dice-modal,.pw-modal{width:96vw;}
   .atk-table th:nth-child(n+5),.atk-table td:nth-child(n+5){display:none;}
 }
@@ -670,7 +681,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
   <!-- RELATIONS — full width below the 3-col grid -->
   <div class="sb sb-relations" style="margin-top:0.9rem;">
     <div class="stitle">Relations</div>
-    <div id="relList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.45rem;"></div>
+    <div id="relList"></div>
     <button class="add-btn" id="addRelBtn" onclick="addRel()" style="margin-top:0.3rem;">+ Add Relation</button>
   </div>
 
@@ -1126,6 +1137,9 @@ function gather(){
   document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,h:hs?hs.value:'main',st:tr.dataset.stat||'str',dmg:tr.querySelector('.atk-dmg').textContent,t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
   document.querySelectorAll('.spell-row[data-sid]').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.dataset.lvl||'0',n:row.querySelector('.sp-name').textContent,sc:row.querySelector('.sp-school')?.textContent||'',c:row.querySelector('.sp-cast')?.textContent||'',r:row.querySelector('.sp-range')?.textContent||'',du:row.querySelector('.sp-dur')?.textContent||'',e:row.querySelector('.sp-equipped').checked}));
   document.querySelectorAll('#invBody tr').forEach(tr=>{const tds=tr.querySelectorAll('td');d.inv.push({n:tds[0]?.querySelector('[data-ph]')?.textContent||'',q:tds[1]?.querySelector('[data-ph]')?.textContent||'1',v:tds[2]?.querySelector('[data-ph]')?.textContent||'',e:tds[3]?.querySelector('input')?.checked||false,no:tds[4]?.querySelector('[data-ph]')?.textContent||''});});
+  // Coins
+  const coinGet=cls=>{const l=document.querySelector(cls);return l&&l.nextElementSibling?l.nextElementSibling.textContent||'0':'0';};
+  d.coins={gp:coinGet('.coin-gp'),sp:coinGet('.coin-sp'),cp:coinGet('.coin-cp')};
   document.querySelectorAll('#relList .rel-item').forEach(it=>d.rels.push({n:it.querySelector('.rel-name').textContent,r:it.querySelector('.rel-role').textContent,no:it.querySelector('.rel-notes').textContent,o:it.classList.contains('open')}));
   d.ds=Array.from(document.querySelectorAll('.dm')).map(m=>m.classList.contains('marked'));
   return d;
@@ -1176,15 +1190,25 @@ function applyData(d){
   // Clear all spell level lists
   for(let i=0;i<=9;i++){const el=document.getElementById('spellList-'+i);if(el)el.innerHTML='';}
   spellCtr=0;
-  // First restore sdescs so addSpell can pick them up if needed
+  // Clear and restore spellDescs with numeric keys to match spellCtr
+  Object.keys(spellDescs).forEach(k=>delete spellDescs[k]);
   if(d.sdescs){
     Object.keys(d.sdescs).forEach(k=>{
       const val=d.sdescs[k];
-      spellDescs[k]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;
+      spellDescs[parseInt(k)]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;
     });
   }
   (d.spells||[]).forEach(s=>addSpell(s.n,s.l,s.sc,s.c,s.r,s.p,s.e,'',s.du||'','','','','',s.l));
   document.getElementById('invBody').innerHTML='';
+  (d.inv||[]).forEach(i=>addInv(i.n,i.q,i.v,i.e,i.no));
+  // Coins
+  if(d.coins){
+    const coinOrder=[['gp','.coin-gp'],['sp','.coin-sp'],['cp','.coin-cp']];
+    coinOrder.forEach(([key,cls])=>{
+      const lbl=document.querySelector(cls);
+      if(lbl&&lbl.nextElementSibling) lbl.nextElementSibling.textContent=d.coins[key]||'0';
+    });
+  }
   document.getElementById('relList').innerHTML='';
   (d.rels||[]).forEach(r=>{addRel(r.n,r.r,r.no);if(r.o){const its=document.querySelectorAll('#relList .rel-item');its[its.length-1].classList.add('open');}});
   if(d.ds){const ms=document.querySelectorAll('.dm');d.ds.forEach((m,i)=>{if(ms[i]&&m)ms[i].classList.add('marked');});}
@@ -1334,14 +1358,6 @@ fetch('thokk-sheet.json')
     } else {
       recalc();
       applyData(jsonData);
-      // Apply coins
-      if(jsonData.coins){
-        const coinMap={cp:'.coin-cp',sp:'.coin-sp',gp:'.coin-gp'};
-        Object.entries(coinMap).forEach(([key,cls])=>{
-          const lbl=document.querySelector(cls);
-          if(lbl&&lbl.nextElementSibling) lbl.nextElementSibling.textContent=jsonData.coins[key]||'0';
-        });
-      }
     }
     lockEdit();
   })

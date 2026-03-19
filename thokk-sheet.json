@@ -1,12 +1,15 @@
 {
   "v": 3,
   "cn": "Thokk Rughar",
-  "cc": "Bárbaro",
+  "cc": "Barbarian",
   "cl": "3",
   "cr": "Half-Orc",
+  "bg": "Salvaje",
+  "al": "Chaotic Neutral",
   "ac": "13",
   "mhp": "30",
   "hd": "3d12",
+  "speed": "30ft",
   "insp": false,
   "sc": {
     "str": "18",
@@ -83,7 +86,21 @@
       "u": 0
     }
   },
-  "port": "https://ormaugh.github.io/barovia/portraits/thokk.png",
+  "port": "portraits/thokk.png",
+  "personality": {
+    "traits": "Cuido de mis compañeros como si fueran mis cachorros. Actúo antes de pensar. La sonrisa es mi armadura.",
+    "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
+    "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
+    "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
+  },
+  "proficiencies": {
+    "languages": "Común, Orco",
+    "armor": "Armaduras ligeras, medianas, escudos",
+    "weapons": "Armas sencillas y marciales",
+    "instruments": "Acordeón",
+    "tools": "—",
+    "other": "Tótem de hueso de oso y pelo (foco arcano)"
+  },
   "feats": [
     {
       "n": "Furia",
@@ -144,20 +161,20 @@
     {
       "n": "Hacha de Dos Manos",
       "h": "main",
-      "st": "str",
       "dmg": "1d12+4",
       "t": "Cortante",
       "r": "5ft",
-      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes)."
+      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes).",
+      "st": "str"
     },
     {
       "n": "Ballesta Pesada",
       "h": "ranged",
-      "st": "dex",
       "dmg": "1d10",
       "t": "Perforante",
       "r": "100/400ft",
-      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar."
+      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar.",
+      "st": "dex"
     }
   ],
   "spells": [
@@ -184,64 +201,121 @@
   ],
   "sdescs": {
     "1": {
-      "desc": "",
+      "desc": "Obtienes la capacidad de comprender y comunicarte verbalmente con bestias durante la duración. El conocimiento y la conciencia de muchas bestias está limitado por su inteligencia, pero como mínimo, las bestias pueden darte información sobre los lugares cercanos y los monstruos, incluyendo lo que puedan percibir o hayan percibido durante el último día. Podrías convencer a una bestia de que realice un pequeño favor, a discreción del DM.",
       "dur": "10 minutos",
-      "comp": "",
-      "target": "",
-      "classes": "",
+      "comp": "V, S",
+      "target": "Self",
+      "classes": "Bardo, Druida, Explorador (Ritual) / Bárbaro Tótem (solo ritual)",
       "higher": ""
     },
     "2": {
-      "desc": "",
-      "dur": "1 hora",
-      "comp": "",
-      "target": "",
-      "classes": "",
+      "desc": "Tocas a una bestia dispuesta. Durante la duración, puedes usar los sentidos de esa bestia en lugar de los tuyos propios. Mientras percibes a través de los sentidos de la bestia, obtienes los beneficios de los sentidos especiales que posea esa bestia, aunque estás cegado y ensordecido a tus propios alrededores.\nComo acción, puedes cambiar entre usar los sentidos de la bestia y los tuyos propios, o viceversa.",
+      "dur": "1 hora (Concentración)",
+      "comp": "S",
+      "target": "Una bestia dispuesta (Toque)",
+      "classes": "Druida, Explorador (Ritual) / Bárbaro Tótem (solo ritual)",
       "higher": ""
     }
   },
-  "inv": [],
+  "coins": {
+    "cp": 0,
+    "sp": 0,
+    "gp": 10,
+    "ep": 0,
+    "pp": 0
+  },
+  "inv": [
+    {
+      "n": "Hacha de Dos Manos",
+      "q": "1",
+      "v": "30",
+      "e": true,
+      "no": "Arma principal"
+    },
+    {
+      "n": "Ballesta Pesada",
+      "q": "1",
+      "v": "50",
+      "e": true,
+      "no": "Arma a distancia"
+    },
+    {
+      "n": "Tótem de oso y pelo",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Foco arcano — Totem Warrior"
+    },
+    {
+      "n": "Cuerda de cáñamo",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "50 pies"
+    },
+    {
+      "n": "Saco de dormir",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Acordeón desafinado",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Instrumento. Terriblemente desafinado."
+    },
+    {
+      "n": "Pincho en una rana verde",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Objeto misterioso. Origen desconocido."
+    }
+  ],
   "rels": [
     {
       "n": "Ismark Kolyanovich",
       "r": "Hijo del Burgómaestre — Aldea de Barovia",
-      "no": "No conocido",
+      "no": "Nos pidió escolta para Ireena hasta Vallaki. Confiable. Carga con el peso de todo el pueblo.",
       "o": false
     },
     {
       "n": "Ireena Kolyana",
       "r": "Hija del Burgómaestre — objetivo de Strahd",
-      "no": "No conocido",
+      "no": "Capaz y directa. No necesita que la rescaten. El objetivo es llevarla a Vallaki sana y salva.",
       "o": false
     },
     {
       "n": "Padre Donavich",
       "r": "Sacerdote de la Mañana del Señor",
-      "no": "No conocido",
+      "no": "Roto por lo de su hijo. Nos dio información útil sobre las debilidades de los vampiros.",
       "o": false
     },
     {
       "n": "Doru",
       "r": "Hijo de Donavich — engendro vampírico encadenado",
-      "no": "No conocido",
+      "no": "Encadenado en el sótano de la iglesia. Si Strahd muere, Doru se libera de su control.",
       "o": false
     },
     {
       "n": "Rose Durst",
       "r": "Fantasma de la Casa Durst",
-      "no": "No conocido",
+      "no": "Niña fantasma. Le prometimos que acabaríamos con el monstruo del sótano. Aún sin descanso.",
       "o": false
     },
     {
       "n": "Thorn Durst",
       "r": "Fantasma de la Casa Durst",
-      "no": "No conocido",
+      "no": "Niño fantasma. Entró brevemente en el cuerpo de Sarda por el pánico.",
       "o": false
     },
     {
       "n": "Kaelos",
       "r": "Sátiro Bardo — compañero de partido",
-      "no": "No conocido",
+      "no": "Lo rescatamos en las ruinas. Toca la flauta. Tiene mano larga. Me fío de él en combate.",
       "o": false
     }
   ],
@@ -253,18 +327,5 @@
     false,
     false
   ],
-  "personality": {
-    "traits": "Cuido de mis compañeros como si fueran mis cachorros. Actúo antes de pensar. La sonrisa es mi armadura.",
-    "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
-    "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
-    "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
-  },
-  "proficiencies": {
-    "languages": "Común, Orco",
-    "armor": "Armaduras ligeras, medianas, escudos",
-    "weapons": "Armas sencillas y marciales",
-    "instruments": "Acordeón",
-    "tools": "—",
-    "other": "Tótem de hueso de oso y pelo (foco arcano)"
-  }
+  "player": "Miguel"
 }
