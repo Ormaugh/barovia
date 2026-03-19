@@ -923,25 +923,31 @@ function rollAtkRow(id){
 }
 
 // SPELLS
-// spellDescs stores rich data: {desc, higher, dur, comp, target, classes}
-let spellCtr=0;const spellDescs={};
+// spellDB: global spell descriptions loaded from spells.json, keyed by spell name
+// spellDescs: per-row overrides keyed by spell name (for custom edits in edit mode)
+let spellCtr=0;
+let spellDB={};        // populated from spells.json at init
+const spellDescs={};   // name → {desc,dur,comp,target,classes,higher} overrides
 
 function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',dur='',comp='',target='',classes='',higher='',section=null){
   // Determine which level section to add to
   const lvNum=parseInt(lv)||0;
   const secId=section!==null?parseInt(section):lvNum;
   const listEl=document.getElementById('spellList-'+secId)||document.getElementById('spellList-0');
-  const id=String(++spellCtr); // always string key
-  // Merge with existing sdesc (may have been restored from JSON before addSpell was called)
-  const existing=spellDescs[id]||{};
-  spellDescs[id]={
-    desc:    desc    || existing.desc    || '',
-    dur:     dur     || existing.dur     || '',
-    comp:    comp    || existing.comp    || '',
-    target:  target  || existing.target  || '',
-    classes: classes || existing.classes || '',
-    higher:  higher  || existing.higher  || '',
-  };
+  const id=String(++spellCtr); // row ID for DOM reference only
+  // Look up description by spell name: personal override > spellDB global > inline args
+  const dbEntry=spellDB[n]||{};
+  // Only seed spellDescs if no personal override exists yet — preserves user edits
+  if(!spellDescs[n]){
+    spellDescs[n]={
+      desc:    dbEntry.desc    || desc    || '',
+      dur:     dbEntry.dur     || dur     || '',
+      comp:    dbEntry.comp    || comp    || '',
+      target:  dbEntry.target  || target  || '',
+      classes: dbEntry.classes || classes || '',
+      higher:  dbEntry.higher  || higher  || '',
+    };
+  }
   const row=document.createElement('div');row.className='spell-row';row.dataset.sid=id;row.dataset.lvl=lvNum;
   const subMeta=[sch,cast,rng,dur].filter(Boolean).join(' · ');
   row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''}><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-school editable sp-meta-inline" data-ph="School">${sch}</span><span class="sp-cast editable sp-meta-inline" data-ph="1 action">${cast}</span><span class="sp-range editable sp-meta-inline" data-ph="Self">${rng}</span><span class="sp-dur editable sp-meta-inline" data-ph="Instant">${dur}</span><input type="checkbox" class="sp-equipped" ${eq?'checked':''} onchange="syncSpellAtks();save()">`;
@@ -950,7 +956,7 @@ function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',d
   row.appendChild(db);
   row.addEventListener('click',(e)=>{
     if(editMode||e.target.closest('.del-btn')||e.target.closest('.sp-equipped')||e.target.closest('.sp-prep'))return;
-    openSpellCard(id); // pass string id
+    openSpellCard(n); // pass spell name — stable regardless of insertion order
   });
   listEl.appendChild(row);applyEditToEl(row);
   const sec=document.getElementById('spell-sec-'+secId);
@@ -965,20 +971,30 @@ function openAddSpellModal(){
   save();
 }
 
-function openSpellCard(id){
-  // id can be string or number — normalise to string to match spellDescs keys
-  id=String(id);
-  const row=document.querySelector(`.spell-row[data-sid="${id}"]`);if(!row)return;
-  const nm   = row.querySelector('.sp-name').textContent.trim()||'Spell';
+function openSpellCard(spellName){
+  // Find the row by spell name (more stable than numeric id)
+  const row=Array.from(document.querySelectorAll('.spell-row')).find(r=>r.querySelector('.sp-name')?.textContent.trim()===spellName);
+  if(!row)return;
+  const nm   = spellName;
   const lv   = row.dataset.lvl||'0';
   const sch  = row.querySelector('.sp-school')?.textContent.trim()||'';
   const cast = row.querySelector('.sp-cast')?.textContent.trim()||'';
   const rng  = row.querySelector('.sp-range')?.textContent.trim()||'';
   const dur  = row.querySelector('.sp-dur')?.textContent.trim()||'';
-  const sd   = spellDescs[id]||{};
+  // Merge: personal override > global DB
+  const dbEntry=spellDB[nm]||{};
+  const override=spellDescs[nm]||{};
+  const sd={
+    desc:    override.desc    ?? dbEntry.desc    ?? '',
+    dur:     override.dur     ?? dbEntry.dur     ?? dur,
+    comp:    override.comp    ?? dbEntry.comp    ?? '',
+    target:  override.target  ?? dbEntry.target  ?? '',
+    classes: override.classes ?? dbEntry.classes ?? '',
+    higher:  override.higher  ?? dbEntry.higher  ?? '',
+  };
 
   // Subtitle: "1st level Adivinación" or "Cantrip"
-  const lvLabel = lv&&lv!=='0' ? `${lv}${['','st','nd','rd'][lv]||'th'} level${sch?' '+sch:''}` : (sch?sch+' cantrip':'Cantrip');
+  const _lvInt=parseInt(lv)||0; const lvLabel = _lvInt>0 ? `${_lvInt}${['','st','nd','rd'][_lvInt]||'th'} level${sch?' '+sch:''}` : (sch?sch+' cantrip':'Cantrip');
   document.getElementById('scName').textContent = nm;
   document.getElementById('scSubtitle').textContent = lvLabel;
 
@@ -991,6 +1007,8 @@ function openSpellCard(id){
     el.innerHTML=`<strong>${label}:</strong> ${val}`;
     fields.appendChild(el);
   };
+  const isConc = (spellDB[nm]||{}).concentration;
+  if(isConc) addField('Concentration', '✦ Yes');
   addField('Casting Time', cast);
   addField('Range',        rng);
   if(sd.target)  addField('Target',     sd.target);
@@ -1007,7 +1025,7 @@ function openSpellCard(id){
       lbl.innerHTML='<strong>Description:</strong>';wrap.appendChild(lbl);
     }
     const ta=document.createElement('textarea');ta.className='sc-desc-edit';ta.rows=6;ta.value=sd.desc||'';
-    ta.oninput=()=>{if(!spellDescs[id])spellDescs[id]={};spellDescs[id].desc=ta.value;save();};
+    ta.oninput=()=>{if(!spellDescs[nm])spellDescs[nm]={...spellDB[nm]||{}};spellDescs[nm].desc=ta.value;save();};
     wrap.appendChild(ta);
   } else {
     if(sd.desc){
@@ -1217,7 +1235,7 @@ function gather(){
     speed:gId('charSpeed'), xp:gId('charXP'),
     spellClass:gId('spellClass'), combatNotes:gId('combatNotes'), invNotes:gId('invNotes'),
     sensesDarkvision:gId('sensesDarkvision'), sensesOther:gId('sensesOther'),
-    insp:document.getElementById('inspBtn').classList.contains('lit'),sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,slots:{},port:document.getElementById('portImg').src,feats:[],atks:[],spells:[],sdescs:spellDescs,inv:[],rels:[],ds:[],
+    insp:document.getElementById('inspBtn').classList.contains('lit'),sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,slots:{},port:document.getElementById('portImg').src,feats:[],atks:[],spells:[],sdescs:{},inv:[],rels:[],ds:[],
     personality:{traits:pEl('Personality traits...'),ideals:pEl('Ideals...'),bonds:pEl('Bonds...'),flaws:pEl('Flaws...')},
     proficiencies:{
       languages:gId('profLanguages'),
@@ -1234,7 +1252,13 @@ function gather(){
   for(let i=1;i<=9;i++){const t=document.getElementById('st-'+i);const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);d.slots[i]={t:t?t.textContent:'0',u:Array.from(ps).filter(p=>p.classList.contains('used')).length};}
   document.querySelectorAll('#featList .feat-item').forEach(it=>d.feats.push({n:it.querySelector('.feat-name').textContent,s:it.querySelector('.feat-src').textContent,d:it.querySelector('.feat-desc').textContent,o:it.classList.contains('open')}));
   document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,h:hs?hs.value:'main-s',dmg:tr.querySelector('.atk-dmg').textContent,t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
-  document.querySelectorAll('.spell-row[data-sid]').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.dataset.lvl||'0',n:row.querySelector('.sp-name').textContent,sc:row.querySelector('.sp-school')?.textContent||'',c:row.querySelector('.sp-cast')?.textContent||'',r:row.querySelector('.sp-range')?.textContent||'',du:row.querySelector('.sp-dur')?.textContent||'',e:row.querySelector('.sp-equipped').checked}));
+  document.querySelectorAll('.spell-row[data-sid]').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.dataset.lvl||'0',n:row.querySelector('.sp-name').textContent,e:row.querySelector('.sp-equipped').checked}));
+  // Only save personal overrides — entries that differ from spellDB
+  Object.entries(spellDescs).forEach(([nm,val])=>{
+    const db=spellDB[nm]||{};
+    const hasOverride=Object.keys(val).some(k=>val[k]&&val[k]!==db[k]);
+    if(hasOverride)d.sdescs[nm]=val;
+  });
   document.querySelectorAll('#invBody tr').forEach(tr=>{const tds=tr.querySelectorAll('td');d.inv.push({n:tds[0]?.querySelector('[data-ph]')?.textContent||'',q:tds[1]?.querySelector('[data-ph]')?.textContent||'1',v:tds[2]?.querySelector('[data-ph]')?.textContent||'',e:tds[3]?.querySelector('input')?.checked||false,no:tds[4]?.querySelector('[data-ph]')?.textContent||''});});
   // Coins
   const coinGet=cls=>{const l=document.querySelector(cls);return l&&l.nextElementSibling?l.nextElementSibling.textContent||'0':'0';};
@@ -1304,15 +1328,19 @@ function applyData(d){
   // Clear all spell level lists
   for(let i=0;i<=9;i++){const el=document.getElementById('spellList-'+i);if(el)el.innerHTML='';}
   spellCtr=0;
-  // Clear and restore spellDescs with STRING keys to match data-sid (always string from dataset)
+  // Clear personal overrides, then restore from saved sdescs (name-keyed)
   Object.keys(spellDescs).forEach(k=>delete spellDescs[k]);
   if(d.sdescs){
-    Object.keys(d.sdescs).forEach(k=>{
-      const val=d.sdescs[k];
-      spellDescs[String(k)]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;
+    Object.keys(d.sdescs).forEach(nm=>{
+      const val=d.sdescs[nm];
+      spellDescs[nm]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;
     });
   }
-  (d.spells||[]).forEach(s=>addSpell(s.n,s.l,s.sc,s.c,s.r,s.p,s.e,'',s.du||'','','','','',s.l));
+  (d.spells||[]).forEach(s=>{
+    const db=spellDB[s.n]||{};
+    const lv = s.l !== undefined ? String(s.l) : String(db.level||0);
+    addSpell(s.n,lv,db.school||'',db.cast_time||'',db.range||'',s.p,s.e,db.desc||'',db.dur||'',db.comp||'',db.target||'',db.classes||'',db.higher||'',lv);
+  });
   document.getElementById('invBody').innerHTML='';
   (d.inv||[]).forEach(i=>addInv(i.n,i.q,i.v,i.e,i.no));
   // Coins
@@ -1415,9 +1443,14 @@ let _lastJsonPort='';
 // INIT
 buildAbils();buildSaves();buildSkills();buildSlots();
 
-// Always fetch the JSON first, then overlay localStorage for live session data
-// This ensures JSON-side changes (features, proficiencies, spells) always win
-// while HP, slots used, current HP etc from localStorage are preserved
+// Load spells.json (global DB) first, then character sheet JSON
+// spells.json provides descriptions keyed by spell name — shared across all characters
+fetch('spells.json')
+  .then(r=>r.ok?r.json():{})
+  .catch(()=>({}))
+  .then(db=>{ Object.assign(spellDB,db); })
+  .finally(()=>{
+
 fetch('enna-sheet.json')
   .then(r=>r.ok?r.json():Promise.reject('not found'))
   .then(jsonData=>{
@@ -1440,7 +1473,7 @@ fetch('enna-sheet.json')
         feats:       jsonData.feats,
         atks:        jsonData.atks,
         spells:      jsonData.spells,
-        sdescs:      jsonData.sdescs,
+        sdescs:      Object.assign({}, lsData.sdescs||{}, jsonData.sdescs||{}),
         inv:         jsonData.inv,
         coins:       jsonData.coins,
         rels:        jsonData.rels,
@@ -1471,11 +1504,22 @@ fetch('enna-sheet.json')
   .catch(()=>{
     // No JSON available (file:// or not deployed yet) — fall back to localStorage
     const saved=localStorage.getItem('cos-enna');
-    if(saved){try{recalc();applyData(JSON.parse(saved));}catch(e){recalc();}}
-    else{recalc();}
+    if(saved){
+      try{
+        const lsData=JSON.parse(saved);
+        // Strip potentially stale spell data from localStorage — spells come from
+        // laucian-sheet.json + spells.json. Without the server we have no DB to
+        // look up descriptions, so just clear spells to avoid showing corrupt rows.
+        lsData.spells=[];
+        lsData.sdescs={};
+        recalc();applyData(lsData);
+      }catch(e){recalc();}
+    } else{recalc();}
     lockEdit();
     console.warn('enna-sheet.json not found — using localStorage only. Open via Live Server or GitHub Pages.');
   });
+
+}); // end finally (spells.json loaded)
 
 </script>
 </body>

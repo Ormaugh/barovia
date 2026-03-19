@@ -1,370 +1,554 @@
 {
-  "name": "Laucian Caerdonel",
-  "class": "Clérigo",
-  "subclass": "Dominio de la Sepultura",
-  "level": 1,
-  "background": "Haunted One",
-  "player": "Victor",
-  "race": "Semi-elfo",
-  "alignment": "",
-  "xp": 0,
-
-  "abilities": {
-    "str": 9,
-    "dex": 12,
-    "con": 11,
-    "int": 16,
-    "wis": 18,
-    "cha": 17
+  "v": 3,
+  "cn": "Laucian Caerdonel",
+  "cc": "Clérigo",
+  "cl": "1",
+  "cr": "Semi-elfo",
+  "bg": "Haunted One",
+  "al": "Neutral Good",
+  "ac": "12",
+  "mhp": "13",
+  "hd": "1d8",
+  "speed": "30ft",
+  "insp": false,
+  "sc": {
+    "str": "9",
+    "dex": "12",
+    "con": "11",
+    "int": "16",
+    "wis": "18",
+    "cha": "17"
   },
-
-  "proficiencyBonus": 2,
-  "inspiration": 0,
-
-  "savingThrows": {
-    "str": false,
-    "dex": false,
-    "con": false,
-    "int": false,
-    "wis": true,
-    "cha": true
+  "sp": {
+    "sv-str": false,
+    "sv-dex": false,
+    "sv-con": false,
+    "sv-int": false,
+    "sv-wis": true,
+    "sv-cha": true
   },
-
-  "skills": {
-    "acrobatics":     { "prof": false, "stat": "dex" },
-    "animalHandling": { "prof": true,  "stat": "wis" },
-    "arcana":         { "prof": true,  "stat": "int" },
-    "athletics":      { "prof": false, "stat": "str" },
-    "deception":      { "prof": false, "stat": "cha" },
-    "history":        { "prof": true,  "stat": "int" },
-    "insight":        { "prof": false, "stat": "wis" },
-    "intimidation":   { "prof": false, "stat": "cha" },
-    "investigation":  { "prof": true,  "stat": "int" },
-    "medicine":       { "prof": false, "stat": "wis" },
-    "nature":         { "prof": false, "stat": "int" },
-    "perception":     { "prof": true,  "stat": "wis" },
-    "performance":    { "prof": false, "stat": "cha" },
-    "persuasion":     { "prof": false, "stat": "cha" },
-    "religion":       { "prof": true,  "stat": "int" },
-    "sleightOfHand":  { "prof": false, "stat": "dex" },
-    "stealth":        { "prof": false, "stat": "dex" },
-    "survival":       { "prof": false, "stat": "wis" }
+  "sk": {
+    "sk-acr": false,
+    "sk-ani": true,
+    "sk-arc": true,
+    "sk-ath": false,
+    "sk-dec": false,
+    "sk-his": true,
+    "sk-ins": false,
+    "sk-int": false,
+    "sk-inv": true,
+    "sk-med": false,
+    "sk-nat": false,
+    "sk-per": true,
+    "sk-prf": false,
+    "sk-prs": false,
+    "sk-rel": true,
+    "sk-soh": false,
+    "sk-ste": false,
+    "sk-sur": false
   },
-
-  "ac": 12,
-  "initiative": 1,
-  "speed": 30,
-
-  "hp": {
-    "max": 13,
-    "current": 13,
-    "temp": 0
-  },
-
-  "hitDice": {
-    "total": "1d8",
-    "remaining": 1
-  },
-
-  "deathSaves": {
-    "successes": 0,
-    "failures": 0
-  },
-
-  "attacks": [
-    {
-      "name": "Bastón",
-      "atkBonus": "+1",
-      "damage": "1d6-1",
-      "type": "contundente"
+  "sa": "wis",
+  "slots": {
+    "1": {
+      "t": "4",
+      "u": 0
     },
-    {
-      "name": "Ballesta ligera",
-      "atkBonus": "+3",
-      "damage": "1d8+1",
-      "type": "perforante"
-    }
-  ],
-
-  "spellcasting": {
-    "ability": "WIS",
-    "class": "Clérigo",
-    "attackBonus": 6,
-    "saveDC": 14,
-    "slots": {
-      "1": { "max": 4, "used": 0 },
-      "2": { "max": 2, "used": 0 },
-      "3": { "max": 0, "used": 0 },
-      "4": { "max": 0, "used": 0 },
-      "5": { "max": 0, "used": 0 },
-      "6": { "max": 0, "used": 0 },
-      "7": { "max": 0, "used": 0 },
-      "8": { "max": 0, "used": 0 },
-      "9": { "max": 0, "used": 0 }
+    "2": {
+      "t": "2",
+      "u": 0
     },
-    "spells": {
-      "cantrips": [
-        {
-          "name": "Piedad con los Moribundos",
-          "englishName": "Spare the Dying",
-          "level": 0,
-          "castingTime": "1 acción",
-          "range": "Toque",
-          "components": "V, S",
-          "duration": "Instantánea",
-          "description": "Tocas a una criatura viva que tiene 0 puntos de golpe. La criatura se estabiliza. Este conjuro no tiene efecto sobre muertos vivientes o constructos.",
-          "prepared": true
-        },
-        {
-          "name": "Guía",
-          "englishName": "Guidance",
-          "level": 0,
-          "castingTime": "1 acción",
-          "range": "Toque",
-          "components": "V, S",
-          "duration": "Concentración, hasta 1 minuto",
-          "description": "Tocas a una criatura voluntaria. Una vez antes de que el conjuro termine, el objetivo puede tirar 1d4 y añadir el resultado a una tirada de habilidad de su elección. Puede tirar el dado antes o después de realizar la tirada de habilidad.",
-          "prepared": true
-        },
-        {
-          "name": "Llama Sagrada",
-          "englishName": "Sacred Flame",
-          "level": 0,
-          "castingTime": "1 acción",
-          "range": "60 pies",
-          "components": "V, S",
-          "duration": "Instantánea",
-          "description": "Una radiancia similar a llamas desciende sobre una criatura que puedes ver dentro del alcance. El objetivo debe superar una tirada de salvación de Destreza o recibir 1d8 de daño radiante. El objetivo no obtiene ningún beneficio de cobertura para esta tirada de salvación. El daño aumenta en 1d8 cuando alcanzas el nivel 5 (2d8), nivel 11 (3d8) y nivel 17 (4d8).",
-          "prepared": true
-        },
-        {
-          "name": "Palabra Radiante",
-          "englishName": "Word of Radiance",
-          "level": 0,
-          "castingTime": "1 acción",
-          "range": "5 pies (radio)",
-          "components": "V, M (símbolo sagrado)",
-          "duration": "Instantánea",
-          "description": "Pronuncias una palabra divina y una radiancia ardiente erupciona desde ti. Cada criatura de tu elección que puedas ver dentro del alcance debe superar una tirada de salvación de Constitución o recibir 1d6 de daño radiante. El daño aumenta en 1d6 cuando alcanzas el nivel 5 (2d6), nivel 11 (3d6) y nivel 17 (4d6).",
-          "prepared": true
-        }
-      ],
-      "level1": [
-        {
-          "name": "Falsa Vida",
-          "englishName": "False Life",
-          "level": 1,
-          "domain": true,
-          "castingTime": "1 acción",
-          "range": "Personal",
-          "components": "V, S, M (una pequeña cantidad de alcohol o licor destilado)",
-          "duration": "1 hora",
-          "description": "Reforzándote con una imitación necrótica de la vida, ganas 1d4+4 puntos de golpe temporales. A niveles superiores: cuando lanzas este conjuro usando un espacio de nivel 2 o superior, ganas 5 puntos de golpe temporales adicionales por cada nivel de espacio por encima del 1.º.",
-          "prepared": true
-        },
-        {
-          "name": "Perdición",
-          "englishName": "Bane",
-          "level": 1,
-          "domain": true,
-          "castingTime": "1 acción",
-          "range": "30 pies",
-          "components": "V, S, M (una gota de sangre)",
-          "duration": "Concentración, hasta 1 minuto",
-          "description": "Hasta 3 criaturas de tu elección que puedas ver dentro del alcance deben realizar una tirada de salvación de Carisma. Cuando un objetivo que falla realiza una tirada de ataque o de salvación antes de que el conjuro termine, debe tirar 1d4 y restar el resultado. A niveles superiores: puedes elegir una criatura adicional por cada nivel de espacio por encima del 1.º.",
-          "prepared": true
-        },
-        {
-          "name": "Dulce Descanso",
-          "englishName": "Gentle Repose",
-          "level": 1,
-          "domain": true,
-          "castingTime": "1 acción",
-          "range": "Toque",
-          "components": "V, S, M (una pizca de sal y una moneda de cobre colocada en cada ojo del cadáver)",
-          "duration": "10 días",
-          "description": "Tocas un cadáver u otros restos de criatura. Por la duración, el objetivo está protegido de la descomposición y no puede convertirse en muerto viviente. El conjuro también extiende el límite de tiempo en el que magia como Resucitar Muertos puede traer al objetivo de vuelta a la vida.",
-          "prepared": true
-        },
-        {
-          "name": "Palabra Curativa",
-          "englishName": "Healing Word",
-          "level": 1,
-          "castingTime": "1 acción adicional",
-          "range": "60 pies",
-          "components": "V",
-          "duration": "Instantánea",
-          "description": "Una criatura de tu elección que puedas ver dentro del alcance recupera puntos de golpe iguales a 1d4 + tu modificador de característica de lanzamiento de conjuros. No tiene efecto sobre muertos vivientes o constructos. A niveles superiores: la curación aumenta en 1d4 por cada nivel de espacio por encima del 1.º.",
-          "prepared": true
-        },
-        {
-          "name": "Infligir Heridas",
-          "englishName": "Inflict Wounds",
-          "level": 1,
-          "castingTime": "1 acción",
-          "range": "Toque",
-          "components": "V, S",
-          "duration": "Instantánea",
-          "description": "Realizas un ataque de conjuro cuerpo a cuerpo contra una criatura al alcance. Si impactas, el objetivo recibe 3d10 de daño necrótico. A niveles superiores: el daño aumenta en 1d10 por cada nivel de espacio por encima del 1.º.",
-          "prepared": true
-        },
-        {
-          "name": "Ordenar",
-          "englishName": "Command",
-          "level": 1,
-          "castingTime": "1 acción",
-          "range": "60 pies",
-          "components": "V",
-          "duration": "1 turno",
-          "description": "Pronuncias una orden de una sola palabra a una criatura que puedas ver dentro del alcance. El objetivo debe superar una tirada de salvación de Sabiduría o seguir la orden en su siguiente turno. No tiene efecto sobre muertos vivientes, criaturas que no entiendan tu idioma, o si la orden es directamente dañina para el objetivo. A niveles superiores: puedes afectar a una criatura adicional por cada nivel de espacio por encima del 1.º.",
-          "prepared": true
-        },
-        {
-          "name": "Rayo Debilitador",
-          "englishName": "Ray of Enfeeblement",
-          "level": 1,
-          "castingTime": "1 acción",
-          "range": "60 pies",
-          "components": "V, S",
-          "duration": "Concentración, hasta 1 minuto",
-          "description": "Un rayo negro de energía debilitante alcanza a una criatura que puedas ver dentro del alcance. Realizas un ataque de conjuro a distancia contra el objetivo. Si impactas, el objetivo inflige solo la mitad de daño con ataques basados en Fuerza hasta que el conjuro termine. Al final de cada turno del objetivo, puede realizar una tirada de salvación de Constitución para terminar el efecto.",
-          "prepared": true
-        }
-      ],
-      "level2": [
-        {
-          "name": "Arma Espiritual",
-          "englishName": "Spiritual Weapon",
-          "level": 2,
-          "castingTime": "1 acción adicional",
-          "range": "60 pies",
-          "components": "V, S",
-          "duration": "1 minuto",
-          "description": "Creas un arma espectral flotante dentro del alcance que dura por la duración. Cuando lanzas el conjuro, puedes realizar un ataque de conjuro cuerpo a cuerpo contra una criatura dentro de 5 pies del arma. Si impactas, el objetivo recibe 1d8 + tu modificador de característica de lanzamiento de conjuros de daño de fuerza. Como acción adicional, puedes mover el arma hasta 20 pies y repetir el ataque. A niveles superiores: el daño aumenta en 1d8 por cada dos niveles de espacio por encima del 2.º.",
-          "prepared": true
-        },
-        {
-          "name": "Zona de la Verdad",
-          "englishName": "Zone of Truth",
-          "level": 2,
-          "castingTime": "1 acción",
-          "range": "60 pies",
-          "components": "V, S",
-          "duration": "Concentración, hasta 10 minutos",
-          "description": "Creas una zona mágica en una esfera de 15 pies de radio centrada en un punto dentro del alcance. Una criatura que entre en el área por primera vez o comience su turno allí debe realizar una tirada de salvación de Carisma. Si falla, no puede mentir deliberadamente mientras esté en el radio. Sabes si cada criatura supera o falla su tirada de salvación.",
-          "prepared": true
-        },
-        {
-          "name": "Plegaria de Curación",
-          "englishName": "Prayer of Healing",
-          "level": 2,
-          "castingTime": "10 minutos",
-          "range": "30 pies",
-          "components": "V",
-          "duration": "Instantánea",
-          "description": "Hasta seis criaturas de tu elección que puedas ver dentro del alcance recuperan puntos de golpe iguales a 2d8 + tu modificador de característica de lanzamiento de conjuros. No puede lanzarse en combate. No tiene efecto sobre muertos vivientes o constructos. A niveles superiores: la curación aumenta en 1d8 por cada nivel de espacio por encima del 2.º.",
-          "prepared": true
-        }
-      ],
-      "level3": [],
-      "level4": [],
-      "level5": [],
-      "level6": [],
-      "level7": [],
-      "level8": [],
-      "level9": []
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
     }
   },
-
-  "features": [
-    {
-      "name": "Visión en la Oscuridad",
-      "source": "Semi-elfo",
-      "description": "Gracias a tu sangre élfica, tienes visión superior en condiciones de oscuridad y poca luz. Puedes ver en luz tenue dentro de 60 pies como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes discernir el color en la oscuridad, solo tonos de gris."
-    },
-    {
-      "name": "Ventaja contra el Encantamiento",
-      "source": "Semi-elfo",
-      "description": "Tienes ventaja en las tiradas de salvación contra ser hechizado."
-    },
-    {
-      "name": "Inmunidad al Sueño Mágico",
-      "source": "Semi-elfo",
-      "description": "La magia no puede hacerte dormir."
-    },
-    {
-      "name": "Canalizar Divinidad: Expulsar Muertos Vivientes",
-      "source": "Clérigo",
-      "description": "Como acción, presentas tu símbolo sagrado y pronuncias una oración censurando a los muertos vivientes. Cada muerto viviente que pueda verte u oírte dentro de 30 pies debe realizar una tirada de salvación de Sabiduría. Si falla, queda repelido durante 1 minuto o hasta que reciba daño."
-    },
-    {
-      "name": "Canalizar Divinidad: Camino a la Sepultura",
-      "source": "Dominio de la Sepultura",
-      "description": "Como acción, maldices a una criatura no muerta que puedas ver dentro de 30 pies. Mientras está maldecida, la criatura tiene vulnerabilidad a todos los daños hasta el final de tu siguiente turno."
-    },
-    {
-      "name": "Ojos de la Tumba",
-      "source": "Dominio de la Sepultura",
-      "description": "Puedes usar tu acción para abrir una conciencia mágica de los muertos vivientes cercanos. Hasta el final de tu siguiente turno, conoces la ubicación de cualquier muerto viviente dentro de 60 pies que no esté detrás de cobertura total. Puedes usarlo un número de veces igual a tu modificador de Sabiduría (mínimo 1). Se recupera con descanso largo."
-    },
-    {
-      "name": "Círculo de la Mortalidad",
-      "source": "Dominio de la Sepultura",
-      "description": "Cuando lanzas un conjuro que restaura puntos de golpe a una criatura con 0 puntos de golpe, tratas cualquier dado tirado para determinar los puntos de golpe restaurados como si hubiera obtenido su valor máximo."
-    }
-  ],
-
-  "proficiencies": {
-    "armor": ["Armaduras ligeras", "Armaduras medias", "Escudos"],
-    "weapons": ["Armas sencillas"],
-    "tools": [],
-    "languages": ["Común", "Élfico", "Infernal", "Orc"]
-  },
-
+  "port": "portraits/laucian.png",
   "personality": {
     "traits": "Gasto dinero sin preocupación.",
     "ideals": "Mato monstruos para hacer el mundo más seguro.",
     "bonds": "Hay un mal dentro de mí.",
     "flaws": "Sigo rituales a diario de manera fija."
   },
-
-  "equipment": [
-    "Armadura de cuero (Leather Armour)",
-    "Máscara de plaga (Plague Mask)",
-    "Capa (Cloak)"
+  "proficiencies": {
+    "languages": "Común, Élfico, Infernal, Orc",
+    "armor": "Armaduras ligeras, medianas, escudos",
+    "weapons": "Armas sencillas",
+    "instruments": "—",
+    "tools": "—",
+    "other": "Símbolo sagrado (foco de lanzamiento de conjuros)"
+  },
+  "feats": [
+    {
+      "n": "Visión en la Oscuridad",
+      "s": "Semi-elfo",
+      "d": "Gracias a tu sangre élfica, tienes visión superior en condiciones de oscuridad y poca luz. Puedes ver en luz tenue dentro de 60 pies como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes discernir el color en la oscuridad, solo tonos de gris.",
+      "o": false
+    },
+    {
+      "n": "Ventaja contra el Encantamiento",
+      "s": "Semi-elfo",
+      "d": "Tienes ventaja en las tiradas de salvación contra ser hechizado.",
+      "o": false
+    },
+    {
+      "n": "Inmunidad al Sueño Mágico",
+      "s": "Semi-elfo",
+      "d": "La magia no puede hacerte dormir.",
+      "o": false
+    },
+    {
+      "n": "Canalizar Divinidad: Expulsar Muertos Vivientes",
+      "s": "Clérigo 1",
+      "d": "Como acción, presentas tu símbolo sagrado y pronuncias una oración censurando a los muertos vivientes. Cada muerto viviente que pueda verte u oírte dentro de 30 pies debe realizar una tirada de salvación de Sabiduría. Si la criatura falla su tirada, queda repelida durante 1 minuto o hasta que reciba daño.",
+      "o": false
+    },
+    {
+      "n": "Canalizar Divinidad: Camino a la Sepultura",
+      "s": "Clérigo 1 — Dominio de la Sepultura",
+      "d": "Como acción, maldices a una criatura no muerta que puedas ver dentro de 30 pies. Mientras está maldecida, la criatura tiene vulnerabilidad a todos los daños hasta el final de tu siguiente turno.",
+      "o": false
+    },
+    {
+      "n": "Ojos de la Tumba",
+      "s": "Clérigo 1 — Dominio de la Sepultura",
+      "d": "Puedes usar tu acción para abrir una conciencia mágica de los muertos vivientes cercanos. Hasta el final de tu siguiente turno, conoces la ubicación de cualquier muerto viviente dentro de 60 pies que no esté detrás de cobertura total. Puedes usarlo un número de veces igual a tu modificador de Sabiduría (mínimo 1). Se recupera con descanso largo.",
+      "o": false
+    },
+    {
+      "n": "Círculo de la Mortalidad",
+      "s": "Clérigo 1 — Dominio de la Sepultura",
+      "d": "Cuando lanzas un conjuro que restaura puntos de golpe a una criatura con 0 puntos de golpe, tratas cualquier dado tirado para determinar los puntos de golpe restaurados como si hubiera obtenido su valor máximo.",
+      "o": false
+    }
   ],
-
-  "inventory": [
-    "10 velas",
-    "Incienso",
-    "Cantimplora",
-    "Cabeza de muñeca que siempre te mira",
-    "Cofre pequeño",
-    "Palanca",
-    "Martillo",
-    "Estacas de madera",
-    "Símbolo sagrado",
-    "Agua bendita",
-    "Espejo de acero",
-    "x3 Antorchas",
-    "Cuerda 50ft"
+  "atks": [
+    {
+      "n": "Bastón",
+      "h": "main-s",
+      "dmg": "1d6-1",
+      "t": "Contundente",
+      "r": "5ft",
+      "no": "Versátil (1d8-1 a dos manos)."
+    },
+    {
+      "n": "Ballesta Ligera",
+      "h": "ranged-d",
+      "dmg": "1d8+1",
+      "t": "Perforante",
+      "r": "80/320ft",
+      "no": "Munición, dos manos. DEX+Prof (+3). Requiere acción para recargar."
+    }
   ],
-
-  "currency": {
+  "spells": [
+    {
+      "p": true,
+      "l": "0",
+      "n": "Guidance",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "0",
+      "n": "Light",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "0",
+      "n": "Mending",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "0",
+      "n": "Resistance",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "0",
+      "n": "Sacred Flame",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "0",
+      "n": "Spare the Dying",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "0",
+      "n": "Thaumaturgy",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "0",
+      "n": "Toll the Dead",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "0",
+      "n": "Word of Radiance",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Bane",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Bless",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Command",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Cure Wounds",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Detect Magic",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Detect Poison and Disease",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "False Life",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Gentle Repose",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Guiding Bolt",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Healing Word",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Inflict Wounds",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Ray of Enfeeblement",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Blindness/Deafness",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Calm Emotions",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Enhance Ability",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Find Traps",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Hold Person",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Lesser Restoration",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Locate Object",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "2",
+      "n": "Prayer of Healing",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Protection from Poison",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Silence",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "2",
+      "n": "Spiritual Weapon",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "2",
+      "n": "Zone of Truth",
+      "e": false
+    }
+  ],
+  "coins": {
     "cp": 8,
     "sp": 9,
-    "ep": 0,
     "gp": 9,
+    "ep": 0,
     "pp": 0
   },
-
-  "relationships": [
-    { "name": "Sarda Luthra",    "role": "Compañera (Paladín)" },
-    { "name": "Thokk Rughar",    "role": "Compañero (Bárbaro)" },
-    { "name": "Enna Naïlo",      "role": "Compañera (Exploradora)" },
-    { "name": "Dara Sylvaranth", "role": "Compañera (Exploradora)" },
-    { "name": "Kaelos",          "role": "Compañero (Sátiro Bardo)" },
-    { "name": "Rose Durst",      "role": "Niña encontrada en Barovia" },
-    { "name": "Thorn Durst",     "role": "Niño encontrado en Barovia" }
-  ]
+  "inv": [
+    {
+      "n": "Armadura de cuero",
+      "q": "1",
+      "v": "10",
+      "e": true,
+      "no": "Armadura ligera. CA 11 + DEX mod."
+    },
+    {
+      "n": "Máscara de plaga",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Equipo de Haunted One."
+    },
+    {
+      "n": "Capa",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": ""
+    },
+    {
+      "n": "Símbolo sagrado",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Foco de lanzamiento de conjuros."
+    },
+    {
+      "n": "Bastón",
+      "q": "1",
+      "v": "2",
+      "e": true,
+      "no": "Arma principal. Versátil (1d8)."
+    },
+    {
+      "n": "Ballesta ligera",
+      "q": "1",
+      "v": "25",
+      "e": true,
+      "no": "Arma a distancia."
+    },
+    {
+      "n": "Velas",
+      "q": "10",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Incienso",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Cantimplora",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Cabeza de muñeca que siempre te mira",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Objeto inquietante. Origen desconocido."
+    },
+    {
+      "n": "Cofre pequeño",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Palanca",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Martillo",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Estacas de madera",
+      "q": "5",
+      "v": "",
+      "e": false,
+      "no": "Útiles contra vampiros."
+    },
+    {
+      "n": "Agua bendita",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Frasco. Daño radiante contra muertos vivientes."
+    },
+    {
+      "n": "Espejo de acero",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Antorchas",
+      "q": "3",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Cuerda de cáñamo",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "50 pies."
+    }
+  ],
+  "rels": [
+    {
+      "n": "Ismark Kolyanovich",
+      "r": "Hijo del Burgómaestre — Aldea de Barovia",
+      "no": "Nos pidió escolta para Ireena hasta Vallaki. Confiable.",
+      "o": false
+    },
+    {
+      "n": "Ireena Kolyana",
+      "r": "Hija del Burgómaestre — objetivo de Strahd",
+      "no": "Capaz y directa. El objetivo es llevarla a Vallaki sana y salva.",
+      "o": false
+    },
+    {
+      "n": "Padre Donavich",
+      "r": "Sacerdote de la Mañana del Señor",
+      "no": "Roto por lo de su hijo. Nos dio información sobre debilidades de vampiros.",
+      "o": false
+    },
+    {
+      "n": "Doru",
+      "r": "Hijo de Donavich — engendro vampírico encadenado",
+      "no": "Encadenado en el sótano de la iglesia. Si Strahd muere, Doru se libera.",
+      "o": false
+    },
+    {
+      "n": "Rose Durst",
+      "r": "Fantasma de la Casa Durst",
+      "no": "Niña fantasma. Le prometimos que acabaríamos con el monstruo del sótano.",
+      "o": false
+    },
+    {
+      "n": "Thorn Durst",
+      "r": "Fantasma de la Casa Durst",
+      "no": "Niño fantasma. Entró brevemente en el cuerpo de Sarda por el pánico.",
+      "o": false
+    },
+    {
+      "n": "Kaelos",
+      "r": "Sátiro Bardo — compañero de partido",
+      "no": "Lo rescatamos en las ruinas. Toca la flauta. Tiene mano larga.",
+      "o": false
+    }
+  ],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "player": "Victor"
 }
