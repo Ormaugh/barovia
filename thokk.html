@@ -1046,17 +1046,17 @@ function applyData(d){
   }
   if(d.proficiencies){
     if(typeof d.proficiencies === 'string'){
-      // legacy: single string → put in Other
+      // legacy single string → migrate to Other
       const el=document.getElementById('profOther'); if(el) el.textContent=d.proficiencies;
     } else {
       const p=d.proficiencies;
-      const sId=(id,v)=>{if(!v)return;const el=document.getElementById(id);if(el)el.textContent=v;};
-      sId('profLanguages',p.languages);
-      sId('profArmor',p.armor);
-      sId('profWeapons',p.weapons);
+      const sId=(elId,v)=>{const el=document.getElementById(elId);if(el&&v!=null)el.textContent=v;};
+      sId('profLanguages',  p.languages);
+      sId('profArmor',      p.armor);
+      sId('profWeapons',    p.weapons);
       sId('profInstruments',p.instruments);
-      sId('profTools',p.tools);
-      sId('profOther',p.other);
+      sId('profTools',      p.tools);
+      sId('profOther',      p.other);
     }
   }
   if(d.sa){document.getElementById('spellAbility').value=d.sa;}
@@ -1167,39 +1167,68 @@ let _lastJsonPort='';
 
 // INIT
 buildAbils();buildSaves();buildSkills();buildSlots();
-const saved=localStorage.getItem('cos-thokk');
-if(saved){try{applyData(JSON.parse(saved));}catch{recalc();initDefaults();}}
-else{recalc();initDefaults();}
-lockEdit();
 
-function initDefaults(){
-  // Load defaults from JSON file — only runs when no localStorage data exists
-  fetch('thokk-sheet.json')
-    .then(r=>{ if(!r.ok) throw new Error('JSON not found'); return r.json(); })
-    .then(d=>{
-      _lastJsonPort = d.port||'';
-      applyData(d);
-      // Apply coins from JSON (not in standard applyData schema)
-      if(d.coins){
+// Always fetch the JSON first, then overlay localStorage for live session data
+// This ensures JSON-side changes (features, proficiencies, spells) always win
+// while HP, slots used, current HP etc from localStorage are preserved
+fetch('thokk-sheet.json')
+  .then(r=>r.ok?r.json():Promise.reject('not found'))
+  .then(jsonData=>{
+    _lastJsonPort=jsonData.port||'';
+    const saved=localStorage.getItem('cos-thokk');
+    let lsData=null;
+    if(saved){try{lsData=JSON.parse(saved);}catch(e){}}
+    if(lsData){
+      // Use localStorage for session state (current HP, slots used, inspiration, death saves)
+      // but override with JSON for structural data (feats, spells, proficiencies, personality)
+      const merged={
+        ...lsData,
+        feats:       jsonData.feats       ?? lsData.feats,
+        spells:      jsonData.spells      ?? lsData.spells,
+        sdescs:      jsonData.sdescs      ?? lsData.sdescs,
+        rels:        jsonData.rels        ?? lsData.rels,
+        proficiencies: jsonData.proficiencies ?? lsData.proficiencies,
+        personality: jsonData.personality ?? lsData.personality,
+        // Stats from JSON always win (player keeps editing JSON)
+        sc:  jsonData.sc  ?? lsData.sc,
+        sp:  jsonData.sp  ?? lsData.sp,
+        sk:  jsonData.sk  ?? lsData.sk,
+        cn:  jsonData.cn  ?? lsData.cn,
+        cc:  jsonData.cc  ?? lsData.cc,
+        cl:  jsonData.cl  ?? lsData.cl,
+        cr:  jsonData.cr  ?? lsData.cr,
+        ac:  jsonData.ac  ?? lsData.ac,
+        mhp: jsonData.mhp ?? lsData.mhp,
+        hd:  jsonData.hd  ?? lsData.hd,
+        port: _lastJsonPort || lsData.port,
+        coins: jsonData.coins ?? lsData.coins,
+        atks: jsonData.atks ?? lsData.atks,
+      };
+      recalc();
+      applyData(merged);
+    } else {
+      recalc();
+      applyData(jsonData);
+      // Apply coins
+      if(jsonData.coins){
         const coinMap={cp:'.coin-cp',sp:'.coin-sp',gp:'.coin-gp'};
         Object.entries(coinMap).forEach(([key,cls])=>{
           const lbl=document.querySelector(cls);
-          if(lbl&&lbl.nextElementSibling) lbl.nextElementSibling.textContent=d.coins[key]||'0';
+          if(lbl&&lbl.nextElementSibling) lbl.nextElementSibling.textContent=jsonData.coins[key]||'0';
         });
       }
-      // Apply background and alignment to char-info box
-      if(d.bg) document.querySelectorAll('[data-ph="—"]').forEach((el,i)=>{
-        if(el.closest('.char-info-box') && i===3) el.textContent=d.bg;
-      });
-      recalc();
-      save();
-    })
-    .catch(()=>{
-      // Fallback if JSON can't be fetched (e.g. opened as file://)
-      console.warn('thokk-sheet.json not found — sheet will be empty. Open via Live Server or GitHub Pages.');
-      recalc();
-    });
-}
+    }
+    lockEdit();
+  })
+  .catch(()=>{
+    // No JSON available (file:// or not deployed yet) — fall back to localStorage
+    const saved=localStorage.getItem('cos-thokk');
+    if(saved){try{recalc();applyData(JSON.parse(saved));}catch(e){recalc();}}
+    else{recalc();}
+    lockEdit();
+    console.warn('thokk-sheet.json not found — using localStorage only. Open via Live Server or GitHub Pages.');
+  });
+
 </script>
 </body>
 </html>
