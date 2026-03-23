@@ -58,15 +58,42 @@
   },
   "sa": "cha",
   "slots": {
-    "1": { "t": "3", "u": 0 },
-    "2": { "t": "2", "u": 0 },
-    "3": { "t": "0", "u": 0 },
-    "4": { "t": "0", "u": 0 },
-    "5": { "t": "0", "u": 0 },
-    "6": { "t": "0", "u": 0 },
-    "7": { "t": "0", "u": 0 },
-    "8": { "t": "0", "u": 0 },
-    "9": { "t": "0", "u": 0 }
+    "1": {
+      "t": "3",
+      "u": 0
+    },
+    "2": {
+      "t": "2",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
   },
   "port": "https://ormaugh.github.io/barovia/portraits/sarda.png",
   "feats": [
@@ -148,7 +175,7 @@
     },
     {
       "n": "Javelin",
-      "h": "ranged-s",
+      "h": "main-s",
       "dmg": "1d6+2",
       "t": "Piercing",
       "r": "30/120ft",
@@ -174,13 +201,13 @@
       "p": true,
       "l": "1",
       "n": "Ensnaring Strike",
-      "e": true
+      "e": false
     },
     {
       "p": true,
       "l": "1",
       "n": "Speak with Animals",
-      "e": true
+      "e": false
     },
     {
       "p": true,
@@ -201,7 +228,7 @@
       "e": false
     },
     {
-      "p": false,
+      "p": true,
       "l": "1",
       "n": "Bane",
       "e": false
@@ -244,15 +271,21 @@
     },
     {
       "p": true,
-      "l": "2",
-      "n": "Moonbeam",
-      "e": true
+      "l": "1",
+      "n": "Hunter's Mark",
+      "e": false
     },
     {
-      "p": true,
+      "p": false,
+      "l": "2",
+      "n": "Moonbeam",
+      "e": false
+    },
+    {
+      "p": false,
       "l": "2",
       "n": "Misty Step",
-      "e": true
+      "e": false
     },
     {
       "p": false,
@@ -456,7 +489,14 @@
       "o": false
     }
   ],
-  "ds": [false, false, false, false, false, false],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
   "personality": {
     "traits": "I love being strong and breaking things. I spread light and hope wherever I go.",
     "ideals": "I do what I must and obey the law — until it stops making sense.",
