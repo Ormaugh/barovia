@@ -4,13 +4,22 @@
   "cc": "Barbarian",
   "cl": "3",
   "cr": "Half-Orc",
-  "bg": "Salvaje",
+  "bg": "Outlander",
   "al": "Chaotic Neutral",
   "ac": "13",
   "mhp": "30",
   "hd": "3d12",
+  "chp": "30",
+  "thp": "",
+  "hdu": "",
   "speed": "30ft",
-  "insp": false,
+  "xp": "",
+  "spellClass": "Barbarian",
+  "combatNotes": "Unarmored Defense: AC = 10 + DEX mod + CON mod. Resistance to bludgeoning, piercing, and slashing damage while raging (÷2).",
+  "invNotes": "",
+  "sensesDarkvision": "60 ft.",
+  "sensesOther": "",
+  "insp": true,
   "sc": {
     "str": "18",
     "dex": "13",
@@ -29,301 +38,262 @@
   },
   "sk": {
     "sk-acr": false,
-    "sk-ani": false,
+    "sk-ani": true,
     "sk-arc": false,
     "sk-ath": true,
     "sk-dec": false,
     "sk-his": false,
     "sk-ins": false,
-    "sk-int": true,
+    "sk-int": false,
     "sk-inv": false,
     "sk-med": false,
     "sk-nat": true,
-    "sk-per": true,
+    "sk-per": false,
     "sk-prf": false,
     "sk-prs": false,
     "sk-rel": false,
     "sk-soh": false,
     "sk-ste": false,
-    "sk-sur": false
+    "sk-sur": true
   },
-  "sa": "wis",
+  "sa": "str",
   "slots": {
-    "1": {
-      "t": "2",
-      "u": 0
-    },
-    "2": {
-      "t": "0",
-      "u": 0
-    },
-    "3": {
-      "t": "0",
-      "u": 0
-    },
-    "4": {
-      "t": "0",
-      "u": 0
-    },
-    "5": {
-      "t": "0",
-      "u": 0
-    },
-    "6": {
-      "t": "0",
-      "u": 0
-    },
-    "7": {
-      "t": "0",
-      "u": 0
-    },
-    "8": {
-      "t": "0",
-      "u": 0
-    },
-    "9": {
-      "t": "0",
-      "u": 0
-    }
+    "1": { "t": "0", "u": 0 },
+    "2": { "t": "0", "u": 0 },
+    "3": { "t": "0", "u": 0 },
+    "4": { "t": "0", "u": 0 },
+    "5": { "t": "0", "u": 0 },
+    "6": { "t": "0", "u": 0 },
+    "7": { "t": "0", "u": 0 },
+    "8": { "t": "0", "u": 0 },
+    "9": { "t": "0", "u": 0 }
   },
-  "port": "portraits/thokk.png",
-  "personality": {
-    "traits": "Cuido de mis compañeros como si fueran mis cachorros. Actúo antes de pensar. La sonrisa es mi armadura.",
-    "ideals": "La fuerza protege a los débiles. Un lobo solitario muere; la manada sobrevive.",
-    "bonds": "No tengo clan. Por ahora este grupo es lo más parecido que tengo. Aún no lo he dicho en voz alta.",
-    "flaws": "Actúo sin cautela. Me lanzo primero y pregunto después."
-  },
-  "proficiencies": {
-    "languages": "Común, Orco",
-    "armor": "Armaduras ligeras, medianas, escudos",
-    "weapons": "Armas sencillas y marciales",
-    "instruments": "Acordeón",
-    "tools": "—",
-    "other": "Tótem de hueso de oso y pelo (foco arcano)"
-  },
+  "port": "https://ormaugh.github.io/barovia/portraits/thokk.png",
   "feats": [
     {
-      "n": "Furia",
+      "n": "Darkvision",
+      "s": "Half-Orc",
+      "d": "You can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
+      "o": false
+    },
+    {
+      "n": "Relentless Endurance",
+      "s": "Half-Orc",
+      "d": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. Once you use this feature, you can't do so again until you finish a long rest.",
+      "o": false
+    },
+    {
+      "n": "Savage Attacks",
+      "s": "Half-Orc",
+      "d": "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+      "o": false
+    },
+    {
+      "n": "Rage",
       "s": "Barbarian 1",
-      "d": "En tu turno, puedes entrar en furia como acción adicional.\nMientras estás en furia, obtienes los siguientes beneficios si no llevas armadura pesada:\n• Tienes ventaja en las tiradas de Fuerza y en las salvaciones de Fuerza.\n• Cuando realizas un ataque con arma cuerpo a cuerpo usando Fuerza, obtienes un bonificador de +2 a la tirada de daño.\n• Tienes resistencia al daño contundente, perforante y cortante.\n\nSi eres capaz de lanzar conjuros, no puedes lanzarlos ni concentrarte en ellos mientras estás en furia.\nTu furia dura 1 minuto. Termina antes de tiempo si quedas inconsciente o si tu turno finaliza y no has atacado a ninguna criatura hostil desde tu último turno ni has recibido daño desde entonces. También puedes terminar tu furia en tu turno como acción adicional.\nUna vez has entrado en furia el número máximo de veces para tu nivel de bárbaro, debes finalizar un descanso largo antes de poder entrar en furia de nuevo. (Nivel 3: 3 furias por descanso largo, +2 daño.)",
+      "d": "On your turn, you can enter a rage as a bonus action. While raging: advantage on STR checks and saves, +2 bonus to melee damage, resistance to bludgeoning/piercing/slashing damage. Rage lasts 1 minute. 3 uses per long rest at level 3.",
       "o": false
     },
     {
-      "n": "Defensa Sin Armadura",
+      "n": "Unarmored Defense",
       "s": "Barbarian 1",
-      "d": "Cuando no llevas armadura, tu Clase de Armadura es igual a 10 + tu modificador de Destreza + tu modificador de Constitución. Puedes usar un escudo y seguir beneficiándote de este rasgo.\n(CA actual: 10 + 1 DEX + 2 CON = 13)",
+      "d": "While not wearing armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.",
       "o": false
     },
     {
-      "n": "Ataque Temerario",
-      "s": "Barbarian 2",
-      "d": "A partir del nivel 2, puedes desechar toda precaución defensiva para atacar con feroz desesperación. Cuando realizas tu primer ataque en tu turno, puedes decidir atacar de forma temeraria. Si lo haces, tienes ventaja en las tiradas de ataque con armas cuerpo a cuerpo que usen Fuerza durante ese turno, pero las tiradas de ataque contra ti tienen ventaja hasta tu siguiente turno.",
-      "o": false
-    },
-    {
-      "n": "Sentido del Peligro",
-      "s": "Barbarian 2",
-      "d": "En el nivel 2, adquieres un extraordinario sentido de cuándo las cosas cercanas no son lo que deberían ser, lo que te da una ventaja cuando esquivas el peligro.\nTienes ventaja en las salvaciones de Destreza contra efectos que puedas ver, como trampas y conjuros. Para obtener este beneficio, no puedes estar cegado, ensordecido ni incapacitado.",
-      "o": false
-    },
-    {
-      "n": "Rastreador de Espíritus (Spirit Seeker)",
+      "n": "Totem Spirit: Bear",
       "s": "Barbarian 3 — Path of the Totem Warrior",
-      "d": "Tuyo es un camino que busca la comunión con el mundo natural, dándote afinidad con las bestias.\nEn el nivel 3, cuando adoptas este camino, obtienes la capacidad de lanzar los conjuros Sentidos de la Bestia (Beast Sense) y Hablar con los Animales (Speak with Animals), pero solo como rituales.",
+      "d": "While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.",
       "o": false
     },
     {
-      "n": "Espíritu Tótem: Oso (Totem Spirit — Bear)",
+      "n": "Danger Sense",
+      "s": "Barbarian 2",
+      "d": "You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. You must not be blinded, deafened, or incapacitated to gain this benefit.",
+      "o": false
+    },
+    {
+      "n": "Reckless Attack",
+      "s": "Barbarian 2",
+      "d": "When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.",
+      "o": false
+    },
+    {
+      "n": "Primal Knowledge: Totem Spells (Bear)",
       "s": "Barbarian 3 — Path of the Totem Warrior",
-      "d": "En el nivel 3, cuando adoptas este camino, eliges un espíritu tótem y obtienes su rasgo. Debes confeccionar o adquirir un objeto tótem físico — un amuleto o adorno similar — que incorpore piel, plumas, garras, dientes o huesos del animal tótem.\n\nEspíritu Tótem Oso: Mientras estás en furia, tienes resistencia a todos los daños excepto el psíquico. Los espíritus de la naturaleza ven a un guerrero de gran fortaleza digno de imitar.",
+      "d": "You gain access to Bear totem spells. These spells are always prepared and don't count against the number of spells you can prepare. Speak with Animals (level 1–2), Beast Sense (level 3–4). You can cast them as rituals only.",
       "o": false
     },
     {
-      "n": "Ataques Salvajes",
-      "s": "Half-Orc racial trait",
-      "d": "Cuando obtienes un golpe crítico con un arma cuerpo a cuerpo, puedes lanzar uno de los dados de daño del arma una vez más y añadir ese resultado al daño extra del golpe crítico.",
-      "o": false
-    },
-    {
-      "n": "Resistencia Implacable",
-      "s": "Half-Orc racial trait",
-      "d": "Cuando eres reducido a 0 puntos de golpe pero no mueres de golpe, puedes quedar a 1 punto de golpe en su lugar. No puedes volver a usar este rasgo hasta que finalices un descanso largo.",
-      "o": false
-    },
-    {
-      "n": "Vagabundo",
-      "s": "Background — Outlander / Salvaje",
-      "d": "Tienes una excelente memoria para los mapas y la geografía, y siempre puedes recordar el diseño general del terreno, los asentamientos y otras características de tu entorno.\nAdemás, puedes encontrar comida y agua dulce para ti y hasta cinco personas más cada día, siempre que el terreno ofrezca bayas, caza menor, agua, etc.",
+      "n": "Natural Explorer (Wanderer)",
+      "s": "Outlander",
+      "d": "You have an excellent memory for maps and geography, and can always recall the general layout of terrain, settlements, and other features around you. You can find food and fresh water for yourself and up to five other people each day, provided the land offers berries, small game, water, and so forth.",
       "o": false
     }
   ],
   "atks": [
     {
-      "n": "Hacha de Dos Manos",
+      "n": "Greataxe",
       "h": "main-s",
       "dmg": "1d12+4",
-      "t": "Cortante",
+      "t": "Slashing",
       "r": "5ft",
-      "no": "Pesada, dos manos. En furia: +2 daño (total +6). Crítico: +1d12 extra (Ataques Salvajes)."
+      "no": "Two-handed. +6 to hit. +2 dmg while raging (1d12+6)."
     },
     {
-      "n": "Ballesta Pesada",
-      "h": "ranged-d",
-      "dmg": "1d10",
-      "t": "Perforante",
+      "n": "Heavy Crossbow",
+      "h": "ranged-s",
+      "dmg": "1d10+1",
+      "t": "Piercing",
       "r": "100/400ft",
-      "no": "Pesada, munición, dos manos. DEX+Prof (+3). Requiere acción para recargar."
+      "no": "Ammunition, heavy, loading, two-handed. +3 to hit."
     }
   ],
   "spells": [
     {
       "p": true,
       "l": "1",
-      "n": "Hablar con los Animales",
-      "sc": "Adivinación",
-      "c": "1 Acción (Ritual)",
-      "r": "Personal",
-      "du": "10 minutos",
+      "n": "Speak with Animals",
       "e": false
     },
     {
       "p": true,
       "l": "1",
-      "n": "Sentidos de la Bestia",
-      "sc": "Adivinación",
-      "c": "1 Acción (Ritual)",
-      "r": "Toque",
-      "du": "1 hora",
+      "n": "Beast Sense",
       "e": false
     }
   ],
   "sdescs": {
     "1": {
-      "desc": "Obtienes la capacidad de comprender y comunicarte verbalmente con bestias durante la duración. El conocimiento y la conciencia de muchas bestias está limitado por su inteligencia, pero como mínimo, las bestias pueden darte información sobre los lugares cercanos y los monstruos, incluyendo lo que puedan percibir o hayan percibido durante el último día. Podrías convencer a una bestia de que realice un pequeño favor, a discreción del DM.",
-      "dur": "10 minutos",
+      "desc": "Speak with Animals — Conc. 10 min. You gain the ability to comprehend and verbally communicate with beasts.",
+      "dur": "10 min",
       "comp": "V, S",
       "target": "Self",
-      "classes": "Bardo, Druida, Explorador (Ritual) / Bárbaro Tótem (solo ritual)",
+      "classes": "Druid, Ranger",
       "higher": ""
     },
     "2": {
-      "desc": "Tocas a una bestia dispuesta. Durante la duración, puedes usar los sentidos de esa bestia en lugar de los tuyos propios. Mientras percibes a través de los sentidos de la bestia, obtienes los beneficios de los sentidos especiales que posea esa bestia, aunque estás cegado y ensordecido a tus propios alrededores.\nComo acción, puedes cambiar entre usar los sentidos de la bestia y los tuyos propios, o viceversa.",
-      "dur": "1 hora (Concentración)",
+      "desc": "Beast Sense — Conc. 1 hour. Touch a willing beast. You can use your action to see through the beast's eyes and hear what it hears until the start of your next turn.",
+      "dur": "1 hour",
       "comp": "S",
-      "target": "Una bestia dispuesta (Toque)",
-      "classes": "Druida, Explorador (Ritual) / Bárbaro Tótem (solo ritual)",
+      "target": "Touch",
+      "classes": "Druid, Ranger",
       "higher": ""
     }
   },
-  "coins": {
-    "cp": 0,
-    "sp": 0,
-    "gp": 10,
-    "ep": 0,
-    "pp": 0
-  },
   "inv": [
     {
-      "n": "Hacha de Dos Manos",
+      "n": "Greataxe",
       "q": "1",
       "v": "30",
       "e": true,
-      "no": "Arma principal"
+      "no": "Two-handed. 1d12 slashing."
     },
     {
-      "n": "Ballesta Pesada",
+      "n": "Heavy crossbow",
       "q": "1",
       "v": "50",
       "e": true,
-      "no": "Arma a distancia"
+      "no": "1d10 piercing. Loading."
     },
     {
-      "n": "Tótem de oso y pelo",
+      "n": "Werewolf bone totem",
       "q": "1",
       "v": "",
       "e": true,
-      "no": "Foco arcano — Totem Warrior"
+      "no": "Totem object. Bone and fur."
     },
     {
-      "n": "Cuerda de cáñamo",
-      "q": "1",
-      "v": "",
-      "e": false,
-      "no": "50 pies"
-    },
-    {
-      "n": "Saco de dormir",
+      "n": "Sleeping bag",
       "q": "1",
       "v": "",
       "e": false,
       "no": ""
     },
     {
-      "n": "Acordeón desafinado",
+      "n": "Rope, hemp",
       "q": "1",
-      "v": "",
+      "v": "1",
       "e": false,
-      "no": "Instrumento. Terriblemente desafinado."
+      "no": "50 feet."
     },
     {
-      "n": "Pincho en una rana verde",
+      "n": "Out-of-tune accordion",
       "q": "1",
       "v": "",
       "e": false,
-      "no": "Objeto misterioso. Origen desconocido."
+      "no": "Battered. Produces sound. Barely."
+    },
+    {
+      "n": "Green frog pin",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Small decorative pin. Carried for unknown reasons."
     }
   ],
   "rels": [
     {
       "n": "Ismark Kolyanovich",
-      "r": "Hijo del Burgómaestre — Aldea de Barovia",
-      "no": "Nos pidió escolta para Ireena hasta Vallaki. Confiable. Carga con el peso de todo el pueblo.",
+      "r": "Son of the Burgomaster — Village of Barovia",
+      "no": "Asked us to escort Ireena to Vallaki. Trustworthy.",
       "o": false
     },
     {
       "n": "Ireena Kolyana",
-      "r": "Hija del Burgómaestre — objetivo de Strahd",
-      "no": "Capaz y directa. No necesita que la rescaten. El objetivo es llevarla a Vallaki sana y salva.",
+      "r": "Burgomaster's daughter — Strahd's target",
+      "no": "Capable and direct. Goal is to get her to Vallaki safely.",
       "o": false
     },
     {
-      "n": "Padre Donavich",
-      "r": "Sacerdote de la Mañana del Señor",
-      "no": "Roto por lo de su hijo. Nos dio información útil sobre las debilidades de los vampiros.",
+      "n": "Father Donavich",
+      "r": "Priest of the Morninglord",
+      "no": "Broken by what happened to his son. Gave us info on vampire weaknesses.",
       "o": false
     },
     {
       "n": "Doru",
-      "r": "Hijo de Donavich — engendro vampírico encadenado",
-      "no": "Encadenado en el sótano de la iglesia. Si Strahd muere, Doru se libera de su control.",
+      "r": "Donavich's son — vampire spawn in chains",
+      "no": "Chained in the church basement. If Strahd dies, Doru is freed.",
       "o": false
     },
     {
       "n": "Rose Durst",
-      "r": "Fantasma de la Casa Durst",
-      "no": "Niña fantasma. Le prometimos que acabaríamos con el monstruo del sótano. Aún sin descanso.",
+      "r": "Ghost of Durst House",
+      "no": "Child ghost. We promised to deal with the monster in the basement.",
       "o": false
     },
     {
       "n": "Thorn Durst",
-      "r": "Fantasma de la Casa Durst",
-      "no": "Niño fantasma. Entró brevemente en el cuerpo de Sarda por el pánico.",
+      "r": "Ghost of Durst House",
+      "no": "Child ghost. Briefly possessed Sarda's body out of panic.",
       "o": false
     },
     {
       "n": "Kaelos",
-      "r": "Sátiro Bardo — compañero de partido",
-      "no": "Lo rescatamos en las ruinas. Toca la flauta. Tiene mano larga. Me fío de él en combate.",
+      "r": "Satyr Bard — party companion",
+      "no": "Rescued him in the ruins. Plays the flute. Light-fingered.",
       "o": false
     }
   ],
-  "ds": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ],
-  "player": "Miguel"
+  "ds": [false, false, false, false, false, false],
+  "personality": {
+    "traits": "I care for my companions as if they were my cubs.",
+    "ideals": "Honor above all else.",
+    "bonds": "The clan is what matters most.",
+    "flaws": "I act without caution."
+  },
+  "proficiencies": {
+    "languages": "Common, Orc, (pending choice)",
+    "armor": "Light armor, medium armor, shields",
+    "weapons": "Simple weapons, martial weapons",
+    "instruments": "Accordion",
+    "tools": "—",
+    "other": "—"
+  },
+  "coins": {
+    "gp": "10",
+    "sp": "0",
+    "cp": "0"
+  }
 }

@@ -3,17 +3,29 @@
   "cn": "Sarda Luthra",
   "cc": "Paladin",
   "cl": "3",
-  "cr": "Elf (Wood Elf)",
+  "cr": "Gnome",
+  "bg": "Soldier",
+  "al": "Lawful Good",
   "ac": "18",
   "mhp": "28",
   "hd": "3d10",
+  "chp": "28",
+  "thp": "",
+  "hdu": "",
+  "speed": "25ft",
+  "xp": "",
+  "spellClass": "Paladin",
+  "combatNotes": "Shield: +2 AC, impose disadvantage on attacker (reaction). Divine Smite: expend a spell slot on hit — 2d8 radiant per slot level (max 5d8), +1d8 vs undead/fiends.",
+  "invNotes": "",
+  "sensesDarkvision": "60 ft.",
+  "sensesOther": "Speak with small beasts",
   "insp": false,
   "sc": {
-    "str": "16",
-    "dex": "10",
-    "con": "14",
-    "int": "10",
-    "wis": "12",
+    "str": "14",
+    "dex": "14",
+    "con": "15",
+    "int": "12",
+    "wis": "11",
     "cha": "15"
   },
   "sp": {
@@ -32,281 +44,436 @@
     "sk-dec": false,
     "sk-his": false,
     "sk-ins": true,
-    "sk-int": false,
+    "sk-int": true,
     "sk-inv": false,
     "sk-med": false,
     "sk-nat": false,
     "sk-per": true,
     "sk-prf": false,
-    "sk-prs": true,
-    "sk-rel": true,
+    "sk-prs": false,
+    "sk-rel": false,
     "sk-soh": false,
     "sk-ste": false,
     "sk-sur": false
   },
   "sa": "cha",
   "slots": {
-    "1": {
-      "t": "3",
-      "u": 0
-    },
-    "2": {
-      "t": "0",
-      "u": 0
-    },
-    "3": {
-      "t": "0",
-      "u": 0
-    },
-    "4": {
-      "t": "0",
-      "u": 0
-    },
-    "5": {
-      "t": "0",
-      "u": 0
-    },
-    "6": {
-      "t": "0",
-      "u": 0
-    },
-    "7": {
-      "t": "0",
-      "u": 0
-    },
-    "8": {
-      "t": "0",
-      "u": 0
-    },
-    "9": {
-      "t": "0",
-      "u": 0
-    }
+    "1": { "t": "3", "u": 0 },
+    "2": { "t": "2", "u": 0 },
+    "3": { "t": "0", "u": 0 },
+    "4": { "t": "0", "u": 0 },
+    "5": { "t": "0", "u": 0 },
+    "6": { "t": "0", "u": 0 },
+    "7": { "t": "0", "u": 0 },
+    "8": { "t": "0", "u": 0 },
+    "9": { "t": "0", "u": 0 }
   },
-  "port": "",
+  "port": "https://ormaugh.github.io/barovia/portraits/sarda.png",
   "feats": [
     {
-      "n": "Trance Élfico",
-      "s": "Elf",
-      "d": "No duermes. Meditas 4 horas. Inmune a sueño mágico.",
+      "n": "Darkvision",
+      "s": "Gnome",
+      "d": "You can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
       "o": false
     },
     {
-      "n": "Paso del Bosque",
-      "s": "Wood Elf",
-      "d": "Ignorar terreno difícil no mágico.",
+      "n": "Gnome Cunning",
+      "s": "Gnome",
+      "d": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
       "o": false
     },
     {
-      "n": "Sentido Divino",
+      "n": "Speak with Small Beasts",
+      "s": "Forest Gnome",
+      "d": "Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts.",
+      "o": false
+    },
+    {
+      "n": "Minor Illusion (homebrew)",
+      "s": "Forest Gnome / Homebrew",
+      "d": "You know the Minor Illusion cantrip. Intelligence is your spellcasting ability for it.",
+      "o": false
+    },
+    {
+      "n": "Divine Sense",
       "s": "Paladin 1",
-      "d": "Acción: detectas celestiales, infernales o no-muertos a 60ft. 1 + mod CHA usos por descanso largo.",
+      "d": "As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet that is not behind total cover. You sense the type of creature but not its identity. Uses: CHA mod + 1 (3) per long rest.",
       "o": false
     },
     {
-      "n": "Imposición de Manos",
+      "n": "Lay on Hands",
       "s": "Paladin 1",
-      "d": "Piscina de 15 PV. Gastar como acción: cura PV, o 5 PV para curar enfermedad/veneno.",
+      "d": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes on a long rest. With that pool, you can restore a total of 15 hit points (5 × level). You can also expend 5 points to cure a disease or neutralize a poison.",
       "o": false
     },
     {
-      "n": "Estilo de Combate: Defensa",
+      "n": "Divine Smite",
       "s": "Paladin 2",
-      "d": "+1 CA cuando llevas armadura. CA total: 18 = cota malla (16) + escudo (+2).",
+      "d": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage: 2d8 per slot level (max 5d8 at slot 4+). +1d8 extra against undead or fiends.",
       "o": false
     },
     {
-      "n": "Lanzamiento de Conjuros (Paladín)",
-      "s": "Paladin 2",
-      "d": "CHA habilidad de conjuro. DC = 8 + bon. comp. + mod CHA.",
-      "o": false
-    },
-    {
-      "n": "Golpe Divino",
-      "s": "Paladin 2",
-      "d": "Acción bonus al golpear: gasta espacio de conjuro. Niv.1: +2d8 radiante.",
-      "o": false
-    },
-    {
-      "n": "Sagrado Juramento: Devoción",
-      "s": "Paladin 3 — Oath of Devotion",
-      "d": "Conjuros adicionales siempre preparados: Protección del Bien y del Mal, Santuario (Niv.1), Menor Restauración, Zona de Verdad (Niv.2).",
-      "o": false
-    },
-    {
-      "n": "Canal de Divinidad",
+      "n": "Divine Health",
       "s": "Paladin 3",
-      "d": "1 uso por descanso corto. Arma Sagrada (+CHA mod a ataques 1 min) o Turno de los Impíos (WIS save DC 13, huyen).",
+      "d": "The divine magic flowing through you makes you immune to disease.",
+      "o": false
+    },
+    {
+      "n": "Channel Divinity: Nature's Wrath",
+      "s": "Paladin 3 — Oath of the Ancients",
+      "d": "As an action, you can cause spectral vines to spring up and reach for a creature within 10 feet. The creature must succeed on a Strength or Dexterity saving throw (its choice) or be restrained. While restrained, the creature repeats the save at the end of each turn. On a success, it frees itself. 1 use per short or long rest.",
+      "o": false
+    },
+    {
+      "n": "Channel Divinity: Turn the Faithless",
+      "s": "Paladin 3 — Oath of the Ancients",
+      "d": "As an action, you present your holy symbol and speak a prayer censuring fiends and fey. Each fiend or fey within 30 feet must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage. Shares Channel Divinity use with Nature's Wrath.",
+      "o": false
+    },
+    {
+      "n": "Aura of Courage (future — level 10)",
+      "s": "Paladin",
+      "d": "Not yet available. Noted for future reference.",
       "o": false
     }
   ],
   "atks": [
     {
-      "n": "Lucero de la Alba (Maza)",
-      "h": "main",
-      "dmg": "1d6+4",
-      "t": "Contundente",
+      "n": "Mace (Lucero)",
+      "h": "main-s",
+      "dmg": "1d8+2",
+      "t": "Bludgeoning",
       "r": "5ft",
-      "no": "+CHA mod (Arma Sagrada). Golpe Divino: +2d8 radiante."
+      "no": "+4 to hit. Silver. Add Divine Smite on hit by expending a slot."
     },
     {
-      "n": "Jabalina",
-      "h": "off",
-      "dmg": "1d6+3",
-      "t": "Perforante",
-      "r": "5ft / 30ft",
-      "no": "Arrojadiza. Reserva."
+      "n": "Javelin",
+      "h": "ranged-s",
+      "dmg": "1d6+2",
+      "t": "Piercing",
+      "r": "30/120ft",
+      "no": "+4 to hit. Also usable as melee."
+    },
+    {
+      "n": "Light Crossbow",
+      "h": "ranged-d",
+      "dmg": "1d8+2",
+      "t": "Piercing",
+      "r": "80/320ft",
+      "no": "+4 to hit. Ammunition, two-handed."
     }
   ],
   "spells": [
     {
       "p": true,
-      "l": "1",
-      "n": "Curar Heridas",
-      "sc": "Evocación",
-      "c": "1 Acción",
-      "r": "Toque",
+      "l": "0",
+      "n": "Minor Illusion",
       "e": false
     },
     {
       "p": true,
       "l": "1",
-      "n": "Palabra de Curación",
-      "sc": "Evocación",
-      "c": "Acción Bonus",
-      "r": "60ft",
+      "n": "Ensnaring Strike",
+      "e": true
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Speak with Animals",
+      "e": true
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Bless",
       "e": false
     },
     {
       "p": true,
       "l": "1",
-      "n": "Escudo de la Fe",
-      "sc": "Abjuración",
-      "c": "Acción Bonus",
-      "r": "60ft",
+      "n": "Protection from Evil and Good",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Thunderous Smite",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Bane",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Command",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Cure Wounds",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Detect Magic",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Divine Favor",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Heroism",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Shield of Faith",
       "e": false
     },
     {
       "p": true,
-      "l": "1",
-      "n": "Protección del Bien y del Mal",
-      "sc": "Abjuración",
-      "c": "1 Acción",
-      "r": "Toque",
-      "e": false
+      "l": "2",
+      "n": "Moonbeam",
+      "e": true
     },
     {
       "p": true,
-      "l": "1",
-      "n": "Santuario",
-      "sc": "Abjuración",
-      "c": "Acción Bonus",
-      "r": "30ft",
+      "l": "2",
+      "n": "Misty Step",
+      "e": true
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Aid",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Branding Smite",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Find Steed",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Lesser Restoration",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "2",
+      "n": "Zone of Truth",
       "e": false
     }
   ],
-  "sdescs": {},
+  "sdescs": {
+    "1": {
+      "desc": "Ensnaring Strike (Oath) — Conc. 1 min. On hit, vines restrain the target. STR save or restrained. Repeats save each turn.",
+      "dur": "1 min",
+      "comp": "V",
+      "target": "1 creature",
+      "classes": "Ranger / Oath of the Ancients",
+      "higher": ""
+    },
+    "2": {
+      "desc": "Speak with Animals (Oath) — Ritual. 10 min. Comprehend and communicate with beasts.",
+      "dur": "10 min",
+      "comp": "V, S",
+      "target": "Self",
+      "classes": "Druid / Oath of the Ancients",
+      "higher": ""
+    },
+    "3": {
+      "desc": "Moonbeam (Oath) — Conc. 1 min. 5ft cylinder of pale light. 2d10 radiant on entry or start of turn. CON save for half. Shapeshifters have disadvantage.",
+      "dur": "1 min",
+      "comp": "V, S, M",
+      "target": "40ft range, 5ft cylinder",
+      "classes": "Druid / Oath of the Ancients",
+      "higher": ""
+    },
+    "4": {
+      "desc": "Misty Step (Oath) — Bonus action. Teleport up to 30 feet to an unoccupied space you can see.",
+      "dur": "Instantaneous",
+      "comp": "V",
+      "target": "Self",
+      "classes": "Sorcerer, Wizard / Oath of the Ancients",
+      "higher": ""
+    }
+  },
   "inv": [
     {
-      "n": "Lucero de la Alba (Maza)",
-      "q": "1",
-      "v": "",
-      "e": true,
-      "no": "Arma principal con nombre propio"
-    },
-    {
-      "n": "Cota de malla",
+      "n": "Chain mail",
       "q": "1",
       "v": "75",
       "e": true,
-      "no": "CA 16"
+      "no": "Heavy armor. AC 16. Disadvantage on Stealth."
     },
     {
-      "n": "Escudo",
+      "n": "Shield",
       "q": "1",
       "v": "10",
       "e": true,
-      "no": "CA +2"
+      "no": "+2 AC. Can impose disadvantage on attacker (reaction)."
     },
     {
-      "n": "Jabalina",
-      "q": "3",
-      "v": "1.5",
-      "e": true,
-      "no": "Arrojadiza x3"
-    },
-    {
-      "n": "Símbolo sagrado (colgante)",
+      "n": "Holy symbol",
       "q": "1",
-      "v": "5",
+      "v": "",
       "e": true,
-      "no": "Foco de conjuro"
+      "no": "Spellcasting focus."
     },
     {
-      "n": "Lancelot (perro)",
+      "n": "Silver sword (Lucero)",
+      "q": "1",
+      "v": "",
+      "e": true,
+      "no": "Main weapon. Silvered."
+    },
+    {
+      "n": "Javelin",
+      "q": "1",
+      "v": "1",
+      "e": true,
+      "no": "Thrown or melee."
+    },
+    {
+      "n": "Light crossbow",
+      "q": "1",
+      "v": "25",
+      "e": true,
+      "no": ""
+    },
+    {
+      "n": "Rope, hemp",
+      "q": "1",
+      "v": "1",
+      "e": false,
+      "no": "50 feet."
+    },
+    {
+      "n": "Torches",
+      "q": "10",
+      "v": "",
+      "e": false,
+      "no": ""
+    },
+    {
+      "n": "Cooking utensils",
       "q": "1",
       "v": "",
       "e": false,
-      "no": "Rescatado en las ruinas. Duerme a mis pies."
+      "no": ""
     },
     {
-      "n": "Kit de curación",
+      "n": "Waterskin",
       "q": "1",
-      "v": "5",
+      "v": "",
       "e": false,
       "no": ""
+    },
+    {
+      "n": "Rank insignia — Cavalry Regiment",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Military background keepsake."
+    },
+    {
+      "n": "Battle trophy",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Trophy from a past battle. Origin unspecified."
+    },
+    {
+      "n": "Deck of cards",
+      "q": "1",
+      "v": "",
+      "e": false,
+      "no": "Proficiency: card games (Poker)."
     }
   ],
   "rels": [
     {
-      "n": "Lancelot",
-      "r": "Perro rescatado — compañero leal",
-      "no": "Duerme a mis pies. No lo abandono.",
-      "o": false
-    },
-    {
-      "n": "Rose Durst",
-      "r": "Fantasma de la Casa Durst",
-      "no": "Le prometí que mataríamos al monstruo. Deuda pendiente.",
-      "o": false
-    },
-    {
-      "n": "Thorn Durst",
-      "r": "Fantasma de la Casa Durst",
-      "no": "Entró en mi cuerpo por el pánico. No guardo rencor.",
-      "o": false
-    },
-    {
       "n": "Ismark Kolyanovich",
-      "r": "Hijo del Burgómaestre — aliado",
-      "no": "Responsable. Directo. Confiamos en él.",
+      "r": "Son of the Burgomaster — Village of Barovia",
+      "no": "Asked us to escort Ireena to Vallaki. Trustworthy.",
       "o": false
     },
     {
       "n": "Ireena Kolyana",
-      "r": "Bajo protección del grupo",
-      "no": "La escoltamos a Vallaki. Aliada, no víctima.",
+      "r": "Burgomaster's daughter — Strahd's target",
+      "no": "Capable and direct. Goal is to get her to Vallaki safely.",
       "o": false
     },
     {
-      "n": "Padre Donavich",
-      "r": "Sacerdote — quebrado pero informativo",
-      "no": "Entiendo lo que siente por Doru.",
+      "n": "Father Donavich",
+      "r": "Priest of the Morninglord",
+      "no": "Broken by what happened to his son. Gave us info on vampire weaknesses.",
+      "o": false
+    },
+    {
+      "n": "Doru",
+      "r": "Donavich's son — vampire spawn in chains",
+      "no": "Chained in the church basement. If Strahd dies, Doru is freed. Sarda wanted to go down.",
+      "o": false
+    },
+    {
+      "n": "Rose Durst",
+      "r": "Ghost of Durst House",
+      "no": "Child ghost. We promised to deal with the monster in the basement.",
+      "o": false
+    },
+    {
+      "n": "Thorn Durst",
+      "r": "Ghost of Durst House",
+      "no": "Briefly possessed Sarda's body out of panic.",
       "o": false
     },
     {
       "n": "Kaelos",
-      "r": "Bardo Sátiro — compañero",
-      "no": "Lo salvé en las ruinas. No me lo agradeció. Me importa igual.",
+      "r": "Satyr Bard — party companion",
+      "no": "Rescued him in the ruins. Plays the flute. Light-fingered.",
       "o": false
     }
   ],
-  "ds": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ]
+  "ds": [false, false, false, false, false, false],
+  "personality": {
+    "traits": "I love being strong and breaking things. I spread light and hope wherever I go.",
+    "ideals": "I do what I must and obey the law — until it stops making sense.",
+    "bonds": "I would give my life for those I have sworn to protect.",
+    "flaws": "Little respect for those who show little generosity."
+  },
+  "proficiencies": {
+    "languages": "Common, Gnomish",
+    "armor": "All armor, shields",
+    "weapons": "Simple weapons, martial weapons",
+    "instruments": "—",
+    "tools": "Card games (Poker)",
+    "other": "Holy symbol (spellcasting focus)"
+  },
+  "coins": {
+    "gp": "10",
+    "sp": "0",
+    "cp": "0"
+  }
 }
