@@ -6,15 +6,16 @@
   "cr": "Moon Elf",
   "bg": "Sailor",
   "al": "Chaotic Neutral",
+  "player": "Maria",
   "ac": "14",
   "mhp": "18",
   "hd": "3d8",
+  "hdu": 0,
   "chp": "18",
-  "thp": "",
-  "hdu": "",
+  "thp": "—",
   "speed": "30ft",
   "spellClass": "Rogue",
-  "combatNotes": "COMBOS & TACTICS (Rogue 3 — Thief):\n• Sneak Attack trigger: get advantage (Hide first with Cunning Action) or position an ally within 5ft of target.\n• Core loop: Bonus Action Hide → Attack with Rapier (Sneak Attack 2d6) → Cunning Action Disengage to escape.\n• Fast Hands: use Cunning Action to pick locks, disarm traps, or Use an Object (e.g. oil flask) without spending main action.\n• Shortbow: stay at range, Sneak Attack still applies with any ally adjacent to target.\n• Second-Story Work: climbing speed = walking speed — use verticality to break line of sight and re-Hide.\n• Hunting Knife off-hand: only roll dmg dice, no ability mod (Two-Weapon Fighting rule).\n• Deception +3 / Stealth +7: pre-combat social or infiltration approach is almost always better than frontal.\n• Tip: if you can't Hide, readied attack with advantage from an ally flanking still triggers Sneak Attack.",
+  "combatNotes": "COMBOS & TACTICS (Rogue 3 — Thief): • Sneak Attack trigger: get advantage (Hide first with Cunning Action) or position an ally within 5ft of target. • Core loop: Bonus Action Hide → Attack with Rapier (Sneak Attack 2d6) → Cunning Action Disengage to escape. • Fast Hands: use Cunning Action to pick locks, disarm traps, or Use an Object (e.g. oil flask) without spending main action. • Shortbow: stay at range, Sneak Attack still applies with any ally adjacent to target.\n• Second-Story Work: climbing speed = walking speed — use verticality to break line of sight and re-Hide. • Hunting Knife off-hand: only roll dmg dice, no ability mod (Two-Weapon Fighting rule).\n• Deception +3 / Stealth +7: pre-combat social or infiltration approach is almost always better than frontal. • Tip: if you can't Hide, readied attack with advantage from an ally flanking still triggers Sneak Attack.",
   "invNotes": "",
   "sensesDarkvision": "",
   "sensesOther": "",
@@ -58,7 +59,7 @@
   "sa": "int",
   "slots": {
     "1": {
-      "t": "3",
+      "t": "0",
       "u": 0
     },
     "2": {
@@ -160,27 +161,30 @@
   "atks": [
     {
       "n": "Rapier",
+      "id": null,
       "h": "main-d",
       "dmg": "1d8+3",
       "t": "Piercing",
       "r": "5ft",
-      "no": "Finesse."
+      "no": ""
     },
     {
       "n": "Shortbow",
+      "id": null,
       "h": "ranged-d",
       "dmg": "1d6+3",
       "t": "Piercing",
       "r": "80/320ft",
-      "no": "Ammunition."
+      "no": ""
     },
     {
       "n": "Hunting Knife",
+      "id": null,
       "h": "off-d",
       "dmg": "1d4+3",
       "t": "Piercing",
       "r": "5ft",
-      "no": "Finesse, Light."
+      "no": ""
     }
   ],
   "spells": [],
@@ -215,116 +219,109 @@
       "n": "Leather armor",
       "q": "1",
       "v": "10",
-      "no": "Light armor. AC 11 + DEX mod.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Light armor. AC 11 + DEX mod."
     },
     {
       "n": "Rapier",
       "q": "1",
       "v": "25",
-      "no": "Finesse.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Finesse."
     },
     {
       "n": "Shortbow",
       "q": "1",
       "v": "25",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Hunting knife",
       "q": "1",
       "v": "2",
-      "no": "Finesse, Light.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Finesse, Light."
     },
     {
       "n": "Thieves' tools (lockpicks)",
       "q": "1",
       "v": "25",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Lucky charm (cat's ear amulet)",
       "q": "1",
       "v": "",
-      "no": "Amuleto de la suerte.",
-      "unit": ""
+      "u": "gp",
+      "no": "Amuleto de la suerte."
     },
     {
       "n": "Steel ball bearings",
       "q": "1000",
       "v": "1",
-      "no": "Bag included.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Bag included."
     },
     {
       "n": "Pitons",
       "q": "10",
       "v": "",
-      "no": "",
-      "unit": "cp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Bell",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "cp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Oil flasks",
       "q": "2",
       "v": "",
-      "no": "",
-      "unit": "sp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Crowbar",
       "q": "1",
       "v": "2",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Hammer",
       "q": "1",
       "v": "1",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Sleeping bag",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "sp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Rope, hemp",
       "q": "1",
       "v": "1",
-      "no": "50 feet.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "50 feet."
     },
     {
       "n": "Red wine",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "sp"
+      "u": "gp",
+      "no": ""
     }
   ],
-  "rels": [
-    {
-      "n": "Kaelos",
-      "r": "Satyr Bard — party companion",
-      "no": "Rescued him in the ruins. Plays the flute. Light-fingered.",
-      "o": false
-    }
-  ],
+  "rels": [],
   "ds": [
     false,
     false,
@@ -333,6 +330,21 @@
     false,
     false
   ],
+  "npc_notes": {
+    "parriwimple": "",
+    "bildrath": "",
+    "doru": "",
+    "donavich": "",
+    "ireena": "",
+    "ismark": "",
+    "vistani_woman_tavern": "",
+    "rose_durst": "",
+    "thorn_durst": "",
+    "alenka": "",
+    "mirabel": "",
+    "sorbia": "",
+    "madam_eva": ""
+  },
   "personality": {
     "traits": "I enjoy a good fight.",
     "ideals": "I seek my freedom.",
@@ -351,21 +363,5 @@
     "gp": "8",
     "sp": "9",
     "cp": "9"
-  },
-  "player": "Maria",
-  "npc_notes": {
-    "parriwimple": "",
-    "bildrath": "",
-    "doru": "",
-    "donavich": "",
-    "ireena": "",
-    "ismark": "",
-    "vistani_woman_tavern": "",
-    "rose_durst": "",
-    "thorn_durst": "",
-    "alenka": "",
-    "mirabel": "",
-    "sorbia": "",
-    "madam_eva": ""
   }
 }
