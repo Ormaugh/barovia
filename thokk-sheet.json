@@ -13,9 +13,8 @@
   "thp": "",
   "hdu": "",
   "speed": "30ft",
-  "xp": "",
   "spellClass": "Barbarian",
-  "combatNotes": "Unarmored Defense: AC = 10 + DEX mod + CON mod. Resistance to bludgeoning, piercing, and slashing damage while raging (÷2).",
+  "combatNotes": "COMBOS & TACTICS (Barbarian 3 — Totem Warrior Bear):\n• Rage first (Bonus Action) before entering melee — resistance to ALL non-psychic damage while Bear totem is active.\n• Reckless Attack: advantage on all your STR attacks this turn, but enemies have advantage against you — acceptable when raging (halved damage).\n• Greataxe base: 1d12+6 while raging (+4 STR, +2 rage). On crit: roll an extra d12 (Savage Attacks).\n• Grapple combo: Reckless Attack for adv → hit → use second attack (Extra Attack at lvl 5, not yet) or grapple to restrain a target for allies.\n• Danger Sense: advantage on DEX saves vs visible effects (traps, fireballs) — stay aware of what's in front of you.\n• Speak with Animals (ritual only): interrogate wildlife for scouting info before combat.\n• Heavy Crossbow: use only when melee isn't an option — no Rage damage bonus applies to ranged.\n• Tip: enter Rage, charge the biggest threat, Reckless Attack. You are the damage sponge — protect the squishies.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "",
@@ -58,15 +57,42 @@
   },
   "sa": "str",
   "slots": {
-    "1": { "t": "0", "u": 0 },
-    "2": { "t": "0", "u": 0 },
-    "3": { "t": "0", "u": 0 },
-    "4": { "t": "0", "u": 0 },
-    "5": { "t": "0", "u": 0 },
-    "6": { "t": "0", "u": 0 },
-    "7": { "t": "0", "u": 0 },
-    "8": { "t": "0", "u": 0 },
-    "9": { "t": "0", "u": 0 }
+    "1": {
+      "t": "0",
+      "u": 0
+    },
+    "2": {
+      "t": "0",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
   },
   "port": "https://ormaugh.github.io/barovia/portraits/thokk.png",
   "feats": [
@@ -186,89 +212,53 @@
       "n": "Greataxe",
       "q": "1",
       "v": "30",
-      "e": true,
-      "no": "Two-handed. 1d12 slashing."
+      "no": "Two-handed. 1d12 slashing.",
+      "unit": "gp"
     },
     {
       "n": "Heavy crossbow",
       "q": "1",
       "v": "50",
-      "e": true,
-      "no": "1d10 piercing. Loading."
+      "no": "1d10 piercing. Loading.",
+      "unit": "gp"
     },
     {
       "n": "Werewolf bone totem",
       "q": "1",
       "v": "",
-      "e": true,
-      "no": "Totem object. Bone and fur."
+      "no": "Totem object. Bone and fur.",
+      "unit": ""
     },
     {
       "n": "Sleeping bag",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "sp"
     },
     {
       "n": "Rope, hemp",
       "q": "1",
       "v": "1",
-      "e": false,
-      "no": "50 feet."
+      "no": "50 feet.",
+      "unit": "gp"
     },
     {
       "n": "Out-of-tune accordion",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": "Battered. Produces sound. Barely."
+      "no": "Battered. Produces sound. Barely.",
+      "unit": ""
     },
     {
       "n": "Green frog pin",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": "Small decorative pin. Carried for unknown reasons."
+      "no": "Small decorative pin. Carried for unknown reasons.",
+      "unit": ""
     }
   ],
   "rels": [
-    {
-      "n": "Ismark Kolyanovich",
-      "r": "Son of the Burgomaster — Village of Barovia",
-      "no": "Asked us to escort Ireena to Vallaki. Trustworthy.",
-      "o": false
-    },
-    {
-      "n": "Ireena Kolyana",
-      "r": "Burgomaster's daughter — Strahd's target",
-      "no": "Capable and direct. Goal is to get her to Vallaki safely.",
-      "o": false
-    },
-    {
-      "n": "Father Donavich",
-      "r": "Priest of the Morninglord",
-      "no": "Broken by what happened to his son. Gave us info on vampire weaknesses.",
-      "o": false
-    },
-    {
-      "n": "Doru",
-      "r": "Donavich's son — vampire spawn in chains",
-      "no": "Chained in the church basement. If Strahd dies, Doru is freed.",
-      "o": false
-    },
-    {
-      "n": "Rose Durst",
-      "r": "Ghost of Durst House",
-      "no": "Child ghost. We promised to deal with the monster in the basement.",
-      "o": false
-    },
-    {
-      "n": "Thorn Durst",
-      "r": "Ghost of Durst House",
-      "no": "Child ghost. Briefly possessed Sarda's body out of panic.",
-      "o": false
-    },
     {
       "n": "Kaelos",
       "r": "Satyr Bard — party companion",
@@ -276,7 +266,14 @@
       "o": false
     }
   ],
-  "ds": [false, false, false, false, false, false],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
   "personality": {
     "traits": "I care for my companions as if they were my cubs.",
     "ideals": "Honor above all else.",
@@ -295,5 +292,21 @@
     "gp": "10",
     "sp": "0",
     "cp": "0"
+  },
+  "player": "Miguel",
+  "npc_notes": {
+    "parriwimple": "",
+    "bildrath": "",
+    "doru": "",
+    "donavich": "",
+    "ireena": "",
+    "ismark": "",
+    "vistani_woman_tavern": "",
+    "rose_durst": "",
+    "thorn_durst": "",
+    "alenka": "",
+    "mirabel": "",
+    "sorbia": "",
+    "madam_eva": ""
   }
 }

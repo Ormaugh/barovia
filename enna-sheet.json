@@ -13,9 +13,8 @@
   "thp": "",
   "hdu": "",
   "speed": "30ft",
-  "xp": "",
   "spellClass": "Rogue",
-  "combatNotes": "",
+  "combatNotes": "COMBOS & TACTICS (Rogue 3 — Thief):\n• Sneak Attack trigger: get advantage (Hide first with Cunning Action) or position an ally within 5ft of target.\n• Core loop: Bonus Action Hide → Attack with Rapier (Sneak Attack 2d6) → Cunning Action Disengage to escape.\n• Fast Hands: use Cunning Action to pick locks, disarm traps, or Use an Object (e.g. oil flask) without spending main action.\n• Shortbow: stay at range, Sneak Attack still applies with any ally adjacent to target.\n• Second-Story Work: climbing speed = walking speed — use verticality to break line of sight and re-Hide.\n• Hunting Knife off-hand: only roll dmg dice, no ability mod (Two-Weapon Fighting rule).\n• Deception +3 / Stealth +7: pre-combat social or infiltration approach is almost always better than frontal.\n• Tip: if you can't Hide, readied attack with advantage from an ally flanking still triggers Sneak Attack.",
   "invNotes": "",
   "sensesDarkvision": "",
   "sensesOther": "",
@@ -216,145 +215,109 @@
       "n": "Leather armor",
       "q": "1",
       "v": "10",
-      "e": true,
-      "no": "Light armor. AC 11 + DEX mod."
+      "no": "Light armor. AC 11 + DEX mod.",
+      "unit": "gp"
     },
     {
       "n": "Rapier",
       "q": "1",
       "v": "25",
-      "e": true,
-      "no": "Finesse."
+      "no": "Finesse.",
+      "unit": "gp"
     },
     {
       "n": "Shortbow",
       "q": "1",
       "v": "25",
-      "e": true,
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
       "n": "Hunting knife",
       "q": "1",
       "v": "2",
-      "e": true,
-      "no": "Finesse, Light."
+      "no": "Finesse, Light.",
+      "unit": "gp"
     },
     {
       "n": "Thieves' tools (lockpicks)",
       "q": "1",
       "v": "25",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
       "n": "Lucky charm (cat's ear amulet)",
       "q": "1",
       "v": "",
-      "e": true,
-      "no": "Amuleto de la suerte."
+      "no": "Amuleto de la suerte.",
+      "unit": ""
     },
     {
       "n": "Steel ball bearings",
       "q": "1000",
       "v": "1",
-      "e": false,
-      "no": "Bag included."
+      "no": "Bag included.",
+      "unit": "gp"
     },
     {
       "n": "Pitons",
       "q": "10",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "cp"
     },
     {
       "n": "Bell",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "cp"
     },
     {
       "n": "Oil flasks",
       "q": "2",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "sp"
     },
     {
       "n": "Crowbar",
       "q": "1",
       "v": "2",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
       "n": "Hammer",
       "q": "1",
       "v": "1",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
       "n": "Sleeping bag",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "sp"
     },
     {
       "n": "Rope, hemp",
       "q": "1",
       "v": "1",
-      "e": false,
-      "no": "50 feet."
+      "no": "50 feet.",
+      "unit": "gp"
     },
     {
       "n": "Red wine",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "sp"
     }
   ],
   "rels": [
-    {
-      "n": "Ismark Kolyanovich",
-      "r": "Son of the Burgomaster — Village of Barovia",
-      "no": "Asked us to escort Ireena to Vallaki. Trustworthy.",
-      "o": false
-    },
-    {
-      "n": "Ireena Kolyana",
-      "r": "Burgomaster's daughter — Strahd's target",
-      "no": "Capable and direct. Goal is to get her to Vallaki safely.",
-      "o": false
-    },
-    {
-      "n": "Father Donavich",
-      "r": "Priest of the Morninglord",
-      "no": "Broken by what happened to his son. Gave us info on vampire weaknesses.",
-      "o": false
-    },
-    {
-      "n": "Doru",
-      "r": "Donavich's son — vampire spawn in chains",
-      "no": "Chained in the church basement. If Strahd dies, Doru is freed.",
-      "o": false
-    },
-    {
-      "n": "Rose Durst",
-      "r": "Ghost of Durst House",
-      "no": "Child ghost. We promised to deal with the monster in the basement.",
-      "o": false
-    },
-    {
-      "n": "Thorn Durst",
-      "r": "Ghost of Durst House",
-      "no": "Child ghost. Briefly possessed Sarda's body out of panic.",
-      "o": false
-    },
     {
       "n": "Kaelos",
       "r": "Satyr Bard — party companion",
@@ -371,10 +334,10 @@
     false
   ],
   "personality": {
-    "traits": "Me gusta que haya pelea.",
-    "ideals": "Busco mi libertad.",
-    "bonds": "El navío es lo más importante.",
-    "flaws": "Cleptomanía."
+    "traits": "I enjoy a good fight.",
+    "ideals": "I seek my freedom.",
+    "bonds": "The ship is what matters most.",
+    "flaws": "Kleptomania."
   },
   "proficiencies": {
     "languages": "Common, Elvish, Sylvan",
@@ -388,5 +351,21 @@
     "gp": "8",
     "sp": "9",
     "cp": "9"
+  },
+  "player": "Maria",
+  "npc_notes": {
+    "parriwimple": "",
+    "bildrath": "",
+    "doru": "",
+    "donavich": "",
+    "ireena": "",
+    "ismark": "",
+    "vistani_woman_tavern": "",
+    "rose_durst": "",
+    "thorn_durst": "",
+    "alenka": "",
+    "mirabel": "",
+    "sorbia": "",
+    "madam_eva": ""
   }
 }

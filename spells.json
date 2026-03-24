@@ -1234,7 +1234,7 @@
     "concentration": false,
     "range": "5 ft"
   },
-    "Absorb Elements": {
+  "Absorb Elements": {
     "desc": "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.",
     "dur": "1 round",
     "comp": "S",
@@ -2103,6 +2103,19 @@
     "cast_time": "1 Action (ritual)",
     "level": 2,
     "concentration": true,
+    "range": "Self"
+  },
+  "Divine Smite": {
+    "desc": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.",
+    "dur": "Instantaneous",
+    "comp": "V",
+    "target": "Creature hit by melee weapon attack",
+    "classes": "Paladin",
+    "higher": "1st: 2d8 · 2nd: 3d8 · 3rd: 4d8 · 4th: 5d8 (max). +1d8 vs undead or fiends.",
+    "school": "Paladin",
+    "cast_time": "Special (on hit)",
+    "level": 1,
+    "concentration": false,
     "range": "Self"
   }
 }

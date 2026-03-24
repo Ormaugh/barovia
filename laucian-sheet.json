@@ -13,9 +13,8 @@
   "thp": "",
   "hdu": "",
   "speed": "30ft",
-  "xp": "",
   "spellClass": "Clérigo",
-  "combatNotes": "",
+  "combatNotes": "COMBOS & TACTICS (Cleric 1 — Grave Domain):\n• Circle of Mortality: when healing a creature at 0 HP, all healing dice roll maximum — always use Healing Word (bonus action) to bring allies up.\n• Healing Word vs Cure Wounds: Healing Word is bonus action range — use it 99% of the time. Save Cure Wounds for when you need max healing.\n• Path to the Grave (Channel Divinity): curse a target → it has vulnerability to ALL damage until end of your next turn. Combo: curse → ally attacks → massive damage.\n• Bane (concentration): up to 3 enemies subtract 1d4 from attacks and saves — excellent opener in any fight.\n• Inflict Wounds (melee): 3d10 necrotic on a hit — highest single-target damage at this level if you can close distance.\n• Sacred Flame (cantrip): DEX save, ignores cover — use on targets behind obstacles.\n• Eyes of the Grave: free undead detection in 60ft — always use before exploring new rooms.\n• Turn Undead / Expunge Undead: reaction panic button vs undead groups.\n• Tip: open with Bane, then Path to the Grave + ally burst. Keep Healing Word in reserve every round. Stay in the back — you're the party's only healer.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "",
@@ -361,169 +360,133 @@
   "sdescs": {},
   "inv": [
     {
-      "n": "Armadura de cuero",
+      "n": "Leather armor",
       "q": "1",
       "v": "10",
-      "e": true,
-      "no": "Armadura ligera. CA 11 + DEX mod."
+      "no": "Light armor. AC 11 + DEX mod.",
+      "unit": "gp"
     },
     {
-      "n": "Máscara de plaga",
+      "n": "Plague mask",
       "q": "1",
       "v": "",
-      "e": true,
-      "no": "Equipo de Haunted One."
+      "no": "Haunted One equipment.",
+      "unit": ""
     },
     {
-      "n": "Capa",
+      "n": "Cloak",
       "q": "1",
       "v": "",
-      "e": true,
-      "no": ""
+      "no": "",
+      "unit": ""
     },
     {
-      "n": "Símbolo sagrado",
+      "n": "Holy symbol",
       "q": "1",
       "v": "",
-      "e": true,
-      "no": "Foco de lanzamiento de conjuros."
+      "no": "Spellcasting focus.",
+      "unit": "gp"
     },
     {
-      "n": "Bastón",
+      "n": "Quarterstaff",
       "q": "1",
       "v": "2",
-      "e": true,
-      "no": "Arma principal. Versátil (1d8)."
+      "no": "Main weapon. Versatile (1d8).",
+      "unit": "sp"
     },
     {
-      "n": "Ballesta ligera",
+      "n": "Light crossbow",
       "q": "1",
       "v": "25",
-      "e": true,
-      "no": "Arma a distancia."
+      "no": "Ranged weapon.",
+      "unit": "gp"
     },
     {
-      "n": "Velas",
+      "n": "Candles",
       "q": "10",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "cp"
     },
     {
-      "n": "Incienso",
+      "n": "Incense",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "sp"
     },
     {
-      "n": "Cantimplora",
+      "n": "Waterskin",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "sp"
     },
     {
-      "n": "Cabeza de muñeca que siempre te mira",
+      "n": "Doll head that always watches you",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": "Objeto inquietante. Origen desconocido."
+      "no": "Objeto inquietante. Origen desconocido.",
+      "unit": ""
     },
     {
-      "n": "Cofre pequeño",
+      "n": "Small chest",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
-      "n": "Palanca",
+      "n": "Crowbar",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
-      "n": "Martillo",
+      "n": "Hammer",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
-      "n": "Estacas de madera",
+      "n": "Wooden stakes",
       "q": "5",
       "v": "",
-      "e": false,
-      "no": "Útiles contra vampiros."
+      "no": "Useful against vampires.",
+      "unit": "cp"
     },
     {
-      "n": "Agua bendita",
+      "n": "Holy water",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": "Frasco. Daño radiante contra muertos vivientes."
+      "no": "Flask. Radiant damage vs undead.",
+      "unit": "gp"
     },
     {
-      "n": "Espejo de acero",
+      "n": "Steel mirror",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
-      "n": "Antorchas",
+      "n": "Torches",
       "q": "3",
       "v": "",
-      "e": false,
-      "no": ""
+      "no": "",
+      "unit": "cp"
     },
     {
-      "n": "Cuerda de cáñamo",
+      "n": "Hemp rope",
       "q": "1",
       "v": "",
-      "e": false,
-      "no": "50 pies."
+      "no": "50 feet.",
+      "unit": "gp"
     }
   ],
   "rels": [
-    {
-      "n": "Ismark Kolyanovich",
-      "r": "Hijo del Burgómaestre — Aldea de Barovia",
-      "no": "Nos pidió escolta para Ireena hasta Vallaki. Confiable.",
-      "o": false
-    },
-    {
-      "n": "Ireena Kolyana",
-      "r": "Hija del Burgómaestre — objetivo de Strahd",
-      "no": "Capaz y directa. El objetivo es llevarla a Vallaki sana y salva.",
-      "o": false
-    },
-    {
-      "n": "Padre Donavich",
-      "r": "Sacerdote de la Mañana del Señor",
-      "no": "Roto por lo de su hijo. Nos dio información sobre debilidades de vampiros.",
-      "o": false
-    },
-    {
-      "n": "Doru",
-      "r": "Hijo de Donavich — engendro vampírico encadenado",
-      "no": "Encadenado en el sótano de la iglesia. Si Strahd muere, Doru se libera.",
-      "o": false
-    },
-    {
-      "n": "Rose Durst",
-      "r": "Fantasma de la Casa Durst",
-      "no": "Niña fantasma. Le prometimos que acabaríamos con el monstruo del sótano.",
-      "o": false
-    },
-    {
-      "n": "Thorn Durst",
-      "r": "Fantasma de la Casa Durst",
-      "no": "Niño fantasma. Entró brevemente en el cuerpo de Sarda por el pánico.",
-      "o": false
-    },
     {
       "n": "Kaelos",
       "r": "Sátiro Bardo — compañero de partido",
@@ -540,22 +503,38 @@
     false
   ],
   "personality": {
-    "traits": "Gasto dinero sin preocupación.",
-    "ideals": "Mato monstruos para hacer el mundo más seguro.",
-    "bonds": "Hay un mal dentro de mí.",
-    "flaws": "Sigo rituales a diario de manera fija."
+    "traits": "I spend money without worry.",
+    "ideals": "I slay monsters to make the world safer.",
+    "bonds": "There is an evil within me.",
+    "flaws": "I follow daily rituals with rigid consistency."
   },
   "proficiencies": {
-    "languages": "Común, Élfico, Infernal, Orc",
-    "armor": "Armaduras ligeras, medianas, escudos",
-    "weapons": "Armas sencillas",
+    "languages": "Common, Elvish, Infernal, Orc",
+    "armor": "Light armor, medium armor, shields",
+    "weapons": "Simple weapons",
     "instruments": "—",
     "tools": "—",
-    "other": "Símbolo sagrado (foco de lanzamiento de conjuros)"
+    "other": "Holy symbol (spellcasting focus)"
   },
   "coins": {
     "gp": "6",
     "sp": "9",
     "cp": "5"
+  },
+  "player": "Victor",
+  "npc_notes": {
+    "parriwimple": "",
+    "bildrath": "",
+    "doru": "",
+    "donavich": "",
+    "ireena": "",
+    "ismark": "",
+    "vistani_woman_tavern": "",
+    "rose_durst": "",
+    "thorn_durst": "",
+    "alenka": "",
+    "mirabel": "",
+    "sorbia": "",
+    "madam_eva": ""
   }
 }
