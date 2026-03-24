@@ -40,6 +40,30 @@
       "appearance": "Auburn hair, composed expression, moves with the deliberate calm of someone who has learned not to show fear. A bag already packed.",
       "last_known_location": "Burgomaster's Mansion, Village of Barovia"
     },
+        {
+      "id": "alenka",
+      "name": "Alenka",
+      "title": "Vistani Spy",
+      "detail": "One of three Vistani women at The Wayfarer. Present during the tarokka reading. Connection to the camp by the river.",
+      "appearance": "Copper-skinned woman with silver rings on every finger, watchful in the way that people are who are paid to observe.",
+      "last_known_location": "Blood of the Vine Tavern, Village of Barovia"
+    },
+    {
+      "id": "mirabel",
+      "name": "Mirabel",
+      "title": "Camp Invitation",
+      "detail": "Vistani woman who specifically invited Kaelos to the camp by the river.",
+      "appearance": "Younger than the others, a laugh that arrives before her words, coin-threaded hair that catches every light source in the room.",
+      "last_known_location": "Blood of the Vine Tavern, Village of Barovia — invitation to Vistani camp"
+    },
+    {
+      "id": "sorbia",
+      "name": "Sorbia",
+      "title": "Vistani Spy",
+      "detail": "Third Vistani woman at the tavern. Quieter than the others, watching more than speaking.",
+      "appearance": "Older, heavily layered clothes, a scar along her jaw that she makes no effort to hide. Eyes like still water.",
+      "last_known_location": "Blood of the Vine Tavern, Village of Barovia"
+    },
     {
       "id": "ismark",
       "name": "Ismark Kolyanovich",
@@ -71,30 +95,6 @@
       "detail": "Ghost of the Durst House. Briefly possessed Sarda's body out of panic. His fear ran through her until the group reached ground level.",
       "appearance": "A boy younger than Rose, translucent, perpetually on the verge of crying but never quite doing it.",
       "last_known_location": "Death House, Svalich Road — status unknown after the party fled"
-    },
-    {
-      "id": "alenka",
-      "name": "Alenka",
-      "title": "Vistani Reader",
-      "detail": "One of three Vistani women at The Wayfarer. Present during the tarokka reading. Connection to the camp by the river.",
-      "appearance": "Copper-skinned woman with silver rings on every finger, watchful in the way that people are who are paid to observe.",
-      "last_known_location": "The Wayfarer Tavern — whereabouts after the mist uncertain"
-    },
-    {
-      "id": "mirabel",
-      "name": "Mirabel",
-      "title": "Camp Invitation",
-      "detail": "Vistani woman who specifically invited Kaelos to the camp by the river. Knows him — the warmth was genuine.",
-      "appearance": "Younger than the others, a laugh that arrives before her words, coin-threaded hair that catches every light source in the room.",
-      "last_known_location": "Blood of the Vine Tavern, Village of Barovia — invitation to Vistani camp"
-    },
-    {
-      "id": "sorbia",
-      "name": "Sorbia",
-      "title": "Vistani Watcher",
-      "detail": "Third Vistani woman at the tavern. Quieter than the others, watching more than speaking.",
-      "appearance": "Older, heavily layered clothes, a scar along her jaw that she makes no effort to hide. Eyes like still water.",
-      "last_known_location": "Blood of the Vine Tavern, Village of Barovia"
     },
     {
       "id": "madam_eva",

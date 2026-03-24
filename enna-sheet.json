@@ -15,9 +15,9 @@
   "thp": "—",
   "speed": "30ft",
   "spellClass": "Rogue",
-  "combatNotes": "COMBOS & TACTICS (Rogue 3 — Thief): • Sneak Attack trigger: get advantage (Hide first with Cunning Action) or position an ally within 5ft of target. • Core loop: Bonus Action Hide → Attack with Rapier (Sneak Attack 2d6) → Cunning Action Disengage to escape. • Fast Hands: use Cunning Action to pick locks, disarm traps, or Use an Object (e.g. oil flask) without spending main action. • Shortbow: stay at range, Sneak Attack still applies with any ally adjacent to target.\n• Second-Story Work: climbing speed = walking speed — use verticality to break line of sight and re-Hide. • Hunting Knife off-hand: only roll dmg dice, no ability mod (Two-Weapon Fighting rule).\n• Deception +3 / Stealth +7: pre-combat social or infiltration approach is almost always better than frontal. • Tip: if you can't Hide, readied attack with advantage from an ally flanking still triggers Sneak Attack.",
+  "combatNotes": "COMBOS & TACTICS (Rogue 3 — Thief):\n• Sneak Attack trigger: get advantage (Hide first with Cunning Action) or position an ally within 5ft of target.\n• Core loop: Bonus Action Hide → Attack with Rapier (Sneak Attack 2d6) → Cunning Action Disengage to escape.\n• Fast Hands: use Cunning Action to pick locks, disarm traps, or Use an Object (e.g. oil flask) without spending main action.\n• Shortbow: stay at range, Sneak Attack still applies with any ally adjacent to target.\n• Second-Story Work: climbing speed = walking speed — use verticality to break line of sight and re-Hide.\n• Hunting Knife off-hand: only roll dmg dice, no ability mod (Two-Weapon Fighting rule).\n• Deception +3 / Stealth +7: pre-combat social or infiltration approach is almost always better than frontal.\n• Tip: if you can't Hide, readied attack with advantage from an ally flanking still triggers Sneak Attack.",
   "invNotes": "",
-  "sensesDarkvision": "",
+  "sensesDarkvision": "60 ft.",
   "sensesOther": "",
   "insp": true,
   "sc": {
@@ -188,32 +188,6 @@
     }
   ],
   "spells": [],
-  "sdescs": {
-    "1": {
-      "desc": "Conc. 1 hora. +1d6 por golpe al objetivo marcado. Transferible si muere.",
-      "dur": "",
-      "comp": "",
-      "target": "",
-      "classes": "",
-      "higher": ""
-    },
-    "2": {
-      "desc": "WIS save o bestia encantada 24h. No funciona en bestias INT 4+.",
-      "dur": "",
-      "comp": "",
-      "target": "",
-      "classes": "",
-      "higher": ""
-    },
-    "3": {
-      "desc": "Trampa mágica permanente (hasta activarse). DEX save o 2d6 + detenido.",
-      "dur": "",
-      "comp": "",
-      "target": "",
-      "classes": "",
-      "higher": ""
-    }
-  },
   "inv": [
     {
       "n": "Leather armor",
@@ -356,7 +330,7 @@
     "armor": "Light armor",
     "weapons": "Simple weapons, hand crossbows, longswords, rapiers, shortswords, shortbows, longbows (racial)",
     "instruments": "",
-    "tools": "Thieves' tools, Navigator's tools",
+    "tools": "Thieves' tools, Navigator's tools",
     "other": "Water vehicles"
   },
   "coins": {

@@ -62,7 +62,7 @@
       "u": 0
     },
     "2": {
-      "t": "2",
+      "t": "0",
       "u": 0
     },
     "3": {
@@ -155,12 +155,6 @@
       "s": "Paladin 3 — Oath of the Ancients",
       "d": "As an action, you present your holy symbol and speak a prayer censuring fiends and fey. Each fiend or fey within 30 feet must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage. Shares Channel Divinity use with Nature's Wrath.",
       "o": false
-    },
-    {
-      "n": "Aura of Courage (future — level 10)",
-      "s": "Paladin",
-      "d": "Not yet available. Noted for future reference.",
-      "o": false
     }
   ],
   "atks": [
@@ -170,7 +164,7 @@
       "dmg": "1d8+2",
       "t": "Bludgeoning",
       "r": "5ft",
-      "no": "+4 to hit. Silver. Add Divine Smite on hit by expending a slot."
+      "no": "+4 to hit. Add Divine Smite on hit by expending a slot."
     },
     {
       "n": "Javelin",
@@ -267,84 +261,8 @@
       "l": "1",
       "n": "Shield of Faith",
       "e": false
-    },
-    {
-      "p": true,
-      "l": "2",
-      "n": "Moonbeam",
-      "e": true
-    },
-    {
-      "p": true,
-      "l": "2",
-      "n": "Misty Step",
-      "e": true
-    },
-    {
-      "p": false,
-      "l": "2",
-      "n": "Aid",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "2",
-      "n": "Branding Smite",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "2",
-      "n": "Find Steed",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "2",
-      "n": "Lesser Restoration",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "2",
-      "n": "Zone of Truth",
-      "e": false
     }
   ],
-  "sdescs": {
-    "1": {
-      "desc": "Ensnaring Strike (Oath) — Conc. 1 min. On hit, vines restrain the target. STR save or restrained. Repeats save each turn.",
-      "dur": "1 min",
-      "comp": "V",
-      "target": "1 creature",
-      "classes": "Ranger / Oath of the Ancients",
-      "higher": ""
-    },
-    "2": {
-      "desc": "Speak with Animals (Oath) — Ritual. 10 min. Comprehend and communicate with beasts.",
-      "dur": "10 min",
-      "comp": "V, S",
-      "target": "Self",
-      "classes": "Druid / Oath of the Ancients",
-      "higher": ""
-    },
-    "3": {
-      "desc": "Moonbeam (Oath) — Conc. 1 min. 5ft cylinder of pale light. 2d10 radiant on entry or start of turn. CON save for half. Shapeshifters have disadvantage.",
-      "dur": "1 min",
-      "comp": "V, S, M",
-      "target": "40ft range, 5ft cylinder",
-      "classes": "Druid / Oath of the Ancients",
-      "higher": ""
-    },
-    "4": {
-      "desc": "Misty Step (Oath) — Bonus action. Teleport up to 30 feet to an unoccupied space you can see.",
-      "dur": "Instantaneous",
-      "comp": "V",
-      "target": "Self",
-      "classes": "Sorcerer, Wizard / Oath of the Ancients",
-      "higher": ""
-    }
-  },
   "inv": [
     {
       "n": "Chain mail",
@@ -436,14 +354,6 @@
       "v": "",
       "no": "Proficiency: card games (Poker).",
       "unit": ""
-    }
-  ],
-  "rels": [
-    {
-      "n": "Kaelos",
-      "r": "Satyr Bard — party companion",
-      "no": "Rescued him in the ruins. Plays the flute. Light-fingered.",
-      "o": false
     }
   ],
   "ds": [
