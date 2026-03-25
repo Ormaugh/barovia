@@ -185,6 +185,15 @@
       "t": "piercing",
       "r": "20/60ft",
       "no": ""
+    },
+    {
+      "n": "Shortsword",
+      "id": "shortsword",
+      "h": "main-d",
+      "dmg": "1d6",
+      "t": "piercing",
+      "r": "5ft",
+      "no": ""
     }
   ],
   "spells": [],
@@ -335,13 +344,13 @@
     "doru": "",
     "donavich": "",
     "ireena": "",
+    "alenka": "",
+    "mirabel": "",
+    "sorbia": "",
     "ismark": "",
     "vistani_woman_tavern": "",
     "rose_durst": "",
     "thorn_durst": "",
-    "alenka": "",
-    "mirabel": "",
-    "sorbia": "",
     "madam_eva": ""
   },
   "location_notes": {
