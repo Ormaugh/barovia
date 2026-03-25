@@ -91,6 +91,11 @@ body.edit-mode .ab-block{cursor:default;}
 .skill-row:hover{background:rgba(200,169,110,0.04);}
 .prof-cb{width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-gold-dim);background:transparent;cursor:pointer;flex-shrink:0;transition:all 0.18s;appearance:none;-webkit-appearance:none;}
 .prof-cb:checked{background:var(--ink-gold);border-color:var(--ink-gold);}
+/* Tri-state skill pip: 0=none, 1=proficient, 2=expertise */
+.skill-pip{width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-gold-dim);background:transparent;cursor:pointer;flex-shrink:0;transition:all 0.18s;display:inline-flex;align-items:center;justify-content:center;font-size:0.45rem;color:transparent;user-select:none;}
+.skill-pip[data-state="1"]{background:var(--ink-gold);border-color:var(--ink-gold);}
+.skill-pip[data-state="2"]{background:var(--ink-gold);border-color:var(--ink-gold-bright);box-shadow:0 0 0 1px var(--ink-gold-bright);color:var(--bg-void);font-size:0.5rem;}
+.skill-pip[data-state="2"]::after{content:'✦';}
 .sk-mod{font-family:var(--font-heading);font-size:0.98rem;font-weight:700;color:var(--ink-gold);min-width:30px;text-align:right;flex-shrink:0;cursor:pointer;transition:color 0.18s;}
 .sk-mod:hover{color:var(--ink-gold-bright);}
 .sk-name{font-family:var(--font-body);font-size:1rem;color:var(--text-dim);flex:1;cursor:pointer;transition:color 0.18s;}
@@ -841,8 +846,8 @@ function recalc(){
   ABILITIES.forEach(a=>{const sc=parseInt(document.getElementById('sc-'+a)?.textContent)||10;const m=mod(sc);const el=document.getElementById('md-'+a);if(el){el.textContent=fmt(m);const sm=document.getElementById('sm-'+a);if(sm)sm.textContent=sc;}});
   document.getElementById('initiative').textContent=fmt(aMod('dex'));
   SAVES.forEach(sv=>{const m=aMod(sv.s);const pe=document.getElementById(sv.id+'-p');const t=m+(pe&&pe.checked?pb:0);const e=document.getElementById(sv.id+'-m');if(e)e.textContent=fmt(t);});
-  SKILLS.forEach(sk=>{const m=aMod(sk.s);const pe=document.getElementById(sk.id+'-p');const t=m+(pe&&pe.checked?pb:0);const e=document.getElementById(sk.id+'-m');if(e)e.textContent=fmt(t);});
-  const pm=aMod('wis');const ppe=document.getElementById('sk-per-p');const ppv=10+pm+(ppe&&ppe.checked?pb:0);
+  SKILLS.forEach(sk=>{const m=aMod(sk.s);const state=getSkillState(sk.id);const t=m+(state===1?pb:state===2?pb*2:0);const e=document.getElementById(sk.id+'-m');if(e)e.textContent=fmt(t);});
+  const pm=aMod('wis');const pperState=getSkillState('sk-per');const ppv=10+pm+(pperState===1?pb:pperState===2?pb*2:0);
   document.getElementById('pp').textContent=ppv;
   document.getElementById('maxHPref').textContent=document.getElementById('maxHP').textContent;
   document.querySelectorAll('#atkBody tr:not([data-sid]) .hand-sel').forEach(sel=>{
@@ -925,11 +930,25 @@ function buildSaves(){
   SAVES.forEach(sv=>{const r=document.createElement('div');r.className='skill-row';r.innerHTML=`<input type="checkbox" class="prof-cb" id="${sv.id}-p" onchange="recalc()"><span class="sk-mod" id="${sv.id}-m" onclick="rollSave('${sv.s}','${sv.label}')" title="Roll save">+0</span><span class="sk-name" onclick="rollSave('${sv.s}','${sv.label}')">${sv.label}</span>`;c.appendChild(r);});
 }
 function rollSave(s,l){const pb=prof();const pe=document.getElementById('sv-'+s+'-p');const m=aMod(s);const ip=pe&&pe.checked;const t=m+(ip?pb:0);const c=[{l:AL[s]+' Modifier',i:s.toUpperCase(),v:m}];if(ip)c.push({l:'Prof Bonus',i:'PB',v:pb});rollDice({name:l+' Save',type:'Saving Throw',bon:t,dmg:'',comps:c});}
+function cyclePip(id){
+  const pip=document.getElementById(id+'-p');if(!pip)return;
+  const cur=parseInt(pip.dataset.state||'0');
+  pip.dataset.state=String((cur+1)%3);
+  recalc();save();
+}
+function getSkillState(id){
+  const pip=document.getElementById(id+'-p');
+  return pip?parseInt(pip.dataset.state||'0'):0;
+}
 function buildSkills(){
   const c=document.getElementById('skillsList');c.innerHTML='';
-  SKILLS.forEach(sk=>{const r=document.createElement('div');r.className='skill-row';r.innerHTML=`<input type="checkbox" class="prof-cb" id="${sk.id}-p" onchange="recalc()"><span class="sk-mod" id="${sk.id}-m" onclick="rollSkill('${sk.id}','${sk.l}','${sk.s}')">+0</span><span class="sk-name" onclick="rollSkill('${sk.id}','${sk.l}','${sk.s}')">${sk.l}</span><span class="sk-attr">${sk.s.toUpperCase()}</span>`;c.appendChild(r);});
+  SKILLS.forEach(sk=>{
+    const r=document.createElement('div');r.className='skill-row';
+    r.innerHTML=`<span class="skill-pip" id="${sk.id}-p" data-state="0" title="Click: ninguno → competencia → especialización" onclick="cyclePip('${sk.id}')"></span><span class="sk-mod" id="${sk.id}-m" onclick="rollSkill('${sk.id}','${sk.l}','${sk.s}')">+0</span><span class="sk-name" onclick="rollSkill('${sk.id}','${sk.l}','${sk.s}')">${sk.l}</span><span class="sk-attr">${sk.s.toUpperCase()}</span>`;
+    c.appendChild(r);
+  });
 }
-function rollSkill(id,l,s){const pb=prof();const pe=document.getElementById(id+'-p');const m=aMod(s);const ip=pe&&pe.checked;const t=m+(ip?pb:0);const c=[{l:AL[s]+' Modifier',i:s.toUpperCase(),v:m}];if(ip)c.push({l:'Prof Bonus',i:'PB',v:pb});rollDice({name:l,type:'Skill Check',bon:t,dmg:'',comps:c});}
+function rollSkill(id,l,s){const pb=prof();const state=getSkillState(id);const m=aMod(s);const bonus=state===1?pb:state===2?pb*2:0;const t=m+bonus;const c=[{l:AL[s]+' Modifier',i:s.toUpperCase(),v:m}];if(state===1)c.push({l:'Competencia',i:'PB',v:pb});else if(state===2)c.push({l:'Especialización',i:'PBx2',v:pb*2});rollDice({name:l,type:'Skill Check',bon:t,dmg:'',comps:c});}
 
 // ── SPELL LEVEL SECTIONS ──────────────────────────────────────────────────────
 function buildSlots(){
@@ -1388,7 +1407,7 @@ function gather(){
   };
   ABILITIES.forEach(a=>d.sc[a]=document.getElementById('sc-'+a)?.textContent||'10');
   SAVES.forEach(s=>{const e=document.getElementById(s.id+'-p');d.sp[s.id]=e?e.checked:false;});
-  SKILLS.forEach(s=>{const e=document.getElementById(s.id+'-p');d.sk[s.id]=e?e.checked:false;});
+  SKILLS.forEach(s=>{d.sk[s.id]=getSkillState(s.id);});
   for(let i=1;i<=9;i++){const t=document.getElementById('st-'+i);const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);d.slots[i]={t:t?t.textContent:'0',u:Array.from(ps).filter(p=>p.classList.contains('used')).length};}
   document.querySelectorAll('#featList .feat-item').forEach(it=>d.feats.push({n:it.querySelector('.feat-name').textContent,s:it.querySelector('.feat-src').textContent,d:it.querySelector('.feat-desc').textContent,o:it.classList.contains('open')}));
   document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,id:tr.dataset.wid||null,h:hs?hs.value:'main-s',dmg:tr.querySelector('.atk-dmg')?.dataset.base||tr.querySelector('.atk-dmg')?.textContent||'',t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
@@ -1428,7 +1447,8 @@ function applyData(d){
   else{inspBtn.classList.remove('lit');document.getElementById('inspLbl').textContent='No Inspiration';}
   if(d.sc)ABILITIES.forEach(a=>{const el=document.getElementById('sc-'+a);if(el)el.textContent=d.sc[a]||'10';});
   if(d.sp)SAVES.forEach(sv=>{const e=document.getElementById(sv.id+'-p');if(e)e.checked=d.sp[sv.id]||false;});
-  if(d.sk)SKILLS.forEach(sk=>{const e=document.getElementById(sk.id+'-p');if(e)e.checked=d.sk[sk.id]||false;});
+  if(d.sk)SKILLS.forEach(sk=>{const pip=document.getElementById(sk.id+'-p');if(pip){const val=d.sk[sk.id];// backward compat: true→1, false→0, number as-is
+    pip.dataset.state=String(val===true?1:val===false?0:parseInt(val)||0);}});
   if(d.personality){set('pTraits',d.personality.traits);set('pIdeals',d.personality.ideals);set('pBonds',d.personality.bonds);set('pFlaws',d.personality.flaws);}
   if(d.proficiencies&&typeof d.proficiencies==='object'){const p=d.proficiencies;['languages','armor','weapons','instruments','tools','other'].forEach(k=>{const el=document.getElementById('prof'+k.charAt(0).toUpperCase()+k.slice(1));if(el&&p[k]!=null)el.textContent=p[k];});}
   if(d.sa){document.getElementById('spellAbility').value=d.sa;document.getElementById('spellAbilityTxt').textContent={int:'INT',wis:'WIS',cha:'CHA'}[d.sa]||d.sa.toUpperCase();}
