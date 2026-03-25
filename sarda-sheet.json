@@ -6,16 +6,15 @@
   "cr": "Gnome",
   "bg": "Soldado",
   "al": "Legal Bueno",
-  "player": "Edith",
   "ac": "18",
   "mhp": "28",
   "hd": "3d10",
-  "hdu": 0,
   "chp": "28",
-  "thp": "—",
+  "thp": "",
+  "hdu": "",
   "speed": "25ft",
   "spellClass": "Paladin",
-  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino.",
+  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Paso Brumoso (acción adicional): teletransportarse 9m para alcanzar un enemigo que huye o escapar de una presa, luego golpe divino.\n• Rayo de Luna (concentración, nivel 2): cilindro de 1,5m, 2d10 radiante/turno — devastador contra no-muertos y cambiaformas (desventaja en salvación).\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino. Rayo de Luna para grupos o no-muertos. Paso Brumoso para escapar si estás rodeada.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "Hablar con bestias pequeñas",
@@ -63,7 +62,7 @@
       "u": 0
     },
     "2": {
-      "t": "2",
+      "t": "0",
       "u": 0
     },
     "3": {
@@ -160,126 +159,192 @@
   ],
   "atks": [
     {
-      "n": "Lucero",
+      "n": "Mace (Lucero)",
       "id": "mace",
-      "h": "main-s",
-      "dmg": "1d6",
-      "t": "bludgeoning",
-      "r": "5ft",
-      "no": ""
+      "h": "main-s"
     },
     {
       "n": "Javelin",
       "id": "javelin",
-      "h": "ranged-s",
-      "dmg": "1d6",
-      "t": "piercing",
-      "r": "30/120ft",
-      "no": ""
+      "h": "ranged-s"
     },
     {
       "n": "Light Crossbow",
       "id": "light_crossbow",
-      "h": "ranged-d",
-      "dmg": "1d8",
-      "t": "piercing",
-      "r": "80/320ft",
-      "no": ""
+      "h": "ranged-d"
     }
   ],
-  "spells": [],
-  "sdescs": {},
+  "spells": [
+    {
+      "p": true,
+      "l": "0",
+      "n": "Minor Illusion",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Ensnaring Strike",
+      "e": true
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Speak with Animals",
+      "e": true
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Bless",
+      "e": false
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Protection from Evil and Good",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Thunderous Smite",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Bane",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Command",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Cure Wounds",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Detect Magic",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Divine Favor",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Heroism",
+      "e": false
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Shield of Faith",
+      "e": false
+    }
+  ],
   "inv": [
     {
       "n": "Cota de malla",
       "q": "1",
       "v": "75",
-      "u": "gp",
-      "no": "Armadura pesada. CA 16. Desventaja en Sigilo."
+      "no": "Armadura pesada. CA 16. Desventaja en Sigilo.",
+      "unit": "gp"
     },
     {
       "n": "Escudo",
       "q": "1",
       "v": "10",
-      "u": "gp",
-      "no": "+2 CA. Puede imponer desventaja al atacante (reacción)."
+      "no": "+2 CA. Puede imponer desventaja al atacante (reacción).",
+      "unit": "gp"
     },
     {
       "n": "Símbolo sagrado",
       "q": "1",
       "v": "",
-      "u": "gp",
-      "no": "Foco de conjuración."
+      "no": "Foco de conjuración.",
+      "unit": "gp"
     },
     {
       "n": "Espada de plata (Lucero)",
       "q": "1",
       "v": "",
-      "u": "gp",
-      "no": "Arma principal. Plateada."
+      "no": "Arma principal. Plateada.",
+      "unit": "gp"
     },
     {
       "n": "Jabalina",
       "q": "1",
       "v": "1",
-      "u": "gp",
-      "no": "Arrojadiza o melé."
+      "no": "Arrojadiza o melé.",
+      "unit": "sp"
     },
     {
       "n": "Ballesta ligera",
       "q": "1",
       "v": "25",
-      "u": "gp",
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
       "n": "Cuerda de cáñamo",
       "q": "1",
       "v": "1",
-      "u": "gp",
-      "no": "15 metros."
+      "no": "15 metros.",
+      "unit": "gp"
     },
     {
       "n": "Antorchas",
       "q": "10",
       "v": "",
-      "u": "gp",
-      "no": ""
+      "no": "",
+      "unit": "cp"
     },
     {
       "n": "Utensilios de cocina",
       "q": "1",
       "v": "",
-      "u": "gp",
-      "no": ""
+      "no": "",
+      "unit": "gp"
     },
     {
       "n": "Odre de agua",
       "q": "1",
       "v": "",
-      "u": "gp",
-      "no": ""
+      "no": "",
+      "unit": "sp"
     },
     {
       "n": "Insignia de rango — Regimiento de Caballería",
       "q": "1",
       "v": "",
-      "u": "gp",
-      "no": "Recuerdo del trasfondo militar."
+      "no": "Recuerdo del trasfondo militar.",
+      "unit": ""
     },
     {
       "n": "Trofeo de batalla",
       "q": "1",
       "v": "",
-      "u": "gp",
-      "no": "Trofeo de una batalla pasada. Origen sin especificar."
+      "no": "Trofeo de una batalla pasada. Origen sin especificar.",
+      "unit": ""
     },
     {
       "n": "Baraja de cartas",
       "q": "1",
       "v": "",
-      "u": "gp",
-      "no": "Competencia: juegos de cartas (Póker)."
+      "no": "Competencia: juegos de cartas (Póker).",
+      "unit": ""
     }
   ],
   "ds": [
@@ -290,9 +355,6 @@
     false,
     false
   ],
-  "npc_notes": {},
-  "location_notes": {},
-  "item_notes": {},
   "personality": {
     "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
     "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
@@ -311,5 +373,21 @@
     "gp": "10",
     "sp": "0",
     "cp": "0"
+  },
+  "player": "Edith",
+  "npc_notes": {
+    "parriwimple": "",
+    "bildrath": "",
+    "doru": "",
+    "donavich": "",
+    "ireena": "",
+    "ismark": "",
+    "vistani_woman_tavern": "",
+    "rose_durst": "",
+    "thorn_durst": "",
+    "alenka": "",
+    "mirabel": "",
+    "sorbia": "",
+    "madam_eva": ""
   }
 }
