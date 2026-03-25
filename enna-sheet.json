@@ -37,24 +37,24 @@
     "sv-cha": false
   },
   "sk": {
-    "sk-acr": true,
-    "sk-ani": false,
-    "sk-arc": true,
-    "sk-ath": false,
-    "sk-dec": true,
-    "sk-his": true,
-    "sk-ins": false,
-    "sk-int": false,
-    "sk-inv": true,
-    "sk-med": false,
-    "sk-nat": true,
-    "sk-per": true,
-    "sk-prf": false,
-    "sk-prs": false,
-    "sk-rel": true,
-    "sk-soh": true,
-    "sk-ste": true,
-    "sk-sur": false
+    "sk-acr": 1,
+    "sk-ani": 0,
+    "sk-arc": 1,
+    "sk-ath": 0,
+    "sk-dec": 2,
+    "sk-his": 1,
+    "sk-ins": 0,
+    "sk-int": 0,
+    "sk-inv": 1,
+    "sk-med": 0,
+    "sk-nat": 1,
+    "sk-per": 1,
+    "sk-prf": 0,
+    "sk-prs": 0,
+    "sk-rel": 1,
+    "sk-soh": 1,
+    "sk-ste": 2,
+    "sk-sur": 0
   },
   "sa": "int",
   "slots": {
@@ -162,21 +162,58 @@
     {
       "n": "Estoque",
       "id": "rapier",
-      "h": "main-d"
+      "h": "main-d",
+      "dmg": "1d8",
+      "t": "piercing",
+      "r": "5ft",
+      "no": ""
     },
     {
       "n": "Arco corto",
       "id": "shortbow",
-      "h": "ranged-d"
+      "h": "ranged-d",
+      "dmg": "1d6",
+      "t": "piercing",
+      "r": "80/320ft",
+      "no": ""
     },
     {
       "n": "Cuchillo de caza",
       "id": "dagger",
-      "h": "off-d"
+      "h": "off-d",
+      "dmg": "1d4",
+      "t": "piercing",
+      "r": "20/60ft",
+      "no": ""
     }
   ],
   "spells": [],
-  "sdescs": {},
+  "sdescs": {
+    "1": {
+      "desc": "Conc. 1 hora. +1d6 por golpe al objetivo marcado. Transferible si muere.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    },
+    "2": {
+      "desc": "WIS save o bestia encantada 24h. No funciona en bestias INT 4+.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    },
+    "3": {
+      "desc": "Trampa mágica permanente (hasta activarse). DEX save o 2d6 + detenido.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    }
+  },
   "inv": [
     {
       "n": "Armadura de cuero",
