@@ -1,0 +1,100 @@
+{
+  "clues": [
+    {
+      "id": "tarokka_reading",
+      "name": "Madam Eva's Tarokka Reading",
+      "title": "Five Objects, One Enemy",
+      "detail": "Read before the party entered Barovia. Five things are needed to face the lord of darkness: a book of secrets, a sacred symbol, a weapon of light, an unexpected ally, and the place where the enemy waits. Madam Eva said they would be drawn to that place whether they wished it or not.",
+      "category": "Prophecy",
+      "session": 1
+    },
+    {
+      "id": "dire_wolf_eyes",
+      "name": "The Dire Wolf's Eyes",
+      "title": "Something Was Looking Through",
+      "detail": "The second wolf pack on the Svalich Road was led by a dire wolf. When it died, those who stood closest saw something wrong: a faint red glow in its eyes, fading as it exhaled its last breath. As if something had been looking through those eyes and decided to look elsewhere. Laucian examined the body and found no magic. Whatever it was had already left.",
+      "category": "Observation",
+      "session": 1
+    },
+    {
+      "id": "dark_carriage",
+      "name": "The Dark Carriage",
+      "title": "Someone Knows Where They Are",
+      "detail": "During Dara's watch at the ruined farmsteads, a black carriage drawn by a single horse came down the road. It stopped. It faced the ruins for a long moment. Then it turned and disappeared into the mist. Dara did not wake anyone. Whoever drove that carriage knows exactly where they are.",
+      "category": "Observation",
+      "session": 2
+    },
+    {
+      "id": "strahd_letter_durst",
+      "name": "Strahd's Letter to the Dursts",
+      "title": "The Cult Was a Convenience",
+      "detail": "Found in the hidden study of the Durst House. Signed by Strahd himself. He mocked the Durst family with casual contempt — the cult they built, the lives they spent all amounted to nothing more than a convenience for him. The house was an offering box. The Dursts were the offering.",
+      "category": "Document",
+      "session": 3
+    },
+    {
+      "id": "rose_thorn_truth",
+      "name": "Rose and Thorn's Account",
+      "title": "Locked In by Their Own Parents",
+      "detail": "The ghost children revealed what happened: their parents locked them in the attic room to protect them from the monster below. Men and women in black robes visited regularly. There was a baby called Walter they never saw. Every time they tried to leave, something pulled them back. They died locked in that room.",
+      "category": "Testimony",
+      "session": 3
+    },
+    {
+      "id": "durst_dollhouse",
+      "name": "The Durst Dollhouse",
+      "title": "A Map in Miniature",
+      "detail": "Found in the children's attic room. A perfect replica of the Durst mansion in miniature. Sarda examined it and it revealed everything: all the hidden passages, all the secret doors, and the secret staircase descending directly from that room into the basement.",
+      "category": "Object",
+      "session": 3
+    },
+    {
+      "id": "altar_chant",
+      "name": "The Altar's Demand",
+      "title": "One Must Die",
+      "detail": "From the altar in the deep basement of Death House, the chanting finally made sense: One must die. Over and over. Not a request. The figures chanting were not fully present in this world — attacks passed through them. The party refused. The Shambling Mound was invoked as consequence.",
+      "category": "Event",
+      "session": 4
+    },
+    {
+      "id": "tatyana_soul",
+      "name": "Ireena's True Nature",
+      "title": "The Soul of Tatyana",
+      "detail": "Ismark told the party before the burial — Ireena bears the soul of Tatyana, Strahd's ancient beloved. The vampire has been losing her for centuries, watching her reincarnate and die. He has not stopped wanting her back. This is why the attacks on the mansion escalated. This is why she must reach Vallaki.",
+      "category": "Key Knowledge",
+      "session": 6
+    },
+    {
+      "id": "doru_fate",
+      "name": "Doru's Condition",
+      "title": "The Spawn Below the Church",
+      "detail": "Donavich's son Doru followed a monster hunter to Castle Ravenloft believing they could end Strahd. He came back as vampire spawn, chained in the church basement. The monster hunter's name meant nothing to the party. Donavich has kept him there for months, praying. If Strahd dies, Doru is freed.",
+      "category": "Key Knowledge",
+      "session": 6
+    },
+    {
+      "id": "vampire_weaknesses",
+      "name": "Vampire Weaknesses",
+      "title": "What Can Kill Strahd",
+      "detail": "Provided by Father Donavich after the burial. Sunlight, running water, holy symbols, stakes through the heart. Strahd is not invulnerable — he has conditions. The party now knows the tools that can hurt him and the conditions that can kill him.",
+      "category": "Tactical",
+      "session": 6
+    },
+    {
+      "id": "barovia_map",
+      "name": "Map of Barovia",
+      "title": "No Place Names",
+      "detail": "Found by Kaelos in the ruined farmsteads. A leather pouch contained a map of Barovia without place names. Dara used her ranger instincts to confirm their position in the eastern farmlands. The map exists — Vallaki is reachable. The route between is unknown.",
+      "category": "Object",
+      "session": 2
+    },
+    {
+      "id": "unidentified_potion",
+      "name": "Unidentified Potion",
+      "title": "Found in the Ruins",
+      "detail": "Found by Kaelos in the ruined farmsteads alongside the map. He initially tried to keep it. The group caught him. Its contents remain unidentified. Kaelos still has it.",
+      "category": "Object",
+      "session": 2
+    }
+  ]
+}

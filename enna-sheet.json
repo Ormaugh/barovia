@@ -4,8 +4,8 @@
   "cc": "Rogue",
   "cl": "3",
   "cr": "Moon Elf",
-  "bg": "Sailor",
-  "al": "Chaotic Neutral",
+  "bg": "Marinera",
+  "al": "Caótico Neutral",
   "player": "Maria",
   "ac": "14",
   "mhp": "18",
@@ -15,7 +15,7 @@
   "thp": "—",
   "speed": "30ft",
   "spellClass": "Rogue",
-  "combatNotes": "COMBOS & TACTICS (Rogue 3 — Thief):\n• Sneak Attack trigger: get advantage (Hide first with Cunning Action) or position an ally within 5ft of target.\n• Core loop: Bonus Action Hide → Attack with Rapier (Sneak Attack 2d6) → Cunning Action Disengage to escape.\n• Fast Hands: use Cunning Action to pick locks, disarm traps, or Use an Object (e.g. oil flask) without spending main action.\n• Shortbow: stay at range, Sneak Attack still applies with any ally adjacent to target.\n• Second-Story Work: climbing speed = walking speed — use verticality to break line of sight and re-Hide.\n• Hunting Knife off-hand: only roll dmg dice, no ability mod (Two-Weapon Fighting rule).\n• Deception +3 / Stealth +7: pre-combat social or infiltration approach is almost always better than frontal.\n• Tip: if you can't Hide, readied attack with advantage from an ally flanking still triggers Sneak Attack.",
+  "combatNotes": "COMBOS Y TÁCTICAS (Pícaro 3 — Ladrón):\n• Ataque Furtivo: obtener ventaja (Esconderse primero con Acción Astuta) o colocar un aliado a 1,5m del objetivo.\n• Bucle principal: Acción adicional Esconderse → Atacar con estoque (Ataque Furtivo 2d6) → Acción Astuta Desenganchar para escapar.\n• Manos Rápidas: usar Acción Astuta para abrir cerraduras, desactivar trampas o Usar un Objeto (p. ej. frasco de aceite) sin gastar la acción principal.\n• Arco corto: mantenerse a distancia, el Ataque Furtivo aplica igualmente con un aliado adyacente al objetivo.\n• Trabajo en las Alturas: velocidad de escalada = velocidad de movimiento — usar verticalidad para romper la línea de visión y volver a esconderse.\n• Engaño +3 / Sigilo +7: el enfoque social o de infiltración antes del combate es casi siempre mejor que el asalto frontal.\n• Consejo: si no puedes esconderte, un ataque preparado con ventaja gracias a un aliado flanqueando también activa el Ataque Furtivo.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "",
@@ -98,197 +98,185 @@
   "port": "https://ormaugh.github.io/barovia/portraits/enna.png",
   "feats": [
     {
-      "n": "Fey Ancestry",
-      "s": "Moon Elf",
-      "d": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
+      "n": "Ascendencia Feérica",
+      "s": "Elfa de Luna",
+      "d": "Tienes ventaja en las tiradas de salvación contra ser hechizado, y la magia no puede dormirte.",
       "o": false
     },
     {
-      "n": "Darkvision",
-      "s": "Moon Elf",
-      "d": "You can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
+      "n": "Visión en la Oscuridad",
+      "s": "Elfa de Luna",
+      "d": "Puedes ver en luz tenue dentro de 18m como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes distinguir el color en la oscuridad, solo tonos de gris.",
       "o": false
     },
     {
       "n": "Trance",
-      "s": "Moon Elf",
-      "d": "Elves don't need to sleep. Instead, they meditate deeply for 4 hours a day. After resting in this way, you gain the same benefit as a human does from 8 hours of sleep.",
+      "s": "Elfa de Luna",
+      "d": "Los elfos no necesitan dormir. En cambio, meditan profundamente durante 4 horas al día. Tras descansar así, obtienes el mismo beneficio que un humano con 8 horas de sueño.",
       "o": false
     },
     {
-      "n": "Elf Weapon Training",
-      "s": "Moon Elf",
-      "d": "You have proficiency with the longsword, shortsword, shortbow, and longbow.",
+      "n": "Entrenamiento en Armas Élfico",
+      "s": "Elfa de Luna",
+      "d": "Tienes competencia con la espada larga, la espada corta, el arco corto y el arco largo.",
       "o": false
     },
     {
-      "n": "Expertise",
-      "s": "Rogue 1",
-      "d": "You have expertise (double proficiency bonus) in two skills: Stealth (+7) and Deception (+3).",
+      "n": "Especialización",
+      "s": "Pícaro 1",
+      "d": "Tienes especialización (doble bonificador de competencia) en dos habilidades: Sigilo (+7) y Engaño (+3).",
       "o": false
     },
     {
-      "n": "Sneak Attack",
-      "s": "Rogue 1",
-      "d": "Once per turn, you can deal an extra 2d6 damage to one creature you hit with an attack if you have advantage on the attack roll, or if another enemy of the target is within 5 feet of it and you don't have disadvantage on the roll.",
+      "n": "Ataque Furtivo",
+      "s": "Pícaro 1",
+      "d": "Una vez por turno, puedes infligir 2d6 de daño adicional a una criatura que impactes si tienes ventaja en la tirada de ataque, o si un enemigo del objetivo está a 1,5m de él y no tienes desventaja.",
       "o": false
     },
     {
-      "n": "Thieves' Cant",
-      "s": "Rogue 1",
-      "d": "You have learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation.",
+      "n": "Jerga de Ladrones",
+      "s": "Pícaro 1",
+      "d": "Has aprendido la jerga de ladrones, una mezcla secreta de dialecto, argot y código que te permite ocultar mensajes en conversaciones aparentemente normales.",
       "o": false
     },
     {
-      "n": "Cunning Action",
-      "s": "Rogue 2",
-      "d": "You can take a bonus action on each of your turns to take the Dash, Disengage, or Hide action.",
+      "n": "Acción Astuta",
+      "s": "Pícaro 2",
+      "d": "Puedes realizar una acción adicional en cada uno de tus turnos para ejecutar la acción Correr, Desenganchar o Esconderse.",
       "o": false
     },
     {
-      "n": "Fast Hands",
-      "s": "Rogue 3 — Thief",
-      "d": "You can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to disarm a trap or open a lock, or take the Use an Object action.",
+      "n": "Manos Rápidas",
+      "s": "Pícaro 3 — Ladrón",
+      "d": "Puedes usar la acción adicional de Acción Astuta para hacer una prueba de Destreza (Juego de Manos), usar tus herramientas de ladrón para desactivar una trampa o abrir una cerradura, o realizar la acción Usar un Objeto.",
       "o": false
     },
     {
-      "n": "Second-Story Work",
-      "s": "Rogue 3 — Thief",
-      "d": "You have a climbing speed equal to your walking speed. In addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier (+3 ft).",
+      "n": "Trabajo en las Alturas",
+      "s": "Pícaro 3 — Ladrón",
+      "d": "Tienes una velocidad de escalada igual a tu velocidad de movimiento. Además, cuando realizas un salto en carrera, la distancia cubierta aumenta en un número de metros igual a tu modificador de Destreza (+3 metros).",
       "o": false
     }
   ],
   "atks": [
     {
-      "n": "Rapier",
+      "n": "Estoque",
       "id": "rapier",
-      "h": "main-d",
-      "dmg": "1d8+3",
-      "t": "Piercing",
-      "r": "5ft",
-      "no": ""
+      "h": "main-d"
     },
     {
-      "n": "Shortbow",
+      "n": "Arco corto",
       "id": "shortbow",
-      "h": "ranged-d",
-      "dmg": "1d6+3",
-      "t": "Piercing",
-      "r": "80/320ft",
-      "no": ""
+      "h": "ranged-d"
     },
     {
-      "n": "Hunting Knife",
-      "id": null,
-      "h": "off-d",
-      "dmg": "1d4+3",
-      "t": "Piercing",
-      "r": "5ft",
-      "no": ""
+      "n": "Cuchillo de caza",
+      "id": "dagger",
+      "h": "off-d"
     }
   ],
   "spells": [],
   "inv": [
     {
-      "n": "Leather armor",
+      "n": "Armadura de cuero",
       "q": "1",
       "v": "10",
       "u": "gp",
-      "no": "Light armor. AC 11 + DEX mod."
+      "no": "Armadura ligera. CA 11 + mod. DES."
     },
     {
-      "n": "Rapier",
+      "n": "Estoque",
       "q": "1",
       "v": "25",
       "u": "gp",
-      "no": "Finesse."
+      "no": "Finura."
     },
     {
-      "n": "Shortbow",
+      "n": "Arco corto",
       "q": "1",
       "v": "25",
       "u": "gp",
       "no": ""
     },
     {
-      "n": "Hunting knife",
+      "n": "Cuchillo de caza",
       "q": "1",
       "v": "2",
       "u": "gp",
-      "no": "Finesse, Light."
+      "no": "Finura, ligera."
     },
     {
-      "n": "Thieves' tools (lockpicks)",
+      "n": "Herramientas de ladrón (ganzúas)",
       "q": "1",
       "v": "25",
       "u": "gp",
       "no": ""
     },
     {
-      "n": "Lucky charm (cat's ear amulet)",
+      "n": "Amuleto de la suerte (oreja de gato)",
       "q": "1",
       "v": "",
       "u": "gp",
       "no": "Amuleto de la suerte."
     },
     {
-      "n": "Steel ball bearings",
+      "n": "Canicas de acero",
       "q": "1000",
       "v": "1",
       "u": "gp",
-      "no": "Bag included."
+      "no": "Bolsa incluida."
     },
     {
-      "n": "Pitons",
+      "n": "Pitones",
       "q": "10",
       "v": "",
       "u": "gp",
       "no": ""
     },
     {
-      "n": "Bell",
+      "n": "Campanilla",
       "q": "1",
       "v": "",
       "u": "gp",
       "no": ""
     },
     {
-      "n": "Oil flasks",
+      "n": "Frascos de aceite",
       "q": "2",
       "v": "",
       "u": "gp",
       "no": ""
     },
     {
-      "n": "Crowbar",
+      "n": "Palanca",
       "q": "1",
       "v": "2",
       "u": "gp",
       "no": ""
     },
     {
-      "n": "Hammer",
+      "n": "Martillo",
       "q": "1",
       "v": "1",
       "u": "gp",
       "no": ""
     },
     {
-      "n": "Sleeping bag",
+      "n": "Saco de dormir",
       "q": "1",
       "v": "",
       "u": "gp",
       "no": ""
     },
     {
-      "n": "Rope, hemp",
+      "n": "Cuerda de cáñamo",
       "q": "1",
       "v": "1",
       "u": "gp",
-      "no": "50 feet."
+      "no": "15 metros."
     },
     {
-      "n": "Red wine",
+      "n": "Vino tinto",
       "q": "1",
       "v": "",
       "u": "gp",
@@ -320,18 +308,18 @@
     "madam_eva": ""
   },
   "personality": {
-    "traits": "I enjoy a good fight.",
-    "ideals": "I seek my freedom.",
-    "bonds": "The ship is what matters most.",
-    "flaws": "Kleptomania."
+    "traits": "Disfruto de una buena pelea.",
+    "ideals": "Busco mi libertad.",
+    "bonds": "El barco es lo que más importa.",
+    "flaws": "Cleptomanía."
   },
   "proficiencies": {
-    "languages": "Common, Elvish, Sylvan",
-    "armor": "Light armor",
-    "weapons": "Simple weapons, hand crossbows, longswords, rapiers, shortswords, shortbows, longbows (racial)",
+    "languages": "Común, Élfico, Silvano",
+    "armor": "Armadura ligera",
+    "weapons": "Armas simples, ballestas de mano, espadones, estoque, espadas cortas, arcos cortos, arcos largos (racial)",
     "instruments": "",
-    "tools": "Thieves' tools, Navigator's tools",
-    "other": "Water vehicles"
+    "tools": "Herramientas de ladrón, herramientas de navegante",
+    "other": "Vehículos acuáticos"
   },
   "coins": {
     "gp": "8",

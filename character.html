@@ -97,18 +97,17 @@ body.edit-mode .ab-block{cursor:default;}
 .sk-name:hover{color:var(--text-body);}
 .sk-attr{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;color:var(--text-faint);flex-shrink:0;}
 
-/* COMBAT — all equal square boxes, no hidden text */
+/* COMBAT — half-height boxes, bigger font */
 .combat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.45rem;margin-bottom:0.45rem;}
-.cs{text-align:center;padding:0.52rem 0.2rem;background:var(--bg-parchment);border:1px solid var(--border-gold);min-width:0;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.1rem;}
+.cs{text-align:center;padding:0.35rem 0.2rem;background:var(--bg-parchment);border:1px solid var(--border-gold);min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.1rem;}
 .cs-lbl{font-family:var(--font-heading);font-size:clamp(0.55rem,1.2vw,0.65rem);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-faint);display:block;line-height:1.2;text-align:center;}
-.cs-val{font-family:var(--font-heading);font-size:clamp(0.95rem,2vw,1.15rem);font-weight:700;color:var(--ink-gold);display:block;}
+.cs-val{font-family:var(--font-heading);font-size:clamp(1.3rem,2.6vw,1.6rem);font-weight:700;color:var(--ink-gold);display:block;}
 
-/* Hit Dice full-width box */
-.hd-box{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.52rem 0.65rem;display:flex;align-items:center;gap:0.7rem;margin-bottom:0.45rem;flex-wrap:wrap;}
-.hd-box-left{display:flex;flex-direction:column;gap:0.05rem;flex-shrink:0;}
-.hd-box-label{font-family:var(--font-heading);font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);}
-.hd-box-val{font-family:var(--font-heading);font-size:1rem;font-weight:700;color:var(--ink-gold);}
-.hd-pips{display:flex;gap:0.28rem;flex-wrap:wrap;align-items:center;flex:1;}
+/* Hit Dice — centered, pips below value */
+.hd-box{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.52rem 0.65rem;display:flex;flex-direction:column;align-items:center;gap:0.35rem;margin-bottom:0.45rem;}
+.hd-box-label{font-family:var(--font-heading);font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);text-align:center;}
+.hd-box-val{font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--ink-gold);text-align:center;}
+.hd-pips{display:flex;gap:0.28rem;flex-wrap:wrap;align-items:center;justify-content:center;}
 .hd-pip{width:20px;height:20px;border-radius:3px;border:1px solid var(--ink-gold-dim);cursor:pointer;background:transparent;transition:background 0.18s,border-color 0.18s;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.58rem;color:transparent;}
 .hd-pip.used{background:var(--ink-gold);border-color:var(--ink-gold);color:var(--bg-void);}
 .hd-pip.used::after{content:'✦';}
@@ -127,7 +126,8 @@ body.edit-mode .ab-block{cursor:default;}
 .hp-box-lbl{font-family:var(--font-heading);font-size:0.58rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-faint);}
 .hp-box-val{font-family:var(--font-display);font-size:1.7rem;font-weight:700;color:var(--text-bright);line-height:1;min-width:44px;text-align:center;}
 .hp-box-val.chp{color:var(--text-bright);}
-.hp-box-val.thp{color:#7ab8c8;font-size:1.35rem;}
+.hp-box-val.thp{color:var(--ink-gold);font-size:1.35rem;}
+.hp-box-val.thp.empty{color:rgba(200,169,110,0.35);}
 .hp-ctrl-row{display:flex;align-items:center;gap:0.25rem;justify-content:center;margin-top:0.2rem;}
 .hp-sub-btn,.hp-add-btn{width:24px;height:24px;background:none;border:1px solid var(--border-gold);color:var(--ink-gold-dim);font-size:1rem;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;flex-shrink:0;}
 .hp-sub-btn:hover,.hp-add-btn:hover{background:rgba(200,169,110,0.1);color:var(--ink-gold);border-color:var(--border-gold-b);}
@@ -149,6 +149,9 @@ body.edit-mode .ab-block{cursor:default;}
 .portrait-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;filter:sepia(0.1);display:block;}
 .portrait-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.45rem;color:var(--text-faint);font-family:var(--font-heading);font-size:0.72rem;letter-spacing:0.1em;text-align:center;padding:2rem 0.8rem;min-height:180px;}
 .portrait-icon{font-size:1.8rem;opacity:0.25;}
+/* Desktop: show col3 portrait, hide col1 portrait */
+.portrait-sb--mobile{display:none;}
+.portrait-sb--desktop{display:block;}
 
 /* INSPIRATION */
 .insp-btn{width:100%;padding:0.6rem 0.9rem;font-family:var(--font-heading);font-size:0.88rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:transparent;border:1px solid var(--border-gold);color:var(--text-faint);cursor:pointer;transition:all 0.28s;display:flex;align-items:center;justify-content:center;gap:0.55rem;position:relative;overflow:hidden;}
@@ -260,7 +263,8 @@ body.edit-mode .spell-slot-btns{display:flex;}
 .sp-col.rng{width:72px;}
 .sp-col.dur{width:80px;}
 .sp-col.sch{width:90px;}
-.sp-equipped{width:12px;height:12px;accent-color:var(--ink-red-bright);flex-shrink:0;margin-left:0.3rem;}
+.sp-equipped{display:none;} /* kept for backward compat but no longer rendered */
+.sp-conc-badge{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid var(--ink-gold-dim);font-family:var(--font-heading);font-size:0.55rem;font-weight:700;color:var(--ink-gold-dim);margin-left:0.25rem;flex-shrink:0;}
 body:not(.edit-mode) .spell-row:not(.hdr){cursor:pointer;}
 body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05);}
 
@@ -366,6 +370,14 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 /* PROFICIENCIES empty placeholder */
 .prof-val:empty::before{content:'—';color:var(--text-faint);}
 
+/* INVENTORY value display vs edit */
+.inv-val,.inv-unit-sel{display:none;}
+body.edit-mode .inv-val,.body.edit-mode .inv-unit-sel{display:inline;}
+body.edit-mode .inv-val{display:inline;}
+body.edit-mode .inv-unit-sel{display:inline;}
+body.edit-mode .inv-val-txt{display:none;}
+.inv-val-txt{font-family:var(--font-heading);font-size:0.82rem;color:var(--text-dim);}
+
 /* MOBILE */
 @media(max-width:900px){
   .tab1-layout{display:flex !important;flex-direction:column;gap:0;}
@@ -377,10 +389,10 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
   .sb-abilities{order:5;}
   .sb-skills{order:6;}
   .sb-saves{order:7;}
-  .portrait-sb{order:8;}
+  .portrait-sb--mobile{order:8;display:block !important;}
+  .portrait-sb--desktop{display:none !important;}
   .sb-personality{order:9;}
   .sb-profs{order:10;}
-  .portrait-sb{display:block !important;visibility:visible !important;min-height:180px;width:100%;box-sizing:border-box;}
   .portrait-wrap{max-height:400px;}
   .tab1-layout>.sb,.tab1-layout .tab1-col>.sb{width:100%;box-sizing:border-box;}
   .spell-meta-grid{grid-template-columns:1fr 1fr;}
@@ -463,7 +475,6 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
     <div class="header-actions" id="headerActions">
       <a href="index.html" class="btn" style="text-decoration:none;">⬡ Overview</a>
       <button class="edit-btn" id="editBtn" onclick="toggleEdit()"><span class="dot"></span><span id="editLbl">Edit</span></button>
-      <button class="btn" id="saveBtn" onclick="saveToGitHub()" style="display:none">⬆ Save</button>
       <span class="save-indicator" id="saveIndicator"></span>
     </div>
   </div>
@@ -497,7 +508,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
         <div class="stitle">Saving Throws</div>
         <div id="savesList"></div>
       </div>
-      <div class="sb portrait-sb" style="order:8;">
+      <div class="sb portrait-sb portrait-sb--mobile" style="order:8;">
         <div class="portrait-wrap" id="portraitWrap" onclick="document.getElementById('portInput').click()">
           <div class="portrait-placeholder" id="portPlaceholder"><span class="portrait-icon">⚔</span><span>Click to add portrait</span></div>
           <img id="portImg" src="" alt="" style="display:none;">
@@ -536,10 +547,8 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
         </div>
         <!-- Row 2: Hit Dice full width -->
         <div class="hd-box">
-          <div class="hd-box-left">
-            <span class="hd-box-label">Hit Dice</span>
-            <span class="hd-box-val editable" data-ph="1d8" id="hitDice">1d8</span>
-          </div>
+          <span class="hd-box-label">Hit Dice</span>
+          <span class="hd-box-val editable" data-ph="1d8" id="hitDice">1d8</span>
           <div class="hd-pips" id="hdPips"></div>
         </div>
         <!-- Row 3: Passive Perc, Darkvision, Other Senses -->
@@ -553,7 +562,8 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
             <span class="senses-box-val" id="darkVisionDisp">—</span>
           </div>
           <div class="senses-box" onclick="openSens()" title="Click for details">
-            <span class="senses-box-lbl" style="display: flex; align-items: center;justify-content: center;">Other Senses ↗</span>
+            <span class="senses-box-lbl">Other Senses ↗</span>
+            <span class="senses-box-val" id="otherSensDisp">—</span>
           </div>
         </div>
         <!-- HP boxes -->
@@ -636,14 +646,16 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
           <div class="mfw"><span class="mlb">Speed</span><span class="mfv editable" data-ph="30ft" id="charSpeed">30ft</span></div>
         </div>
       </div>
-      <!-- Portrait desktop position (above features) -->
-      <div class="sb portrait-sb" id="portraitDesktop" style="display:none;">
-        <!-- duplicate handled in JS -->
-      </div>
       <div class="sb sb-features" style="flex:1;">
         <div class="stitle">Features &amp; Traits</div>
         <div id="featList"></div>
         <button class="add-btn" id="addFeatBtn" onclick="addFeat()">+ Add Feature</button>
+      </div>
+      <div class="sb portrait-sb portrait-sb--desktop">
+        <div class="portrait-wrap" onclick="document.getElementById('portInput').click()">
+          <div class="portrait-placeholder" id="portPlaceholderDesktop"><span class="portrait-icon">⚔</span><span>Click to add portrait</span></div>
+          <img id="portImgDesktop" src="" alt="" style="display:none;">
+        </div>
       </div>
     </div>
   </div>
@@ -659,6 +671,14 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
     <table class="atk-table">
       <thead><tr><th>Name</th><th>Hand</th><th>To Hit</th><th>Damage</th><th>Type</th><th>Range</th><th></th></tr></thead>
       <tbody id="atkBody"></tbody>
+    </table>
+  </div>
+  <div class="sb" id="prepSpellSection" style="display:none;">
+    <div class="stitle">Prepared Spells</div>
+    <p style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;margin-bottom:0.75rem;">Click a row to see spell details. Mark spells as Prepared (P) in the Spells tab.</p>
+    <table class="atk-table">
+      <thead><tr><th>Name</th><th>Level</th><th>Casting Time</th><th>Range</th><th>Conc.</th></tr></thead>
+      <tbody id="prepSpellBody"></tbody>
     </table>
   </div>
   <div class="sb">
@@ -688,7 +708,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
   <div class="sb" id="spellsKnownSb">
     <div class="stitle">Spells Known / Prepared</div>
     <!-- Cantrips -->
-    <div class="spell-level-sec open" id="spell-sec-0">
+    <div class="spell-level-sec" id="spell-sec-0">
       <div class="spell-level-hdr" onclick="this.parentElement.classList.toggle('open')">
         <span class="spell-level-tog"></span>
         <span class="spell-level-title">Cantrips</span>
@@ -701,7 +721,6 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
           <span class="scl sp-col rng hdr-rng">Range</span>
           <span class="scl sp-col dur hdr-dur">Duration</span>
           <span class="scl sp-col sch hdr-sch">School</span>
-          <span class="scl" style="width:20px;flex-shrink:0;">⚔</span>
         </div>
         <div id="spellList-0"></div>
         <button class="add-btn" onclick="addSpell('','0','','','',false,false,'','','','','','','0')">+ Add Cantrip</button>
@@ -746,6 +765,14 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
     <div class="stitle">Known Characters</div>
     <div id="npcList"></div>
   </div>
+  <div class="sb">
+    <div class="stitle">Known Locations</div>
+    <div id="locationList"></div>
+  </div>
+  <div class="sb">
+    <div class="stitle">Known Items &amp; Clues</div>
+    <div id="itemList"></div>
+  </div>
 </div>
 </div>
 
@@ -781,7 +808,6 @@ function checkPw(){const v=document.getElementById('pwInput').value;if(v===PW){e
 function enableEdit(){
   editMode=true;document.body.classList.add('edit-mode');
   document.getElementById('editBtn').classList.add('active');document.getElementById('editLbl').textContent='Editing';
-  document.getElementById('saveBtn').style.display='';
   document.querySelectorAll('.editable').forEach(el=>el.contentEditable='true');
   document.getElementById('spellAbility').style.display='';
   document.getElementById('spellAbilityTxt').style.display='none';
@@ -792,13 +818,13 @@ function enableEdit(){
 function lockEdit(){
   editMode=false;document.body.classList.remove('edit-mode');
   document.getElementById('editBtn').classList.remove('active');document.getElementById('editLbl').textContent='Edit';
-  document.getElementById('saveBtn').style.display='none';
   document.querySelectorAll('.editable').forEach(el=>el.contentEditable='false');
   document.getElementById('spellAbility').style.display='none';
   document.getElementById('spellAbilityTxt').style.display='';
   document.getElementById('spellAbility').disabled=true;
   document.querySelectorAll('.spell-level-tot-val').forEach(el=>el.contentEditable='false');
   document.querySelectorAll('.npc-notes').forEach(el=>el.contentEditable='false');
+  saveToGitHub();
 }
 function applyEditToEl(el){
   el.querySelectorAll('.editable').forEach(e=>e.contentEditable=editMode?'true':'false');
@@ -822,11 +848,17 @@ function recalc(){
     const id=sel.id.replace('hs-','');
     const el=document.getElementById('ab-'+id);
     if(el&&!el.classList.contains('spell'))el.textContent=calcWpnBonus(sel.value,document.getElementById('dmg-'+id)?.dataset.base||'');
+    // refresh weapon-linked damage
+    const tr=document.querySelector(`[data-aid="${id}"]`);
+    if(tr&&tr.dataset.wid){
+      const w=weaponDB[tr.dataset.wid];const dmgEl=document.getElementById('dmg-'+id);
+      if(w&&dmgEl){const o=handOpt(sel.value);const statMod=aMod(o.stat);const modStr=statMod>=0?'+'+statMod:''+statMod;dmgEl.textContent=(w.damage?.dice||'')+modStr;}
+    }
   });
   const sa=document.getElementById('spellAbility').value;const sm=aMod(sa);
   document.getElementById('spellDC').textContent=8+pb+sm;
   document.getElementById('spellAtk').textContent=fmt(pb+sm);
-  syncSpellAtks();
+  syncPreparedSpells();
   // Senses display
   const dv=document.getElementById('sensesDarkvision')?.textContent||'';
   const dvd=document.getElementById('darkVisionDisp');if(dvd)dvd.textContent=dv||'—';
@@ -854,6 +886,7 @@ function adjustHP(which,delta){
     const raw=el.textContent.trim();
     let v=(raw==='—'||raw==='')?0:parseInt(raw)||0;v=Math.max(0,v+delta);
     el.textContent=v===0?'—':v;
+    el.classList.toggle('empty',v===0);
   }
   save();
 }
@@ -925,7 +958,6 @@ function buildSlots(){
           <span class="scl sp-col rng hdr-rng">Range</span>
           <span class="scl sp-col dur hdr-dur">Duration</span>
           <span class="scl sp-col sch hdr-sch">School</span>
-          <span class="scl" style="width:20px;flex-shrink:0;">⚔</span>
         </div>
         <div id="spellList-${i}"></div>
         <button class="add-btn" onclick="addSpell('','${i}','','','',false,false,'','','','','','','${i}')">+ Add Spell</button>
@@ -971,11 +1003,27 @@ function calcWpnDmg(hand,baseDmg){const o=handOpt(hand);const m=aMod(o.stat);con
 
 function addAtk(n='',hand='main-s',bonus='',dmg='',type='',range='',notes='',isSpell=false,sid=null,weaponId=null){
   const tb=document.getElementById('atkBody');const id=++atkCtr;const tr=document.createElement('tr');tr.dataset.aid=id;if(sid)tr.dataset.sid=sid;
+
+  // Inherit from weaponDB when id is present
+  const w=weaponId?weaponDB[weaponId]:null;
+  if(w){
+    const dice=w.damage?.dice||dmg||'—';
+    const o=handOpt(hand);const statMod=aMod(o.stat);
+    const modStr=statMod>=0?'+'+statMod:''+statMod;
+    dmg=dice+modStr;
+    type=w.damage?.type||type||'—';
+    // range: prefer explicit range, fallback to reach
+    if(w.range){range=`${w.range.normal}/${w.range.long}ft`;}
+    else if(w.reach){range=`${w.reach}ft`;}
+    const props=(w.properties||[]).map(p=>p.replace(/_/g,' ')).join(', ');
+    notes=props||notes||'';
+  }
+
   const compBonus=isSpell?bonus:calcWpnBonus(hand,dmg);
   const selOpts=HAND_OPTS.map(o=>`<option value="${o.v}"${hand===o.v?' selected':''}>${o.l}</option>`).join('');
-  const hasWpnData=weaponId&&weaponDB[weaponId];
+  const hasWpnData=w!=null;
   const nameCell=hasWpnData?`<span class="atk-name has-link" onclick="event.stopPropagation();openWeaponCard('${weaponId}')" title="Click for weapon details">${n}</span>`:`<span class="atk-name editable" data-ph="Name">${n}</span>`;
-  tr.innerHTML=`<td>${nameCell}</td><td>${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}">${selOpts}</select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td><span class="atk-dmg editable" data-ph="1d6" id="dmg-${id}" data-base="${dmg}">${dmg}</span></td><td><span class="atk-type editable" data-ph="Type">${type}</span></td><td><span class="atk-type editable" data-ph="Range">${range}</span></td><td>${sid?'':`<button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
+  tr.innerHTML=`<td>${nameCell}</td><td>${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}">${selOpts}</select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td><span class="atk-dmg" id="dmg-${id}" data-base="${w?w.damage?.dice||'':dmg}">${dmg}</span></td><td><span class="atk-type">${type}</span></td><td><span class="atk-type">${range}</span></td><td>${sid?'':`<button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
   if(weaponId)tr.dataset.wid=weaponId;
   tr.addEventListener('click',(e)=>{
     if(e.target.classList.contains('hand-sel')||e.target.tagName==='OPTION'||e.target.classList.contains('del-btn')||e.target.classList.contains('atk-name'))return;
@@ -988,18 +1036,45 @@ function updateHand(id){
   const el=document.getElementById('ab-'+id);
   const dmgEl=document.getElementById('dmg-'+id);
   if(el)el.textContent=calcWpnBonus(s.value,'');
+  // If weapon has a DB entry, recalc displayed damage with new stat mod
+  const tr=document.querySelector(`[data-aid="${id}"]`);
+  if(tr&&tr.dataset.wid){
+    const w=weaponDB[tr.dataset.wid];
+    if(w&&dmgEl){
+      const o=handOpt(s.value);const statMod=aMod(o.stat);
+      const modStr=statMod>=0?'+'+statMod:''+statMod;
+      dmgEl.textContent=(w.damage?.dice||'')+modStr;
+    }
+  }
   save();
 }
-function syncSpellAtks(){
-  const tb=document.getElementById('atkBody');const pb=prof();const sa=document.getElementById('spellAbility').value;const sm=aMod(sa);const bon=fmt(pb+sm);
-  tb.querySelectorAll('[data-sid]').forEach(tr=>tr.remove());
-  document.querySelectorAll('.spell-row[data-sid]').forEach(row=>{
-    const eq=row.querySelector('.sp-equipped');if(!eq||!eq.checked)return;
-    const sid=row.dataset.sid;const nm=row.querySelector('.sp-name').textContent.trim()||'Spell';
-    const lv=row.dataset.lvl||'0';
-    addAtk(nm,'',bon,'—','Spell','—',lv==='0'?'Cantrip':`Lvl ${lv}`,true,sid);
+function syncPreparedSpells(){
+  // Build the prepared spells table in the attacks tab
+  let tbody=document.getElementById('prepSpellBody');
+  const section=document.getElementById('prepSpellSection');
+  if(!tbody||!section)return;
+  tbody.innerHTML='';
+  const rows=Array.from(document.querySelectorAll('.spell-row[data-sid]'));
+  const prepared=rows.filter(r=>r.querySelector('.sp-prep')?.checked);
+  section.style.display=prepared.length?'':'none';
+  prepared.forEach(row=>{
+    const n=row.querySelector('.sp-name')?.textContent.trim()||'Spell';
+    const lv=parseInt(row.dataset.lvl)||0;
+    const cast=row.querySelector('.sp-col.cast')?.textContent.trim()||'—';
+    const rng=row.querySelector('.sp-col.rng')?.textContent.trim()||'—';
+    const dur=row.querySelector('.sp-col.dur')?.textContent.trim()||'—';
+    const dbEntry=spellDB[n]||{};
+    const conc=dbEntry.concentration?'✦':'—';
+    const lvLabel=lv===0?'Cantrip':`${lv}${['','st','nd','rd'][lv]||'th'}`;
+    const tr=document.createElement('tr');
+    tr.style.cursor='pointer';
+    tr.innerHTML=`<td><span class="atk-name">${n}</span></td><td><span class="atk-type" style="color:#7ab8c8">${lvLabel}</span></td><td><span class="atk-type">${cast}</span></td><td><span class="atk-type">${rng}</span></td><td><span class="atk-type" style="color:${dbEntry.concentration?'var(--ink-gold-dim)':'var(--text-faint)'}">${conc}</span></td>`;
+    tr.addEventListener('click',()=>openSpellCard(n));
+    tbody.appendChild(tr);
   });
 }
+// Keep old name as alias so any remaining references don't break
+function syncSpellAtks(){syncPreparedSpells();}
 function rollAtkRow(id){
   const tr=document.querySelector(`[data-aid="${id}"]`);if(!tr)return;
   const nm=tr.querySelector('.atk-name').textContent.trim()||'Attack';
@@ -1048,13 +1123,15 @@ function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',d
   if(!spellDescs[n]){spellDescs[n]={desc:dbEntry.desc||desc||'',dur:dbEntry.dur||dur||'',comp:dbEntry.comp||comp||'',target:dbEntry.target||target||'',classes:dbEntry.classes||classes||'',higher:dbEntry.higher||higher||''};}
   const row=document.createElement('div');row.className='spell-row';row.dataset.sid=id;row.dataset.lvl=lvNum;
   const subMeta=[cast,rng,dur,sch].filter(Boolean).join(' · ');
-  row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''}><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-col cast editable" data-ph="1 action">${cast}</span><span class="sp-col rng editable" data-ph="Self">${rng}</span><span class="sp-col dur editable" data-ph="Instant">${dur}</span><span class="sp-col sch editable" data-ph="School">${sch}</span><input type="checkbox" class="sp-equipped" ${eq?'checked':''} onchange="syncSpellAtks();save()">`;
+  const concBadge=dbEntry.concentration?'<span class="sp-conc-badge" title="Concentration">C</span>':'';
+  row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''} onchange="syncPreparedSpells();save()"><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-col cast editable" data-ph="1 action">${cast}</span><span class="sp-col rng editable" data-ph="Self">${rng}</span><span class="sp-col dur editable" data-ph="Instant">${dur}</span><span class="sp-col sch editable" data-ph="School">${sch}</span>`;
   const db=document.createElement('button');db.className='del-btn';db.textContent='✕';
-  db.onclick=(e)=>{e.stopPropagation();removeSpellAtk(row.dataset.sid);row.remove();save();};
+  db.onclick=(e)=>{e.stopPropagation();row.remove();syncPreparedSpells();save();};
   row.appendChild(db);
-  row.addEventListener('click',(e)=>{if(editMode||e.target.closest('.del-btn')||e.target.closest('.sp-equipped')||e.target.closest('.sp-prep'))return;openSpellCard(n);});
+  row.addEventListener('click',(e)=>{if(editMode||e.target.closest('.del-btn')||e.target.closest('.sp-prep'))return;openSpellCard(n);});
   listEl.appendChild(row);applyEditToEl(row);
   const sec=document.getElementById('spell-sec-'+secId);if(sec)sec.classList.add('open');
+  if(prep)syncPreparedSpells();
 }
 function openAddSpellModal(){const lv=prompt('Spell level (0 for cantrip, 1-9):','1');if(lv===null)return;addSpell('',lv,'','','',false,false,'','','','','','',lv);save();}
 function openSpellCard(spellName){
@@ -1097,8 +1174,17 @@ function closeSens(){document.getElementById('sensOverlay').classList.remove('ac
 function addInv(n='',q='1',v='',u='gp',eq=false,notes=''){
   const tb=document.getElementById('invBody');const tr=document.createElement('tr');
   const unitOpts=['gp','sp','cp'].map(x=>`<option value="${x}"${u===x?' selected':''}>${x}</option>`).join('');
-  tr.innerHTML=`<td><span class="inv-name editable" data-ph="Item name">${n}</span></td><td><span class="inv-qty editable always-edit" data-ph="1">${q}</span></td><td style="white-space:nowrap;"><span class="inv-val editable always-edit" data-ph="—">${v}</span> <select class="inv-unit-sel">${unitOpts}</select></td><td><span class="editable" data-ph="Notes..." style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;">${notes}</span></td><td><button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button></td>`;
+  const valTxt=(v&&v!=='—')?`${v}${u}`:'—';
+  tr.innerHTML=`<td><span class="inv-name editable" data-ph="Item name">${n}</span></td><td><span class="inv-qty editable always-edit" data-ph="1">${q}</span></td><td style="white-space:nowrap;"><span class="inv-val editable always-edit" data-ph="—">${v}</span><select class="inv-unit-sel">${unitOpts}</select><span class="inv-val-txt">${valTxt}</span></td><td><span class="editable" data-ph="Notes..." style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;">${notes}</span></td><td><button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button></td>`;
+  tr.querySelector('.inv-val')?.addEventListener('input',()=>updateInvValTxt(tr));
+  tr.querySelector('.inv-unit-sel')?.addEventListener('change',()=>updateInvValTxt(tr));
   tb.appendChild(tr);applyEditToEl(tr);
+}
+function updateInvValTxt(tr){
+  const v=tr.querySelector('.inv-val')?.textContent.trim()||'';
+  const u=tr.querySelector('.inv-unit-sel')?.value||'gp';
+  const txt=tr.querySelector('.inv-val-txt');
+  if(txt)txt.textContent=(v&&v!=='—')?`${v}${u}`:'—';
 }
 
 // ── INSPIRATION ───────────────────────────────────────────────────────────────
@@ -1107,7 +1193,16 @@ function toggleInsp(){
   document.getElementById('inspLbl').textContent=b.classList.contains('lit')?'Inspired!':'No Inspiration';
   save();
 }
-function loadPortrait(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{document.getElementById('portImg').src=e.target.result;document.getElementById('portImg').style.display='block';document.getElementById('portPlaceholder').style.display='none';save();};r.readAsDataURL(f);}
+function syncPortrait(src){
+  ['portImg','portImgDesktop'].forEach(id=>{
+    const img=document.getElementById(id);if(!img)return;
+    if(src){img.src=src;img.style.display='block';}else{img.src='';img.style.display='none';}
+  });
+  ['portPlaceholder','portPlaceholderDesktop'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.style.display=src?'none':'';
+  });
+}
+function loadPortrait(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{syncPortrait(e.target.result);save();};r.readAsDataURL(f);}
 
 // ── NPC LIST ──────────────────────────────────────────────────────────────────
 function buildNpcList(npcNotes){
@@ -1136,6 +1231,56 @@ function buildNpcList(npcNotes){
 function saveNpcNote(npcId,val){
   // save immediately into the gathered data
   save();
+}
+
+function buildLocationList(sharedLocations, charNotes){
+  const c=document.getElementById('locationList');c.innerHTML='';
+  const notes=charNotes||{};
+  (sharedLocations||[]).forEach(loc=>{
+    const noteVal=notes[loc.id]||'';
+    const card=document.createElement('div');card.className='npc-card';
+    card.innerHTML=`
+      <div class="npc-hdr" onclick="this.parentElement.classList.toggle('open')">
+        <span class="npc-tog"></span>
+        <span class="npc-name">${loc.name}</span>
+        <span class="npc-title">${loc.title||''}</span>
+      </div>
+      <div class="npc-body">
+        <div class="npc-body-grid">
+          <div class="npc-field npc-detail"><strong>Detail</strong>${loc.detail||''}</div>
+          ${loc.status?`<div class="npc-field"><strong>Status</strong>${loc.status}</div>`:''}
+          ${loc.region?`<div class="npc-field"><strong>Region</strong>${loc.region}</div>`:''}
+        </div>
+        <span class="npc-notes-label">Your Notes</span>
+        <div class="npc-notes" data-loc="${loc.id}" data-ph="Add notes about ${loc.name}..." contenteditable="false" oninput="save()">${noteVal}</div>
+      </div>`;
+    c.appendChild(card);
+  });
+}
+
+function buildItemList(sharedItems, charNotes){
+  const c=document.getElementById('itemList');c.innerHTML='';
+  const notes=charNotes||{};
+  (sharedItems||[]).forEach(item=>{
+    const noteVal=notes[item.id]||'';
+    const sessionBadge=item.session?`<span style="font-family:var(--font-heading);font-size:0.65rem;color:var(--ink-red-bright);margin-left:0.5rem;">Session ${item.session}</span>`:'';
+    const card=document.createElement('div');card.className='npc-card';
+    card.innerHTML=`
+      <div class="npc-hdr" onclick="this.parentElement.classList.toggle('open')">
+        <span class="npc-tog"></span>
+        <span class="npc-name">${item.name}</span>
+        <span class="npc-title">${item.title||''}${sessionBadge}</span>
+      </div>
+      <div class="npc-body">
+        <div class="npc-body-grid">
+          <div class="npc-field npc-detail"><strong>Detail</strong>${item.detail||''}</div>
+          ${item.category?`<div class="npc-field"><strong>Category</strong>${item.category}</div>`:''}
+        </div>
+        <span class="npc-notes-label">Your Notes</span>
+        <div class="npc-notes" data-item="${item.id}" data-ph="Add notes about ${item.name}..." contenteditable="false" oninput="save()">${noteVal}</div>
+      </div>`;
+    c.appendChild(card);
+  });
 }
 
 // ── TABS + SWIPE ──────────────────────────────────────────────────────────────
@@ -1236,7 +1381,7 @@ function gather(){
     insp:document.getElementById('inspBtn').classList.contains('lit'),
     sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,
     slots:{},port:document.getElementById('portImg').src,
-    feats:[],atks:[],spells:[],sdescs:{},inv:[],ds:[],npc_notes:{},
+    feats:[],atks:[],spells:[],sdescs:{},inv:[],ds:[],npc_notes:{},location_notes:[],item_notes:[],
     personality:{traits:g('pTraits'),ideals:g('pIdeals'),bonds:g('pBonds'),flaws:g('pFlaws')},
     proficiencies:{languages:g('profLanguages'),armor:g('profArmor'),weapons:g('profWeapons'),instruments:g('profInstruments'),tools:g('profTools'),other:g('profOther')}
   };
@@ -1246,13 +1391,19 @@ function gather(){
   for(let i=1;i<=9;i++){const t=document.getElementById('st-'+i);const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);d.slots[i]={t:t?t.textContent:'0',u:Array.from(ps).filter(p=>p.classList.contains('used')).length};}
   document.querySelectorAll('#featList .feat-item').forEach(it=>d.feats.push({n:it.querySelector('.feat-name').textContent,s:it.querySelector('.feat-src').textContent,d:it.querySelector('.feat-desc').textContent,o:it.classList.contains('open')}));
   document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,id:tr.dataset.wid||null,h:hs?hs.value:'main-s',dmg:tr.querySelector('.atk-dmg')?.dataset.base||tr.querySelector('.atk-dmg')?.textContent||'',t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
-  document.querySelectorAll('.spell-row[data-sid]').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.dataset.lvl||'0',n:row.querySelector('.sp-name').textContent,e:row.querySelector('.sp-equipped').checked}));
+  document.querySelectorAll('.spell-row[data-sid]').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.dataset.lvl||'0',n:row.querySelector('.sp-name').textContent}));
   Object.entries(spellDescs).forEach(([nm,val])=>{const db=spellDB[nm]||{};if(Object.keys(val).some(k=>val[k]&&val[k]!==db[k]))d.sdescs[nm]=val;});
   document.querySelectorAll('#invBody tr').forEach(tr=>{const tds=tr.querySelectorAll('td');const uSel=tds[2]?.querySelector('select');d.inv.push({n:tds[0]?.querySelector('[data-ph]')?.textContent||'',q:tds[1]?.querySelector('[data-ph]')?.textContent||'1',v:tds[2]?.querySelector('.inv-val')?.textContent||'',u:uSel?uSel.value:'gp',no:tds[3]?.querySelector('[data-ph]')?.textContent||''});});
   const coinGet=cls=>{const l=document.querySelector(cls);return l&&l.nextElementSibling?l.nextElementSibling.textContent||'0':'0';};
   d.coins={gp:coinGet('.coin-gp'),sp:coinGet('.coin-sp'),cp:coinGet('.coin-cp')};
   // NPC notes
   document.querySelectorAll('.npc-notes[data-npc]').forEach(el=>{d.npc_notes[el.dataset.npc]=el.textContent.trim();});
+  // Location notes
+  d.location_notes={};
+  document.querySelectorAll('.npc-notes[data-loc]').forEach(el=>{d.location_notes[el.dataset.loc]=el.textContent.trim();});
+  // Item/clue notes
+  d.item_notes={};
+  document.querySelectorAll('.npc-notes[data-item]').forEach(el=>{d.item_notes[el.dataset.item]=el.textContent.trim();});
   d.ds=Array.from(document.querySelectorAll('.dm')).map(m=>m.classList.contains('marked'));
   return d;
 }
@@ -1269,7 +1420,7 @@ function applyData(d){
   let dvEl=document.getElementById('sensesDarkvision');if(!dvEl){dvEl=document.createElement('span');dvEl.id='sensesDarkvision';dvEl.style.display='none';document.body.appendChild(dvEl);}dvEl.textContent=d.sensesDarkvision||'';
   let osEl=document.getElementById('sensesOther');if(!osEl){osEl=document.createElement('span');osEl.id='sensesOther';osEl.style.display='none';document.body.appendChild(osEl);}osEl.textContent=d.sensesOther||'';
   // Temp HP: show — if 0 or empty
-  const thp=d.thp;const thpEl=document.getElementById('tempHP');if(thpEl){thpEl.textContent=(!thp||thp==='0'||thp===0)?'—':thp;}
+  const thp=d.thp;const thpEl=document.getElementById('tempHP');if(thpEl){const thpEmpty=(!thp||thp==='0'||thp===0);thpEl.textContent=thpEmpty?'—':thp;thpEl.classList.toggle('empty',thpEmpty);}
   // Inspiration
   const inspBtn=document.getElementById('inspBtn');
   if(d.insp){inspBtn.classList.add('lit');document.getElementById('inspLbl').textContent='Inspired!';}
@@ -1294,14 +1445,20 @@ function applyData(d){
       for(let j=0;j<u&&j<pips.length;j++)pips[j].classList.add('used');
     }
   }
-  if(d.port&&d.port.trim()){const img=document.getElementById('portImg');img.src=d.port;img.style.display='block';document.getElementById('portPlaceholder').style.display='none';}
+  if(d.port&&d.port.trim()){syncPortrait(d.port);}else{syncPortrait('');}
   document.getElementById('featList').innerHTML='';
   (d.feats||[]).forEach(f=>{addFeat(f.n,f.s,f.d);if(f.o){const its=document.querySelectorAll('#featList .feat-item');its[its.length-1].classList.add('open');}});
   document.getElementById('atkBody').innerHTML='';atkCtr=0;
   (d.atks||[]).forEach(a=>{
     let hand=a.h||'main-s';
     if(!hand.includes('-')){const s=a.st||'str';hand={main:`main-${s[0]}`,ranged:`ranged-${s[0]}`,off:`off-${s[0]}`}[hand]||'main-s';}
-    addAtk(a.n,hand,'',a.dmg,a.t,a.r,a.no,false,null,a.id||null);
+    if(a.id&&weaponDB[a.id]){
+      // weapon-linked: name from sheet, everything else from weaponDB
+      addAtk(a.n,hand,'','','','','',false,null,a.id);
+    } else {
+      // free-form: use all values from sheet JSON
+      addAtk(a.n,hand,'',a.dmg||'',a.t||'',a.r||'',a.no||'',false,null,null);
+    }
   });
   for(let i=0;i<=9;i++){const el=document.getElementById('spellList-'+i);if(el)el.innerHTML='';}spellCtr=0;
   Object.keys(spellDescs).forEach(k=>delete spellDescs[k]);
@@ -1312,6 +1469,10 @@ function applyData(d){
   if(d.coins){const coinGet=(cls,key)=>{const l=document.querySelector(cls);if(l&&l.nextElementSibling)l.nextElementSibling.textContent=d.coins[key]||'0';};coinGet('.coin-gp','gp');coinGet('.coin-sp','sp');coinGet('.coin-cp','cp');}
   // NPC notes
   if(d.npc_notes)buildNpcList(d.npc_notes);
+  // Location and item lists are rebuilt from shared JSON + per-char notes in init
+  // Just update notes on existing cards if already built
+  if(d.location_notes){document.querySelectorAll('.npc-notes[data-loc]').forEach(el=>{el.textContent=d.location_notes[el.dataset.loc]||'';});}
+  if(d.item_notes){document.querySelectorAll('.npc-notes[data-item]').forEach(el=>{el.textContent=d.item_notes[el.dataset.item]||'';});}
   // HD pips
   rebuildHDPips(parseInt(d.hdu)||0);
   if(d.ds){const ms=document.querySelectorAll('.dm');d.ds.forEach((m,i)=>{if(ms[i]&&m)ms[i].classList.add('marked');});}
@@ -1324,7 +1485,7 @@ const _kk='BaroviaD20';function _rt(){return _tk.map((c,i)=>String.fromCharCode(
 const GH_USER='ormaugh',GH_REPO='barovia';
 function setIndicator(state,msg){const el=document.getElementById('saveIndicator');el.className='save-indicator '+state;el.textContent=msg;if(state==='saved')setTimeout(()=>{el.className='save-indicator';el.textContent='';},3000);}
 async function saveToGitHub(){
-  const btn=document.getElementById('saveBtn');btn.disabled=true;setIndicator('saving','Saving…');
+  setIndicator('saving','Guardando…');
   const data=gather();const portSrc=document.getElementById('portImg').src||'';if(portSrc.startsWith('data:'))data.port=_lastJsonPort||'';else data.port=portSrc;
   const content=JSON.stringify(data,null,2);const encoded=btoa(unescape(encodeURIComponent(content)));
   const filePath=`${CHAR_KEY}-sheet.json`;
@@ -1332,10 +1493,9 @@ async function saveToGitHub(){
     const shaRes=await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`,{headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json'}});
     let sha='';if(shaRes.ok){const shaData=await shaRes.json();sha=shaData.sha||'';}
     const putRes=await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`,{method:'PUT',headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:`Update ${filePath} — ${new Date().toLocaleString('es-ES',{timeZone:'Europe/Madrid'})}`,content:encoded,sha:sha||undefined})});
-    if(putRes.ok){setIndicator('saved','✓ Saved');try{localStorage.setItem(LS_KEY,JSON.stringify(data));}catch(e){}}
-    else{const err=await putRes.json();setIndicator('error','✗ Error: '+putRes.status);}
-  }catch(e){setIndicator('error','✗ No connection');}
-  btn.disabled=false;
+    if(putRes.ok){setIndicator('saved','✓ Guardado');try{localStorage.setItem(LS_KEY,JSON.stringify(data));}catch(e){}}
+    else{setIndicator('error','✗ Error: '+putRes.status);}
+  }catch(e){setIndicator('error','✗ Sin conexión');}
 }
 
 // ── LOCAL SAVE ────────────────────────────────────────────────────────────────
@@ -1383,17 +1543,27 @@ fetch(JSON_FILE)
         slots:lsData.slots??jsonData.slots,
         ds:lsData.ds,
         npc_notes:Object.assign({},jsonData.npc_notes||{},lsData.npc_notes||{}),
+        location_notes:Object.assign({},jsonData.location_notes||{},lsData.location_notes||{}),
+        item_notes:Object.assign({},jsonData.item_notes||{},lsData.item_notes||{}),
       };
       applyData(merged);
     } else {applyData(jsonData);}
     lockEdit();
-    // load NPC list (non-blocking)
+    syncPreparedSpells();
+    // load NPC list, locations and clues (non-blocking, parallel)
     fetch('npcs.json').then(r=>r.ok?r.json():{npcs:[]}).catch(()=>({npcs:[]})).then(db=>{npcDB=db.npcs||[];const notes=gather().npc_notes||{};buildNpcList(notes);});
+    const charNotes=gather();
+    fetch('locations.json').then(r=>r.ok?r.json():{locations:[]}).catch(()=>({locations:[]})).then(db=>{buildLocationList(db.locations||[],charNotes.location_notes||{});});
+    fetch('clues.json').then(r=>r.ok?r.json():{clues:[]}).catch(()=>({clues:[]})).then(db=>{buildItemList(db.clues||[],charNotes.item_notes||{});});
   })
   .catch(()=>{
     const saved=localStorage.getItem(LS_KEY);
     if(saved){try{const lsData=JSON.parse(saved);lsData.spells=[];lsData.sdescs={};applyData(lsData);}catch(e){recalc();}}else{recalc();}
     lockEdit();
+    syncPreparedSpells();
+    const charNotes=gather();
+    fetch('locations.json').then(r=>r.ok?r.json():{locations:[]}).catch(()=>({locations:[]})).then(db=>{buildLocationList(db.locations||[],charNotes.location_notes||{});});
+    fetch('clues.json').then(r=>r.ok?r.json():{clues:[]}).catch(()=>({clues:[]})).then(db=>{buildItemList(db.clues||[],charNotes.item_notes||{});});
     console.warn(JSON_FILE+' not found — using localStorage only.');
   });
 

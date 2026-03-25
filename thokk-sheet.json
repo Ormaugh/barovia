@@ -4,8 +4,8 @@
   "cc": "Barbarian",
   "cl": "3",
   "cr": "Half-Orc",
-  "bg": "Outlander",
-  "al": "Chaotic Neutral",
+  "bg": "Forastero",
+  "al": "Caótico Neutral",
   "ac": "13",
   "mhp": "30",
   "hd": "3d12",
@@ -14,7 +14,7 @@
   "hdu": "",
   "speed": "30ft",
   "spellClass": "Barbarian",
-  "combatNotes": "COMBOS & TACTICS (Barbarian 3 — Totem Warrior Bear):\n• Rage first (Bonus Action) before entering melee — resistance to ALL non-psychic damage while Bear totem is active.\n• Reckless Attack: advantage on all your STR attacks this turn, but enemies have advantage against you — acceptable when raging (halved damage).\n• Greataxe base: 1d12+6 while raging (+4 STR, +2 rage). On crit: roll an extra d12 (Savage Attacks).\n• Grapple combo: Reckless Attack for adv → hit → use second attack (Extra Attack at lvl 5, not yet) or grapple to restrain a target for allies.\n• Danger Sense: advantage on DEX saves vs visible effects (traps, fireballs) — stay aware of what's in front of you.\n• Speak with Animals (ritual only): interrogate wildlife for scouting info before combat.\n• Heavy Crossbow: use only when melee isn't an option — no Rage damage bonus applies to ranged.\n• Tip: enter Rage, charge the biggest threat, Reckless Attack. You are the damage sponge — protect the squishies.",
+  "combatNotes": "COMBOS Y TÁCTICAS (Bárbaro 3 — Guerrero Tótem Oso):\n• Furia primero (acción adicional) antes de entrar en melé — resistencia a TODO el daño no psíquico mientras el tótem Oso está activo.\n• Ataque Temerario: ventaja en todos tus ataques de FUE este turno, pero los enemigos tienen ventaja contra ti — aceptable cuando estás en furia (daño reducido a la mitad).\n• Hacha grande base: 1d12+6 en furia (+4 FUE, +2 furia). En crítico: tirar 1d12 extra (Ataques Salvajes).\n• Combo de presa: Ataque Temerario para ventaja → impactar → usar el segundo ataque (Ataque Extra en nivel 5, aún no) o aferrar para inmovilizar al objetivo para los aliados.\n• Sentido del Peligro: ventaja en salvaciones de DES contra efectos visibles (trampas, bolas de fuego) — estar atento a lo que hay delante.\n• Hablar con Animales (solo ritual): interrogar fauna para obtener información de reconocimiento antes del combate.\n• Ballesta pesada: usar solo cuando el melé no es opción — el bonificador de daño de Furia no aplica a distancia.\n• Consejo: entrar en Furia, cargar contra la amenaza más grande, Ataque Temerario. Eres el absorbedor de daño — protege a los más frágiles.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "",
@@ -97,63 +97,63 @@
   "port": "https://ormaugh.github.io/barovia/portraits/thokk.png",
   "feats": [
     {
-      "n": "Darkvision",
-      "s": "Half-Orc",
-      "d": "You can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
+      "n": "Visión en la Oscuridad",
+      "s": "Semiorco",
+      "d": "Puedes ver en luz tenue dentro de 18m como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes distinguir el color en la oscuridad, solo tonos de gris.",
       "o": false
     },
     {
-      "n": "Relentless Endurance",
-      "s": "Half-Orc",
-      "d": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. Once you use this feature, you can't do so again until you finish a long rest.",
+      "n": "Resistencia Implacable",
+      "s": "Semiorco",
+      "d": "Cuando te reducen a 0 puntos de golpe pero no te matan de inmediato, puedes caer a 1 punto de golpe en su lugar. Una vez usado, no puedes volver a hacerlo hasta terminar un descanso largo.",
       "o": false
     },
     {
-      "n": "Savage Attacks",
-      "s": "Half-Orc",
-      "d": "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+      "n": "Ataques Salvajes",
+      "s": "Semiorco",
+      "d": "Cuando obtienes un golpe crítico con un ataque de arma melé, puedes tirar uno de los dados de daño del arma una vez más y añadirlo al daño extra del crítico.",
       "o": false
     },
     {
-      "n": "Rage",
-      "s": "Barbarian 1",
-      "d": "On your turn, you can enter a rage as a bonus action. While raging: advantage on STR checks and saves, +2 bonus to melee damage, resistance to bludgeoning/piercing/slashing damage. Rage lasts 1 minute. 3 uses per long rest at level 3.",
+      "n": "Furia",
+      "s": "Bárbaro 1",
+      "d": "En tu turno, puedes entrar en furia como acción adicional. Mientras estás en furia: ventaja en pruebas y salvaciones de FUE, +2 al daño melé, resistencia al daño contundente/perforante/cortante. La furia dura 1 minuto. 3 usos por descanso largo a nivel 3.",
       "o": false
     },
     {
-      "n": "Unarmored Defense",
-      "s": "Barbarian 1",
-      "d": "While not wearing armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.",
+      "n": "Defensa Sin Armadura",
+      "s": "Bárbaro 1",
+      "d": "Mientras no llevas armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución. Puedes usar escudo y seguir obteniendo este beneficio.",
       "o": false
     },
     {
-      "n": "Totem Spirit: Bear",
-      "s": "Barbarian 3 — Path of the Totem Warrior",
-      "d": "While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.",
+      "n": "Espíritu Tótem: Oso",
+      "s": "Bárbaro 3 — Sendero del Guerrero Tótem",
+      "d": "Mientras estás en furia, tienes resistencia a todos los tipos de daño excepto el psíquico. El espíritu del oso te hace lo suficientemente resistente para aguantar cualquier castigo.",
       "o": false
     },
     {
-      "n": "Danger Sense",
-      "s": "Barbarian 2",
-      "d": "You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. You must not be blinded, deafened, or incapacitated to gain this benefit.",
+      "n": "Sentido del Peligro",
+      "s": "Bárbaro 2",
+      "d": "Tienes ventaja en las tiradas de salvación de Destreza contra efectos que puedas ver, como trampas y conjuros. Debes no estar cegado, ensordecido o incapacitado para obtener este beneficio.",
       "o": false
     },
     {
-      "n": "Reckless Attack",
-      "s": "Barbarian 2",
-      "d": "When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.",
+      "n": "Ataque Temerario",
+      "s": "Bárbaro 2",
+      "d": "Cuando realizas tu primer ataque en tu turno, puedes decidir atacar temerariamente. Hacerlo te da ventaja en las tiradas de ataque melé con Fuerza durante este turno, pero las tiradas de ataque contra ti tienen ventaja hasta tu siguiente turno.",
       "o": false
     },
     {
-      "n": "Primal Knowledge: Totem Spells (Bear)",
-      "s": "Barbarian 3 — Path of the Totem Warrior",
-      "d": "You gain access to Bear totem spells. These spells are always prepared and don't count against the number of spells you can prepare. Speak with Animals (level 1–2), Beast Sense (level 3–4). You can cast them as rituals only.",
+      "n": "Conocimiento Primario: Conjuros Tótem (Oso)",
+      "s": "Bárbaro 3 — Sendero del Guerrero Tótem",
+      "d": "Obtienes acceso a los conjuros del tótem Oso. Estos conjuros están siempre preparados y no cuentan contra el número de conjuros que puedes preparar. Solo puedes lanzarlos como rituales: Hablar con Animales (niveles 1–2), Sentidos Bestiales (niveles 3–4).",
       "o": false
     },
     {
-      "n": "Natural Explorer (Wanderer)",
-      "s": "Outlander",
-      "d": "You have an excellent memory for maps and geography, and can always recall the general layout of terrain, settlements, and other features around you. You can find food and fresh water for yourself and up to five other people each day, provided the land offers berries, small game, water, and so forth.",
+      "n": "Explorador Natural (Viajero)",
+      "s": "Forastero",
+      "d": "Tienes una memoria excelente para mapas y geografía, y siempre puedes recordar el trazado general del terreno, asentamientos y otros elementos a tu alrededor. Puedes encontrar comida y agua fresca para ti y hasta cinco personas cada día, siempre que el entorno ofrezca bayas, caza menor, agua, etc.",
       "o": false
     }
   ],
@@ -161,20 +161,12 @@
     {
       "n": "Greataxe",
       "id": "greataxe",
-      "h": "main-s",
-      "dmg": "1d12+4",
-      "t": "Slashing",
-      "r": "5ft",
-      "no": "Two-handed. +6 to hit. +2 dmg while raging (1d12+6)."
+      "h": "main-s"
     },
     {
       "n": "Heavy Crossbow",
       "id": "heavy_crossbow",
-      "h": "ranged-d",
-      "dmg": "1d10+1",
-      "t": "Piercing",
-      "r": "100/400ft",
-      "no": "Ammunition, heavy, loading, two-handed. +3 to hit."
+      "h": "ranged-d"
     }
   ],
   "spells": [
@@ -211,52 +203,52 @@
   },
   "inv": [
     {
-      "n": "Greataxe",
+      "n": "Hacha grande",
       "q": "1",
       "v": "30",
-      "no": "Two-handed. 1d12 slashing.",
+      "no": "A dos manos. 1d12 cortante.",
       "unit": "gp"
     },
     {
-      "n": "Heavy crossbow",
+      "n": "Ballesta pesada",
       "q": "1",
       "v": "50",
-      "no": "1d10 piercing. Loading.",
+      "no": "1d10 perforante. Carga.",
       "unit": "gp"
     },
     {
-      "n": "Werewolf bone totem",
+      "n": "Tótem de hueso de hombre lobo",
       "q": "1",
       "v": "",
-      "no": "Totem object. Bone and fur.",
+      "no": "Objeto tótem. Hueso y piel.",
       "unit": ""
     },
     {
-      "n": "Sleeping bag",
+      "n": "Saco de dormir",
       "q": "1",
       "v": "",
       "no": "",
       "unit": "sp"
     },
     {
-      "n": "Rope, hemp",
+      "n": "Cuerda de cáñamo",
       "q": "1",
       "v": "1",
-      "no": "50 feet.",
+      "no": "15 metros.",
       "unit": "gp"
     },
     {
-      "n": "Out-of-tune accordion",
+      "n": "Acordeón desafinado",
       "q": "1",
       "v": "",
-      "no": "Battered. Produces sound. Barely.",
+      "no": "Deteriorado. Produce sonido. A duras penas.",
       "unit": ""
     },
     {
-      "n": "Green frog pin",
+      "n": "Pin de rana verde",
       "q": "1",
       "v": "",
-      "no": "Small decorative pin. Carried for unknown reasons.",
+      "no": "Pin decorativo pequeño. Razón desconocida.",
       "unit": ""
     }
   ],
@@ -277,16 +269,16 @@
     false
   ],
   "personality": {
-    "traits": "I care for my companions as if they were my cubs.",
-    "ideals": "Honor above all else.",
-    "bonds": "The clan is what matters most.",
-    "flaws": "I act without caution."
+    "traits": "Cuido de mis compañeros como si fueran mis crías.",
+    "ideals": "El honor por encima de todo.",
+    "bonds": "El clan es lo que más importa.",
+    "flaws": "Actúo sin cautela."
   },
   "proficiencies": {
-    "languages": "Common, Orc, (pending choice)",
-    "armor": "Light armor, medium armor, shields",
-    "weapons": "Simple weapons, martial weapons",
-    "instruments": "Accordion",
+    "languages": "Común, Orco, (elección pendiente)",
+    "armor": "Armadura ligera, armadura media, escudos",
+    "weapons": "Armas simples, armas marciales",
+    "instruments": "Acordeón",
     "tools": "—",
     "other": "—"
   },

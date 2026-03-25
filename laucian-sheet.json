@@ -4,8 +4,8 @@
   "cc": "Clérigo",
   "cl": "3",
   "cr": "Semi-elfo",
-  "bg": "Haunted One",
-  "al": "Neutral Good",
+  "bg": "Atormentado",
+  "al": "Neutral Bueno",
   "ac": "12",
   "mhp": "18",
   "hd": "3d8",
@@ -14,7 +14,7 @@
   "hdu": "",
   "speed": "30ft",
   "spellClass": "Clérigo",
-  "combatNotes": "COMBOS & TACTICS (Cleric 3 — Grave Domain):\n• Circle of Mortality: when healing a creature at 0 HP, all healing dice roll maximum — always use Healing Word (bonus action) to bring allies up.\n• Healing Word vs Cure Wounds: Healing Word is bonus action range — use it 99% of the time. Save Cure Wounds for when you need max healing.\n• Path to the Grave (Channel Divinity): curse a target → it has vulnerability to ALL damage until end of your next turn. Combo: curse → ally attacks → massive damage.\n• Bane (concentration): up to 3 enemies subtract 1d4 from attacks and saves — excellent opener in any fight.\n• Inflict Wounds (melee): 3d10 necrotic on a hit — highest single-target damage at this level if you can close distance.\n• Sacred Flame (cantrip): DEX save, ignores cover — use on targets behind obstacles.\n• Eyes of the Grave: free undead detection in 60ft — always use before exploring new rooms.\n• Turn Undead / Expunge Undead: reaction panic button vs undead groups.\n• Tip: open with Bane, then Path to the Grave + ally burst. Keep Healing Word in reserve every round. Stay in the back — you're the party's only healer.",
+  "combatNotes": "COMBOS Y TÁCTICAS (Clérigo 3 — Dominio de la Sepultura):\n• Círculo de la Mortalidad: al curar a una criatura con 0 PG, todos los dados de curación obtienen su valor máximo — usar siempre Palabra Curativa (acción adicional) para levantarlos.\n• Palabra Curativa vs Curar Heridas: Palabra Curativa es acción adicional a distancia — usarla el 99% del tiempo. Guardar Curar Heridas para cuando se necesite curación máxima.\n• Camino a la Sepultura (Canalizar Divinidad): maldecir un objetivo → tiene vulnerabilidad a TODO el daño hasta el final de tu siguiente turno. Combo: maldecir → aliado ataca → daño masivo.\n• Perdición (concentración): hasta 3 enemigos restan 1d4 de ataques y salvaciones — excelente apertura en cualquier combate.\n• Infligir Heridas (melé): 3d10 necrótico al impactar — mayor daño de objetivo único a este nivel si puedes cerrar distancia.\n• Llama Sagrada (truco): salvación de DES, ignora cobertura — usar contra objetivos tras obstáculos.\n• Ojos de la Tumba: detección gratuita de no-muertos en 18m — usar siempre antes de explorar nuevas salas.\n• Repeler No-Muertos / Expulsar No-Muertos: botón de pánico de reacción contra grupos de no-muertos.\n• Consejo: abrir con Perdición, luego Camino a la Sepultura + explosión aliada. Mantener Palabra Curativa en reserva cada ronda. Quedarse atrás — eres el único sanador del grupo.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "",
@@ -98,44 +98,44 @@
   "feats": [
     {
       "n": "Visión en la Oscuridad",
-      "s": "Semi-elfo",
-      "d": "Gracias a tu sangre élfica, tienes visión superior en condiciones de oscuridad y poca luz. Puedes ver en luz tenue dentro de 60 pies como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes discernir el color en la oscuridad, solo tonos de gris.",
+      "s": "Semielfo",
+      "d": "Gracias a tu sangre élfica, tienes visión superior en condiciones de oscuridad y poca luz. Puedes ver en luz tenue dentro de 18m como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes distinguir el color en la oscuridad, solo tonos de gris.",
       "o": true
     },
     {
       "n": "Ventaja contra el Encantamiento",
-      "s": "Semi-elfo",
+      "s": "Semielfo",
       "d": "Tienes ventaja en las tiradas de salvación contra ser hechizado.",
       "o": false
     },
     {
       "n": "Inmunidad al Sueño Mágico",
-      "s": "Semi-elfo",
+      "s": "Semielfo",
       "d": "La magia no puede hacerte dormir.",
       "o": false
     },
     {
-      "n": "Canalizar Divinidad: Expulsar Muertos Vivientes",
-      "s": "Clérigo 1",
-      "d": "Como acción, presentas tu símbolo sagrado y pronuncias una oración censurando a los muertos vivientes. Cada muerto viviente que pueda verte u oírte dentro de 30 pies debe realizar una tirada de salvación de Sabiduría. Si la criatura falla su tirada, queda repelida durante 1 minuto o hasta que reciba daño.",
+      "n": "Canalizar Divinidad: Repeler No-Muertos",
+      "s": "Clérigo 3",
+      "d": "Como acción, presentas tu símbolo sagrado y pronuncias una oración censurando a los no-muertos. Cada no-muerto que pueda verte u oírte en 9m debe realizar una salvación de Sabiduría. Si falla, queda repelido durante 1 minuto o hasta recibir daño.",
       "o": false
     },
     {
       "n": "Canalizar Divinidad: Camino a la Sepultura",
-      "s": "Clérigo 1 — Dominio de la Sepultura",
-      "d": "Como acción, maldices a una criatura no muerta que puedas ver dentro de 30 pies. Mientras está maldecida, la criatura tiene vulnerabilidad a todos los daños hasta el final de tu siguiente turno.",
+      "s": "Clérigo 3 — Dominio de la Sepultura",
+      "d": "Como acción, maldices a una criatura no muerta que puedas ver en 9m. Mientras está maldecida, tiene vulnerabilidad a todos los tipos de daño hasta el final de tu siguiente turno.",
       "o": false
     },
     {
       "n": "Ojos de la Tumba",
-      "s": "Clérigo 1 — Dominio de la Sepultura",
-      "d": "Puedes usar tu acción para abrir una conciencia mágica de los muertos vivientes cercanos. Hasta el final de tu siguiente turno, conoces la ubicación de cualquier muerto viviente dentro de 60 pies que no esté detrás de cobertura total. Puedes usarlo un número de veces igual a tu modificador de Sabiduría (mínimo 1). Se recupera con descanso largo.",
+      "s": "Clérigo 3 — Dominio de la Sepultura",
+      "d": "Puedes usar tu acción para abrir una conciencia mágica de los no-muertos cercanos. Hasta el final de tu siguiente turno, conoces la ubicación de cualquier no-muerto en 18m que no esté detrás de cobertura total. Usos iguales a tu modificador de Sabiduría (mínimo 1). Se recupera con descanso largo.",
       "o": false
     },
     {
       "n": "Círculo de la Mortalidad",
-      "s": "Clérigo 1 — Dominio de la Sepultura",
-      "d": "Cuando lanzas un conjuro que restaura puntos de golpe a una criatura con 0 puntos de golpe, tratas cualquier dado tirado para determinar los puntos de golpe restaurados como si hubiera obtenido su valor máximo.",
+      "s": "Clérigo 3 — Dominio de la Sepultura",
+      "d": "Cuando lanzas un conjuro que restaura puntos de golpe a una criatura con 0 PG, tratas cualquier dado tirado como si hubiera obtenido su valor máximo.",
       "o": false
     }
   ],
@@ -143,20 +143,12 @@
     {
       "n": "Bastón",
       "id": "quarterstaff",
-      "h": "main-s",
-      "dmg": "1d6-1",
-      "t": "Contundente",
-      "r": "5ft",
-      "no": "Versátil (1d8-1 a dos manos)."
+      "h": "main-s"
     },
     {
       "n": "Ballesta Ligera",
       "id": "light_crossbow",
-      "h": "ranged-d",
-      "dmg": "1d8+1",
-      "t": "Perforante",
-      "r": "80/320ft",
-      "no": "Munición, dos manos. DEX+Prof (+3). Requiere acción para recargar."
+      "h": "ranged-d"
     }
   ],
   "spells": [
@@ -362,129 +354,129 @@
   "sdescs": {},
   "inv": [
     {
-      "n": "Leather armor",
+      "n": "Armadura de cuero",
       "q": "1",
       "v": "10",
-      "no": "Light armor. AC 11 + DEX mod.",
+      "no": "Armadura ligera. CA 11 + mod. DES.",
       "unit": "gp"
     },
     {
-      "n": "Plague mask",
+      "n": "Máscara de plaga",
       "q": "1",
       "v": "",
-      "no": "Haunted One equipment.",
+      "no": "Equipo del trasfondo Atormentado.",
       "unit": ""
     },
     {
-      "n": "Cloak",
+      "n": "Capa",
       "q": "1",
       "v": "",
       "no": "",
       "unit": ""
     },
     {
-      "n": "Holy symbol",
+      "n": "Símbolo sagrado",
       "q": "1",
       "v": "",
-      "no": "Spellcasting focus.",
+      "no": "Foco de conjuración.",
       "unit": "gp"
     },
     {
-      "n": "Quarterstaff",
+      "n": "Bastón",
       "q": "1",
       "v": "2",
-      "no": "Main weapon. Versatile (1d8).",
+      "no": "Arma principal. Versátil (1d8).",
       "unit": "sp"
     },
     {
-      "n": "Light crossbow",
+      "n": "Ballesta ligera",
       "q": "1",
       "v": "25",
-      "no": "Ranged weapon.",
+      "no": "Arma a distancia.",
       "unit": "gp"
     },
     {
-      "n": "Candles",
+      "n": "Velas",
       "q": "10",
       "v": "",
       "no": "",
       "unit": "cp"
     },
     {
-      "n": "Incense",
+      "n": "Incienso",
       "q": "1",
       "v": "",
       "no": "",
       "unit": "sp"
     },
     {
-      "n": "Waterskin",
+      "n": "Odre de agua",
       "q": "1",
       "v": "",
       "no": "",
       "unit": "sp"
     },
     {
-      "n": "Doll head that always watches you",
+      "n": "Cabeza de muñeca que siempre te observa",
       "q": "1",
       "v": "",
       "no": "Objeto inquietante. Origen desconocido.",
       "unit": ""
     },
     {
-      "n": "Small chest",
+      "n": "Cofre pequeño",
       "q": "1",
       "v": "",
       "no": "",
       "unit": "gp"
     },
     {
-      "n": "Crowbar",
+      "n": "Palanca",
       "q": "1",
       "v": "",
       "no": "",
       "unit": "gp"
     },
     {
-      "n": "Hammer",
+      "n": "Martillo",
       "q": "1",
       "v": "",
       "no": "",
       "unit": "gp"
     },
     {
-      "n": "Wooden stakes",
+      "n": "Estacas de madera",
       "q": "5",
       "v": "",
-      "no": "Useful against vampires.",
+      "no": "Útiles contra vampiros.",
       "unit": "cp"
     },
     {
-      "n": "Holy water",
+      "n": "Agua bendita",
       "q": "1",
       "v": "",
-      "no": "Flask. Radiant damage vs undead.",
+      "no": "Frasco. Daño radiante contra no-muertos.",
       "unit": "gp"
     },
     {
-      "n": "Steel mirror",
+      "n": "Espejo de acero",
       "q": "1",
       "v": "",
       "no": "",
       "unit": "gp"
     },
     {
-      "n": "Torches",
+      "n": "Antorchas",
       "q": "3",
       "v": "",
       "no": "",
       "unit": "cp"
     },
     {
-      "n": "Hemp rope",
+      "n": "Cuerda de cáñamo",
       "q": "1",
       "v": "",
-      "no": "50 feet.",
+      "no": "15 metros.",
       "unit": "gp"
     }
   ],
@@ -505,18 +497,18 @@
     false
   ],
   "personality": {
-    "traits": "I spend money without worry.",
-    "ideals": "I slay monsters to make the world safer.",
-    "bonds": "There is an evil within me.",
-    "flaws": "I follow daily rituals with rigid consistency."
+    "traits": "Gasto el dinero sin preocupación.",
+    "ideals": "Mato monstruos para hacer el mundo más seguro.",
+    "bonds": "Hay un mal dentro de mí.",
+    "flaws": "Sigo rituales diarios con rígida consistencia."
   },
   "proficiencies": {
-    "languages": "Common, Elvish, Infernal, Orc",
-    "armor": "Light armor, medium armor, shields",
-    "weapons": "Simple weapons",
+    "languages": "Común, Élfico, Infernal, Orco",
+    "armor": "Armadura ligera, armadura media, escudos",
+    "weapons": "Armas simples",
     "instruments": "—",
     "tools": "—",
-    "other": "Holy symbol (spellcasting focus)"
+    "other": "Símbolo sagrado (foco de conjuración)"
   },
   "coins": {
     "gp": "6",
