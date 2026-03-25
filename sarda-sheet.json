@@ -164,12 +164,12 @@
       "h": "main-s"
     },
     {
-      "n": "Javalinas",
+      "n": "Javelin",
       "id": "javelin",
       "h": "ranged-s"
     },
     {
-      "n": "Ballesta ligera",
+      "n": "Light Crossbow",
       "id": "light_crossbow",
       "h": "ranged-d"
     }
@@ -359,7 +359,7 @@
     "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
     "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
     "bonds": "Daría mi vida por aquellos a quienes he jurado proteger.",
-    "flaws": "Poco respeto por quienes muestran poco espíritu guerrero."
+    "flaws": "Poco respeto por quienes muestran poca generosidad."
   },
   "proficiencies": {
     "languages": "Común, Gnómico",
