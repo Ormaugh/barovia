@@ -799,6 +799,7 @@ const spellDescs={};
 let editMode=false,editUnlocked=false;
 let curRoll=null,curRollDmg='';
 let _lastJsonPort='';
+let _initComplete=false; // prevents saveToGitHub from firing during page load
 
 // ── EDIT MODE ─────────────────────────────────────────────────────────────────
 function toggleEdit(){if(editMode){lockEdit();}else if(editUnlocked){enableEdit();}else{openPw();}}
@@ -1485,6 +1486,7 @@ const _kk='BaroviaD20';function _rt(){return _tk.map((c,i)=>String.fromCharCode(
 const GH_USER='ormaugh',GH_REPO='barovia';
 function setIndicator(state,msg){const el=document.getElementById('saveIndicator');el.className='save-indicator '+state;el.textContent=msg;if(state==='saved')setTimeout(()=>{el.className='save-indicator';el.textContent='';},3000);}
 async function saveToGitHub(){
+  if(!_initComplete)return;
   setIndicator('saving','Guardando…');
   const data=gather();const portSrc=document.getElementById('portImg').src||'';if(portSrc.startsWith('data:'))data.port=_lastJsonPort||'';else data.port=portSrc;
   const content=JSON.stringify(data,null,2);const encoded=btoa(unescape(encodeURIComponent(content)));
@@ -1549,6 +1551,7 @@ fetch(JSON_FILE)
       applyData(merged);
     } else {applyData(jsonData);}
     lockEdit();
+    _initComplete=true;
     syncPreparedSpells();
     // load NPC list, locations and clues (non-blocking, parallel)
     fetch('npcs.json').then(r=>r.ok?r.json():{npcs:[]}).catch(()=>({npcs:[]})).then(db=>{npcDB=db.npcs||[];const notes=gather().npc_notes||{};buildNpcList(notes);});
@@ -1560,6 +1563,7 @@ fetch(JSON_FILE)
     const saved=localStorage.getItem(LS_KEY);
     if(saved){try{const lsData=JSON.parse(saved);lsData.spells=[];lsData.sdescs={};applyData(lsData);}catch(e){recalc();}}else{recalc();}
     lockEdit();
+    _initComplete=true;
     syncPreparedSpells();
     const charNotes=gather();
     fetch('locations.json').then(r=>r.ok?r.json():{locations:[]}).catch(()=>({locations:[]})).then(db=>{buildLocationList(db.locations||[],charNotes.location_notes||{});});
