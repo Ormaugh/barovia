@@ -6,19 +6,20 @@
   "cr": "Gnome",
   "bg": "Soldado",
   "al": "Legal Bueno",
+  "player": "Edith",
   "ac": "18",
   "mhp": "28",
   "hd": "3d10",
+  "hdu": 0,
   "chp": "28",
-  "thp": "",
-  "hdu": "",
+  "thp": "—",
   "speed": "25ft",
   "spellClass": "Paladin",
   "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "Hablar con bestias pequeñas",
-  "insp": true,
+  "insp": false,
   "sc": {
     "str": "14",
     "dex": "14",
@@ -62,7 +63,7 @@
       "u": 0
     },
     "2": {
-      "t": "0",
+      "t": "2",
       "u": 0
     },
     "3": {
@@ -161,191 +162,157 @@
     {
       "n": "Lucero",
       "id": "mace",
-      "h": "main-s"
+      "h": "main-s",
+      "dmg": "1d6",
+      "t": "bludgeoning",
+      "r": "5ft",
+      "no": ""
     },
     {
       "n": "Javelin",
       "id": "javelin",
-      "h": "ranged-s"
+      "h": "ranged-s",
+      "dmg": "1d6",
+      "t": "piercing",
+      "r": "30/120ft",
+      "no": ""
     },
     {
-      "n": "Light Crossbow",
       "n": "Light Crossbow",
       "id": "light_crossbow",
-      "h": "ranged-d"
+      "h": "ranged-d",
+      "dmg": "1d8",
+      "t": "piercing",
+      "r": "80/320ft",
+      "no": ""
     }
   ],
-  "spells": [
-    {
-      "p": true,
-      "l": "0",
-      "n": "Minor Illusion",
-      "e": false
+  "spells": [],
+  "sdescs": {
+    "1": {
+      "desc": "Ensnaring Strike (Oath) — Conc. 1 min. On hit, vines restrain the target. STR save or restrained. Repeats save each turn.",
+      "dur": "1 min",
+      "comp": "V",
+      "target": "1 creature",
+      "classes": "Ranger / Oath of the Ancients",
+      "higher": ""
     },
-    {
-      "p": true,
-      "l": "1",
-      "n": "Ensnaring Strike",
-      "e": true
+    "2": {
+      "desc": "Speak with Animals (Oath) — Ritual. 10 min. Comprehend and communicate with beasts.",
+      "dur": "10 min",
+      "comp": "V, S",
+      "target": "Self",
+      "classes": "Druid / Oath of the Ancients",
+      "higher": ""
     },
-    {
-      "p": true,
-      "l": "1",
-      "n": "Speak with Animals",
-      "e": true
+    "3": {
+      "desc": "Moonbeam (Oath) — Conc. 1 min. 5ft cylinder of pale light. 2d10 radiant on entry or start of turn. CON save for half. Shapeshifters have disadvantage.",
+      "dur": "1 min",
+      "comp": "V, S, M",
+      "target": "40ft range, 5ft cylinder",
+      "classes": "Druid / Oath of the Ancients",
+      "higher": ""
     },
-    {
-      "p": true,
-      "l": "1",
-      "n": "Bless",
-      "e": false
-    },
-    {
-      "p": true,
-      "l": "1",
-      "n": "Protection from Evil and Good",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Thunderous Smite",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Bane",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Command",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Cure Wounds",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Detect Magic",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Divine Favor",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Heroism",
-      "e": false
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Shield of Faith",
-      "e": false
+    "4": {
+      "desc": "Misty Step (Oath) — Bonus action. Teleport up to 30 feet to an unoccupied space you can see.",
+      "dur": "Instantaneous",
+      "comp": "V",
+      "target": "Self",
+      "classes": "Sorcerer, Wizard / Oath of the Ancients",
+      "higher": ""
     }
-  ],
+  },
   "inv": [
     {
       "n": "Cota de malla",
       "q": "1",
       "v": "75",
-      "no": "Armadura pesada. CA 16. Desventaja en Sigilo.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Armadura pesada. CA 16. Desventaja en Sigilo."
     },
     {
       "n": "Escudo",
       "q": "1",
       "v": "10",
-      "no": "+2 CA. Puede imponer desventaja al atacante (reacción).",
-      "unit": "gp"
+      "u": "gp",
+      "no": "+2 CA. Puede imponer desventaja al atacante (reacción)."
     },
     {
       "n": "Símbolo sagrado",
       "q": "1",
       "v": "",
-      "no": "Foco de conjuración.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Foco de conjuración."
     },
     {
       "n": "Espada de plata (Lucero)",
       "q": "1",
       "v": "",
-      "no": "Arma principal. Plateada.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Arma principal. Plateada."
     },
     {
       "n": "Jabalina",
       "q": "1",
       "v": "1",
-      "no": "Arrojadiza o melé.",
-      "unit": "sp"
+      "u": "gp",
+      "no": "Arrojadiza o melé."
     },
     {
       "n": "Ballesta ligera",
       "q": "1",
       "v": "25",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Cuerda de cáñamo",
       "q": "1",
       "v": "1",
-      "no": "15 metros.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "15 metros."
     },
     {
       "n": "Antorchas",
       "q": "10",
       "v": "",
-      "no": "",
-      "unit": "cp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Utensilios de cocina",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Odre de agua",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "sp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Insignia de rango — Regimiento de Caballería",
       "q": "1",
       "v": "",
-      "no": "Recuerdo del trasfondo militar.",
-      "unit": ""
+      "u": "gp",
+      "no": "Recuerdo del trasfondo militar."
     },
     {
       "n": "Trofeo de batalla",
       "q": "1",
       "v": "",
-      "no": "Trofeo de una batalla pasada. Origen sin especificar.",
-      "unit": ""
+      "u": "gp",
+      "no": "Trofeo de una batalla pasada. Origen sin especificar."
     },
     {
       "n": "Baraja de cartas",
       "q": "1",
       "v": "",
-      "no": "Competencia: juegos de cartas (Póker).",
-      "unit": ""
+      "u": "gp",
+      "no": "Competencia: juegos de cartas (Póker)."
     }
   ],
   "ds": [
@@ -356,11 +323,13 @@
     false,
     false
   ],
+  "npc_notes": {},
+  "location_notes": {},
+  "item_notes": {},
   "personality": {
     "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
     "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
     "bonds": "Daría mi vida por aquellos a quienes he jurado proteger.",
-    "flaws": "Poco respeto por quienes muestran poca generosidad."
     "flaws": "Poco respeto por quienes muestran poca generosidad."
   },
   "proficiencies": {
@@ -375,21 +344,5 @@
     "gp": "10",
     "sp": "0",
     "cp": "0"
-  },
-  "player": "Edith",
-  "npc_notes": {
-    "parriwimple": "",
-    "bildrath": "",
-    "doru": "",
-    "donavich": "",
-    "ireena": "",
-    "ismark": "",
-    "vistani_woman_tavern": "",
-    "rose_durst": "",
-    "thorn_durst": "",
-    "alenka": "",
-    "mirabel": "",
-    "sorbia": "",
-    "madam_eva": ""
   }
 }
