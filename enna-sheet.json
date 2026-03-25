@@ -160,7 +160,7 @@
   ],
   "atks": [
     {
-      "n": "Estoque",
+      "n": "Estoque (espadita con pincho)",
       "id": "rapier",
       "h": "main-d",
       "dmg": "1d8",
@@ -232,7 +232,7 @@
       "no": "Armadura ligera. CA 11 + mod. DES."
     },
     {
-      "n": "Estoque",
+      "n": "Estoque (espadita con pincho)",
       "q": "1",
       "v": "25",
       "u": "gp",
