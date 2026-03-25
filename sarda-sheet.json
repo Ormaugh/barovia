@@ -4,20 +4,21 @@
   "cc": "Paladin",
   "cl": "3",
   "cr": "Gnome",
-  "bg": "Soldier",
-  "al": "Lawful Good",
+  "bg": "Soldado",
+  "al": "Legal Bueno",
+  "player": "Edith",
   "ac": "18",
   "mhp": "28",
   "hd": "3d10",
+  "hdu": 0,
   "chp": "28",
-  "thp": "",
-  "hdu": "",
+  "thp": "—",
   "speed": "25ft",
   "spellClass": "Paladin",
-  "combatNotes": "COMBOS & TACTICS (Paladin 3 — Oath of the Ancients):\n• Divine Smite: decide AFTER the attack hits — expend a spell slot for 2d8 radiant (+1d8 vs undead/fiends). Save slots for confirmed hits.\n• Best smite value: 2nd-level slot = 3d8 radiant. At lvl 3 this is massive burst damage.\n• Bless (concentration): +1d4 to all attack rolls and saving throws for up to 3 allies — cast before combat starts.\n• Ensnaring Strike (concentration, oath): cast before attacking, on hit the target must STR save or be restrained. Follow with smite.\n• Misty Step (bonus action): teleport 30ft to close on a fleeing enemy or escape a grapple, then smite.\n• Moonbeam (concentration, lvl 2): 5ft cylinder, 2d10 radiant/turn — devastating vs undead and shapechangers (disadv on save).\n• Nature's Wrath (Channel Divinity): restrain a target within 10ft, STR or DEX save. Use to lock down a dangerous melee enemy.\n• Lay on Hands (15 HP pool): stabilise downed allies as a bonus in emergencies (action, but saves a spell slot).\n• Tip: open with Bless, then Ensnaring Strike + Smite. Moonbeam for groups or undead. Misty Step out when surrounded.",
+  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
-  "sensesOther": "Speak with small beasts",
+  "sensesOther": "Hablar con bestias pequeñas",
   "insp": false,
   "sc": {
     "str": "14",
@@ -62,7 +63,7 @@
       "u": 0
     },
     "2": {
-      "t": "0",
+      "t": "2",
       "u": 0
     },
     "3": {
@@ -97,266 +98,287 @@
   "port": "https://ormaugh.github.io/barovia/portraits/sarda.png",
   "feats": [
     {
-      "n": "Darkvision",
-      "s": "Gnome",
-      "d": "You can see in dim light within 60 feet as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
+      "n": "Visión en la Oscuridad",
+      "s": "Gnomo",
+      "d": "Puedes ver en luz tenue a 18m como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes distinguir colores en la oscuridad, solo tonos de gris.",
       "o": false
     },
     {
-      "n": "Gnome Cunning",
-      "s": "Gnome",
-      "d": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
+      "n": "Astucia Gnoma",
+      "s": "Gnomo",
+      "d": "Tienes ventaja en todas las tiradas de salvación de Inteligencia, Sabiduría y Carisma contra magia.",
       "o": false
     },
     {
-      "n": "Speak with Small Beasts",
-      "s": "Forest Gnome",
-      "d": "Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts.",
+      "n": "Hablar con Bestias Pequeñas",
+      "s": "Gnomo del Bosque",
+      "d": "Mediante sonidos y gestos, puedes comunicar ideas simples con bestias de tamaño Pequeño o menor.",
       "o": false
     },
     {
-      "n": "Minor Illusion (homebrew)",
-      "s": "Forest Gnome / Homebrew",
-      "d": "You know the Minor Illusion cantrip. Intelligence is your spellcasting ability for it.",
+      "n": "Ilusión Menor (homebrew)",
+      "s": "Gnomo del Bosque / Homebrew",
+      "d": "Conoces el truco Ilusión Menor. La Inteligencia es tu característica de conjuración para él.",
       "o": false
     },
     {
-      "n": "Divine Sense",
-      "s": "Paladin 1",
-      "d": "As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet that is not behind total cover. You sense the type of creature but not its identity. Uses: CHA mod + 1 (3) per long rest.",
+      "n": "Sentido Divino",
+      "s": "Paladín 1",
+      "d": "Como acción, abres tu percepción para detectar esas fuerzas. Hasta el final de tu siguiente turno, conoces la ubicación de cualquier celestial, demonio o no-muerto en 18m que no esté detrás de cobertura total. Usos: mod. CAR + 1 (3) por descanso largo.",
       "o": false
     },
     {
-      "n": "Lay on Hands",
-      "s": "Paladin 1",
-      "d": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes on a long rest. With that pool, you can restore a total of 15 hit points (5 × level). You can also expend 5 points to cure a disease or neutralize a poison.",
+      "n": "Imposición de Manos",
+      "s": "Paladín 1",
+      "d": "Tu toque bendecido puede curar heridas. Tienes una reserva de 15 PG que se recupera con descanso largo. También puedes gastar 5 puntos para curar una enfermedad o neutralizar un veneno.",
       "o": false
     },
     {
-      "n": "Divine Smite",
-      "s": "Paladin 2",
-      "d": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage: 2d8 per slot level (max 5d8 at slot 4+). +1d8 extra against undead or fiends.",
+      "n": "Golpe Divino",
+      "s": "Paladín 2",
+      "d": "Cuando impactas a una criatura con un ataque de arma melé, puedes gastar un espacio de conjuro para infligir daño radiante: 2d8 por nivel de espacio (máx. 5d8 en espacio 4+). +1d8 extra contra no-muertos o diablos.",
       "o": false
     },
     {
-      "n": "Divine Health",
-      "s": "Paladin 3",
-      "d": "The divine magic flowing through you makes you immune to disease.",
+      "n": "Salud Divina",
+      "s": "Paladín 3",
+      "d": "La magia divina que fluye por ti te hace inmune a las enfermedades.",
       "o": false
     },
     {
-      "n": "Channel Divinity: Nature's Wrath",
-      "s": "Paladin 3 — Oath of the Ancients",
-      "d": "As an action, you can cause spectral vines to spring up and reach for a creature within 10 feet. The creature must succeed on a Strength or Dexterity saving throw (its choice) or be restrained. While restrained, the creature repeats the save at the end of each turn. On a success, it frees itself. 1 use per short or long rest.",
+      "n": "Canalizar Divinidad: Ira de la Naturaleza",
+      "s": "Paladín 3 — Juramento de los Ancestros",
+      "d": "Como acción, puedes hacer que enredaderas espectrales broten y alcancen a una criatura en 3m. La criatura debe superar una salvación de Fuerza o Destreza (a su elección) o quedar inmovilizada. Mientras está inmovilizada, repite la salvación al final de cada turno. 1 uso por descanso corto o largo.",
       "o": false
     },
     {
-      "n": "Channel Divinity: Turn the Faithless",
-      "s": "Paladin 3 — Oath of the Ancients",
-      "d": "As an action, you present your holy symbol and speak a prayer censuring fiends and fey. Each fiend or fey within 30 feet must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage. Shares Channel Divinity use with Nature's Wrath.",
+      "n": "Canalizar Divinidad: Repeler a los Infieles",
+      "s": "Paladín 3 — Juramento de los Ancestros",
+      "d": "Como acción, presentas tu símbolo sagrado y pronuncias una oración censurando a demonios y hadas. Cada demonio o hada en 9m debe realizar una salvación de Sabiduría. Si falla, queda repelida durante 1 minuto o hasta recibir daño. Comparte uso de Canalizar Divinidad con Ira de la Naturaleza.",
       "o": false
     }
   ],
   "atks": [
     {
-      "n": "Mace (Lucero)",
+      "n": "Lucero",
       "id": "mace",
       "h": "main-s",
-      "dmg": "1d8+2",
-      "t": "Bludgeoning",
+      "dmg": "1d6",
+      "t": "bludgeoning",
       "r": "5ft",
-      "no": "+4 to hit. Add Divine Smite on hit by expending a slot."
+      "no": ""
     },
     {
-      "n": "Javelin",
+      "n": "Javalinas",
       "id": "javelin",
       "h": "ranged-s",
-      "dmg": "1d6+2",
-      "t": "Piercing",
+      "dmg": "1d6",
+      "t": "piercing",
       "r": "30/120ft",
-      "no": "+4 to hit. Also usable as melee."
+      "no": ""
     },
     {
-      "n": "Light Crossbow",
+      "n": "Ballesta ligera",
       "id": "light_crossbow",
       "h": "ranged-d",
-      "dmg": "1d8+2",
-      "t": "Piercing",
+      "dmg": "1d8",
+      "t": "piercing",
       "r": "80/320ft",
-      "no": "+4 to hit. Ammunition, two-handed."
+      "no": ""
     }
   ],
   "spells": [
     {
       "p": true,
       "l": "0",
-      "n": "Minor Illusion",
-      "e": false
+      "n": "Minor Illusion"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Ensnaring Strike",
-      "e": true
+      "n": "Ensnaring Strike"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Speak with Animals",
-      "e": true
+      "n": "Speak with Animals"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Bless",
-      "e": false
+      "n": "Bless"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Protection from Evil and Good",
-      "e": false
+      "n": "Protection from Evil and Good"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Thunderous Smite",
-      "e": false
+      "n": "Thunderous Smite"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Bane",
-      "e": false
+      "n": "Bane"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Command",
-      "e": false
+      "n": "Command"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Cure Wounds",
-      "e": false
+      "n": "Cure Wounds"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Detect Magic",
-      "e": false
+      "n": "Detect Magic"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Divine Favor",
-      "e": false
+      "n": "Divine Favor"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Heroism",
-      "e": false
+      "n": "Heroism"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Shield of Faith",
-      "e": false
+      "n": "Shield of Faith"
     }
   ],
+  "sdescs": {
+    "1": {
+      "desc": "Ensnaring Strike (Oath) — Conc. 1 min. On hit, vines restrain the target. STR save or restrained. Repeats save each turn.",
+      "dur": "1 min",
+      "comp": "V",
+      "target": "1 creature",
+      "classes": "Ranger / Oath of the Ancients",
+      "higher": ""
+    },
+    "2": {
+      "desc": "Speak with Animals (Oath) — Ritual. 10 min. Comprehend and communicate with beasts.",
+      "dur": "10 min",
+      "comp": "V, S",
+      "target": "Self",
+      "classes": "Druid / Oath of the Ancients",
+      "higher": ""
+    },
+    "3": {
+      "desc": "Moonbeam (Oath) — Conc. 1 min. 5ft cylinder of pale light. 2d10 radiant on entry or start of turn. CON save for half. Shapeshifters have disadvantage.",
+      "dur": "1 min",
+      "comp": "V, S, M",
+      "target": "40ft range, 5ft cylinder",
+      "classes": "Druid / Oath of the Ancients",
+      "higher": ""
+    },
+    "4": {
+      "desc": "Misty Step (Oath) — Bonus action. Teleport up to 30 feet to an unoccupied space you can see.",
+      "dur": "Instantaneous",
+      "comp": "V",
+      "target": "Self",
+      "classes": "Sorcerer, Wizard / Oath of the Ancients",
+      "higher": ""
+    }
+  },
   "inv": [
     {
-      "n": "Chain mail",
+      "n": "Cota de malla",
       "q": "1",
       "v": "75",
-      "no": "Heavy armor. AC 16. Disadvantage on Stealth.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Armadura pesada. CA 16. Desventaja en Sigilo."
     },
     {
-      "n": "Shield",
+      "n": "Escudo",
       "q": "1",
       "v": "10",
-      "no": "+2 AC. Can impose disadvantage on attacker (reaction).",
-      "unit": "gp"
+      "u": "gp",
+      "no": "+2 CA. Puede imponer desventaja al atacante (reacción)."
     },
     {
-      "n": "Holy symbol",
+      "n": "Símbolo sagrado",
       "q": "1",
       "v": "",
-      "no": "Spellcasting focus.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Foco de conjuración."
     },
     {
-      "n": "Silver sword (Lucero)",
+      "n": "Espada de plata (Lucero)",
       "q": "1",
       "v": "",
-      "no": "Main weapon. Silvered.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Arma principal. Plateada."
     },
     {
-      "n": "Javelin",
+      "n": "Jabalina",
       "q": "1",
       "v": "1",
-      "no": "Thrown or melee.",
-      "unit": "sp"
+      "u": "gp",
+      "no": "Arrojadiza o melé."
     },
     {
-      "n": "Light crossbow",
+      "n": "Ballesta ligera",
       "q": "1",
       "v": "25",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
-      "n": "Rope, hemp",
+      "n": "Cuerda de cáñamo",
       "q": "1",
       "v": "1",
-      "no": "50 feet.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "15 metros."
     },
     {
-      "n": "Torches",
+      "n": "Antorchas",
       "q": "10",
       "v": "",
-      "no": "",
-      "unit": "cp"
+      "u": "gp",
+      "no": ""
     },
     {
-      "n": "Cooking utensils",
+      "n": "Utensilios de cocina",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
-      "n": "Waterskin",
+      "n": "Odre de agua",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "sp"
+      "u": "gp",
+      "no": ""
     },
     {
-      "n": "Rank insignia — Cavalry Regiment",
+      "n": "Insignia de rango — Regimiento de Caballería",
       "q": "1",
       "v": "",
-      "no": "Military background keepsake.",
-      "unit": ""
+      "u": "gp",
+      "no": "Recuerdo del trasfondo militar."
     },
     {
-      "n": "Battle trophy",
+      "n": "Trofeo de batalla",
       "q": "1",
       "v": "",
-      "no": "Trophy from a past battle. Origin unspecified.",
-      "unit": ""
+      "u": "gp",
+      "no": "Trofeo de una batalla pasada. Origen sin especificar."
     },
     {
-      "n": "Deck of cards",
+      "n": "Baraja de cartas",
       "q": "1",
       "v": "",
-      "no": "Proficiency: card games (Poker).",
-      "unit": ""
+      "u": "gp",
+      "no": "Competencia: juegos de cartas (Póker)."
     }
   ],
   "ds": [
@@ -367,39 +389,26 @@
     false,
     false
   ],
+  "npc_notes": {},
+  "location_notes": {},
+  "item_notes": {},
   "personality": {
-    "traits": "I love being strong and breaking things. I spread light and hope wherever I go.",
-    "ideals": "I do what I must and obey the law — until it stops making sense.",
-    "bonds": "I would give my life for those I have sworn to protect.",
-    "flaws": "Little respect for those who show little generosity."
+    "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
+    "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
+    "bonds": "Daría mi vida por aquellos a quienes he jurado proteger.",
+    "flaws": "Poco respeto por quienes muestran poco espíritu guerrero."
   },
   "proficiencies": {
-    "languages": "Common, Gnomish",
-    "armor": "All armor, shields",
-    "weapons": "Simple weapons, martial weapons",
+    "languages": "Común, Gnómico",
+    "armor": "Todas las armaduras, escudos",
+    "weapons": "Armas simples, armas marciales",
     "instruments": "—",
-    "tools": "Card games (Poker)",
-    "other": "Holy symbol (spellcasting focus)"
+    "tools": "Juegos de cartas (Póker)",
+    "other": "Símbolo sagrado (foco de conjuración)"
   },
   "coins": {
     "gp": "10",
     "sp": "0",
     "cp": "0"
-  },
-  "player": "Edith",
-  "npc_notes": {
-    "parriwimple": "",
-    "bildrath": "",
-    "doru": "",
-    "donavich": "",
-    "ireena": "",
-    "ismark": "",
-    "vistani_woman_tavern": "",
-    "rose_durst": "",
-    "thorn_durst": "",
-    "alenka": "",
-    "mirabel": "",
-    "sorbia": "",
-    "madam_eva": ""
   }
 }
