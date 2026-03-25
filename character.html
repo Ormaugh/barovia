@@ -1495,15 +1495,61 @@ async function saveToGitHub(){
     const shaRes=await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`,{headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json'}});
     let sha='';if(shaRes.ok){const shaData=await shaRes.json();sha=shaData.sha||'';}
     const putRes=await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`,{method:'PUT',headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:`Update ${filePath} — ${new Date().toLocaleString('es-ES',{timeZone:'Europe/Madrid'})}`,content:encoded,sha:sha||undefined})});
-    if(putRes.ok){setIndicator('saved','✓ Guardado');try{localStorage.setItem(LS_KEY,JSON.stringify(data));}catch(e){}}
+    if(putRes.ok){setIndicator('saved','✓ Guardado');clearLocal();_dirty=false;}
     else{setIndicator('error','✗ Error: '+putRes.status);}
   }catch(e){setIndicator('error','✗ Sin conexión');}
 }
 
-// ── LOCAL SAVE ────────────────────────────────────────────────────────────────
+// ── LOCAL BUFFER (1h TTL) + AUTOSAVE ─────────────────────────────────────────
+const LS_TTL = 60 * 60 * 1000; // 1 hour in ms
+let _dirty = false; // tracks unsaved changes since last GitHub save
+
+function saveLocal(){
+  if(!_initComplete) return;
+  try {
+    const payload = { data: gather(), ts: Date.now() };
+    localStorage.setItem(LS_KEY, JSON.stringify(payload));
+    _dirty = true;
+  } catch(e) {}
+}
+
+function loadLocal(){
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if(!raw) return null;
+    const payload = JSON.parse(raw);
+    // Support both old format (plain object) and new format (with ts)
+    if(payload && payload.ts && payload.data){
+      if(Date.now() - payload.ts > LS_TTL){
+        localStorage.removeItem(LS_KEY);
+        return null;
+      }
+      return payload.data;
+    }
+    // Old format — return as-is but don't trust slots.t
+    return payload;
+  } catch(e) { return null; }
+}
+
+function clearLocal(){
+  try { localStorage.removeItem(LS_KEY); } catch(e) {}
+}
+
+// Debounced local buffer write — 2s after last input
 let saveTimer;
-function save(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{try{localStorage.setItem(LS_KEY,JSON.stringify(gather()));}catch(e){}},1500);}
-document.addEventListener('input',save);document.addEventListener('change',save);
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveLocal, 2000);
+}
+document.addEventListener('input', save);
+document.addEventListener('change', save);
+
+// Autosave to GitHub every 5 minutes if dirty
+setInterval(async () => {
+  if(_initComplete && _dirty){
+    await saveToGitHub();
+  }
+}, 5 * 60 * 1000);
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 buildAbils();buildSaves();buildSkills();buildSlots();
@@ -1525,9 +1571,16 @@ fetch(JSON_FILE)
   .then(r=>r.ok?r.json():Promise.reject('not found'))
   .then(jsonData=>{
     _lastJsonPort=jsonData.port||'';
-    const saved=localStorage.getItem(LS_KEY);
-    let lsData=null;if(saved){try{lsData=JSON.parse(saved);}catch(e){}}
+    const lsData=loadLocal();
     if(lsData){
+      // Merge: server JSON is source of truth for character definition.
+      // Local buffer only provides session state: current HP, used slots, insp, death saves, notes.
+      const mergedSlots={};
+      for(let i=1;i<=9;i++){
+        const jsonSlot=jsonData.slots?.[i]||{t:'0',u:0};
+        const lsSlot=lsData.slots?.[i]||{};
+        mergedSlots[i]={t:jsonSlot.t, u:lsSlot.u??0}; // total from JSON, used from local
+      }
       const merged={
         v:jsonData.v,cn:jsonData.cn,cc:jsonData.cc,cl:jsonData.cl,cr:jsonData.cr,
         bg:jsonData.bg,al:jsonData.al,player:jsonData.player,
@@ -1540,9 +1593,9 @@ fetch(JSON_FILE)
         personality:jsonData.personality,spellClass:jsonData.spellClass,
         sensesDarkvision:jsonData.sensesDarkvision,sensesOther:jsonData.sensesOther,
         combatNotes:jsonData.combatNotes,invNotes:jsonData.invNotes,
-        // session state from localStorage
+        // session state from local buffer
         insp:lsData.insp,chp:lsData.chp,thp:lsData.thp,hdu:lsData.hdu,
-        slots:lsData.slots??jsonData.slots,
+        slots:mergedSlots,
         ds:lsData.ds,
         npc_notes:Object.assign({},jsonData.npc_notes||{},lsData.npc_notes||{}),
         location_notes:Object.assign({},jsonData.location_notes||{},lsData.location_notes||{}),
@@ -1560,8 +1613,8 @@ fetch(JSON_FILE)
     fetch('clues.json').then(r=>r.ok?r.json():{clues:[]}).catch(()=>({clues:[]})).then(db=>{buildItemList(db.clues||[],charNotes.item_notes||{});});
   })
   .catch(()=>{
-    const saved=localStorage.getItem(LS_KEY);
-    if(saved){try{const lsData=JSON.parse(saved);lsData.spells=[];lsData.sdescs={};applyData(lsData);}catch(e){recalc();}}else{recalc();}
+    const lsData=loadLocal();
+    if(lsData){try{lsData.spells=[];lsData.sdescs={};applyData(lsData);}catch(e){recalc();}}else{recalc();}
     lockEdit();
     _initComplete=true;
     syncPreparedSpells();

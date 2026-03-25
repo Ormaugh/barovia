@@ -155,200 +155,167 @@
     {
       "p": true,
       "l": "0",
-      "n": "Guidance",
-      "e": false
+      "n": "Guidance"
     },
     {
       "p": false,
       "l": "0",
-      "n": "Light",
-      "e": false
+      "n": "Light"
     },
     {
       "p": false,
       "l": "0",
-      "n": "Mending",
-      "e": false
+      "n": "Mending"
     },
     {
       "p": false,
       "l": "0",
-      "n": "Resistance",
-      "e": false
+      "n": "Resistance"
     },
     {
       "p": true,
       "l": "0",
-      "n": "Sacred Flame",
-      "e": false
+      "n": "Sacred Flame"
     },
     {
       "p": true,
       "l": "0",
-      "n": "Spare the Dying",
-      "e": false
+      "n": "Spare the Dying"
     },
     {
       "p": false,
       "l": "0",
-      "n": "Thaumaturgy",
-      "e": false
+      "n": "Thaumaturgy"
     },
     {
       "p": false,
       "l": "0",
-      "n": "Toll the Dead",
-      "e": false
+      "n": "Toll the Dead"
     },
     {
       "p": true,
       "l": "0",
-      "n": "Word of Radiance",
-      "e": false
+      "n": "Word of Radiance"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Bane",
-      "e": false
+      "n": "Bane"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Bless",
-      "e": false
+      "n": "Bless"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Command",
-      "e": false
+      "n": "Command"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Cure Wounds",
-      "e": false
+      "n": "Cure Wounds"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Detect Magic",
-      "e": false
+      "n": "Detect Magic"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Detect Poison and Disease",
-      "e": false
+      "n": "Detect Poison and Disease"
     },
     {
       "p": true,
       "l": "1",
-      "n": "False Life",
-      "e": false
+      "n": "False Life"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Gentle Repose",
-      "e": false
+      "n": "Gentle Repose"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Guiding Bolt",
-      "e": false
+      "n": "Guiding Bolt"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Healing Word",
-      "e": false
+      "n": "Healing Word"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Inflict Wounds",
-      "e": false
+      "n": "Inflict Wounds"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Ray of Enfeeblement",
-      "e": false
+      "n": "Ray of Enfeeblement"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Blindness/Deafness",
-      "e": false
+      "n": "Blindness/Deafness"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Calm Emotions",
-      "e": false
+      "n": "Calm Emotions"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Enhance Ability",
-      "e": false
+      "n": "Enhance Ability"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Find Traps",
-      "e": false
+      "n": "Find Traps"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Hold Person",
-      "e": false
+      "n": "Hold Person"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Lesser Restoration",
-      "e": false
+      "n": "Lesser Restoration"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Locate Object",
-      "e": false
+      "n": "Locate Object"
     },
     {
       "p": true,
       "l": "2",
-      "n": "Prayer of Healing",
-      "e": false
+      "n": "Prayer of Healing"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Protection from Poison",
-      "e": false
+      "n": "Protection from Poison"
     },
     {
       "p": false,
       "l": "2",
-      "n": "Silence",
-      "e": false
+      "n": "Silence"
     },
     {
       "p": true,
       "l": "2",
-      "n": "Spiritual Weapon",
-      "e": false
+      "n": "Spiritual Weapon"
     },
     {
       "p": true,
       "l": "2",
-      "n": "Zone of Truth",
-      "e": false
+      "n": "Zone of Truth"
     }
   ],
   "sdescs": {},
@@ -480,14 +447,6 @@
       "unit": "gp"
     }
   ],
-  "rels": [
-    {
-      "n": "Kaelos",
-      "r": "Sátiro Bardo — compañero de partido",
-      "no": "Lo rescatamos en las ruinas. Toca la flauta. Tiene mano larga.",
-      "o": false
-    }
-  ],
   "ds": [
     false,
     false,
@@ -530,5 +489,31 @@
     "mirabel": "",
     "sorbia": "",
     "madam_eva": ""
+  },
+  "location_notes": {
+    "church_morninglord": "",
+    "burgomaster_mansion": "",
+    "bildrath_mercantile": "",
+    "vallaki": "",
+    "village_barovia": "",
+    "blood_vine_tavern": "",
+    "vistani_camp_river": "",
+    "death_house": "",
+    "iron_gates": "",
+    "castle_ravenloft": ""
+  },
+  "item_notes": {
+    "tatyana_soul": "",
+    "doru_fate": "",
+    "vampire_weaknesses": "",
+    "altar_chant": "",
+    "strahd_letter_durst": "",
+    "rose_thorn_truth": "",
+    "durst_dollhouse": "",
+    "dark_carriage": "",
+    "barovia_map": "",
+    "unidentified_potion": "",
+    "tarokka_reading": "",
+    "dire_wolf_eyes": ""
   }
 }

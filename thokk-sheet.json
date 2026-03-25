@@ -7,9 +7,9 @@
   "bg": "Forastero",
   "al": "Caótico Neutral",
   "ac": "13",
-  "mhp": "30",
+  "mhp": "36",
   "hd": "3d12",
-  "chp": "30",
+  "chp": "36",
   "thp": "",
   "hdu": "",
   "speed": "30ft",
@@ -173,18 +173,16 @@
     {
       "p": true,
       "l": "1",
-      "n": "Speak with Animals",
-      "e": false
+      "n": "Speak with Animals"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Beast Sense",
-      "e": false
+      "n": "Beast Sense"
     }
   ],
   "sdescs": {
-    "1": {
+    "Speak with Animals": {
       "desc": "Speak with Animals — Conc. 10 min. You gain the ability to comprehend and verbally communicate with beasts.",
       "dur": "10 min",
       "comp": "V, S",
@@ -192,7 +190,7 @@
       "classes": "Druid, Ranger",
       "higher": ""
     },
-    "2": {
+    "Beast Sense": {
       "desc": "Beast Sense — Conc. 1 hour. Touch a willing beast. You can use your action to see through the beast's eyes and hear what it hears until the start of your next turn.",
       "dur": "1 hour",
       "comp": "S",
@@ -252,14 +250,6 @@
       "unit": ""
     }
   ],
-  "rels": [
-    {
-      "n": "Kaelos",
-      "r": "Satyr Bard — party companion",
-      "no": "Rescued him in the ruins. Plays the flute. Light-fingered.",
-      "o": false
-    }
-  ],
   "ds": [
     false,
     false,
@@ -302,5 +292,31 @@
     "mirabel": "",
     "sorbia": "",
     "madam_eva": ""
+  },
+  "location_notes": {
+    "church_morninglord": "",
+    "burgomaster_mansion": "",
+    "bildrath_mercantile": "",
+    "vallaki": "",
+    "village_barovia": "",
+    "blood_vine_tavern": "",
+    "vistani_camp_river": "",
+    "death_house": "",
+    "iron_gates": "",
+    "castle_ravenloft": ""
+  },
+  "item_notes": {
+    "tatyana_soul": "",
+    "doru_fate": "",
+    "vampire_weaknesses": "",
+    "altar_chant": "",
+    "strahd_letter_durst": "",
+    "rose_thorn_truth": "",
+    "durst_dollhouse": "",
+    "dark_carriage": "",
+    "barovia_map": "",
+    "unidentified_potion": "",
+    "tarokka_reading": "",
+    "dire_wolf_eyes": ""
   }
 }

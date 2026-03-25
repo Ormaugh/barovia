@@ -14,7 +14,7 @@
   "hdu": "",
   "speed": "25ft",
   "spellClass": "Paladin",
-  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Paso Brumoso (acción adicional): teletransportarse 9m para alcanzar un enemigo que huye o escapar de una presa, luego golpe divino.\n• Rayo de Luna (concentración, nivel 2): cilindro de 1,5m, 2d10 radiante/turno — devastador contra no-muertos y cambiaformas (desventaja en salvación).\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino. Rayo de Luna para grupos o no-muertos. Paso Brumoso para escapar si estás rodeada.",
+  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "Hablar con bestias pequeñas",
@@ -178,80 +178,67 @@
     {
       "p": true,
       "l": "0",
-      "n": "Minor Illusion",
-      "e": false
+      "n": "Minor Illusion"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Ensnaring Strike",
-      "e": true
+      "n": "Ensnaring Strike"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Speak with Animals",
-      "e": true
+      "n": "Speak with Animals"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Bless",
-      "e": false
+      "n": "Bless"
     },
     {
       "p": true,
       "l": "1",
-      "n": "Protection from Evil and Good",
-      "e": false
+      "n": "Protection from Evil and Good"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Thunderous Smite",
-      "e": false
+      "n": "Thunderous Smite"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Bane",
-      "e": false
+      "n": "Bane"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Command",
-      "e": false
+      "n": "Command"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Cure Wounds",
-      "e": false
+      "n": "Cure Wounds"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Detect Magic",
-      "e": false
+      "n": "Detect Magic"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Divine Favor",
-      "e": false
+      "n": "Divine Favor"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Heroism",
-      "e": false
+      "n": "Heroism"
     },
     {
       "p": false,
       "l": "1",
-      "n": "Shield of Faith",
-      "e": false
+      "n": "Shield of Faith"
     }
   ],
   "inv": [
@@ -359,7 +346,7 @@
     "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
     "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
     "bonds": "Daría mi vida por aquellos a quienes he jurado proteger.",
-    "flaws": "Poco respeto por quienes muestran poca generosidad."
+    "flaws": "Poco respeto por quienes muestran poco espíritu combativo."
   },
   "proficiencies": {
     "languages": "Común, Gnómico",
@@ -389,5 +376,32 @@
     "mirabel": "",
     "sorbia": "",
     "madam_eva": ""
+  },
+  "sdescs": {},
+  "location_notes": {
+    "church_morninglord": "",
+    "burgomaster_mansion": "",
+    "bildrath_mercantile": "",
+    "vallaki": "",
+    "village_barovia": "",
+    "blood_vine_tavern": "",
+    "vistani_camp_river": "",
+    "death_house": "",
+    "iron_gates": "",
+    "castle_ravenloft": ""
+  },
+  "item_notes": {
+    "tatyana_soul": "",
+    "doru_fate": "",
+    "vampire_weaknesses": "",
+    "altar_chant": "",
+    "strahd_letter_durst": "",
+    "rose_thorn_truth": "",
+    "durst_dollhouse": "",
+    "dark_carriage": "",
+    "barovia_map": "",
+    "unidentified_potion": "",
+    "tarokka_reading": "",
+    "dire_wolf_eyes": ""
   }
 }

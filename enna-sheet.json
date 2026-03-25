@@ -162,58 +162,21 @@
     {
       "n": "Estoque",
       "id": "rapier",
-      "h": "main-d",
-      "dmg": "1d8",
-      "t": "piercing",
-      "r": "5ft",
-      "no": ""
+      "h": "main-d"
     },
     {
       "n": "Arco corto",
       "id": "shortbow",
-      "h": "ranged-d",
-      "dmg": "1d6",
-      "t": "piercing",
-      "r": "80/320ft",
-      "no": ""
+      "h": "ranged-d"
     },
     {
       "n": "Cuchillo de caza",
       "id": "dagger",
-      "h": "off-d",
-      "dmg": "1d4",
-      "t": "piercing",
-      "r": "20/60ft",
-      "no": ""
+      "h": "off-d"
     }
   ],
   "spells": [],
-  "sdescs": {
-    "1": {
-      "desc": "Conc. 1 hora. +1d6 por golpe al objetivo marcado. Transferible si muere.",
-      "dur": "",
-      "comp": "",
-      "target": "",
-      "classes": "",
-      "higher": ""
-    },
-    "2": {
-      "desc": "WIS save o bestia encantada 24h. No funciona en bestias INT 4+.",
-      "dur": "",
-      "comp": "",
-      "target": "",
-      "classes": "",
-      "higher": ""
-    },
-    "3": {
-      "desc": "Trampa mágica permanente (hasta activarse). DEX save o 2d6 + detenido.",
-      "dur": "",
-      "comp": "",
-      "target": "",
-      "classes": "",
-      "higher": ""
-    }
-  },
+  "sdescs": {},
   "inv": [
     {
       "n": "Armadura de cuero",
@@ -329,9 +292,47 @@
     false,
     false
   ],
-  "npc_notes": {},
-  "location_notes": {},
-  "item_notes": {},
+  "npc_notes": {
+    "parriwimple": "",
+    "bildrath": "",
+    "doru": "",
+    "donavich": "",
+    "ireena": "",
+    "ismark": "",
+    "vistani_woman_tavern": "",
+    "rose_durst": "",
+    "thorn_durst": "",
+    "alenka": "",
+    "mirabel": "",
+    "sorbia": "",
+    "madam_eva": ""
+  },
+  "location_notes": {
+    "church_morninglord": "",
+    "burgomaster_mansion": "",
+    "bildrath_mercantile": "",
+    "vallaki": "",
+    "village_barovia": "",
+    "blood_vine_tavern": "",
+    "vistani_camp_river": "",
+    "death_house": "",
+    "iron_gates": "",
+    "castle_ravenloft": ""
+  },
+  "item_notes": {
+    "tatyana_soul": "",
+    "doru_fate": "",
+    "vampire_weaknesses": "",
+    "altar_chant": "",
+    "strahd_letter_durst": "",
+    "rose_thorn_truth": "",
+    "durst_dollhouse": "",
+    "dark_carriage": "",
+    "barovia_map": "",
+    "unidentified_potion": "",
+    "tarokka_reading": "",
+    "dire_wolf_eyes": ""
+  },
   "personality": {
     "traits": "Disfruto de una buena pelea.",
     "ideals": "Busco mi libertad.",
