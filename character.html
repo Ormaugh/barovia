@@ -156,6 +156,7 @@ body.edit-mode .ab-block{cursor:default;}
 .senses-box:hover{background:rgba(200,169,110,0.06);}
 .senses-box-lbl{font-family:var(--font-heading);font-size:clamp(0.52rem,1vw,0.62rem);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-faint);display:block;}
 .senses-box-val{font-family:var(--font-heading);font-size:0.92rem;font-weight:700;color:var(--ink-gold);display:block;line-height:1.2;}
+.sens-arrow{font-family:var(--font-heading);font-style:normal;font-variant-emoji:text;}
 
 /* HP */
 .hp-block{background:var(--bg-parchment);border:1px solid var(--border-gold);padding:0.75rem 0.52rem 0.6rem;}
@@ -253,20 +254,43 @@ body.edit-mode .del-btn{display:inline;}
 .atk-table tbody tr{transition:background 0.12s;}
 body:not(.edit-mode) .atk-table tbody tr{cursor:pointer;}
 body:not(.edit-mode) .atk-table tbody tr:hover td{background:rgba(200,169,110,0.055);}
-/* Column widths — weapons table: Name | Hand | Hit | Dmg | Type | Range | Del */
-#atkBody tr td:nth-child(1),.atk-table thead th:nth-child(1){width:28%;}
-#atkBody tr td:nth-child(2),.atk-table thead th:nth-child(2){width:20%;}
-#atkBody tr td:nth-child(3),.atk-table thead th:nth-child(3){width:10%;}
-#atkBody tr td:nth-child(4),.atk-table thead th:nth-child(4){width:14%;}
-#atkBody tr td:nth-child(5),.atk-table thead th:nth-child(5){width:12%;}
-#atkBody tr td:nth-child(6),.atk-table thead th:nth-child(6){width:12%;}
-#atkBody tr td:nth-child(7),.atk-table thead th:nth-child(7){width:4%;}
-/* Prepared spells table: Name | Level | Cast | Range | Conc */
-#prepSpellBody tr td:nth-child(1){width:35%;}
-#prepSpellBody tr td:nth-child(2){width:12%;}
-#prepSpellBody tr td:nth-child(3){width:23%;}
-#prepSpellBody tr td:nth-child(4){width:20%;}
-#prepSpellBody tr td:nth-child(5){width:10%;}
+/* Column widths — attacks: Name | Hand | Hit | Dmg | Type | Range | Del */
+.atk-table thead th:nth-child(1),#atkBody tr td:nth-child(1){width:30%;}
+.atk-table thead th:nth-child(2),#atkBody tr td:nth-child(2){width:18%;}
+.atk-table thead th:nth-child(3),#atkBody tr td:nth-child(3){width:10%;}
+.atk-table thead th:nth-child(4),#atkBody tr td:nth-child(4){width:14%;}
+.atk-table thead th:nth-child(5),#atkBody tr td:nth-child(5){width:12%;}
+.atk-table thead th:nth-child(6),#atkBody tr td:nth-child(6){width:12%;}
+.atk-table thead th:nth-child(7),#atkBody tr td:nth-child(7){width:4%;}
+/* Column widths — prepared spells: Name | Cast | Conc | Level | Range */
+#prepSpellSection .atk-table thead th:nth-child(1){width:35%;}
+#prepSpellSection .atk-table thead th:nth-child(2){width:27%;}
+#prepSpellSection .atk-table thead th:nth-child(3){width:10%;}
+#prepSpellSection .atk-table thead th:nth-child(4){width:14%;}
+#prepSpellSection .atk-table thead th:nth-child(5){width:14%;}
+/* Responsive hiding — attacks (hide lowest priority first) */
+@media(max-width:680px){
+  .atk-col-hand,.atk-table thead .atk-col-hand{display:none;}
+}
+@media(max-width:560px){
+  .atk-col-range,.atk-table thead .atk-col-range{display:none;}
+}
+@media(max-width:440px){
+  .atk-col-type,.atk-table thead .atk-col-type{display:none;}
+}
+@media(max-width:360px){
+  .atk-col-dmg,.atk-table thead .atk-col-dmg{display:none;}
+}
+/* Responsive hiding — prepared spells (hide lowest priority first) */
+@media(max-width:560px){
+  .ps-col-range,.ps-col-range{display:none;}
+}
+@media(max-width:440px){
+  .ps-col-lvl{display:none;}
+}
+@media(max-width:360px){
+  .ps-col-conc{display:none;}
+}
 .hand-sel{width:100%;font-family:var(--font-heading);font-size:0.68rem;font-weight:700;background:var(--bg-card);border:1px solid var(--border-gold);color:var(--text-dim);padding:0.14rem 0.1rem;cursor:pointer;max-width:100%;}
 .hand-sel option{background:var(--bg-card);}
 .atk-name{font-family:var(--font-body);font-size:0.97rem;color:var(--text-body);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -514,8 +538,8 @@ body.edit-mode .inv-val-txt{display:none;}
 </div>
 
 <!-- SPELL CARD OVERLAY -->
-<div class="sc-overlay" id="scOverlay" onclick="if(event.target===this)closeSpellCard()">
-  <div class="sc-card" id="scCard">
+<div class="sc-overlay" id="scOverlay" onclick="closeSpellCard()">
+  <div class="sc-card" id="scCard" onclick="event.stopPropagation()">
     <button class="sc-close" onclick="closeSpellCard()">✕</button>
     <div class="sc-card-inner">
       <div class="sc-name" id="scName">—</div>
@@ -634,7 +658,7 @@ body.edit-mode .inv-val-txt{display:none;}
             <span class="senses-box-val" id="darkVisionDisp">—</span>
           </div>
           <div class="senses-box" onclick="openSens()" title="Click for details">
-            <span class="senses-box-lbl">Other Senses ↗</span>
+            <span class="senses-box-lbl">Other Senses <span class="sens-arrow">&#x2197;</span></span>
             <span class="senses-box-val" id="otherSensDisp">—</span>
           </div>
         </div>
@@ -741,7 +765,15 @@ body.edit-mode .inv-val-txt{display:none;}
     <div class="stitle">Attacks &amp; Spellcasting</div>
     <p style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;margin-bottom:0.75rem;">Click a weapon name to see details. Click a row to roll. Underlined names have weapon data available.</p>
     <table class="atk-table">
-      <thead><tr><th>Name</th><th>Hand</th><th>To Hit</th><th>Damage</th><th>Type</th><th>Range</th><th></th></tr></thead>
+      <thead><tr>
+        <th>Name</th>
+        <th class="atk-col-hand">Hand</th>
+        <th>To Hit</th>
+        <th class="atk-col-dmg">Damage</th>
+        <th class="atk-col-type">Type</th>
+        <th class="atk-col-range">Range</th>
+        <th></th>
+      </tr></thead>
       <tbody id="atkBody"></tbody>
     </table>
     <button class="add-btn" id="addWeaponBtn" onclick="openWeaponPicker()">+ Añadir arma</button>
@@ -750,7 +782,13 @@ body.edit-mode .inv-val-txt{display:none;}
     <div class="stitle">Prepared Spells</div>
     <p style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;margin-bottom:0.75rem;">Click a row to see spell details. Mark spells as Prepared (P) in the Spells tab.</p>
     <table class="atk-table">
-      <thead><tr><th>Name</th><th>Level</th><th>Casting Time</th><th>Range</th><th>Conc.</th></tr></thead>
+      <thead><tr>
+        <th>Name</th>
+        <th class="ps-col-cast">Casting Time</th>
+        <th class="ps-col-conc">Conc.</th>
+        <th class="ps-col-lvl">Level</th>
+        <th class="ps-col-range">Range</th>
+      </tr></thead>
       <tbody id="prepSpellBody"></tbody>
     </table>
   </div>
@@ -1113,7 +1151,7 @@ function addAtk(n='',hand='main-s',bonus='',dmg='',type='',range='',notes='',isS
   const selOpts=HAND_OPTS.map(o=>`<option value="${o.v}"${hand===o.v?' selected':''}>${o.l}</option>`).join('');
   const hasWpnData=w!=null;
   const nameCell=hasWpnData?`<span class="atk-name has-link" onclick="event.stopPropagation();openWeaponCard('${weaponId}')" title="Click for weapon details">${n}</span>`:`<span class="atk-name editable" data-ph="Name">${n}</span>`;
-  tr.innerHTML=`<td>${nameCell}</td><td>${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}">${selOpts}</select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td><span class="atk-dmg" id="dmg-${id}" data-base="${w?w.damage?.dice||'':dmg}">${dmg}</span></td><td><span class="atk-type">${type}</span></td><td><span class="atk-type">${range}</span></td><td>${sid?'':`<button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
+  tr.innerHTML=`<td>${nameCell}</td><td class="atk-col-hand">${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}">${selOpts}</select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td class="atk-col-dmg"><span class="atk-dmg" id="dmg-${id}" data-base="${w?w.damage?.dice||'':dmg}">${dmg}</span></td><td class="atk-col-type"><span class="atk-type">${type}</span></td><td class="atk-col-range"><span class="atk-type">${range}</span></td><td>${sid?'':`<button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
   if(weaponId)tr.dataset.wid=weaponId;
   tr.addEventListener('click',(e)=>{
     if(e.target.classList.contains('hand-sel')||e.target.tagName==='OPTION'||e.target.classList.contains('del-btn')||e.target.classList.contains('atk-name'))return;
@@ -1158,7 +1196,7 @@ function syncPreparedSpells(){
     const lvLabel=lv===0?'Cantrip':`${lv}${['','st','nd','rd'][lv]||'th'}`;
     const tr=document.createElement('tr');
     tr.style.cursor='pointer';
-    tr.innerHTML=`<td><span class="atk-name">${n}</span></td><td><span class="atk-type" style="color:#7ab8c8">${lvLabel}</span></td><td><span class="atk-type">${cast}</span></td><td><span class="atk-type">${rng}</span></td><td><span class="atk-type" style="color:${dbEntry.concentration?'var(--ink-gold-dim)':'var(--text-faint)'}">${conc}</span></td>`;
+    tr.innerHTML=`<td><span class="atk-name">${n}</span></td><td class="ps-col-cast"><span class="atk-type">${cast}</span></td><td class="ps-col-conc"><span class="atk-type" style="color:${dbEntry.concentration?'var(--ink-gold-dim)':'var(--text-faint)'}">${conc}</span></td><td class="ps-col-lvl"><span class="atk-type" style="color:#7ab8c8">${lvLabel}</span></td><td class="ps-col-range"><span class="atk-type">${rng}</span></td>`;
     tr.addEventListener('click',()=>openSpellCard(n));
     tbody.appendChild(tr);
   });
@@ -1411,8 +1449,8 @@ document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=
 (()=>{
   let tx=0,ty=0,tracking=false;
   document.addEventListener('touchstart',e=>{
-    // Ignore touches inside scrollable elements (spell lists, feature lists etc)
-    if(e.target.closest('.sheet-body,.wpick-list,.sc-card,.dice-modal,.pw-modal'))return;
+    // Only ignore touches inside popups/overlays
+    if(e.target.closest('.wpick-list,.sc-card,.dice-modal,.pw-modal,.sens-modal'))return;
     tx=e.touches[0].clientX;ty=e.touches[0].clientY;tracking=true;
   },{passive:true});
   document.addEventListener('touchend',e=>{
