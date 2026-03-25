@@ -15,7 +15,7 @@
   "thp": "—",
   "speed": "25ft",
   "spellClass": "Paladin",
-  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino.",
+  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Paso Brumoso (acción adicional): teletransportarse 9m para alcanzar un enemigo que huye o escapar de una presa, luego golpe divino.\n• Rayo de Luna (concentración, nivel 2): cilindro de 1,5m, 2d10 radiante/turno — devastador contra no-muertos y cambiaformas (desventaja en salvación).\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino. Rayo de Luna para grupos o no-muertos. Paso Brumoso para escapar si estás rodeada.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "Hablar con bestias pequeñas",
@@ -160,7 +160,7 @@
   ],
   "atks": [
     {
-      "n": "Lucero",
+      "n": "Mace (Lucero)",
       "id": "mace",
       "h": "main-s",
       "dmg": "1d6",
@@ -169,7 +169,7 @@
       "no": ""
     },
     {
-      "n": "Javalinas",
+      "n": "Javelin",
       "id": "javelin",
       "h": "ranged-s",
       "dmg": "1d6",
@@ -178,7 +178,7 @@
       "no": ""
     },
     {
-      "n": "Ballesta ligera",
+      "n": "Light Crossbow",
       "id": "light_crossbow",
       "h": "ranged-d",
       "dmg": "1d8",
@@ -187,7 +187,73 @@
       "no": ""
     }
   ],
-  "spells": [],
+  "spells": [
+    {
+      "p": true,
+      "l": "0",
+      "n": "Minor Illusion"
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Ensnaring Strike"
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Speak with Animals"
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Bless"
+    },
+    {
+      "p": true,
+      "l": "1",
+      "n": "Protection from Evil and Good"
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Thunderous Smite"
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Bane"
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Command"
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Cure Wounds"
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Detect Magic"
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Divine Favor"
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Heroism"
+    },
+    {
+      "p": false,
+      "l": "1",
+      "n": "Shield of Faith"
+    }
+  ],
   "sdescs": {},
   "inv": [
     {
@@ -297,7 +363,7 @@
     "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
     "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
     "bonds": "Daría mi vida por aquellos a quienes he jurado proteger.",
-    "flaws": "Poco respeto por quienes muestran poco espíritu guerrero."
+    "flaws": "Poco respeto por quienes muestran poca generosidad."
   },
   "proficiencies": {
     "languages": "Común, Gnómico",
