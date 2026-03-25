@@ -160,6 +160,7 @@
   "atks": [
     {
       "n": "Greataxe",
+      "id": "greataxe",
       "h": "main-s",
       "dmg": "1d12+4",
       "t": "Slashing",
@@ -168,7 +169,8 @@
     },
     {
       "n": "Heavy Crossbow",
-      "h": "ranged-s",
+      "id": "heavy_crossbow",
+      "h": "ranged-d",
       "dmg": "1d10+1",
       "t": "Piercing",
       "r": "100/400ft",

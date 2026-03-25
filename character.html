@@ -756,7 +756,7 @@ const AL={str:'STR',dex:'DEX',con:'CON',int:'INT',wis:'WIS',cha:'CHA'};
 const SAVES=[{id:'sv-str',label:'Strength',s:'str'},{id:'sv-dex',label:'Dexterity',s:'dex'},{id:'sv-con',label:'Constitution',s:'con'},{id:'sv-int',label:'Intelligence',s:'int'},{id:'sv-wis',label:'Wisdom',s:'wis'},{id:'sv-cha',label:'Charisma',s:'cha'}];
 const SKILLS=[{id:'sk-acr',l:'Acrobatics',s:'dex'},{id:'sk-ani',l:'Animal Handling',s:'wis'},{id:'sk-arc',l:'Arcana',s:'int'},{id:'sk-ath',l:'Athletics',s:'str'},{id:'sk-dec',l:'Deception',s:'cha'},{id:'sk-his',l:'History',s:'int'},{id:'sk-ins',l:'Insight',s:'wis'},{id:'sk-int',l:'Intimidation',s:'cha'},{id:'sk-inv',l:'Investigation',s:'int'},{id:'sk-med',l:'Medicine',s:'wis'},{id:'sk-nat',l:'Nature',s:'int'},{id:'sk-per',l:'Perception',s:'wis'},{id:'sk-prf',l:'Performance',s:'cha'},{id:'sk-prs',l:'Persuasion',s:'cha'},{id:'sk-rel',l:'Religion',s:'int'},{id:'sk-soh',l:'Sleight of Hand',s:'dex'},{id:'sk-ste',l:'Stealth',s:'dex'},{id:'sk-sur',l:'Survival',s:'wis'}];
 const PW='Braunschweig';
-const HAND_OPTS=[{v:'main-s',l:'Main (STR)',prof:true,stat:'str'},{v:'main-d',l:'Main (DEX)',prof:true,stat:'dex'},{v:'ranged-d',l:'Ranged (DEX)',prof:true,stat:'dex'},{v:'off-s',l:'Off (STR)',prof:false,stat:'str'},{v:'off-d',l:'Off (DEX)',prof:false,stat:'dex'}];
+const HAND_OPTS=[{v:'main-s',l:'Main (STR)',prof:true,stat:'str'},{v:'main-d',l:'Main (DEX)',prof:true,stat:'dex'},{v:'ranged-s',l:'Ranged (STR)',prof:true,stat:'str'},{v:'ranged-d',l:'Ranged (DEX)',prof:true,stat:'dex'},{v:'off-s',l:'Off (STR)',prof:false,stat:'str'},{v:'off-d',l:'Off (DEX)',prof:false,stat:'dex'}];
 
 // ── DYNAMIC CHAR KEY ──────────────────────────────────────────────────────────
 const CHAR_KEY=(()=>{const p=new URLSearchParams(location.search).get('char');if(p)return p.toLowerCase().trim();const f=location.pathname.split('/').pop().replace('.html','');return(f&&f!=='character')?f:'enna';})();
@@ -1236,7 +1236,7 @@ function gather(){
     insp:document.getElementById('inspBtn').classList.contains('lit'),
     sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,
     slots:{},port:document.getElementById('portImg').src,
-    feats:[],atks:[],spells:[],sdescs:{},inv:[],rels:[],ds:[],npc_notes:{},
+    feats:[],atks:[],spells:[],sdescs:{},inv:[],ds:[],npc_notes:{},
     personality:{traits:g('pTraits'),ideals:g('pIdeals'),bonds:g('pBonds'),flaws:g('pFlaws')},
     proficiencies:{languages:g('profLanguages'),armor:g('profArmor'),weapons:g('profWeapons'),instruments:g('profInstruments'),tools:g('profTools'),other:g('profOther')}
   };
@@ -1325,7 +1325,7 @@ const GH_USER='ormaugh',GH_REPO='barovia';
 function setIndicator(state,msg){const el=document.getElementById('saveIndicator');el.className='save-indicator '+state;el.textContent=msg;if(state==='saved')setTimeout(()=>{el.className='save-indicator';el.textContent='';},3000);}
 async function saveToGitHub(){
   const btn=document.getElementById('saveBtn');btn.disabled=true;setIndicator('saving','Saving…');
-  const data=gather();const portSrc=document.getElementById('portImg').src||'';if(portSrc.startsWith('data:'))data.port=_lastJsonPort||'';
+  const data=gather();const portSrc=document.getElementById('portImg').src||'';if(portSrc.startsWith('data:'))data.port=_lastJsonPort||'';else data.port=portSrc;
   const content=JSON.stringify(data,null,2);const encoded=btoa(unescape(encodeURIComponent(content)));
   const filePath=`${CHAR_KEY}-sheet.json`;
   try{

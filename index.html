@@ -19,7 +19,6 @@
             --bg-deep:        #0d0905;
             --bg-parchment:   #14100a;
             --bg-card:        #1a1410;
-            --bg-card-hover:  #201810;
 
             --ink-gold:       #c8a96e;
             --ink-gold-dim:   #8a7248;
@@ -47,7 +46,6 @@
             --font-accent:    'Almendra SC', serif;
 
             --transition:     all 0.3s ease;
-            --transition-slow: all 0.6s ease;
         }
 
         /* ============================================================
@@ -2528,9 +2526,11 @@
             });
         });
 
-        function closeTarotModal(e) {
-            if (e && e.target !== document.getElementById('tarotModalOverlay')) return;
+        function closeTarotModal() {
             document.getElementById('tarotModalOverlay').classList.remove('active');
+        }
+        function closeTarotOnOverlay(e) {
+            if (e.target === document.getElementById('tarotModalOverlay')) closeTarotModal();
         }
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') document.getElementById('tarotModalOverlay').classList.remove('active');
@@ -2685,7 +2685,7 @@
     <!-- ============================================================
          TAROT POPUP MODAL
     ============================================================ -->
-    <div class="tarot-modal-overlay" id="tarotModalOverlay" onclick="closeTarotModal(event)">
+    <div class="tarot-modal-overlay" id="tarotModalOverlay" onclick="closeTarotOnOverlay(event)">
         <div class="tarot-modal" id="tarotModal">
             <div class="tarot-modal__header">
                 <div>

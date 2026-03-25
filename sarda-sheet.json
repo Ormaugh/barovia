@@ -160,6 +160,7 @@
   "atks": [
     {
       "n": "Mace (Lucero)",
+      "id": "mace",
       "h": "main-s",
       "dmg": "1d8+2",
       "t": "Bludgeoning",
@@ -168,6 +169,7 @@
     },
     {
       "n": "Javelin",
+      "id": "javelin",
       "h": "ranged-s",
       "dmg": "1d6+2",
       "t": "Piercing",
@@ -176,6 +178,7 @@
     },
     {
       "n": "Light Crossbow",
+      "id": "light_crossbow",
       "h": "ranged-d",
       "dmg": "1d8+2",
       "t": "Piercing",

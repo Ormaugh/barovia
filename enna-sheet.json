@@ -161,7 +161,7 @@
   "atks": [
     {
       "n": "Rapier",
-      "id": null,
+      "id": "rapier",
       "h": "main-d",
       "dmg": "1d8+3",
       "t": "Piercing",
@@ -170,7 +170,7 @@
     },
     {
       "n": "Shortbow",
-      "id": null,
+      "id": "shortbow",
       "h": "ranged-d",
       "dmg": "1d6+3",
       "t": "Piercing",
