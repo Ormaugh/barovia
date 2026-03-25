@@ -162,20 +162,58 @@
     {
       "n": "Estoque",
       "id": "rapier",
-      "h": "main-d"
+      "h": "main-d",
+      "dmg": "1d8",
+      "t": "piercing",
+      "r": "5ft",
+      "no": ""
     },
     {
       "n": "Arco corto",
       "id": "shortbow",
-      "h": "ranged-d"
+      "h": "ranged-d",
+      "dmg": "1d6",
+      "t": "piercing",
+      "r": "80/320ft",
+      "no": ""
     },
     {
       "n": "Cuchillo de caza",
       "id": "dagger",
-      "h": "off-d"
+      "h": "off-d",
+      "dmg": "1d4",
+      "t": "piercing",
+      "r": "20/60ft",
+      "no": ""
     }
   ],
   "spells": [],
+  "sdescs": {
+    "1": {
+      "desc": "Conc. 1 hora. +1d6 por golpe al objetivo marcado. Transferible si muere.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    },
+    "2": {
+      "desc": "WIS save o bestia encantada 24h. No funciona en bestias INT 4+.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    },
+    "3": {
+      "desc": "Trampa mágica permanente (hasta activarse). DEX save o 2d6 + detenido.",
+      "dur": "",
+      "comp": "",
+      "target": "",
+      "classes": "",
+      "higher": ""
+    }
+  },
   "inv": [
     {
       "n": "Armadura de cuero",
@@ -283,7 +321,6 @@
       "no": ""
     }
   ],
-  "rels": [],
   "ds": [
     false,
     false,
@@ -292,21 +329,9 @@
     false,
     false
   ],
-  "npc_notes": {
-    "parriwimple": "",
-    "bildrath": "",
-    "doru": "",
-    "donavich": "",
-    "ireena": "",
-    "ismark": "",
-    "vistani_woman_tavern": "",
-    "rose_durst": "",
-    "thorn_durst": "",
-    "alenka": "",
-    "mirabel": "",
-    "sorbia": "",
-    "madam_eva": ""
-  },
+  "npc_notes": {},
+  "location_notes": {},
+  "item_notes": {},
   "personality": {
     "traits": "Disfruto de una buena pelea.",
     "ideals": "Busco mi libertad.",
