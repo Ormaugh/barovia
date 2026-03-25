@@ -187,73 +187,7 @@
       "no": ""
     }
   ],
-  "spells": [
-    {
-      "p": true,
-      "l": "0",
-      "n": "Minor Illusion"
-    },
-    {
-      "p": true,
-      "l": "1",
-      "n": "Ensnaring Strike"
-    },
-    {
-      "p": true,
-      "l": "1",
-      "n": "Speak with Animals"
-    },
-    {
-      "p": true,
-      "l": "1",
-      "n": "Bless"
-    },
-    {
-      "p": true,
-      "l": "1",
-      "n": "Protection from Evil and Good"
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Thunderous Smite"
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Bane"
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Command"
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Cure Wounds"
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Detect Magic"
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Divine Favor"
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Heroism"
-    },
-    {
-      "p": false,
-      "l": "1",
-      "n": "Shield of Faith"
-    }
-  ],
+  "spells": [],
   "sdescs": {},
   "inv": [
     {
