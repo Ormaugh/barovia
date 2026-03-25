@@ -19,7 +19,7 @@
   --font-body:'IM Fell English',serif;--font-accent:'Almendra SC',serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:18px;scroll-behavior:smooth;}
+html{font-size:18px;scroll-behavior:smooth;overflow-x:hidden;}
 body{background:var(--bg-void);color:var(--text-body);font-family:var(--font-body);line-height:1.6;min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.5;}
 ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg-void);}::-webkit-scrollbar-thumb{background:var(--ink-gold-dim);border-radius:3px;}
@@ -57,13 +57,46 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .edit-btn.active .dot{background:var(--ink-red-bright);}
 
 /* TABS */
-.tabs-nav{display:flex;border-bottom:1px solid var(--border-gold);background:var(--bg-parchment);}
-.tab-btn{font-family:var(--font-heading);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-faint);padding:0.88rem 0.4rem;flex:1;text-align:center;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color 0.2s,border-color 0.2s;font-size:clamp(0.6rem,1.8vw,0.88rem);min-width:0;white-space:nowrap;}
+/* TABS — scrollable nav, active tab always centered */
+.tabs-nav{
+  display:flex;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  border-bottom:1px solid var(--border-gold);
+  background:var(--bg-parchment);
+  scrollbar-width:none;
+}
+.tabs-nav::-webkit-scrollbar{display:none;}
+.tab-btn{
+  font-family:var(--font-heading);font-weight:700;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--text-faint);
+  padding:0.88rem 1.2rem;
+  flex-shrink:0;
+  text-align:center;background:none;border:none;
+  border-bottom:2px solid transparent;cursor:pointer;
+  transition:color 0.2s,border-color 0.2s;
+  font-size:clamp(0.75rem,2.2vw,1rem);
+  white-space:nowrap;
+}
 .tab-btn:hover{color:var(--ink-gold-dim);}
 .tab-btn.active{color:var(--ink-gold);border-bottom-color:var(--ink-red);}
-.tab-panel{display:none;}
-.tab-panel.active{display:block;animation:fadeUp 0.32s ease forwards;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* TAB PANELS — carousel container */
+.tab-panels-track{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+}
+.tab-panel{
+  display:none;
+}
+.tab-panel.active-slide{
+  display:block;
+}
+@keyframes slideInRight{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
 
 /* LAYOUT */
 .sheet-body{max-width:1400px;margin:0 auto;padding:1.1rem 1.4rem 3rem;}
@@ -214,21 +247,34 @@ body.edit-mode .del-btn{display:inline;}
 .npc-notes[data-ph]:empty::before{content:attr(data-ph);color:var(--text-faint);font-style:italic;}
 
 /* ATTACKS */
-.atk-table{width:100%;border-collapse:collapse;}
-.atk-table th{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.42rem;border-bottom:1px solid var(--border-gold);text-align:left;}
-.atk-table td{padding:0.3rem 0.42rem;border-bottom:1px solid rgba(200,169,110,0.07);vertical-align:middle;}
+.atk-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+.atk-table th{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-faint);padding:0.3rem 0.42rem;border-bottom:1px solid var(--border-gold);text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.atk-table td{padding:0.3rem 0.42rem;border-bottom:1px solid rgba(200,169,110,0.07);vertical-align:middle;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .atk-table tbody tr{transition:background 0.12s;}
 body:not(.edit-mode) .atk-table tbody tr{cursor:pointer;}
 body:not(.edit-mode) .atk-table tbody tr:hover td{background:rgba(200,169,110,0.055);}
-.atk-name{font-family:var(--font-body);font-size:0.97rem;color:var(--text-body);min-width:75px;}
+/* Column widths — weapons table: Name | Hand | Hit | Dmg | Type | Range | Del */
+#atkBody tr td:nth-child(1),.atk-table thead th:nth-child(1){width:28%;}
+#atkBody tr td:nth-child(2),.atk-table thead th:nth-child(2){width:20%;}
+#atkBody tr td:nth-child(3),.atk-table thead th:nth-child(3){width:10%;}
+#atkBody tr td:nth-child(4),.atk-table thead th:nth-child(4){width:14%;}
+#atkBody tr td:nth-child(5),.atk-table thead th:nth-child(5){width:12%;}
+#atkBody tr td:nth-child(6),.atk-table thead th:nth-child(6){width:12%;}
+#atkBody tr td:nth-child(7),.atk-table thead th:nth-child(7){width:4%;}
+/* Prepared spells table: Name | Level | Cast | Range | Conc */
+#prepSpellBody tr td:nth-child(1){width:35%;}
+#prepSpellBody tr td:nth-child(2){width:12%;}
+#prepSpellBody tr td:nth-child(3){width:23%;}
+#prepSpellBody tr td:nth-child(4){width:20%;}
+#prepSpellBody tr td:nth-child(5){width:10%;}
+.hand-sel{width:100%;font-family:var(--font-heading);font-size:0.68rem;font-weight:700;background:var(--bg-card);border:1px solid var(--border-gold);color:var(--text-dim);padding:0.14rem 0.1rem;cursor:pointer;max-width:100%;}
+.hand-sel option{background:var(--bg-card);}
+.atk-name{font-family:var(--font-body);font-size:0.97rem;color:var(--text-body);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .atk-name.has-link{text-decoration:underline;text-decoration-color:rgba(200,169,110,0.4);text-underline-offset:2px;}
 .atk-bon{font-family:var(--font-heading);font-size:0.97rem;font-weight:700;color:var(--ink-gold);}
 .atk-bon.spell{color:#7ab8c8;}
 .atk-dmg{font-family:var(--font-body);font-size:0.95rem;color:var(--text-dim);}
 .atk-type{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;color:var(--text-faint);}
-/* Hand selector — always enabled */
-.hand-sel{font-family:var(--font-heading);font-size:0.68rem;font-weight:700;background:var(--bg-card);border:1px solid var(--border-gold);color:var(--text-dim);padding:0.14rem 0.3rem;cursor:pointer;}
-.hand-sel option{background:var(--bg-card);}
 
 /* SPELLS */
 .spell-meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.65rem;margin-bottom:0.85rem;}
@@ -512,8 +558,11 @@ body.edit-mode .inv-val-txt{display:none;}
   <button class="tab-btn" data-tab="tab-relations">Relations</button>
 </div>
 
+<!-- TAB PANELS CAROUSEL TRACK -->
+<div class="tab-panels-track" id="tabTrack">
+
 <!-- TAB 1 CHARACTER -->
-<div class="tab-panel active" id="tab-char">
+<div class="tab-panel" id="tab-char">
 <div class="sheet-body">
   <div class="tab1-layout">
 
@@ -799,6 +848,8 @@ body.edit-mode .inv-val-txt{display:none;}
   </div>
 </div>
 </div>
+
+</div><!-- end tab-panels-track -->
 
 <script>
 // ── CONSTANTS ─────────────────────────────────────────────────────────────────
@@ -1324,23 +1375,53 @@ function buildItemList(sharedItems, charNotes){
 
 // ── TABS + SWIPE ──────────────────────────────────────────────────────────────
 const TAB_ORDER=['tab-char','tab-atk','tab-spells','tab-inv','tab-relations'];
-function switchTab(tabId){
+let _currentTabIdx=0;
+
+function switchTab(tabId, dir=null){
+  const idx=TAB_ORDER.indexOf(tabId);
+  if(idx<0)return;
+  const prev=_currentTabIdx;
+  if(idx===prev)return;
+  _currentTabIdx=idx;
+
+  const goingRight=dir!==null?dir>0:(idx>prev);
+  const anim=goingRight?'slideInRight':'slideInLeft';
+
+  const panels=document.querySelectorAll('.tab-panel');
+  panels.forEach(p=>{p.classList.remove('active-slide');p.style.animation='';});
+  if(panels[idx]){
+    panels[idx].classList.add('active-slide');
+    panels[idx].style.animation=`${anim} 0.28s cubic-bezier(0.4,0,0.2,1) forwards`;
+  }
+
   document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));
-  document.querySelector(`.tab-btn[data-tab="${tabId}"]`)?.classList.add('active');
-  document.getElementById(tabId)?.classList.add('active');
+  const activeBtn=document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+  if(activeBtn){
+    activeBtn.classList.add('active');
+    const nav=document.getElementById('tabsNav');
+    nav.scrollTo({left:activeBtn.offsetLeft - nav.offsetWidth/2 + activeBtn.offsetWidth/2, behavior:'smooth'});
+  }
+
+  window.scrollTo({top:0,behavior:'instant'});
 }
+
 document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>switchTab(b.dataset.tab));});
+
+// ── SWIPE ─────────────────────────────────────────────────────────────────────
 (()=>{
-  let tx=0,ty=0;
-  document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+  let tx=0,ty=0,tracking=false;
+  document.addEventListener('touchstart',e=>{
+    // Ignore touches inside scrollable elements (spell lists, feature lists etc)
+    if(e.target.closest('.sheet-body,.wpick-list,.sc-card,.dice-modal,.pw-modal'))return;
+    tx=e.touches[0].clientX;ty=e.touches[0].clientY;tracking=true;
+  },{passive:true});
   document.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-tx;const dy=e.changedTouches[0].clientY-ty;
-    if(Math.abs(dx)<40||Math.abs(dx)<Math.abs(dy)*1.5)return;
-    const active=document.querySelector('.tab-btn.active')?.dataset.tab;
-    const idx=TAB_ORDER.indexOf(active);if(idx<0)return;
-    if(dx<0&&idx<TAB_ORDER.length-1)switchTab(TAB_ORDER[idx+1]);
-    else if(dx>0&&idx>0)switchTab(TAB_ORDER[idx-1]);
+    if(!tracking)return;tracking=false;
+    const dx=e.changedTouches[0].clientX-tx;
+    const dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.3)return;
+    if(dx<0&&_currentTabIdx<TAB_ORDER.length-1)switchTab(TAB_ORDER[_currentTabIdx+1],1);
+    else if(dx>0&&_currentTabIdx>0)switchTab(TAB_ORDER[_currentTabIdx-1],-1);
   });
 })();
 
@@ -1632,6 +1713,11 @@ setInterval(async () => {
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 buildAbils();buildSaves();buildSkills();buildSlots();
+// Init first tab visible
+(()=>{
+  const panels=document.querySelectorAll('.tab-panel');
+  if(panels[0])panels[0].classList.add('active-slide');
+})();
 
 // Load weapons.json first, then spells.json, then character JSON, then npcs.json
 fetch('weapons.json')
