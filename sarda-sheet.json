@@ -170,6 +170,7 @@
     },
     {
       "n": "Light Crossbow",
+      "n": "Light Crossbow",
       "id": "light_crossbow",
       "h": "ranged-d"
     }
@@ -359,6 +360,7 @@
     "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
     "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
     "bonds": "Daría mi vida por aquellos a quienes he jurado proteger.",
+    "flaws": "Poco respeto por quienes muestran poca generosidad."
     "flaws": "Poco respeto por quienes muestran poca generosidad."
   },
   "proficiencies": {
