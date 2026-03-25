@@ -18,7 +18,7 @@
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "Hablar con bestias pequeñas",
-  "insp": false,
+  "insp": true,
   "sc": {
     "str": "14",
     "dex": "14",
