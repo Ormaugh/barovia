@@ -1,13 +1,36 @@
 {
- "_comment": {
-    "category": ["simple", "martial"],
-    "type": ["melee", "ranged"],
-    "weapon_group": [
-      "club", "dagger", "axe", "hammer", "mace", "spear",
-      "sword", "flail", "pick", "polearm", "bow",
-      "crossbow", "dart", "sling", "net", "blowgun"
+  "_comment": {
+    "category": [
+      "simple",
+      "martial"
     ],
-    "damage_types": ["bludgeoning", "piercing", "slashing"],
+    "type": [
+      "melee",
+      "ranged"
+    ],
+    "weapon_group": [
+      "club",
+      "dagger",
+      "axe",
+      "hammer",
+      "mace",
+      "spear",
+      "sword",
+      "flail",
+      "pick",
+      "polearm",
+      "bow",
+      "crossbow",
+      "dart",
+      "sling",
+      "net",
+      "blowgun"
+    ],
+    "damage_types": [
+      "bludgeoning",
+      "piercing",
+      "slashing"
+    ],
     "properties": [
       "finesse",
       "light",
@@ -20,8 +43,16 @@
       "loading",
       "special"
     ],
-    "cost_units": ["cp", "sp", "gp"],
-    "modifiers_types": ["material", "magic", "status"],
+    "cost_units": [
+      "cp",
+      "sp",
+      "gp"
+    ],
+    "modifiers_types": [
+      "material",
+      "magic",
+      "status"
+    ],
     "modifier_ids_examples": [
       "silvered",
       "adamantine",
@@ -32,44 +63,1632 @@
       "cursed"
     ]
   },
-
   "weapons": [
-    { "id":"club","name":"Club","category":"simple","type":"melee","weapon_group":"club","damage":{"dice":"1d4","type":"bludgeoning"},"versatile_damage":null,"properties":["light"],"reach":5,"range":null,"weight":2,"cost":{"value":1,"unit":"sp"},"modifiers":[],"notes":null },
-    { "id":"dagger","name":"Dagger","category":"simple","type":"melee","weapon_group":"dagger","damage":{"dice":"1d4","type":"piercing"},"versatile_damage":null,"properties":["finesse","light","thrown"],"reach":5,"range":{"normal":20,"long":60},"weight":1,"cost":{"value":2,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"greatclub","name":"Greatclub","category":"simple","type":"melee","weapon_group":"club","damage":{"dice":"1d8","type":"bludgeoning"},"versatile_damage":null,"properties":["two_handed"],"reach":5,"range":null,"weight":10,"cost":{"value":2,"unit":"sp"},"modifiers":[],"notes":null },
-    { "id":"handaxe","name":"Handaxe","category":"simple","type":"melee","weapon_group":"axe","damage":{"dice":"1d6","type":"slashing"},"versatile_damage":null,"properties":["light","thrown"],"reach":5,"range":{"normal":20,"long":60},"weight":2,"cost":{"value":5,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"javelin","name":"Javelin","category":"simple","type":"melee","weapon_group":"spear","damage":{"dice":"1d6","type":"piercing"},"versatile_damage":null,"properties":["thrown"],"reach":5,"range":{"normal":30,"long":120},"weight":2,"cost":{"value":5,"unit":"sp"},"modifiers":[],"notes":null },
-    { "id":"light_hammer","name":"Light Hammer","category":"simple","type":"melee","weapon_group":"hammer","damage":{"dice":"1d4","type":"bludgeoning"},"versatile_damage":null,"properties":["light","thrown"],"reach":5,"range":{"normal":20,"long":60},"weight":2,"cost":{"value":2,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"mace","name":"Mace","category":"simple","type":"melee","weapon_group":"mace","damage":{"dice":"1d6","type":"bludgeoning"},"versatile_damage":null,"properties":[],"reach":5,"range":null,"weight":4,"cost":{"value":5,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"quarterstaff","name":"Quarterstaff","category":"simple","type":"melee","weapon_group":"staff","damage":{"dice":"1d6","type":"bludgeoning"},"versatile_damage":"1d8","properties":["versatile"],"reach":5,"range":null,"weight":4,"cost":{"value":2,"unit":"sp"},"modifiers":[],"notes":null },
-    { "id":"sickle","name":"Sickle","category":"simple","type":"melee","weapon_group":"sickle","damage":{"dice":"1d4","type":"slashing"},"versatile_damage":null,"properties":["light"],"reach":5,"range":null,"weight":2,"cost":{"value":1,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"spear","name":"Spear","category":"simple","type":"melee","weapon_group":"spear","damage":{"dice":"1d6","type":"piercing"},"versatile_damage":"1d8","properties":["thrown","versatile"],"reach":5,"range":{"normal":20,"long":60},"weight":3,"cost":{"value":1,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"light_crossbow","name":"Light Crossbow","category":"simple","type":"ranged","weapon_group":"crossbow","damage":{"dice":"1d8","type":"piercing"},"versatile_damage":null,"properties":["ammunition","loading","two_handed"],"reach":null,"range":{"normal":80,"long":320},"weight":5,"cost":{"value":25,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"dart","name":"Dart","category":"simple","type":"ranged","weapon_group":"dart","damage":{"dice":"1d4","type":"piercing"},"versatile_damage":null,"properties":["finesse","thrown"],"reach":null,"range":{"normal":20,"long":60},"weight":0.25,"cost":{"value":5,"unit":"cp"},"modifiers":[],"notes":null },
-    { "id":"shortbow","name":"Shortbow","category":"simple","type":"ranged","weapon_group":"bow","damage":{"dice":"1d6","type":"piercing"},"versatile_damage":null,"properties":["ammunition","two_handed"],"reach":null,"range":{"normal":80,"long":320},"weight":2,"cost":{"value":25,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"sling","name":"Sling","category":"simple","type":"ranged","weapon_group":"sling","damage":{"dice":"1d4","type":"bludgeoning"},"versatile_damage":null,"properties":["ammunition"],"reach":null,"range":{"normal":30,"long":120},"weight":0,"cost":{"value":1,"unit":"sp"},"modifiers":[],"notes":null },
-    { "id":"battleaxe","name":"Battleaxe","category":"martial","type":"melee","weapon_group":"axe","damage":{"dice":"1d8","type":"slashing"},"versatile_damage":"1d10","properties":["versatile"],"reach":5,"range":null,"weight":4,"cost":{"value":10,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"flail","name":"Flail","category":"martial","type":"melee","weapon_group":"flail","damage":{"dice":"1d8","type":"bludgeoning"},"versatile_damage":null,"properties":[],"reach":5,"range":null,"weight":2,"cost":{"value":10,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"glaive","name":"Glaive","category":"martial","type":"melee","weapon_group":"polearm","damage":{"dice":"1d10","type":"slashing"},"versatile_damage":null,"properties":["heavy","reach","two_handed"],"reach":10,"range":null,"weight":6,"cost":{"value":20,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"greataxe","name":"Greataxe","category":"martial","type":"melee","weapon_group":"axe","damage":{"dice":"1d12","type":"slashing"},"versatile_damage":null,"properties":["heavy","two_handed"],"reach":5,"range":null,"weight":7,"cost":{"value":30,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"greatsword","name":"Greatsword","category":"martial","type":"melee","weapon_group":"sword","damage":{"dice":"2d6","type":"slashing"},"versatile_damage":null,"properties":["heavy","two_handed"],"reach":5,"range":null,"weight":6,"cost":{"value":50,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"halberd","name":"Halberd","category":"martial","type":"melee","weapon_group":"polearm","damage":{"dice":"1d10","type":"slashing"},"versatile_damage":null,"properties":["heavy","reach","two_handed"],"reach":10,"range":null,"weight":6,"cost":{"value":20,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"lance","name":"Lance","category":"martial","type":"melee","weapon_group":"polearm","damage":{"dice":"1d12","type":"piercing"},"versatile_damage":null,"properties":["reach","special"],"reach":10,"range":null,"weight":6,"cost":{"value":10,"unit":"gp"},"modifiers":[],"notes":"Disadvantage when attacking within 5 ft. Requires two hands when not mounted." },
-    { "id":"longsword","name":"Longsword","category":"martial","type":"melee","weapon_group":"sword","damage":{"dice":"1d8","type":"slashing"},"versatile_damage":"1d10","properties":["versatile"],"reach":5,"range":null,"weight":3,"cost":{"value":15,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"maul","name":"Maul","category":"martial","type":"melee","weapon_group":"hammer","damage":{"dice":"2d6","type":"bludgeoning"},"versatile_damage":null,"properties":["heavy","two_handed"],"reach":5,"range":null,"weight":10,"cost":{"value":10,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"morningstar","name":"Morningstar","category":"martial","type":"melee","weapon_group":"mace","damage":{"dice":"1d8","type":"piercing"},"versatile_damage":null,"properties":[],"reach":5,"range":null,"weight":4,"cost":{"value":15,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"pike","name":"Pike","category":"martial","type":"melee","weapon_group":"polearm","damage":{"dice":"1d10","type":"piercing"},"versatile_damage":null,"properties":["heavy","reach","two_handed"],"reach":10,"range":null,"weight":18,"cost":{"value":5,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"rapier","name":"Rapier","category":"martial","type":"melee","weapon_group":"sword","damage":{"dice":"1d8","type":"piercing"},"versatile_damage":null,"properties":["finesse"],"reach":5,"range":null,"weight":2,"cost":{"value":25,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"scimitar","name":"Scimitar","category":"martial","type":"melee","weapon_group":"sword","damage":{"dice":"1d6","type":"slashing"},"versatile_damage":null,"properties":["finesse","light"],"reach":5,"range":null,"weight":3,"cost":{"value":25,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"shortsword","name":"Shortsword","category":"martial","type":"melee","weapon_group":"sword","damage":{"dice":"1d6","type":"piercing"},"versatile_damage":null,"properties":["finesse","light"],"reach":5,"range":null,"weight":2,"cost":{"value":10,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"trident","name":"Trident","category":"martial","type":"melee","weapon_group":"spear","damage":{"dice":"1d6","type":"piercing"},"versatile_damage":"1d8","properties":["thrown","versatile"],"reach":5,"range":{"normal":20,"long":60},"weight":4,"cost":{"value":5,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"war_pick","name":"War Pick","category":"martial","type":"melee","weapon_group":"pick","damage":{"dice":"1d8","type":"piercing"},"versatile_damage":null,"properties":[],"reach":5,"range":null,"weight":2,"cost":{"value":5,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"warhammer","name":"Warhammer","category":"martial","type":"melee","weapon_group":"hammer","damage":{"dice":"1d8","type":"bludgeoning"},"versatile_damage":"1d10","properties":["versatile"],"reach":5,"range":null,"weight":2,"cost":{"value":15,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"whip","name":"Whip","category":"martial","type":"melee","weapon_group":"flail","damage":{"dice":"1d4","type":"slashing"},"versatile_damage":null,"properties":["finesse","reach"],"reach":10,"range":null,"weight":3,"cost":{"value":2,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"blowgun","name":"Blowgun","category":"martial","type":"ranged","weapon_group":"blowgun","damage":{"dice":"1","type":"piercing"},"versatile_damage":null,"properties":["ammunition","loading"],"reach":null,"range":{"normal":25,"long":100},"weight":1,"cost":{"value":10,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"hand_crossbow","name":"Hand Crossbow","category":"martial","type":"ranged","weapon_group":"crossbow","damage":{"dice":"1d6","type":"piercing"},"versatile_damage":null,"properties":["ammunition","light","loading"],"reach":null,"range":{"normal":30,"long":120},"weight":3,"cost":{"value":75,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"heavy_crossbow","name":"Heavy Crossbow","category":"martial","type":"ranged","weapon_group":"crossbow","damage":{"dice":"1d10","type":"piercing"},"versatile_damage":null,"properties":["ammunition","heavy","loading","two_handed"],"reach":null,"range":{"normal":100,"long":400},"weight":18,"cost":{"value":50,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"longbow","name":"Longbow","category":"martial","type":"ranged","weapon_group":"bow","damage":{"dice":"1d8","type":"piercing"},"versatile_damage":null,"properties":["ammunition","heavy","two_handed"],"reach":null,"range":{"normal":150,"long":600},"weight":2,"cost":{"value":50,"unit":"gp"},"modifiers":[],"notes":null },
-    { "id":"net","name":"Net","category":"martial","type":"ranged","weapon_group":"net","damage":null,"versatile_damage":null,"properties":["thrown","special"],"reach":null,"range":{"normal":5,"long":15},"weight":3,"cost":{"value":1,"unit":"gp"},"modifiers":[],"notes":"Restrains target on hit (escape DC 10 STR check)." }
+    {
+      "id": "club",
+      "name": "Club",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "club",
+      "damage": {
+        "dice": "1d4",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "light"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 1,
+        "unit": "sp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "dagger",
+      "name": "Dagger",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "dagger",
+      "damage": {
+        "dice": "1d4",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light",
+        "thrown"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 1,
+      "cost": {
+        "value": 2,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "greatclub",
+      "name": "Greatclub",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "club",
+      "damage": {
+        "dice": "1d8",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "two_handed"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 10,
+      "cost": {
+        "value": 2,
+        "unit": "sp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "handaxe",
+      "name": "Handaxe",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "light",
+        "thrown"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 2,
+      "cost": {
+        "value": 5,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "javelin",
+      "name": "Javelin",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "spear",
+      "damage": {
+        "dice": "1d6",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "thrown"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 30,
+        "long": 120
+      },
+      "weight": 2,
+      "cost": {
+        "value": 5,
+        "unit": "sp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "light_hammer",
+      "name": "Light Hammer",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "hammer",
+      "damage": {
+        "dice": "1d4",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "light",
+        "thrown"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 2,
+      "cost": {
+        "value": 2,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "mace",
+      "name": "Mace",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "mace",
+      "damage": {
+        "dice": "1d6",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": null,
+      "properties": [],
+      "reach": 5,
+      "range": null,
+      "weight": 4,
+      "cost": {
+        "value": 5,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "quarterstaff",
+      "name": "Quarterstaff",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "staff",
+      "damage": {
+        "dice": "1d6",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": "1d8",
+      "properties": [
+        "versatile"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 4,
+      "cost": {
+        "value": 2,
+        "unit": "sp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "sickle",
+      "name": "Sickle",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "sickle",
+      "damage": {
+        "dice": "1d4",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "light"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 1,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "spear",
+      "name": "Spear",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "spear",
+      "damage": {
+        "dice": "1d6",
+        "type": "piercing"
+      },
+      "versatile_damage": "1d8",
+      "properties": [
+        "thrown",
+        "versatile"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 3,
+      "cost": {
+        "value": 1,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "light_crossbow",
+      "name": "Light Crossbow",
+      "category": "simple",
+      "type": "ranged",
+      "weapon_group": "crossbow",
+      "damage": {
+        "dice": "1d8",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "ammunition",
+        "loading",
+        "two_handed"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 80,
+        "long": 320
+      },
+      "weight": 5,
+      "cost": {
+        "value": 25,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "dart",
+      "name": "Dart",
+      "category": "simple",
+      "type": "ranged",
+      "weapon_group": "dart",
+      "damage": {
+        "dice": "1d4",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "thrown"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 0.25,
+      "cost": {
+        "value": 5,
+        "unit": "cp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "shortbow",
+      "name": "Shortbow",
+      "category": "simple",
+      "type": "ranged",
+      "weapon_group": "bow",
+      "damage": {
+        "dice": "1d6",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "ammunition",
+        "two_handed"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 80,
+        "long": 320
+      },
+      "weight": 2,
+      "cost": {
+        "value": 25,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "sling",
+      "name": "Sling",
+      "category": "simple",
+      "type": "ranged",
+      "weapon_group": "sling",
+      "damage": {
+        "dice": "1d4",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "ammunition"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 30,
+        "long": 120
+      },
+      "weight": 0,
+      "cost": {
+        "value": 1,
+        "unit": "sp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "battleaxe",
+      "name": "Battleaxe",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d8",
+        "type": "slashing"
+      },
+      "versatile_damage": "1d10",
+      "properties": [
+        "versatile"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 4,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "flail",
+      "name": "Flail",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "flail",
+      "damage": {
+        "dice": "1d8",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": null,
+      "properties": [],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "glaive",
+      "name": "Glaive",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "polearm",
+      "damage": {
+        "dice": "1d10",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "reach",
+        "two_handed"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 20,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "greataxe",
+      "name": "Greataxe",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d12",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "two_handed"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 7,
+      "cost": {
+        "value": 30,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "greatsword",
+      "name": "Greatsword",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "2d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "two_handed"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 50,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "halberd",
+      "name": "Halberd",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "polearm",
+      "damage": {
+        "dice": "1d10",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "reach",
+        "two_handed"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 20,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "lance",
+      "name": "Lance",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "polearm",
+      "damage": {
+        "dice": "1d12",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "reach",
+        "special"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": "Disadvantage when attacking within 5 ft. Requires two hands when not mounted."
+    },
+    {
+      "id": "longsword",
+      "name": "Longsword",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d8",
+        "type": "slashing"
+      },
+      "versatile_damage": "1d10",
+      "properties": [
+        "versatile"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 3,
+      "cost": {
+        "value": 15,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "maul",
+      "name": "Maul",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "hammer",
+      "damage": {
+        "dice": "2d6",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "two_handed"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 10,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "morningstar",
+      "name": "Morningstar",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "mace",
+      "damage": {
+        "dice": "1d8",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [],
+      "reach": 5,
+      "range": null,
+      "weight": 4,
+      "cost": {
+        "value": 15,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "pike",
+      "name": "Pike",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "polearm",
+      "damage": {
+        "dice": "1d10",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "reach",
+        "two_handed"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 18,
+      "cost": {
+        "value": 5,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "rapier",
+      "name": "Rapier",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d8",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 25,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "scimitar",
+      "name": "Scimitar",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 3,
+      "cost": {
+        "value": 25,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "shortsword",
+      "name": "Shortsword",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d6",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "trident",
+      "name": "Trident",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "spear",
+      "damage": {
+        "dice": "1d6",
+        "type": "piercing"
+      },
+      "versatile_damage": "1d8",
+      "properties": [
+        "thrown",
+        "versatile"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 4,
+      "cost": {
+        "value": 5,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "war_pick",
+      "name": "War Pick",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "pick",
+      "damage": {
+        "dice": "1d8",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 5,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "warhammer",
+      "name": "Warhammer",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "hammer",
+      "damage": {
+        "dice": "1d8",
+        "type": "bludgeoning"
+      },
+      "versatile_damage": "1d10",
+      "properties": [
+        "versatile"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 15,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "whip",
+      "name": "Whip",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "flail",
+      "damage": {
+        "dice": "1d4",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "reach"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 3,
+      "cost": {
+        "value": 2,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "blowgun",
+      "name": "Blowgun",
+      "category": "martial",
+      "type": "ranged",
+      "weapon_group": "blowgun",
+      "damage": {
+        "dice": "1",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "ammunition",
+        "loading"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 25,
+        "long": 100
+      },
+      "weight": 1,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "hand_crossbow",
+      "name": "Hand Crossbow",
+      "category": "martial",
+      "type": "ranged",
+      "weapon_group": "crossbow",
+      "damage": {
+        "dice": "1d6",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "ammunition",
+        "light",
+        "loading"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 30,
+        "long": 120
+      },
+      "weight": 3,
+      "cost": {
+        "value": 75,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "heavy_crossbow",
+      "name": "Heavy Crossbow",
+      "category": "martial",
+      "type": "ranged",
+      "weapon_group": "crossbow",
+      "damage": {
+        "dice": "1d10",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "ammunition",
+        "heavy",
+        "loading",
+        "two_handed"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 100,
+        "long": 400
+      },
+      "weight": 18,
+      "cost": {
+        "value": 50,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "longbow",
+      "name": "Longbow",
+      "category": "martial",
+      "type": "ranged",
+      "weapon_group": "bow",
+      "damage": {
+        "dice": "1d8",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "ammunition",
+        "heavy",
+        "two_handed"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 150,
+        "long": 600
+      },
+      "weight": 2,
+      "cost": {
+        "value": 50,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": null
+    },
+    {
+      "id": "net",
+      "name": "Net",
+      "category": "martial",
+      "type": "ranged",
+      "weapon_group": "net",
+      "damage": null,
+      "versatile_damage": null,
+      "properties": [
+        "thrown",
+        "special"
+      ],
+      "reach": null,
+      "range": {
+        "normal": 5,
+        "long": 15
+      },
+      "weight": 3,
+      "cost": {
+        "value": 1,
+        "unit": "gp"
+      },
+      "modifiers": [],
+      "notes": "Restrains target on hit (escape DC 10 STR check)."
+    },
+    {
+      "id": "battleaxe_plus1",
+      "name": "Battleaxe +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d8",
+        "type": "slashing"
+      },
+      "versatile_damage": "1d10",
+      "properties": [
+        "versatile"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 4,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "battleaxe_silvered",
+      "name": "Battleaxe, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d8",
+        "type": "slashing"
+      },
+      "versatile_damage": "1d10",
+      "properties": [
+        "versatile"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 4,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "dagger_plus1",
+      "name": "Dagger +1",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "dagger",
+      "damage": {
+        "dice": "1d4",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light",
+        "thrown"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 1,
+      "cost": {
+        "value": 2,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "dagger_silvered",
+      "name": "Dagger, Silvered",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "dagger",
+      "damage": {
+        "dice": "1d4",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light",
+        "thrown"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 1,
+      "cost": {
+        "value": 2,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "glaive_plus1",
+      "name": "Glaive +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "polearm",
+      "damage": {
+        "dice": "1d10",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "reach",
+        "two_handed"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 20,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "glaive_silvered",
+      "name": "Glaive, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "polearm",
+      "damage": {
+        "dice": "1d10",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "reach",
+        "two_handed"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 20,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "greataxe_plus1",
+      "name": "Greataxe +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d12",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "two_handed"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 7,
+      "cost": {
+        "value": 30,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "greataxe_silvered",
+      "name": "Greataxe, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d12",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "two_handed"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 7,
+      "cost": {
+        "value": 30,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "greatsword_plus1",
+      "name": "Greatsword +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "2d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "two_handed"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 50,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "greatsword_silvered",
+      "name": "Greatsword, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "2d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "two_handed"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 50,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "halberd_plus1",
+      "name": "Halberd +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "polearm",
+      "damage": {
+        "dice": "1d10",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "reach",
+        "two_handed"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 20,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "halberd_silvered",
+      "name": "Halberd, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "polearm",
+      "damage": {
+        "dice": "1d10",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "heavy",
+        "reach",
+        "two_handed"
+      ],
+      "reach": 10,
+      "range": null,
+      "weight": 6,
+      "cost": {
+        "value": 20,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "handaxe_plus1",
+      "name": "Handaxe +1",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "light",
+        "thrown"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 2,
+      "cost": {
+        "value": 5,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "handaxe_silvered",
+      "name": "Handaxe, Silvered",
+      "category": "simple",
+      "type": "melee",
+      "weapon_group": "axe",
+      "damage": {
+        "dice": "1d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "light",
+        "thrown"
+      ],
+      "reach": 5,
+      "range": {
+        "normal": 20,
+        "long": 60
+      },
+      "weight": 2,
+      "cost": {
+        "value": 5,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "longsword_plus1",
+      "name": "Longsword +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d8",
+        "type": "slashing"
+      },
+      "versatile_damage": "1d10",
+      "properties": [
+        "versatile"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 3,
+      "cost": {
+        "value": 15,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "longsword_silvered",
+      "name": "Longsword, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d8",
+        "type": "slashing"
+      },
+      "versatile_damage": "1d10",
+      "properties": [
+        "versatile"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 3,
+      "cost": {
+        "value": 15,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "rapier_plus1",
+      "name": "Rapier +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d8",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 25,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "rapier_silvered",
+      "name": "Rapier, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d8",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 25,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "scimitar_plus1",
+      "name": "Scimitar +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 3,
+      "cost": {
+        "value": 25,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "scimitar_silvered",
+      "name": "Scimitar, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d6",
+        "type": "slashing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 3,
+      "cost": {
+        "value": 25,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    },
+    {
+      "id": "shortsword_plus1",
+      "name": "Shortsword +1",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d6",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "magic",
+          "id": "+1"
+        }
+      ],
+      "notes": "+1 magic weapon — +1 bonus to attack and damage rolls."
+    },
+    {
+      "id": "shortsword_silvered",
+      "name": "Shortsword, Silvered",
+      "category": "martial",
+      "type": "melee",
+      "weapon_group": "sword",
+      "damage": {
+        "dice": "1d6",
+        "type": "piercing"
+      },
+      "versatile_damage": null,
+      "properties": [
+        "finesse",
+        "light"
+      ],
+      "reach": 5,
+      "range": null,
+      "weight": 2,
+      "cost": {
+        "value": 10,
+        "unit": "gp"
+      },
+      "modifiers": [
+        {
+          "type": "material",
+          "id": "silvered"
+        }
+      ],
+      "notes": "Silvered — bypasses resistance/immunity to non-silvered attacks."
+    }
   ]
 }
