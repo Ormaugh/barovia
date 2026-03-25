@@ -384,13 +384,14 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .sc-higher strong{font-family:var(--font-heading);font-size:0.78rem;color:var(--ink-gold-dim);}
 
 /* Hit/Miss buttons in dice popup */
-.dice-action-row{display:flex;gap:0.6rem;padding:0.8rem 1.05rem 0.9rem;border-top:1px solid rgba(200,169,110,0.1);}
+.dice-action-row{display:flex;gap:0.6rem;max-height:0;overflow:hidden;padding:0;border-top:none;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+.dice-action-row.has-damage{max-height:80px;padding:0.8rem 1.05rem 0.9rem;border-top:1px solid rgba(200,169,110,0.1);}
+.dice-action-row.vis{opacity:1;pointer-events:auto;}
 .dice-action-btn{flex:1;font-family:var(--font-heading);font-size:0.88rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.6rem 0;border:1px solid var(--border-gold);cursor:pointer;background:transparent;transition:all 0.2s;}
 .dice-action-btn.hit-btn{color:var(--ink-gold);border-color:var(--ink-gold);}
 .dice-action-btn.hit-btn:hover{background:rgba(200,169,110,0.1);}
 .dice-action-btn.miss-btn{color:var(--text-faint);}
 .dice-action-btn.miss-btn:hover{background:rgba(200,169,110,0.05);color:var(--text-dim);}
-.dice-action-row.hide{display:none;}
 
 /* INVENTORY */
 .coins-row{display:flex;gap:0.75rem;margin-bottom:0.85rem;}
@@ -416,18 +417,40 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .dice-topbar{display:flex;align-items:center;justify-content:space-between;padding:0.62rem 1.05rem 0.52rem;background:rgba(139,26,26,0.1);border-bottom:1px solid rgba(139,26,26,0.2);}
 .dice-rname{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-gold);}
 .dice-rtype{font-family:var(--font-accent);font-size:0.78rem;color:var(--text-faint);letter-spacing:0.1em;}
-.dice-arena{padding:1.5rem 1.3rem 0.9rem;display:flex;flex-direction:column;align-items:center;}
-.d3d-wrap{width:180px;height:180px;position:relative;margin-bottom:0.7rem;cursor:default;}
+.dice-arena{padding:0.9rem 1.3rem 0.8rem;display:flex;flex-direction:column;align-items:center;position:relative;}
+.d3d-wrap{width:180px;height:180px;position:relative;cursor:default;}
 #diceCanvas{display:block;width:180px;height:180px;background:transparent;}
-.dtotal{font-family:var(--font-display);font-size:3.5rem;line-height:1;color:var(--ink-gold);text-shadow:0 0 38px rgba(200,169,110,0.36);margin-bottom:0.22rem;opacity:0;transform:scale(0.72);transition:opacity 0.3s ease 0.5s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1) 0.5s;}
-.dtotal.vis{opacity:1;transform:scale(1);}.dtotal.crit{color:#ffd700;text-shadow:0 0 52px rgba(255,215,0,0.62);}.dtotal.fumb{color:#cc2222;text-shadow:0 0 36px rgba(200,50,50,0.52);}
-.dbadge{font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:0.16rem 0.72rem;margin-bottom:0.82rem;border:1px solid;opacity:0;transition:opacity 0.26s ease 0.64s;}
-.dbadge.vis{opacity:1;}.dbadge.crit{color:#ffd700;border-color:rgba(255,215,0,0.36);background:rgba(255,215,0,0.045);}.dbadge.fumb{color:#cc4444;border-color:rgba(200,50,50,0.36);background:rgba(200,50,50,0.045);}.dbadge.norm{display:none;}
-.dbkpanel{width:100%;background:rgba(0,0,0,0.26);border:1px solid rgba(200,169,110,0.13);padding:0.75rem 0.95rem;opacity:0;transform:translateY(5px);transition:opacity 0.26s ease 0.6s,transform 0.26s ease 0.6s;}
+/* d20 number overlay on canvas */
+.d20-result{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:60px;font-weight:700;pointer-events:none;opacity:0;transition:opacity 0.3s ease;}
+.d20-result.vis{opacity:1;}
+.d20-result.crit{color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,0.9);}
+.d20-result.fumb{color:#cc3322;text-shadow:0 0 20px rgba(200,50,50,0.9);}
+.d20-result.norm{color:rgba(200,169,110,0.95);text-shadow:0 0 10px rgba(0,0,0,0.95);}
+/* Crit/Fumble label below number */
+.roll-label{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;opacity:0;pointer-events:none;transition:opacity 0.35s ease 0.15s;}
+.roll-label.crit{color:#ffd700;text-shadow:0 0 12px rgba(255,215,0,0.7);}
+.roll-label.fumb{color:#cc3322;text-shadow:0 0 12px rgba(200,50,50,0.7);}
+.roll-label.vis{opacity:1;}
+/* Final result replacing d20 number */
+.final-result{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:72px;font-weight:700;color:var(--ink-gold);text-shadow:0 0 40px rgba(200,169,110,0.6),0 0 80px rgba(200,169,110,0.2);pointer-events:none;opacity:0;transform:scale(0.6);transition:opacity 0.4s ease,transform 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+.final-result.vis{opacity:1;transform:scale(1);}
+/* Mod bubble below die */
+.mod-bubble{font-family:var(--font-heading);font-size:1.15rem;font-weight:700;height:2rem;display:flex;align-items:center;justify-content:center;opacity:0;margin-top:0.3rem;}
+.mod-bubble.pos{color:var(--ink-green);}
+.mod-bubble.neg{color:var(--ink-red-bright);}
+.mod-bubble.zero{color:var(--text-faint);}
+/* Particle canvas */
+#diceParticleCanvas{position:absolute;inset:0;pointer-events:none;z-index:10;}
+/* Breakdown panel */
+.dbkpanel{width:100%;padding:0 0.2rem 0.5rem;opacity:0;transform:translateY(5px);transition:opacity 0.26s ease,transform 0.26s ease;}
 .dbkpanel.vis{opacity:1;transform:translateY(0);}
-.dcalcrow{display:flex;align-items:center;justify-content:space-between;padding:0.2rem 0;border-bottom:1px solid rgba(200,169,110,0.055);}
+.dcalcrow{display:flex;align-items:center;justify-content:space-between;padding:0.2rem 0;border-bottom:1px solid rgba(200,169,110,0.055);opacity:0;transform:translateX(-6px);transition:opacity 0.25s ease,transform 0.25s ease;}
 .dcalcrow:last-child{border-bottom:none;}
+.dcalcrow.vis{opacity:1;transform:translateX(0);}
 .dcalcrow.totrow{border-top:1px solid rgba(200,169,110,0.2);border-bottom:none;margin-top:0.26rem;padding-top:0.36rem;}
+/* Damage section */
+.ddmgsec{margin-top:0.42rem;padding-top:0.42rem;border-top:1px dashed rgba(200,169,110,0.13);}
+.ddmglbl{font-family:var(--font-heading);font-size:0.6rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.32rem;display:block;}
 .dclbl{font-family:var(--font-heading);font-size:0.78rem;font-weight:700;letter-spacing:0.05em;color:var(--text-dim);display:flex;align-items:center;gap:0.42rem;}
 .dico{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;background:rgba(200,169,110,0.065);border:1px solid rgba(200,169,110,0.16);font-size:0.56rem;color:var(--ink-gold-dim);flex-shrink:0;}
 .dcval{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--text-body);}
@@ -521,16 +544,22 @@ body.edit-mode .inv-val-txt{display:none;}
       <div><span class="dice-rname" id="dRollName">Roll</span><br><span class="dice-rtype" id="dRollType">d20</span></div>
       <button class="x-btn" onclick="closeDice()">✕</button>
     </div>
-    <div class="dice-arena">
-      <div class="d3d-wrap"><canvas id="diceCanvas" width="180" height="180"></canvas></div>
-      <div class="dtotal" id="dTotal"></div>
-      <div class="dbadge norm" id="dBadge"></div>
-      <div class="dbkpanel" id="dBkPanel">
-        <div id="dCalcRows"></div>
-        <div class="ddmgsec" id="dDmgSec" style="display:none;"><span class="ddmglbl">Damage Roll</span><div id="dDmgRows"></div></div>
+    <div class="dice-arena" id="diceArena">
+      <canvas id="diceParticleCanvas"></canvas>
+      <div class="d3d-wrap">
+        <canvas id="diceCanvas" width="180" height="180"></canvas>
+        <div class="d20-result norm" id="d20Result"></div>
+        <div class="final-result" id="finalResult"></div>
+        <div class="roll-label" id="rollLabel"></div>
       </div>
+      <div class="mod-bubble" id="modBubble"></div>
     </div>
-    <div class="dice-action-row hide" id="diceActionRow">
+    <div class="dbkpanel" id="dBkPanel"></div>
+    <div class="ddmgsec" id="dDmgSec" style="display:none;padding:0.42rem 1.05rem 0.5rem;border-top:1px dashed rgba(200,169,110,0.13);">
+      <span class="ddmglbl">Damage Roll</span>
+      <div id="dDmgRows"></div>
+    </div>
+    <div class="dice-action-row" id="diceActionRow">
       <button class="dice-action-btn miss-btn" onclick="closeDice()">✕ Miss</button>
       <button class="dice-action-btn hit-btn" id="hitBtn" onclick="rollDamageHit()">✦ Hit — Roll Damage</button>
     </div>
@@ -1496,29 +1525,163 @@ function loop(t){if(!loopActive){rafId=null;return;}const dt=Math.min((t-lastT)/
 return{open(){rx=REST_RX;ry=REST_RY;dState='idle';showNum=false;resultOp=0;onDone=null;if(loopActive)return;loopActive=true;lastT=performance.now();rafId=requestAnimationFrame(t=>{lastT=t;rafId=requestAnimationFrame(loop);});},close(){loopActive=false;if(rafId){cancelAnimationFrame(rafId);rafId=null;}},roll(result,cb){if(dState==='spinning'||dState==='settling')return;dResult=result;showNum=false;resultOp=0;onDone=cb;spinDur=0.9+Math.random()*0.3;spinStart=performance.now();dState='spinning';}};
 })();
 
+// ── PARTICLE SYSTEM ───────────────────────────────────────────────────────────
+class DiceParticles{
+  constructor(canvas){this.canvas=canvas;this.ctx=canvas.getContext('2d');this.particles=[];this.running=false;this.rafId=null;}
+  resize(){const a=document.getElementById('diceArena');if(a){this.canvas.width=a.offsetWidth;this.canvas.height=a.offsetHeight;}}
+  burst(x,y,count=40){
+    for(let i=0;i<count;i++){
+      const angle=Math.random()*Math.PI*2,speed=1.5+Math.random()*4,size=1.5+Math.random()*3;
+      this.particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-2,size,life:1,decay:0.018+Math.random()*0.025,color:`hsl(${38+Math.random()*20},${60+Math.random()*30}%,${55+Math.random()*20}%)`});
+    }
+    if(!this.running)this._start();
+  }
+  _start(){
+    this.running=true;
+    const tick=()=>{
+      if(!this.running)return;
+      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+      this.particles=this.particles.filter(p=>p.life>0);
+      this.particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=0.12;p.vx*=0.97;p.life-=p.decay;this.ctx.globalAlpha=Math.max(0,p.life);this.ctx.fillStyle=p.color;this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);this.ctx.fill();});
+      this.ctx.globalAlpha=1;
+      if(this.particles.length>0)this.rafId=requestAnimationFrame(tick);
+      else{this.running=false;this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);}
+    };
+    this.rafId=requestAnimationFrame(tick);
+  }
+  stop(){this.running=false;if(this.rafId)cancelAnimationFrame(this.rafId);this.particles=[];}
+}
+let _diceParticles=null;
+
 function rollDice(cfg){curRoll=cfg;execRoll(cfg);}
 function execRoll(cfg){
   const{name,type,bon,dmg,comps,showHitMiss}=cfg;
-  const tot=document.getElementById('dTotal'),badge=document.getElementById('dBadge'),bkp=document.getElementById('dBkPanel'),cr=document.getElementById('dCalcRows'),ds=document.getElementById('dDmgSec'),dr=document.getElementById('dDmgRows');
-  tot.textContent='';tot.className='dtotal';badge.textContent='';badge.className='dbadge norm';bkp.className='dbkpanel';cr.innerHTML='';dr.innerHTML='';ds.style.display='none';
-  document.getElementById('dRollName').textContent=name;document.getElementById('dRollType').textContent=type||'d20';
-  const d20=Math.floor(Math.random()*20)+1;const total=d20+(bon||0);const ic=d20===20,ifm=d20===1;
+
+  // Init particle system
+  if(!_diceParticles)_diceParticles=new DiceParticles(document.getElementById('diceParticleCanvas'));
+
+  // Get UI elements
+  const d20El=document.getElementById('d20Result');
+  const finalEl=document.getElementById('finalResult');
+  const rollLbl=document.getElementById('rollLabel');
+  const modBubble=document.getElementById('modBubble');
+  const bkPanel=document.getElementById('dBkPanel');
   const actionRow=document.getElementById('diceActionRow');
-  actionRow.classList.toggle('hide',!showHitMiss);
-  document.getElementById('diceOverlay').classList.add('active');diceEngine.open();
+  const dmgSec=document.getElementById('dDmgSec');
+  const dmgRows=document.getElementById('dDmgRows');
+
+  // Reset
+  document.getElementById('dRollName').textContent=name;
+  document.getElementById('dRollType').textContent=type||'d20';
+  d20El.textContent='';d20El.className='d20-result norm';
+  finalEl.textContent='';finalEl.className='final-result';finalEl.style.color='';
+  rollLbl.textContent='';rollLbl.className='roll-label';
+  modBubble.style.cssText='opacity:0;';modBubble.textContent='';modBubble.className='mod-bubble';
+  bkPanel.innerHTML='';bkPanel.className='dbkpanel';
+  dmgSec.style.display='none';dmgRows.innerHTML='';
+  actionRow.classList.remove('vis');
+  if(showHitMiss)actionRow.classList.add('has-damage');
+  else actionRow.classList.remove('has-damage');
+
+  const d20=Math.floor(Math.random()*20)+1;
+  const total=d20+(bon||0);
+  const isCrit=d20===20,isFumb=d20===1;
+
+  document.getElementById('diceOverlay').classList.add('active');
+  diceEngine.open();
+
   diceEngine.roll(d20,()=>{
-    if(ic){badge.className='dbadge crit vis';badge.textContent='✦ Critical Hit ✦';tot.classList.add('crit');}
-    else if(ifm){badge.className='dbadge fumb vis';badge.textContent='✗ Fumble';tot.classList.add('fumb');}
-    tot.textContent=total;tot.classList.add('vis');
-    cr.appendChild(mkRow('d20 Roll','D20',d20,ic?'pos':ifm?'neg':''));
-    if(comps)comps.forEach(c=>cr.appendChild(mkRow(c.l,c.i,c.v,c.v>=0?'pos':'neg')));
-    cr.appendChild(mkRow('Total','=',total,'tot',true));
-    bkp.classList.add('vis');
+    // STEP 1 — show d20 on die
+    d20El.textContent=d20;
+    d20El.className='d20-result '+(isCrit?'crit':isFumb?'fumb':'norm');
+    requestAnimationFrame(()=>d20El.classList.add('vis'));
+
+    // Crit / Fumble label
+    if(isCrit){rollLbl.textContent='Critical!';rollLbl.className='roll-label crit';setTimeout(()=>rollLbl.classList.add('vis'),200);}
+    else if(isFumb){rollLbl.textContent='Fumble';rollLbl.className='roll-label fumb';setTimeout(()=>rollLbl.classList.add('vis'),200);}
+
+    // STEP 2 — 500ms delay then show breakdown panel
+    setTimeout(()=>{
+      bkPanel.classList.add('vis');
+      const rows=[];
+      const addRow=(label,icon,val,cls,isTot=false)=>{
+        const r=document.createElement('div');
+        r.className='dcalcrow'+(isTot?' totrow':'');
+        const sign=typeof val==='number'?(val>0&&icon!=='D20'&&icon!=='='?'+'+val:''+val):''+val;
+        r.innerHTML=`<span class="dclbl"><span class="dico">${icon}</span>${label}</span><span class="dcval ${cls}">${sign}</span>`;
+        bkPanel.appendChild(r);rows.push(r);
+      };
+      addRow('d20 Roll','D20',d20,isCrit?'pos':isFumb?'neg':'');
+      (comps||[]).forEach(c=>addRow(c.l,c.i,c.v,c.v>=0?'pos':'neg'));
+      addRow('Total','=',total,'tot',true);
+
+      // STEP 3 — animate rows + mod bubble
+      let runningMod=0,delay=0;
+      setTimeout(()=>rows[0].classList.add('vis'),0);
+      (comps||[]).forEach((c,ci)=>{
+        delay+=ci===0?600:440;
+        setTimeout(()=>{
+          rows[ci+1].classList.add('vis');
+          runningMod+=c.v;
+          modBubble.style.opacity='1';
+          modBubble.textContent=(runningMod>=0?'+':'')+runningMod;
+          modBubble.className='mod-bubble '+(runningMod>0?'pos':runningMod<0?'neg':'zero');
+        },delay);
+      });
+
+      // STEP 4 — total row + fusion
+      const fusionDelay=delay+320;
+      setTimeout(()=>rows[rows.length-1].classList.add('vis'),fusionDelay);
+
+      setTimeout(()=>{
+        // Fly mod bubble up
+        const arena=document.getElementById('diceArena');
+        const diceWrap=arena.querySelector('.d3d-wrap');
+        const arenaRect=arena.getBoundingClientRect();
+        const diceRect=diceWrap.getBoundingClientRect();
+        const dieX=diceRect.left-arenaRect.left+diceRect.width/2;
+        const dieY=diceRect.top-arenaRect.top+diceRect.height/2;
+        const startY=modBubble.offsetTop;
+        const endY=dieY-modBubble.offsetHeight;
+        modBubble.style.transition='transform 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.5s ease';
+        modBubble.style.transform=`translateY(${endY-startY-20}px) scale(1.3)`;
+        modBubble.style.opacity='0';
+
+        // On arrival: particles + final result
+        setTimeout(()=>{
+          _diceParticles.resize();
+          _diceParticles.burst(dieX,dieY,45);
+          d20El.classList.remove('vis');
+          rollLbl.classList.remove('vis');
+          finalEl.textContent=total;
+          if(isCrit)finalEl.style.color='#ffd700';
+          else if(isFumb)finalEl.style.color='#cc3322';
+          requestAnimationFrame(()=>finalEl.classList.add('vis'));
+          if(showHitMiss)setTimeout(()=>actionRow.classList.add('vis'),350);
+        },480);
+      },fusionDelay+400);
+    },500);
   });
 }
+
 function mkRow(label,icon,val,vc,tot=false){const r=document.createElement('div');r.className='dcalcrow'+(tot?' totrow':'');const vs=typeof val==='number'?(val>0&&icon!=='D20'&&icon!=='='?'+'+val:''+val):''+val;r.innerHTML=`<span class="dclbl"><span class="dico">${icon}</span>${label}</span><span class="dcval ${vc}">${vs}</span>`;return r;}
-function rollFormula(f,crit=false){const m=f.match(/(\d+)d(\d+)([+-]\d+)?/i);if(!m)return null;let cnt=parseInt(m[1]);const si=parseInt(m[2]);const mo=parseInt(m[3]||'0');if(crit)cnt*=2;const rolls=[];for(let i=0;i<cnt;i++)rolls.push(Math.floor(Math.random()*si)+1);return{rolls,mod:mo,total:rolls.reduce((a,b)=>a+b,0)+mo};}
-function closeDice(){document.getElementById('diceOverlay').classList.remove('active');diceEngine.close();}
+
+function rollDamageHit(){
+  if(!curRollDmg||curRollDmg==='—')return;
+  const ds=document.getElementById('dDmgSec');const dr=document.getElementById('dDmgRows');
+  ds.style.display='block';dr.innerHTML='';
+  const r=rollFormula(curRollDmg,false);
+  if(r){dr.appendChild(mkRow(curRollDmg,'DMG',r.total,''));if(r.rolls.length>1){const e=document.createElement('div');e.className='dcalcrow';e.innerHTML=`<span class="dclbl" style="color:var(--text-faint);font-style:italic;">Rolls: [${r.rolls.join(', ')}]${r.mod?(r.mod>0?'+':'')+r.mod:''}</span>`;dr.appendChild(e);}}
+  document.getElementById('diceActionRow').classList.remove('vis');
+}
+
+function closeDice(){
+  document.getElementById('diceOverlay').classList.remove('active');
+  diceEngine.close();
+  if(_diceParticles)_diceParticles.stop();
+  const mb=document.getElementById('modBubble');
+  mb.style.transition='none';mb.style.transform='';mb.style.opacity='0';
+}
 document.getElementById('diceOverlay').addEventListener('click',function(e){if(e.target===this)closeDice();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSpellCard();closeSens();closeWeaponPicker();}});
 // Touch to close spell card on mobile
