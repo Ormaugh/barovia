@@ -160,7 +160,7 @@
   ],
   "atks": [
     {
-      "n": "Mace (Lucero)",
+      "n": "Lucero",
       "id": "mace",
       "h": "main-s",
       "dmg": "1d6",
