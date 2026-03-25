@@ -278,7 +278,25 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 @media(max-width:680px){.sp-col.dur{display:none;}.spell-row.hdr .scl.hdr-dur{display:none;}.sp-meta-sub{display:block;}}
 @media(max-width:500px){.sp-col.rng{display:none;}.spell-row.hdr .scl.hdr-rng{display:none;}}
 
-/* SPELL / WEAPON CARD popup — dark parchment style */
+/* WEAPON PICKER POPUP */
+.wpick-overlay{position:fixed;inset:0;z-index:910;background:rgba(4,3,2,0.85);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity 0.22s;backdrop-filter:blur(3px);}
+.wpick-overlay.active{opacity:1;pointer-events:auto;}
+.wpick-modal{width:100%;max-width:520px;max-height:80vh;display:flex;flex-direction:column;background:linear-gradient(160deg,#1a1208,#100c07);border:1px solid rgba(200,169,110,0.5);border-top:3px solid var(--ink-gold-dim);box-shadow:0 20px 60px rgba(0,0,0,0.9);animation:popIn 0.24s cubic-bezier(0.34,1.4,0.64,1) forwards;position:relative;}
+.wpick-header{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.2rem 0.7rem;border-bottom:1px solid var(--border-gold);flex-shrink:0;}
+.wpick-title{font-family:var(--font-heading);font-size:0.9rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-gold);}
+.wpick-search{flex:1;margin:0 1rem;background:rgba(0,0,0,0.3);border:1px solid var(--border-gold);color:var(--text-body);font-family:var(--font-body);font-size:0.9rem;padding:0.28rem 0.6rem;outline:none;}
+.wpick-search:focus{border-color:var(--border-gold-bright);}
+.wpick-search::placeholder{color:var(--text-faint);font-style:italic;}
+.wpick-list{overflow-y:auto;flex:1;padding:0.4rem 0;}
+.wpick-row{display:grid;grid-template-columns:1fr 90px 90px;align-items:center;gap:0.5rem;padding:0.42rem 1.2rem;cursor:pointer;transition:background 0.12s;border-bottom:1px solid rgba(200,169,110,0.04);}
+.wpick-row:hover{background:rgba(200,169,110,0.07);}
+.wpick-row:last-child{border-bottom:none;}
+.wpick-name{font-family:var(--font-body);font-size:0.95rem;color:var(--text-body);}
+.wpick-stat{font-family:var(--font-heading);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-gold-dim);text-align:center;}
+.wpick-dmg{font-family:var(--font-heading);font-size:0.82rem;font-weight:700;color:var(--ink-gold);text-align:center;}
+.wpick-col-hdr{display:grid;grid-template-columns:1fr 90px 90px;gap:0.5rem;padding:0.3rem 1.2rem 0.3rem;border-bottom:1px solid var(--border-gold);flex-shrink:0;}
+.wpick-col-hdr span{font-family:var(--font-heading);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-faint);text-align:center;}
+.wpick-col-hdr span:first-child{text-align:left;}
 .sc-overlay{position:fixed;inset:0;z-index:900;background:rgba(4,3,2,0.82);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity 0.22s;backdrop-filter:blur(3px);}
 .sc-overlay.active{opacity:1;pointer-events:auto;}
 .sc-card{width:100%;max-width:480px;max-height:88vh;overflow-y:auto;background:linear-gradient(160deg,#1a1208,#100c07);border:1px solid rgba(200,169,110,0.5);border-top:3px solid var(--ink-gold-dim);box-shadow:0 0 0 1px rgba(139,26,26,0.15),0 20px 60px rgba(0,0,0,0.9);animation:popIn 0.26s cubic-bezier(0.34,1.4,0.64,1) forwards;position:relative;}
@@ -677,6 +695,7 @@ body.edit-mode .inv-val-txt{display:none;}
       <thead><tr><th>Name</th><th>Hand</th><th>To Hit</th><th>Damage</th><th>Type</th><th>Range</th><th></th></tr></thead>
       <tbody id="atkBody"></tbody>
     </table>
+    <button class="add-btn" id="addWeaponBtn" onclick="openWeaponPicker()">+ Añadir arma</button>
   </div>
   <div class="sb" id="prepSpellSection" style="display:none;">
     <div class="stitle">Prepared Spells</div>
@@ -1382,7 +1401,7 @@ function mkRow(label,icon,val,vc,tot=false){const r=document.createElement('div'
 function rollFormula(f,crit=false){const m=f.match(/(\d+)d(\d+)([+-]\d+)?/i);if(!m)return null;let cnt=parseInt(m[1]);const si=parseInt(m[2]);const mo=parseInt(m[3]||'0');if(crit)cnt*=2;const rolls=[];for(let i=0;i<cnt;i++)rolls.push(Math.floor(Math.random()*si)+1);return{rolls,mod:mo,total:rolls.reduce((a,b)=>a+b,0)+mo};}
 function closeDice(){document.getElementById('diceOverlay').classList.remove('active');diceEngine.close();}
 document.getElementById('diceOverlay').addEventListener('click',function(e){if(e.target===this)closeDice();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSpellCard();closeSens();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSpellCard();closeSens();closeWeaponPicker();}});
 // Touch to close spell card on mobile
 document.getElementById('scOverlay').addEventListener('touchend',function(e){if(e.target===this)closeSpellCard();});
 
@@ -1520,7 +1539,47 @@ async function saveToGitHub(){
   }catch(e){setIndicator('error','✗ Sin conexión');}
 }
 
-// ── LOCAL BUFFER (1h TTL) + AUTOSAVE ─────────────────────────────────────────
+// ── WEAPON PICKER ─────────────────────────────────────────────────────────────
+function openWeaponPicker(){
+  document.getElementById('wpickOverlay').classList.add('active');
+  document.getElementById('wpickSearch').value='';
+  filterWeaponPicker('');
+  setTimeout(()=>document.getElementById('wpickSearch').focus(),80);
+}
+function closeWeaponPicker(){
+  document.getElementById('wpickOverlay').classList.remove('active');
+}
+function filterWeaponPicker(q){
+  const list=document.getElementById('wpickList');
+  list.innerHTML='';
+  const search=q.toLowerCase().trim();
+  const weapons=Object.values(weaponDB);
+  const filtered=search?weapons.filter(w=>w.name.toLowerCase().includes(search)):weapons;
+  if(!filtered.length){
+    const empty=document.createElement('div');
+    empty.style.cssText='padding:1.5rem;text-align:center;font-family:var(--font-body);font-style:italic;color:var(--text-faint);font-size:0.88rem;';
+    empty.textContent='No se encontraron armas.';
+    list.appendChild(empty);
+    return;
+  }
+  filtered.forEach(w=>{
+    const stat=w.properties?.includes('finesse')?'FUE/DES':
+               (w.type==='ranged')?'DES':'FUE';
+    const dmg=w.damage?(w.damage.dice+' '+w.damage.type):'—';
+    const row=document.createElement('div');row.className='wpick-row';
+    row.innerHTML=`<span class="wpick-name">${w.name}</span><span class="wpick-stat">${stat}</span><span class="wpick-dmg">${dmg}</span>`;
+    row.addEventListener('click',()=>{
+      // Determine default hand based on weapon type and properties
+      let hand='main-s';
+      if(w.type==='ranged') hand='ranged-d';
+      else if(w.properties?.includes('finesse')) hand='main-d';
+      addAtk(w.name,hand,'','','','','',false,null,w.id);
+      save();
+      closeWeaponPicker();
+    });
+    list.appendChild(row);
+  });
+}
 const LS_TTL = 60 * 60 * 1000; // 1 hour in ms
 let _dirty = false; // tracks unsaved changes since last GitHub save
 
@@ -1647,5 +1706,20 @@ fetch(JSON_FILE)
 }); // end spells finally
 }); // end weapons finally
 </script>
+<!-- WEAPON PICKER POPUP -->
+<div class="wpick-overlay" id="wpickOverlay" onclick="if(event.target===this)closeWeaponPicker()">
+  <div class="wpick-modal">
+    <div class="wpick-header">
+      <span class="wpick-title">Añadir arma</span>
+      <input type="search" class="wpick-search" id="wpickSearch" placeholder="Buscar…" oninput="filterWeaponPicker(this.value)">
+      <button class="sc-close" onclick="closeWeaponPicker()">✕</button>
+    </div>
+    <div class="wpick-col-hdr">
+      <span>Nombre</span><span>Habilidad</span><span>Daño</span>
+    </div>
+    <div class="wpick-list" id="wpickList"></div>
+  </div>
+</div>
+
 </body>
 </html>
