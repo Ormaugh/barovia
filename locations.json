@@ -1,22 +1,6 @@
 {
   "locations": [
     {
-      "id": "village_barovia",
-      "name": "Village of Barovia",
-      "title": "The Silent Village",
-      "detail": "The only settlement the party has spent time in. Shuttered windows, bolted doors, and a population that has learned to disappear at the sound of hooves. The burgomaster is dead. The church still stands.",
-      "status": "Visited",
-      "region": "Eastern Barovia"
-    },
-    {
-      "id": "death_house",
-      "name": "Death House",
-      "title": "The Durst Mansion",
-      "detail": "A pristine manor on the Svalich Road that pulled the party inside and refused to let them leave. The Durst cult used it as an offering box for Strahd. The altar demanded a sacrifice. The party refused. The Shambling Mound chose not to follow them out.",
-      "status": "Escaped",
-      "region": "Svalich Road, east of the village"
-    },
-    {
       "id": "church_morninglord",
       "name": "Church of the Morninglord",
       "title": "Father Donavich's Church",
@@ -41,6 +25,22 @@
       "region": "Village of Barovia"
     },
     {
+      "id": "vallaki",
+      "name": "Vallaki",
+      "title": "Destination",
+      "detail": "A walled town to the west, described as safer than the village. The party has committed to escorting Ireena here. Neither the route nor what awaits them there is known.",
+      "status": "Destination — not yet reached",
+      "region": "Western Barovia"
+    },
+    {
+      "id": "village_barovia",
+      "name": "Village of Barovia",
+      "title": "The Silent Village",
+      "detail": "The only settlement the party has spent time in. Shuttered windows, bolted doors, and a population that has learned to disappear at the sound of hooves. The burgomaster is dead. The church still stands.",
+      "status": "Visited",
+      "region": "Eastern Barovia"
+    },
+    {
       "id": "blood_vine_tavern",
       "name": "Blood of the Vine Tavern",
       "title": "The Only Tavern",
@@ -57,20 +57,20 @@
       "region": "Outside the Village of Barovia"
     },
     {
+      "id": "death_house",
+      "name": "Death House",
+      "title": "The Durst Mansion",
+      "detail": "A pristine manor on the Svalich Road that pulled the party inside and refused to let them leave. The Durst cult used it as an offering box for Strahd. The altar demanded a sacrifice. The party refused. The Shambling Mound chose not to follow them out.",
+      "status": "Escaped",
+      "region": "Svalich Road, east of the village"
+    },
+    {
       "id": "iron_gates",
       "name": "The Iron Gates",
       "title": "The Valley's Entrance",
       "detail": "Enormous iron gates flanked by crumbling statues. They opened as the party approached. When they looked back, the gates had closed. There is no leaving.",
       "status": "Passed through — one way",
       "region": "Eastern edge of Barovia"
-    },
-    {
-      "id": "vallaki",
-      "name": "Vallaki",
-      "title": "Destination",
-      "detail": "A walled town to the west, described as safer than the village. The party has committed to escorting Ireena here. Neither the route nor what awaits them there is known.",
-      "status": "Destination — not yet reached",
-      "region": "Western Barovia"
     },
     {
       "id": "castle_ravenloft",
