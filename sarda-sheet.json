@@ -188,40 +188,7 @@
     }
   ],
   "spells": [],
-  "sdescs": {
-    "1": {
-      "desc": "Ensnaring Strike (Oath) — Conc. 1 min. On hit, vines restrain the target. STR save or restrained. Repeats save each turn.",
-      "dur": "1 min",
-      "comp": "V",
-      "target": "1 creature",
-      "classes": "Ranger / Oath of the Ancients",
-      "higher": ""
-    },
-    "2": {
-      "desc": "Speak with Animals (Oath) — Ritual. 10 min. Comprehend and communicate with beasts.",
-      "dur": "10 min",
-      "comp": "V, S",
-      "target": "Self",
-      "classes": "Druid / Oath of the Ancients",
-      "higher": ""
-    },
-    "3": {
-      "desc": "Moonbeam (Oath) — Conc. 1 min. 5ft cylinder of pale light. 2d10 radiant on entry or start of turn. CON save for half. Shapeshifters have disadvantage.",
-      "dur": "1 min",
-      "comp": "V, S, M",
-      "target": "40ft range, 5ft cylinder",
-      "classes": "Druid / Oath of the Ancients",
-      "higher": ""
-    },
-    "4": {
-      "desc": "Misty Step (Oath) — Bonus action. Teleport up to 30 feet to an unoccupied space you can see.",
-      "dur": "Instantaneous",
-      "comp": "V",
-      "target": "Self",
-      "classes": "Sorcerer, Wizard / Oath of the Ancients",
-      "higher": ""
-    }
-  },
+  "sdescs": {},
   "inv": [
     {
       "n": "Cota de malla",
