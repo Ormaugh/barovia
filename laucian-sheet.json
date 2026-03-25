@@ -101,43 +101,43 @@
       "n": "Visión en la Oscuridad",
       "s": "Semielfo",
       "d": "Gracias a tu sangre élfica, tienes visión superior en condiciones de oscuridad y poca luz. Puedes ver en luz tenue dentro de 18m como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes distinguir el color en la oscuridad, solo tonos de gris.",
-      "o": false
+      "o": true
     },
     {
       "n": "Ventaja contra el Encantamiento",
       "s": "Semielfo",
       "d": "Tienes ventaja en las tiradas de salvación contra ser hechizado.",
-      "o": false
+      "o": true
     },
     {
       "n": "Inmunidad al Sueño Mágico",
       "s": "Semielfo",
       "d": "La magia no puede hacerte dormir.",
-      "o": false
+      "o": true
     },
     {
       "n": "Canalizar Divinidad: Repeler No-Muertos",
       "s": "Clérigo 3",
       "d": "Como acción, presentas tu símbolo sagrado y pronuncias una oración censurando a los no-muertos. Cada no-muerto que pueda verte u oírte en 9m debe realizar una salvación de Sabiduría. Si falla, queda repelido durante 1 minuto o hasta recibir daño.",
-      "o": false
+      "o": true
     },
     {
       "n": "Canalizar Divinidad: Camino a la Sepultura",
       "s": "Clérigo 3 — Dominio de la Sepultura",
       "d": "Como acción, maldices a una criatura no muerta que puedas ver en 9m. Mientras está maldecida, tiene vulnerabilidad a todos los tipos de daño hasta el final de tu siguiente turno.",
-      "o": false
+      "o": true
     },
     {
       "n": "Ojos de la Tumba",
       "s": "Clérigo 3 — Dominio de la Sepultura",
       "d": "Puedes usar tu acción para abrir una conciencia mágica de los no-muertos cercanos. Hasta el final de tu siguiente turno, conoces la ubicación de cualquier no-muerto en 18m que no esté detrás de cobertura total. Usos iguales a tu modificador de Sabiduría (mínimo 1). Se recupera con descanso largo.",
-      "o": false
+      "o": true
     },
     {
       "n": "Círculo de la Mortalidad",
       "s": "Clérigo 3 — Dominio de la Sepultura",
       "d": "Cuando lanzas un conjuro que restaura puntos de golpe a una criatura con 0 PG, tratas cualquier dado tirado como si hubiera obtenido su valor máximo.",
-      "o": false
+      "o": true
     }
   ],
   "atks": [
@@ -157,6 +157,15 @@
       "dmg": "1d8",
       "t": "piercing",
       "r": "80/320ft",
+      "no": ""
+    },
+    {
+      "n": "Shortsword, Silvered",
+      "id": "shortsword_silvered",
+      "h": "main-d",
+      "dmg": "1d6",
+      "t": "piercing",
+      "r": "5ft",
       "no": ""
     }
   ],
@@ -222,7 +231,7 @@
       "n": "Command"
     },
     {
-      "p": false,
+      "p": true,
       "l": "1",
       "n": "Cure Wounds"
     },
