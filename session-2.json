@@ -51,7 +51,9 @@
       "What is in the potion?",
       "What is in the basement?"
     ],
-    "people": [],
+    "people": [
+      "Dara Sylvaranth — ranger, kept watch alone, confirmed position from the map"
+    ],
     "milestone": ""
   }
 }

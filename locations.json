@@ -52,9 +52,9 @@
       "id": "vistani_camp_river",
       "name": "Vistani Camp",
       "title": "Camp by the River",
-      "detail": "A Vistani camp near the village, by the river. Mirabel extended an invitation to Kaelos. The camp has not yet been visited. The Vistani have their own relationship with Strahd — one the party does not yet fully understand.",
+      "detail": "A Vistani camp west of the village, by the river. Mirabel extended an invitation to Kaelos the night the group arrived in the village — whether out of personal interest or something more deliberate is unknown. The camp has not yet been visited. The Vistani have their own relationship with Strahd, one the party does not yet understand. Madam Eva, the seer who read the cards at The Wayfarer before the group entered Barovia, is likely here.",
       "status": "Unvisited — invitation pending",
-      "region": "Outside the Village of Barovia"
+      "region": "West of the Village of Barovia, by the river"
     },
     {
       "id": "death_house",

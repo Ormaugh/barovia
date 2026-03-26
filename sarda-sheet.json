@@ -14,7 +14,7 @@
   "hdu": "",
   "speed": "25ft",
   "spellClass": "Paladin",
-  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino.",
+  "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso. En Barovia, las enredaderas que invoca son espectrales y pálidas — la naturaleza corrompida responde de todos modos.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• NOTA DE JURAMENTO: La fe de Sarda no depende de un dios — es un pacto con la luz misma. No se rompe por silencio divino. Se rompe si ella apaga la llama. En Barovia, mantenerla activa es resistencia.\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino.",
   "invNotes": "",
   "sensesDarkvision": "60 ft.",
   "sensesOther": "Hablar con bestias pequeñas",
@@ -260,14 +260,14 @@
       "n": "Símbolo sagrado",
       "q": "1",
       "v": "",
-      "no": "Foco de conjuración.",
+      "no": "Piedra pulida con una marca rúnica grabada por ella misma. No procede de ninguna institución — es la materialización de su pacto personal con la luz. Foco de conjuración.",
       "unit": "gp"
     },
     {
-      "n": "Espada de plata (Lucero)",
+      "n": "Maza (Lucero)",
       "q": "1",
       "v": "",
-      "no": "Arma principal. Plateada.",
+      "no": "Arma principal. Plateada. Efectiva contra hombres lobo y ciertos no-muertos.",
       "unit": "gp"
     },
     {

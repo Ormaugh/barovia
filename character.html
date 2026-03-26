@@ -56,32 +56,51 @@ body:not(.edit-mode) .editable{pointer-events:none;cursor:default;}
 .edit-btn.active{color:var(--ink-red-bright);border-color:var(--border-red);background:rgba(139,26,26,0.07);}
 .edit-btn.active .dot{background:var(--ink-red-bright);}
 
-/* TABS */
-/* TABS — scrollable nav, active tab always centered */
+/* TABS — infinite circular carousel */
 .tabs-nav{
-  display:flex;
-  overflow-x:auto;
-  overflow-y:hidden;
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
+  overflow:hidden;
   border-bottom:1px solid var(--border-gold);
   background:var(--bg-parchment);
-  scrollbar-width:none;
+  position:relative;
 }
-.tabs-nav::-webkit-scrollbar{display:none;}
+.tabs-carousel-track{
+  display:flex;
+  width:300%; /* 15 buttons × (navWidth/5) = 3 × navWidth */
+  will-change:transform;
+}
+.tabs-carousel-track.animating{
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+/* Each button = 1/15 of track = 1/5 of nav */
 .tab-btn{
   font-family:var(--font-heading);font-weight:700;letter-spacing:0.06em;
-  text-transform:uppercase;color:var(--text-faint);
-  padding:0.88rem 1.2rem;
+  text-transform:uppercase;
+  padding:0.88rem 0;
+  width:calc(100%/15);
   flex-shrink:0;
   text-align:center;background:none;border:none;
   border-bottom:2px solid transparent;cursor:pointer;
-  transition:color 0.2s,border-color 0.2s;
-  font-size:clamp(0.75rem,2.2vw,1rem);
-  white-space:nowrap;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-size:0.7rem;
+  color:var(--text-faint);
+  opacity:0.4;
+  transform:scale(0.8);
+  transform-origin:bottom center;
+  transition:color 0.3s, opacity 0.3s, transform 0.3s, font-size 0.3s, border-color 0.3s;
 }
-.tab-btn:hover{color:var(--ink-gold-dim);}
-.tab-btn.active{color:var(--ink-gold);border-bottom-color:var(--ink-red);}
+.tab-btn.tab-near{
+  font-size:0.82rem;
+  opacity:0.65;
+  transform:scale(0.9);
+  color:var(--text-dim);
+}
+.tab-btn.active{
+  font-size:clamp(0.88rem,2.2vw,1rem);
+  color:var(--ink-gold);
+  opacity:1;
+  transform:scale(1);
+  border-bottom-color:var(--ink-red);
+}
 
 /* TAB PANELS — carousel container */
 .tab-panels-track{
@@ -125,7 +144,8 @@ body.edit-mode .ab-block{cursor:default;}
 .prof-cb{width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-gold-dim);background:transparent;cursor:pointer;flex-shrink:0;transition:all 0.18s;appearance:none;-webkit-appearance:none;}
 .prof-cb:checked{background:var(--ink-gold);border-color:var(--ink-gold);}
 /* Tri-state skill pip: 0=none, 1=proficient, 2=expertise */
-.skill-pip{width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-gold-dim);background:transparent;cursor:pointer;flex-shrink:0;transition:all 0.18s;display:inline-flex;align-items:center;justify-content:center;font-size:0.45rem;color:transparent;user-select:none;}
+.skill-pip{width:13px;height:13px;border-radius:50%;border:1px solid var(--ink-gold-dim);background:transparent;cursor:default;flex-shrink:0;transition:all 0.18s;display:inline-flex;align-items:center;justify-content:center;font-size:0.45rem;color:transparent;user-select:none;}
+body.edit-mode .skill-pip{cursor:pointer;}
 .skill-pip[data-state="1"]{background:var(--ink-gold);border-color:var(--ink-gold);}
 .skill-pip[data-state="2"]{background:var(--ink-gold);border-color:var(--ink-gold-bright);box-shadow:0 0 0 1px var(--ink-gold-bright);color:var(--bg-void);font-size:0.5rem;}
 .skill-pip[data-state="2"]::after{content:'✦';}
@@ -412,7 +432,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 /* DICE */
 .dice-overlay{position:fixed;inset:0;z-index:1000;background:rgba(4,3,2,0.88);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.22s;backdrop-filter:blur(3px);}
 .dice-overlay.active{opacity:1;pointer-events:auto;}
-.dice-modal{position:relative;width:370px;background:linear-gradient(160deg,#1a1208 0%,#100c07 60%,#0d0a05 100%);border:1px solid rgba(200,169,110,0.5);box-shadow:0 0 0 1px rgba(139,26,26,0.18),0 0 80px rgba(0,0,0,0.9);overflow:hidden;animation:popIn 0.28s cubic-bezier(0.34,1.56,0.64,1) forwards;}
+.dice-modal{position:relative;width:278px;background:linear-gradient(160deg,#1a1208 0%,#100c07 60%,#0d0a05 100%);border:1px solid rgba(200,169,110,0.5);box-shadow:0 0 0 1px rgba(139,26,26,0.18),0 0 80px rgba(0,0,0,0.9);overflow:hidden;animation:popIn 0.28s cubic-bezier(0.34,1.56,0.64,1) forwards;}
 @keyframes popIn{from{transform:scale(0.85) translateY(10px);opacity:0;}to{transform:scale(1) translateY(0);opacity:1;}}
 .dice-topbar{display:flex;align-items:center;justify-content:space-between;padding:0.62rem 1.05rem 0.52rem;background:rgba(139,26,26,0.1);border-bottom:1px solid rgba(139,26,26,0.2);}
 .dice-rname{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-gold);}
@@ -427,12 +447,12 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .d20-result.fumb{color:#cc3322;text-shadow:0 0 20px rgba(200,50,50,0.9);}
 .d20-result.norm{color:rgba(200,169,110,0.95);text-shadow:0 0 10px rgba(0,0,0,0.95);}
 /* Crit/Fumble label below number */
-.roll-label{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;opacity:0;pointer-events:none;transition:opacity 0.35s ease 0.15s;}
+.roll-label{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-family:var(--font-heading);font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;opacity:0;pointer-events:none;transition:opacity 0.35s ease;}
 .roll-label.crit{color:#ffd700;text-shadow:0 0 12px rgba(255,215,0,0.7);}
 .roll-label.fumb{color:#cc3322;text-shadow:0 0 12px rgba(200,50,50,0.7);}
 .roll-label.vis{opacity:1;}
 /* Final result replacing d20 number */
-.final-result{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:72px;font-weight:700;color:var(--ink-gold);text-shadow:0 0 40px rgba(200,169,110,0.6),0 0 80px rgba(200,169,110,0.2);pointer-events:none;opacity:0;transform:scale(0.6);transition:opacity 0.4s ease,transform 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+.final-result{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:80px;font-weight:700;color:var(--ink-gold);text-shadow:0 0 40px rgba(200,169,110,0.6),0 0 80px rgba(200,169,110,0.2);pointer-events:none;opacity:0;transform:scale(0.6);transition:opacity 0.4s ease,transform 0.4s cubic-bezier(0.34,1.56,0.64,1);}
 .final-result.vis{opacity:1;transform:scale(1);}
 /* Mod bubble below die */
 .mod-bubble{font-family:var(--font-heading);font-size:1.15rem;font-weight:700;height:2rem;display:flex;align-items:center;justify-content:center;opacity:0;margin-top:0.3rem;}
@@ -442,7 +462,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 /* Particle canvas */
 #diceParticleCanvas{position:absolute;inset:0;pointer-events:none;z-index:10;}
 /* Breakdown panel */
-.dbkpanel{width:100%;padding:0 0.2rem 0.5rem;opacity:0;transform:translateY(5px);transition:opacity 0.26s ease,transform 0.26s ease;}
+.dbkpanel{width:100%;padding:0 1.1rem 0.5rem;opacity:0;transform:translateY(5px);transition:opacity 0.26s ease,transform 0.26s ease;}
 .dbkpanel.vis{opacity:1;transform:translateY(0);}
 .dcalcrow{display:flex;align-items:center;justify-content:space-between;padding:0.2rem 0;border-bottom:1px solid rgba(200,169,110,0.055);opacity:0;transform:translateX(-6px);transition:opacity 0.25s ease,transform 0.25s ease;}
 .dcalcrow:last-child{border-bottom:none;}
@@ -452,7 +472,7 @@ body:not(.edit-mode) .spell-row:not(.hdr):hover{background:rgba(200,169,110,0.05
 .ddmgsec{margin-top:0.42rem;padding-top:0.42rem;border-top:1px dashed rgba(200,169,110,0.13);}
 .ddmglbl{font-family:var(--font-heading);font-size:0.6rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.32rem;display:block;}
 .dclbl{font-family:var(--font-heading);font-size:0.78rem;font-weight:700;letter-spacing:0.05em;color:var(--text-dim);display:flex;align-items:center;gap:0.42rem;}
-.dico{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;background:rgba(200,169,110,0.065);border:1px solid rgba(200,169,110,0.16);font-size:0.56rem;color:var(--ink-gold-dim);flex-shrink:0;}
+.dico{display:inline-flex;align-items:center;justify-content:center;width:24px;height:16px;min-width:24px;background:rgba(200,169,110,0.065);border:1px solid rgba(200,169,110,0.16);font-size:0.48rem;color:var(--ink-gold-dim);flex-shrink:0;overflow:hidden;white-space:nowrap;letter-spacing:0;}
 .dcval{font-family:var(--font-heading);font-size:0.95rem;font-weight:700;color:var(--text-body);}
 .dcval.pos{color:var(--ink-green);}.dcval.neg{color:var(--ink-red-bright);}.dcval.tot{font-family:var(--font-display);font-size:1.02rem;color:var(--ink-gold);}
 .ddmgsec{margin-top:0.42rem;padding-top:0.42rem;border-top:1px dashed rgba(200,169,110,0.13);}
@@ -602,13 +622,28 @@ body.edit-mode .inv-val-txt{display:none;}
   </div>
 </header>
 
-<!-- TABS -->
+<!-- TABS — infinite circular carousel (real buttons + clones on each side) -->
 <div class="tabs-nav" id="tabsNav">
-  <button class="tab-btn active" data-tab="tab-char">Character</button>
-  <button class="tab-btn" data-tab="tab-atk">Attacks</button>
-  <button class="tab-btn" data-tab="tab-spells">Spells</button>
-  <button class="tab-btn" data-tab="tab-inv">Inventory</button>
-  <button class="tab-btn" data-tab="tab-relations">Relations</button>
+  <div class="tabs-carousel-track" id="tabsTrack">
+    <!-- clones-left (indices 0-4) -->
+    <button class="tab-btn clone" data-tab="tab-char">Character</button>
+    <button class="tab-btn clone" data-tab="tab-atk">Attacks</button>
+    <button class="tab-btn clone" data-tab="tab-spells">Spells</button>
+    <button class="tab-btn clone" data-tab="tab-inv">Inventory</button>
+    <button class="tab-btn clone" data-tab="tab-relations">Relations</button>
+    <!-- real buttons (indices 5-9) -->
+    <button class="tab-btn real active" data-tab="tab-char">Character</button>
+    <button class="tab-btn real" data-tab="tab-atk">Attacks</button>
+    <button class="tab-btn real" data-tab="tab-spells">Spells</button>
+    <button class="tab-btn real" data-tab="tab-inv">Inventory</button>
+    <button class="tab-btn real" data-tab="tab-relations">Relations</button>
+    <!-- clones-right (indices 10-14) -->
+    <button class="tab-btn clone" data-tab="tab-char">Character</button>
+    <button class="tab-btn clone" data-tab="tab-atk">Attacks</button>
+    <button class="tab-btn clone" data-tab="tab-spells">Spells</button>
+    <button class="tab-btn clone" data-tab="tab-inv">Inventory</button>
+    <button class="tab-btn clone" data-tab="tab-relations">Relations</button>
+  </div>
 </div>
 
 <!-- TAB PANELS CAROUSEL TRACK -->
@@ -919,181 +954,456 @@ body.edit-mode .inv-val-txt{display:none;}
 </div><!-- end tab-panels-track -->
 
 <script>
-// ── CONSTANTS ─────────────────────────────────────────────────────────────────
-const ABILITIES=['str','dex','con','int','wis','cha'];
-const AL={str:'STR',dex:'DEX',con:'CON',int:'INT',wis:'WIS',cha:'CHA'};
-const SAVES=[{id:'sv-str',label:'Strength',s:'str'},{id:'sv-dex',label:'Dexterity',s:'dex'},{id:'sv-con',label:'Constitution',s:'con'},{id:'sv-int',label:'Intelligence',s:'int'},{id:'sv-wis',label:'Wisdom',s:'wis'},{id:'sv-cha',label:'Charisma',s:'cha'}];
-const SKILLS=[{id:'sk-acr',l:'Acrobatics',s:'dex'},{id:'sk-ani',l:'Animal Handling',s:'wis'},{id:'sk-arc',l:'Arcana',s:'int'},{id:'sk-ath',l:'Athletics',s:'str'},{id:'sk-dec',l:'Deception',s:'cha'},{id:'sk-his',l:'History',s:'int'},{id:'sk-ins',l:'Insight',s:'wis'},{id:'sk-int',l:'Intimidation',s:'cha'},{id:'sk-inv',l:'Investigation',s:'int'},{id:'sk-med',l:'Medicine',s:'wis'},{id:'sk-nat',l:'Nature',s:'int'},{id:'sk-per',l:'Perception',s:'wis'},{id:'sk-prf',l:'Performance',s:'cha'},{id:'sk-prs',l:'Persuasion',s:'cha'},{id:'sk-rel',l:'Religion',s:'int'},{id:'sk-soh',l:'Sleight of Hand',s:'dex'},{id:'sk-ste',l:'Stealth',s:'dex'},{id:'sk-sur',l:'Survival',s:'wis'}];
-const PW='Braunschweig';
-const HAND_OPTS=[{v:'main-s',l:'Main (STR)',prof:true,stat:'str'},{v:'main-d',l:'Main (DEX)',prof:true,stat:'dex'},{v:'ranged-s',l:'Ranged (STR)',prof:true,stat:'str'},{v:'ranged-d',l:'Ranged (DEX)',prof:true,stat:'dex'},{v:'off-s',l:'Off (STR)',prof:false,stat:'str'},{v:'off-d',l:'Off (DEX)',prof:false,stat:'dex'}];
+// ═════════════════════════════════════════════════════════════════════════════
+// CONSTANTS
+// Static lookup tables used throughout the sheet.
+// ═════════════════════════════════════════════════════════════════════════════
 
-// ── DYNAMIC CHAR KEY ──────────────────────────────────────────────────────────
-const CHAR_KEY=(()=>{const p=new URLSearchParams(location.search).get('char');if(p)return p.toLowerCase().trim();const f=location.pathname.split('/').pop().replace('.html','');return(f&&f!=='character')?f:'enna';})();
-const LS_KEY='cos-'+CHAR_KEY;
-const JSON_FILE=CHAR_KEY+'-sheet.json';
+const ABILITIES = ['str','dex','con','int','wis','cha'];
 
-function updatePageTitle(name){document.title=name?name+' — Character Sheet':'Character Sheet';}
+// Short labels for each ability score
+const AL = {str:'STR',dex:'DEX',con:'CON',int:'INT',wis:'WIS',cha:'CHA'};
 
-// ── GLOBAL DATA ───────────────────────────────────────────────────────────────
-let spellCtr=0,atkCtr=0;
-let spellDB={},weaponDB={},npcDB=[]; // loaded from JSON files
-const spellDescs={};
-let editMode=false,editUnlocked=false;
-let curRoll=null,curRollDmg='';
-let _lastJsonPort='';
-let _initComplete=false; // prevents saveToGitHub from firing during page load
+// Saving throw definitions — id links to the checkbox element in the DOM
+const SAVES = [
+  {id:'sv-str',label:'Strength',s:'str'},{id:'sv-dex',label:'Dexterity',s:'dex'},
+  {id:'sv-con',label:'Constitution',s:'con'},{id:'sv-int',label:'Intelligence',s:'int'},
+  {id:'sv-wis',label:'Wisdom',s:'wis'},{id:'sv-cha',label:'Charisma',s:'cha'}
+];
 
-// ── EDIT MODE ─────────────────────────────────────────────────────────────────
-function toggleEdit(){if(editMode){lockEdit();}else if(editUnlocked){enableEdit();}else{openPw();}}
-function openPw(){document.getElementById('pwOverlay').classList.add('active');document.getElementById('pwInput').value='';document.getElementById('pwErr').textContent='';setTimeout(()=>document.getElementById('pwInput').focus(),80);}
-function closePw(){document.getElementById('pwOverlay').classList.remove('active');}
-function checkPw(){const v=document.getElementById('pwInput').value;if(v===PW){editUnlocked=true;closePw();enableEdit();}else{document.getElementById('pwErr').textContent='Incorrect.';document.getElementById('pwInput').value='';document.getElementById('pwInput').focus();}}
-function enableEdit(){
-  editMode=true;document.body.classList.add('edit-mode');
-  document.getElementById('editBtn').classList.add('active');document.getElementById('editLbl').textContent='Editing';
-  document.querySelectorAll('.editable').forEach(el=>el.contentEditable='true');
-  document.getElementById('spellAbility').style.display='';
-  document.getElementById('spellAbilityTxt').style.display='none';
-  document.getElementById('spellAbility').disabled=false;
-  document.querySelectorAll('.spell-level-tot-val').forEach(el=>el.contentEditable='true');
-  document.querySelectorAll('.npc-notes').forEach(el=>el.contentEditable='true');
+// Skill definitions — id links to the pip element, l is the display label, s is the governing ability
+const SKILLS = [
+  {id:'sk-acr',l:'Acrobatics',s:'dex'},{id:'sk-ani',l:'Animal Handling',s:'wis'},
+  {id:'sk-arc',l:'Arcana',s:'int'},{id:'sk-ath',l:'Athletics',s:'str'},
+  {id:'sk-dec',l:'Deception',s:'cha'},{id:'sk-his',l:'History',s:'int'},
+  {id:'sk-ins',l:'Insight',s:'wis'},{id:'sk-int',l:'Intimidation',s:'cha'},
+  {id:'sk-inv',l:'Investigation',s:'int'},{id:'sk-med',l:'Medicine',s:'wis'},
+  {id:'sk-nat',l:'Nature',s:'int'},{id:'sk-per',l:'Perception',s:'wis'},
+  {id:'sk-prf',l:'Performance',s:'cha'},{id:'sk-prs',l:'Persuasion',s:'cha'},
+  {id:'sk-rel',l:'Religion',s:'int'},{id:'sk-soh',l:'Sleight of Hand',s:'dex'},
+  {id:'sk-ste',l:'Stealth',s:'dex'},{id:'sk-sur',l:'Survival',s:'wis'}
+];
+
+// Edit mode password
+const PW = 'Braunschweig';
+
+// Attack hand options — v is the select value, l is the display label,
+// prof determines whether proficiency bonus applies, stat is the ability used
+const HAND_OPTS = [
+  {v:'main-s',  l:'Main (STR)',    prof:true,  stat:'str'},
+  {v:'main-d',  l:'Main (DEX)',    prof:true,  stat:'dex'},
+  {v:'ranged-s',l:'Ranged (STR)',  prof:true,  stat:'str'},
+  {v:'ranged-d',l:'Ranged (DEX)',  prof:true,  stat:'dex'},
+  {v:'off-s',   l:'Off (STR)',     prof:false, stat:'str'},
+  {v:'off-d',   l:'Off (DEX)',     prof:false, stat:'dex'}
+];
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// ROUTING — character key, localStorage key, JSON filename
+// Reads ?char=name from the URL, or infers the character from the filename.
+// Falls back to 'enna' if neither is present.
+// ═════════════════════════════════════════════════════════════════════════════
+
+const CHAR_KEY = (()=>{
+  const p = new URLSearchParams(location.search).get('char');
+  if(p) return p.toLowerCase().trim();
+  const f = location.pathname.split('/').pop().replace('.html','');
+  return (f && f !== 'character') ? f : 'enna';
+})();
+
+const LS_KEY   = 'cos-' + CHAR_KEY;      // localStorage key for this character
+const JSON_FILE = CHAR_KEY + '-sheet.json'; // remote JSON filename on GitHub
+
+// Updates the browser tab title with the character name
+function updatePageTitle(name) {
+  document.title = name ? name + ' — Character Sheet' : 'Character Sheet';
 }
-function lockEdit(){
-  editMode=false;document.body.classList.remove('edit-mode');
-  document.getElementById('editBtn').classList.remove('active');document.getElementById('editLbl').textContent='Edit';
-  document.querySelectorAll('.editable').forEach(el=>el.contentEditable='false');
-  document.getElementById('spellAbility').style.display='none';
-  document.getElementById('spellAbilityTxt').style.display='';
-  document.getElementById('spellAbility').disabled=true;
-  document.querySelectorAll('.spell-level-tot-val').forEach(el=>el.contentEditable='false');
-  document.querySelectorAll('.npc-notes').forEach(el=>el.contentEditable='false');
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// GLOBAL STATE
+// ═════════════════════════════════════════════════════════════════════════════
+
+let spellCtr  = 0;   // monotonically increasing ID for each spell row
+let atkCtr    = 0;   // monotonically increasing ID for each attack row
+let spellDB   = {};  // loaded from spells.json  { spellName: {...} }
+let weaponDB  = {};  // loaded from weapons.json { weaponId: {...} }
+let npcDB     = [];  // loaded from npcs.json    [{ id, name, ... }]
+
+const spellDescs = {}; // per-character spell description overrides { spellName: {...} }
+
+let editMode     = false; // true while the sheet is in edit mode
+let editUnlocked = false; // true once the correct password has been entered this session
+
+let curRoll    = null; // last rollDice() config, used to re-roll if needed
+let curRollDmg = '';   // damage formula for the current attack roll (shown on Hit)
+
+let _lastJsonPort  = ''; // portrait URL as last fetched from GitHub (used to avoid re-uploading base64)
+let _initComplete  = false; // blocks saveToGitHub from firing before the page has fully loaded
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// EDIT MODE
+// The sheet has two modes: view (read-only) and edit (fields become contenteditable).
+// A password gate prevents accidental edits. Once unlocked per session the
+// password is not asked again until the page is reloaded.
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Toggles edit mode. If already editing, locks. If unlocked, enables directly.
+// If locked, opens the password modal.
+function toggleEdit() {
+  if(editMode) { lockEdit(); }
+  else if(editUnlocked) { enableEdit(); }
+  else { openPw(); }
+}
+
+// Opens the password modal and focuses the input field
+function openPw() {
+  document.getElementById('pwOverlay').classList.add('active');
+  document.getElementById('pwInput').value = '';
+  document.getElementById('pwErr').textContent = '';
+  setTimeout(()=>document.getElementById('pwInput').focus(), 80);
+}
+
+// Closes the password modal without making any changes
+function closePw() {
+  document.getElementById('pwOverlay').classList.remove('active');
+}
+
+// Validates the password. On success, unlocks and enables edit mode.
+// On failure, clears the input and shows an error message.
+function checkPw() {
+  const v = document.getElementById('pwInput').value;
+  if(v === PW) {
+    editUnlocked = true;
+    closePw();
+    enableEdit();
+  } else {
+    document.getElementById('pwErr').textContent = 'Incorrect.';
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwInput').focus();
+  }
+}
+
+// Switches the sheet into edit mode: adds the CSS class, makes all .editable
+// elements contenteditable, shows the spell ability selector, etc.
+function enableEdit() {
+  editMode = true;
+  document.body.classList.add('edit-mode');
+  document.getElementById('editBtn').classList.add('active');
+  document.getElementById('editLbl').textContent = 'Editing';
+  document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'true');
+  document.getElementById('spellAbility').style.display = '';
+  document.getElementById('spellAbilityTxt').style.display = 'none';
+  document.getElementById('spellAbility').disabled = false;
+  document.querySelectorAll('.spell-level-tot-val').forEach(el => el.contentEditable = 'true');
+  document.querySelectorAll('.npc-notes').forEach(el => el.contentEditable = 'true');
+}
+
+// Locks the sheet back to view mode and triggers a GitHub save.
+function lockEdit() {
+  editMode = false;
+  document.body.classList.remove('edit-mode');
+  document.getElementById('editBtn').classList.remove('active');
+  document.getElementById('editLbl').textContent = 'Edit';
+  document.querySelectorAll('.editable').forEach(el => el.contentEditable = 'false');
+  document.getElementById('spellAbility').style.display = 'none';
+  document.getElementById('spellAbilityTxt').style.display = '';
+  document.getElementById('spellAbility').disabled = true;
+  document.querySelectorAll('.spell-level-tot-val').forEach(el => el.contentEditable = 'false');
+  document.querySelectorAll('.npc-notes').forEach(el => el.contentEditable = 'false');
   saveToGitHub();
 }
-function applyEditToEl(el){
-  el.querySelectorAll('.editable').forEach(e=>e.contentEditable=editMode?'true':'false');
+
+// Applies the current editMode state to all .editable children of a given element.
+// Called after dynamically inserting new rows (spells, attacks, features) so they
+// immediately respect the current mode without a full page refresh.
+function applyEditToEl(el) {
+  el.querySelectorAll('.editable').forEach(e => e.contentEditable = editMode ? 'true' : 'false');
 }
 
-// ── CALCS ─────────────────────────────────────────────────────────────────────
-function mod(s){return Math.floor(((parseInt(s)||10)-10)/2);}
-function fmt(m){return(m>=0?'+':'')+m;}
-function prof(){const l=parseInt(document.getElementById('charLevel').textContent)||1;return Math.ceil(l/4)+1;}
-function aMod(stat){const e=document.getElementById('sc-'+stat);return mod(e?e.textContent:'10');}
-function recalc(){
-  const pb=prof();document.getElementById('profBonus').textContent=fmt(pb);
-  ABILITIES.forEach(a=>{const sc=parseInt(document.getElementById('sc-'+a)?.textContent)||10;const m=mod(sc);const el=document.getElementById('md-'+a);if(el){el.textContent=fmt(m);const sm=document.getElementById('sm-'+a);if(sm)sm.textContent=sc;}});
-  document.getElementById('initiative').textContent=fmt(aMod('dex'));
-  SAVES.forEach(sv=>{const m=aMod(sv.s);const pe=document.getElementById(sv.id+'-p');const t=m+(pe&&pe.checked?pb:0);const e=document.getElementById(sv.id+'-m');if(e)e.textContent=fmt(t);});
-  SKILLS.forEach(sk=>{const m=aMod(sk.s);const state=getSkillState(sk.id);const t=m+(state===1?pb:state===2?pb*2:0);const e=document.getElementById(sk.id+'-m');if(e)e.textContent=fmt(t);});
-  const pm=aMod('wis');const pperState=getSkillState('sk-per');const ppv=10+pm+(pperState===1?pb:pperState===2?pb*2:0);
-  document.getElementById('pp').textContent=ppv;
-  document.getElementById('maxHPref').textContent=document.getElementById('maxHP').textContent;
-  document.querySelectorAll('#atkBody tr:not([data-sid]) .hand-sel').forEach(sel=>{
-    const id=sel.id.replace('hs-','');
-    const el=document.getElementById('ab-'+id);
-    if(el&&!el.classList.contains('spell'))el.textContent=calcWpnBonus(sel.value,document.getElementById('dmg-'+id)?.dataset.base||'');
-    // refresh weapon-linked damage
-    const tr=document.querySelector(`[data-aid="${id}"]`);
-    if(tr&&tr.dataset.wid){
-      const w=weaponDB[tr.dataset.wid];const dmgEl=document.getElementById('dmg-'+id);
-      if(w&&dmgEl){const o=handOpt(sel.value);const statMod=aMod(o.stat);const modStr=statMod>=0?'+'+statMod:''+statMod;dmgEl.textContent=(w.damage?.dice||'')+modStr;}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// CALCULATIONS
+// Core D&D 5e maths: ability modifier, proficiency bonus, recalc all derived values.
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Returns the ability modifier for a given score (floor((score-10)/2))
+function mod(s) { return Math.floor(((parseInt(s)||10) - 10) / 2); }
+
+// Formats a modifier as a signed string: "+3", "-1", "+0"
+function fmt(m) { return (m >= 0 ? '+' : '') + m; }
+
+// Returns the proficiency bonus based on the character's level (ceil(level/4)+1)
+function prof() {
+  const l = parseInt(document.getElementById('charLevel').textContent) || 1;
+  return Math.ceil(l/4) + 1;
+}
+
+// Returns the ability modifier for a given ability key ('str', 'dex', etc.)
+function aMod(stat) {
+  const e = document.getElementById('sc-' + stat);
+  return mod(e ? e.textContent : '10');
+}
+
+// Recalculates all derived values on the sheet:
+// proficiency bonus, ability modifiers, saving throws, skills, passive perception,
+// max HP display, attack bonuses, spell DC and attack, senses display.
+// Called whenever any base value changes (score input, level, hand selection, etc.)
+function recalc() {
+  const pb = prof();
+  document.getElementById('profBonus').textContent = fmt(pb);
+
+  // Ability scores and their modifiers
+  ABILITIES.forEach(a => {
+    const sc = parseInt(document.getElementById('sc-'+a)?.textContent) || 10;
+    const m = mod(sc);
+    const el = document.getElementById('md-'+a);
+    if(el) { el.textContent = fmt(m); const sm = document.getElementById('sm-'+a); if(sm) sm.textContent = sc; }
+  });
+
+  document.getElementById('initiative').textContent = fmt(aMod('dex'));
+
+  // Saving throws — checked box adds proficiency bonus
+  SAVES.forEach(sv => {
+    const m = aMod(sv.s);
+    const pe = document.getElementById(sv.id+'-p');
+    const t = m + (pe && pe.checked ? pb : 0);
+    const e = document.getElementById(sv.id+'-m');
+    if(e) e.textContent = fmt(t);
+  });
+
+  // Skills — pip state 0=none, 1=proficient (+pb), 2=expertise (+pb*2)
+  SKILLS.forEach(sk => {
+    const m = aMod(sk.s);
+    const state = getSkillState(sk.id);
+    const t = m + (state === 1 ? pb : state === 2 ? pb*2 : 0);
+    const e = document.getElementById(sk.id+'-m');
+    if(e) e.textContent = fmt(t);
+  });
+
+  // Passive perception = 10 + WIS mod + perception proficiency
+  const pm = aMod('wis');
+  const pperState = getSkillState('sk-per');
+  const ppv = 10 + pm + (pperState === 1 ? pb : pperState === 2 ? pb*2 : 0);
+  document.getElementById('pp').textContent = ppv;
+
+  document.getElementById('maxHPref').textContent = document.getElementById('maxHP').textContent;
+
+  // Refresh attack bonus and weapon damage for each attack row
+  document.querySelectorAll('#atkBody tr:not([data-sid]) .hand-sel').forEach(sel => {
+    const id = sel.id.replace('hs-','');
+    const el = document.getElementById('ab-'+id);
+    if(el && !el.classList.contains('spell'))
+      el.textContent = calcWpnBonus(sel.value, document.getElementById('dmg-'+id)?.dataset.base||'');
+    const tr = document.querySelector(`[data-aid="${id}"]`);
+    if(tr && tr.dataset.wid) {
+      const w = weaponDB[tr.dataset.wid];
+      const dmgEl = document.getElementById('dmg-'+id);
+      if(w && dmgEl) {
+        const o = handOpt(sel.value);
+        const statMod = aMod(o.stat);
+        const modStr = statMod >= 0 ? '+'+statMod : ''+statMod;
+        dmgEl.textContent = (w.damage?.dice||'') + modStr;
+      }
     }
   });
-  const sa=document.getElementById('spellAbility').value;const sm=aMod(sa);
-  document.getElementById('spellDC').textContent=8+pb+sm;
-  document.getElementById('spellAtk').textContent=fmt(pb+sm);
+
+  // Spell DC and spell attack bonus
+  const sa = document.getElementById('spellAbility').value;
+  const sm = aMod(sa);
+  document.getElementById('spellDC').textContent  = 8 + pb + sm;
+  document.getElementById('spellAtk').textContent = fmt(pb + sm);
+
   syncPreparedSpells();
-  // Senses display
-  const dv=document.getElementById('sensesDarkvision')?.textContent||'';
-  const dvd=document.getElementById('darkVisionDisp');if(dvd)dvd.textContent=dv||'—';
-  const os=document.getElementById('sensesOther')?.textContent||'';
-  const osd=document.getElementById('otherSensDisp');if(osd)osd.textContent=os||'—';
-  document.getElementById('sensVal').textContent=os||'—';
+
+  // Senses display in the combat box
+  const dv = document.getElementById('sensesDarkvision')?.textContent||'';
+  const dvd = document.getElementById('darkVisionDisp'); if(dvd) dvd.textContent = dv||'—';
+  const os = document.getElementById('sensesOther')?.textContent||'';
+  const osd = document.getElementById('otherSensDisp'); if(osd) osd.textContent = os||'—';
+  document.getElementById('sensVal').textContent = os||'—';
 }
 
-// ── HP helpers ────────────────────────────────────────────────────────────────
-function clampCHP(){
-  const mxEl=document.getElementById('maxHP');const curEl=document.getElementById('currentHP');
-  const mx=parseInt(mxEl?.textContent)||0;let cur=parseInt(curEl?.textContent)||0;
-  if(cur>mx){curEl.textContent=mx;}
-  document.getElementById('maxHPref').textContent=mx;
+
+// ═════════════════════════════════════════════════════════════════════════════
+// HP HELPERS
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Clamps current HP to max HP if the user types a value above max.
+// Also keeps the maxHP reference display in sync.
+function clampCHP() {
+  const mxEl = document.getElementById('maxHP');
+  const curEl = document.getElementById('currentHP');
+  const mx = parseInt(mxEl?.textContent)||0;
+  let cur = parseInt(curEl?.textContent)||0;
+  if(cur > mx) curEl.textContent = mx;
+  document.getElementById('maxHPref').textContent = mx;
   save();
 }
-function adjustHP(which,delta){
-  if(which==='cur'){
-    const el=document.getElementById('currentHP');
-    const mx=parseInt(document.getElementById('maxHP')?.textContent)||0;
-    let v=parseInt(el.textContent)||0;v=Math.min(mx,Math.max(-999,v+delta));
-    el.textContent=v;
+
+// Adjusts current HP ('cur') or temp HP ('tmp') by delta (+1/-1 or larger).
+// Current HP is clamped between -999 and maxHP.
+// Temp HP shows '—' when zero.
+function adjustHP(which, delta) {
+  if(which === 'cur') {
+    const el = document.getElementById('currentHP');
+    const mx = parseInt(document.getElementById('maxHP')?.textContent)||0;
+    let v = parseInt(el.textContent)||0;
+    v = Math.min(mx, Math.max(-999, v+delta));
+    el.textContent = v;
   } else {
-    const el=document.getElementById('tempHP');
-    const raw=el.textContent.trim();
-    let v=(raw==='—'||raw==='')?0:parseInt(raw)||0;v=Math.max(0,v+delta);
-    el.textContent=v===0?'—':v;
-    el.classList.toggle('empty',v===0);
+    const el = document.getElementById('tempHP');
+    const raw = el.textContent.trim();
+    let v = (raw==='—'||raw==='') ? 0 : parseInt(raw)||0;
+    v = Math.max(0, v+delta);
+    el.textContent = v===0 ? '—' : v;
+    el.classList.toggle('empty', v===0);
   }
   save();
 }
 
-// ── HIT DICE PIPS ─────────────────────────────────────────────────────────────
-let hdUsedCount=0;
-function rebuildHDPips(usedOverride){
-  const lv=parseInt(document.getElementById('charLevel')?.textContent)||1;
-  const used=usedOverride!==undefined?usedOverride:hdUsedCount;
-  hdUsedCount=Math.min(used,lv);
-  const c=document.getElementById('hdPips');c.innerHTML='';
-  for(let i=0;i<lv;i++){
-    const p=document.createElement('div');p.className='hd-pip'+(i<hdUsedCount?' used':'');
-    p.onclick=()=>{if(i<hdUsedCount){hdUsedCount--;p.classList.remove('used');}else{hdUsedCount++;p.classList.add('used');}rebuildHDPips(hdUsedCount);save();};
+
+// ═════════════════════════════════════════════════════════════════════════════
+// HIT DICE PIPS
+// ═════════════════════════════════════════════════════════════════════════════
+
+let hdUsedCount = 0; // how many hit dice have been spent this rest
+
+// Rebuilds the hit dice pip track based on character level.
+// Each pip is a clickable box — clicking a used pip unspends it, clicking
+// a free pip spends it. Used count is persisted via save().
+function rebuildHDPips(usedOverride) {
+  const lv = parseInt(document.getElementById('charLevel')?.textContent)||1;
+  const used = usedOverride !== undefined ? usedOverride : hdUsedCount;
+  hdUsedCount = Math.min(used, lv);
+  const c = document.getElementById('hdPips'); c.innerHTML='';
+  for(let i=0; i<lv; i++){
+    const p = document.createElement('div');
+    p.className = 'hd-pip' + (i < hdUsedCount ? ' used' : '');
+    p.onclick = ()=>{
+      if(i < hdUsedCount){ hdUsedCount--; p.classList.remove('used'); }
+      else { hdUsedCount++; p.classList.add('used'); }
+      rebuildHDPips(hdUsedCount); save();
+    };
     c.appendChild(p);
   }
 }
 
-// ── BUILD ABILITY GRID ────────────────────────────────────────────────────────
-function buildAbils(){
-  const g=document.getElementById('abilGrid');g.innerHTML='';
+
+// ═════════════════════════════════════════════════════════════════════════════
+// ABILITY SCORE GRID
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Builds the 6-ability grid dynamically from the ABILITIES constant.
+// Each block shows label, modifier, score, and a roll button.
+// In view mode, clicking the block also triggers a roll.
+function buildAbils() {
+  const g = document.getElementById('abilGrid'); g.innerHTML='';
   ABILITIES.forEach(a=>{
-    const b=document.createElement('div');b.className='ab-block';
-    b.onclick=()=>{if(!editMode)rollAbil(a);};
-    b.innerHTML=`<span class="ab-label">${AL[a]}</span><div class="ab-wrap"><span class="ab-mod" id="md-${a}">+0</span></div><span class="ab-score-small editable" data-ph="10" id="sc-${a}" oninput="recalc()" onclick="event.stopPropagation()">10</span><button class="ab-roll-btn" onclick="event.stopPropagation();rollAbil('${a}')">⚄ Roll</button>`;
+    const b = document.createElement('div'); b.className='ab-block';
+    b.onclick = ()=>{ if(!editMode) rollAbil(a); };
+    b.innerHTML = `<span class="ab-label">${AL[a]}</span><div class="ab-wrap"><span class="ab-mod" id="md-${a}">+0</span></div><span class="ab-score-small editable" data-ph="10" id="sc-${a}" oninput="recalc()" onclick="event.stopPropagation()">10</span><button class="ab-roll-btn" onclick="event.stopPropagation();rollAbil('${a}')">⚄ Roll</button>`;
     g.appendChild(b);
   });
 }
-function rollAbil(a){const m=aMod(a);rollDice({name:AL[a]+' Check',type:'Ability Check',bon:m,dmg:'',comps:[{l:AL[a]+' Modifier',i:a.toUpperCase(),v:m}]});}
-function rollInitiative(){const m=aMod('dex');rollDice({name:'Initiative',type:'Initiative Roll',bon:m,dmg:'',comps:[{l:'DEX Modifier',i:'DEX',v:m}]});}
 
-// ── SAVES / SKILLS ────────────────────────────────────────────────────────────
-function buildSaves(){
-  const c=document.getElementById('savesList');c.innerHTML='';
-  SAVES.forEach(sv=>{const r=document.createElement('div');r.className='skill-row';r.innerHTML=`<input type="checkbox" class="prof-cb" id="${sv.id}-p" onchange="recalc()"><span class="sk-mod" id="${sv.id}-m" onclick="rollSave('${sv.s}','${sv.label}')" title="Roll save">+0</span><span class="sk-name" onclick="rollSave('${sv.s}','${sv.label}')">${sv.label}</span>`;c.appendChild(r);});
+// Rolls a straight ability check for the given ability key
+function rollAbil(a) {
+  const m = aMod(a);
+  rollDice({name:AL[a]+' Check', type:'Ability Check', bon:m, dmg:'', comps:[{l:AL[a]+' Modifier',i:a.toUpperCase(),v:m}]});
 }
-function rollSave(s,l){const pb=prof();const pe=document.getElementById('sv-'+s+'-p');const m=aMod(s);const ip=pe&&pe.checked;const t=m+(ip?pb:0);const c=[{l:AL[s]+' Modifier',i:s.toUpperCase(),v:m}];if(ip)c.push({l:'Prof Bonus',i:'PB',v:pb});rollDice({name:l+' Save',type:'Saving Throw',bon:t,dmg:'',comps:c});}
-function cyclePip(id){
-  const pip=document.getElementById(id+'-p');if(!pip)return;
-  const cur=parseInt(pip.dataset.state||'0');
-  pip.dataset.state=String((cur+1)%3);
-  recalc();save();
+
+// Rolls an initiative check (DEX modifier only)
+function rollInitiative() {
+  const m = aMod('dex');
+  rollDice({name:'Initiative', type:'Initiative Roll', bon:m, dmg:'', comps:[{l:'DEX Modifier',i:'DEX',v:m}]});
 }
-function getSkillState(id){
-  const pip=document.getElementById(id+'-p');
-  return pip?parseInt(pip.dataset.state||'0'):0;
-}
-function buildSkills(){
-  const c=document.getElementById('skillsList');c.innerHTML='';
-  SKILLS.forEach(sk=>{
-    const r=document.createElement('div');r.className='skill-row';
-    r.innerHTML=`<span class="skill-pip" id="${sk.id}-p" data-state="0" title="Click: ninguno → competencia → especialización" onclick="cyclePip('${sk.id}')"></span><span class="sk-mod" id="${sk.id}-m" onclick="rollSkill('${sk.id}','${sk.l}','${sk.s}')">+0</span><span class="sk-name" onclick="rollSkill('${sk.id}','${sk.l}','${sk.s}')">${sk.l}</span><span class="sk-attr">${sk.s.toUpperCase()}</span>`;
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SAVING THROWS & SKILLS
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Builds the saving throw list using SAVES constant.
+// Each row has a checkbox pip, a modifier display, and a clickable label to roll.
+function buildSaves() {
+  const c = document.getElementById('savesList'); c.innerHTML='';
+  SAVES.forEach(sv=>{
+    const r = document.createElement('div'); r.className='skill-row';
+    r.innerHTML = `<input type="checkbox" class="prof-cb" id="${sv.id}-p" onchange="recalc()"><span class="sk-mod" id="${sv.id}-m" onclick="rollSave('${sv.s}','${sv.label}')" title="Roll save">+0</span><span class="sk-name" onclick="rollSave('${sv.s}','${sv.label}')">${sv.label}</span>`;
     c.appendChild(r);
   });
 }
-function rollSkill(id,l,s){const pb=prof();const state=getSkillState(id);const m=aMod(s);const bonus=state===1?pb:state===2?pb*2:0;const t=m+bonus;const c=[{l:AL[s]+' Modifier',i:s.toUpperCase(),v:m}];if(state===1)c.push({l:'Competencia',i:'PB',v:pb});else if(state===2)c.push({l:'Especialización',i:'PBx2',v:pb*2});rollDice({name:l,type:'Skill Check',bon:t,dmg:'',comps:c});}
 
-// ── SPELL LEVEL SECTIONS ──────────────────────────────────────────────────────
-function buildSlots(){
-  const container=document.getElementById('spellLevelSections');container.innerHTML='';
-  const ordinals=['','1st','2nd','3rd','4th','5th','6th','7th','8th','9th'];
-  for(let i=1;i<=9;i++){
-    const sec=document.createElement('div');sec.className='spell-level-sec';sec.id='spell-sec-'+i;
-    sec.innerHTML=`
+// Rolls a saving throw for the given ability and label
+function rollSave(s, l) {
+  const pb = prof();
+  const pe = document.getElementById('sv-'+s+'-p');
+  const m = aMod(s);
+  const ip = pe && pe.checked;
+  const t = m + (ip ? pb : 0);
+  const c = [{l:AL[s]+' Modifier',i:s.toUpperCase(),v:m}];
+  if(ip) c.push({l:'Prof Bonus',i:'PB',v:pb});
+  rollDice({name:l+' Save', type:'Saving Throw', bon:t, dmg:'', comps:c});
+}
+
+// Cycles the skill pip through 3 states: 0=none → 1=proficient → 2=expertise → 0
+// Only active in edit mode — ignored in view mode.
+function cyclePip(id) {
+  if(!editMode) return; // pips are read-only outside edit mode
+  const pip = document.getElementById(id+'-p'); if(!pip) return;
+  const cur = parseInt(pip.dataset.state||'0');
+  pip.dataset.state = String((cur+1)%3);
+  recalc(); save();
+}
+
+// Returns the current proficiency state (0, 1, or 2) for a skill pip
+function getSkillState(id) {
+  const pip = document.getElementById(id+'-p');
+  return pip ? parseInt(pip.dataset.state||'0') : 0;
+}
+
+// Builds the skill list using SKILLS constant.
+// Each row has a tri-state pip, a modifier display, the skill name, and the governing ability.
+function buildSkills() {
+  const c = document.getElementById('skillsList'); c.innerHTML='';
+  SKILLS.forEach(sk=>{
+    const r = document.createElement('div'); r.className='skill-row';
+    r.innerHTML = `<span class="skill-pip" id="${sk.id}-p" data-state="0" title="Click: ninguno → competencia → especialización" onclick="cyclePip('${sk.id}')"></span><span class="sk-mod" id="${sk.id}-m" onclick="rollSkill('${sk.id}','${sk.l}','${sk.s}')">+0</span><span class="sk-name" onclick="rollSkill('${sk.id}','${sk.l}','${sk.s}')">${sk.l}</span><span class="sk-attr">${sk.s.toUpperCase()}</span>`;
+    c.appendChild(r);
+  });
+}
+
+// Rolls a skill check for the given skill.
+// Expertise doubles the proficiency bonus contribution.
+function rollSkill(id, l, s) {
+  const pb = prof();
+  const state = getSkillState(id);
+  const m = aMod(s);
+  const bonus = state===1 ? pb : state===2 ? pb*2 : 0;
+  const t = m + bonus;
+  const c = [{l:AL[s]+' Modifier',i:s.toUpperCase(),v:m}];
+  if(state===1) c.push({l:'Competencia',i:'PB',v:pb});
+  else if(state===2) c.push({l:'Especialización',i:'PBx2',v:pb*2});
+  rollDice({name:l, type:'Skill Check', bon:t, dmg:'', comps:c});
+}
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SPELL SLOTS
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Builds the expandable spell level sections (1st–9th).
+// Each section has a pip track for slot usage, +/− buttons to set total slots,
+// a SLOTS total display, and a list of spells at that level.
+function buildSlots() {
+  const container = document.getElementById('spellLevelSections'); container.innerHTML='';
+  const ordinals = ['','1st','2nd','3rd','4th','5th','6th','7th','8th','9th'];
+  for(let i=1; i<=9; i++){
+    const sec = document.createElement('div'); sec.className='spell-level-sec'; sec.id='spell-sec-'+i;
+    sec.innerHTML = `
       <div class="spell-level-hdr" onclick="this.parentElement.classList.toggle('open')">
         <span class="spell-level-tog"></span>
         <span class="spell-level-title">${ordinals[i]} Level</span>
@@ -1123,251 +1433,414 @@ function buildSlots(){
     applyEditToEl(sec);
   }
 }
-function adjustSlot(l,delta){
-  const el=document.getElementById('st-'+l);if(!el)return;
-  const cur=parseInt(el.textContent)||0;
-  const next=Math.max(0,cur+delta);
-  el.textContent=next;
+
+// Adjusts the total slot count for a given spell level by delta (+1 or -1),
+// then rebuilds the pip track for that level.
+function adjustSlot(l, delta) {
+  const el = document.getElementById('st-'+l); if(!el) return;
+  const cur = parseInt(el.textContent)||0;
+  const next = Math.max(0, cur+delta);
+  el.textContent = next;
   rebuildPips(l);
   save();
 }
-function rebuildPips(l){
-  const tot=parseInt(document.getElementById('st-'+l)?.textContent)||0;
-  const pc=document.getElementById('sp-'+l);if(!pc)return;
-  const ex=pc.querySelectorAll('.slot-pip');
-  const us=Array.from(ex).map(p=>p.classList.contains('used'));
+
+// Rebuilds the slot pip track for a given spell level.
+// Preserves which pips were already marked as used.
+// Automatically opens the spell section if it has slots.
+function rebuildPips(l) {
+  const tot = parseInt(document.getElementById('st-'+l)?.textContent)||0;
+  const pc = document.getElementById('sp-'+l); if(!pc) return;
+  const ex = pc.querySelectorAll('.slot-pip');
+  const us = Array.from(ex).map(p=>p.classList.contains('used'));
   pc.innerHTML='';
-  for(let i=0;i<tot;i++){
-    const p=document.createElement('div');p.className='slot-pip'+(us[i]?' used':'');
-    p.onclick=function(e){e.stopPropagation();this.classList.toggle('used');save();};
+  for(let i=0; i<tot; i++){
+    const p = document.createElement('div');
+    p.className = 'slot-pip' + (us[i] ? ' used' : '');
+    p.onclick = function(e){ e.stopPropagation(); this.classList.toggle('used'); save(); };
     pc.appendChild(p);
   }
-  const sec=document.getElementById('spell-sec-'+l);
-  if(sec&&tot>0)sec.classList.add('open');
+  const sec = document.getElementById('spell-sec-'+l);
+  if(sec && tot>0) sec.classList.add('open');
 }
 
-// ── FEATURES ──────────────────────────────────────────────────────────────────
-function addFeat(n='',s='',d=''){
-  const l=document.getElementById('featList');const it=document.createElement('div');it.className='feat-item';
-  it.innerHTML=`<div class="feat-hdr" onclick="this.parentElement.classList.toggle('open')"><span class="feat-tog"></span><span class="feat-name editable" data-ph="Feature Name" onclick="event.stopPropagation()">${n}</span><span class="feat-src editable" data-ph="Source" onclick="event.stopPropagation()">${s}</span><button class="del-btn" onclick="event.stopPropagation();this.closest('.feat-item').remove();save()">✕</button></div><div class="feat-body"><div class="feat-desc editable" data-ph="Description...">${d}</div></div>`;
-  l.appendChild(it);applyEditToEl(it);
+
+// ═════════════════════════════════════════════════════════════════════════════
+// FEATURES & TRAITS
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Adds a collapsible feature/trait card to the feature list.
+// n = feature name, s = source, d = description text.
+function addFeat(n='', s='', d='') {
+  const l = document.getElementById('featList');
+  const it = document.createElement('div'); it.className='feat-item';
+  it.innerHTML = `<div class="feat-hdr" onclick="this.parentElement.classList.toggle('open')"><span class="feat-tog"></span><span class="feat-name editable" data-ph="Feature Name" onclick="event.stopPropagation()">${n}</span><span class="feat-src editable" data-ph="Source" onclick="event.stopPropagation()">${s}</span><button class="del-btn" onclick="event.stopPropagation();this.closest('.feat-item').remove();save()">✕</button></div><div class="feat-body"><div class="feat-desc editable" data-ph="Description...">${d}</div></div>`;
+  l.appendChild(it); applyEditToEl(it);
 }
 
-// ── ATTACKS ───────────────────────────────────────────────────────────────────
-function handOpt(v){return HAND_OPTS.find(o=>o.v===v)||HAND_OPTS[0];}
-function calcWpnBonus(hand,dmgBase){const o=handOpt(hand);const pb=prof();const m=aMod(o.stat);return fmt(o.prof?m+pb:m);}
-function calcWpnDmg(hand,baseDmg){const o=handOpt(hand);const m=aMod(o.stat);const match=baseDmg.match(/^(\d+d\d+)/);if(!match)return baseDmg;return `${match[1]}${m>=0?'+':''}${m}`;}
 
-function addAtk(n='',hand='main-s',bonus='',dmg='',type='',range='',notes='',isSpell=false,sid=null,weaponId=null){
-  const tb=document.getElementById('atkBody');const id=++atkCtr;const tr=document.createElement('tr');tr.dataset.aid=id;if(sid)tr.dataset.sid=sid;
+// ═════════════════════════════════════════════════════════════════════════════
+// ATTACKS
+// ═════════════════════════════════════════════════════════════════════════════
 
-  // Inherit from weaponDB when id is present
-  const w=weaponId?weaponDB[weaponId]:null;
-  if(w){
-    const dice=w.damage?.dice||dmg||'—';
-    const o=handOpt(hand);const statMod=aMod(o.stat);
-    const modStr=statMod>=0?'+'+statMod:''+statMod;
-    dmg=dice+modStr;
-    type=w.damage?.type||type||'—';
-    // range: prefer explicit range, fallback to reach
-    if(w.range){range=`${w.range.normal}/${w.range.long}ft`;}
-    else if(w.reach){range=`${w.reach}ft`;}
-    const props=(w.properties||[]).map(p=>p.replace(/_/g,' ')).join(', ');
-    notes=props||notes||'';
+// Returns the HAND_OPTS entry matching a hand value string, defaulting to main-s
+function handOpt(v) { return HAND_OPTS.find(o=>o.v===v) || HAND_OPTS[0]; }
+
+// Returns the formatted attack bonus for a given hand configuration and damage base.
+// Adds proficiency if the hand option has prof:true.
+function calcWpnBonus(hand, dmgBase) {
+  const o = handOpt(hand);
+  const pb = prof();
+  const m = aMod(o.stat);
+  return fmt(o.prof ? m+pb : m);
+}
+
+// Returns the damage string for a weapon (e.g. "1d8+3") with the correct stat mod applied
+function calcWpnDmg(hand, baseDmg) {
+  const o = handOpt(hand);
+  const m = aMod(o.stat);
+  const match = baseDmg.match(/^(\d+d\d+)/);
+  if(!match) return baseDmg;
+  return `${match[1]}${m>=0?'+':''}${m}`;
+}
+
+// Adds an attack row to the attacks table.
+// If weaponId is provided, weapon stats (damage, type, range, properties) are
+// inherited from weaponDB and kept in sync with the hand selector.
+// isSpell=true renders the row as a spell attack (no hand selector).
+// sid links a spell attack row to its spell row for cleanup.
+function addAtk(n='', hand='main-s', bonus='', dmg='', type='', range='', notes='', isSpell=false, sid=null, weaponId=null) {
+  const tb = document.getElementById('atkBody');
+  const id = ++atkCtr;
+  const tr = document.createElement('tr'); tr.dataset.aid = id;
+  if(sid) tr.dataset.sid = sid;
+
+  const w = weaponId ? weaponDB[weaponId] : null;
+  if(w) {
+    const dice = w.damage?.dice || dmg || '—';
+    const o = handOpt(hand);
+    const statMod = aMod(o.stat);
+    const modStr = statMod >= 0 ? '+'+statMod : ''+statMod;
+    dmg   = dice + modStr;
+    type  = w.damage?.type || type || '—';
+    if(w.range)       range = `${w.range.normal}/${w.range.long}ft`;
+    else if(w.reach)  range = `${w.reach}ft`;
+    const props = (w.properties||[]).map(p=>p.replace(/_/g,' ')).join(', ');
+    notes = props || notes || '';
   }
 
-  const compBonus=isSpell?bonus:calcWpnBonus(hand,dmg);
-  const selOpts=HAND_OPTS.map(o=>`<option value="${o.v}"${hand===o.v?' selected':''}>${o.l}</option>`).join('');
-  const hasWpnData=w!=null;
-  const nameCell=hasWpnData?`<span class="atk-name has-link" onclick="event.stopPropagation();openWeaponCard('${weaponId}')" title="Click for weapon details">${n}</span>`:`<span class="atk-name editable" data-ph="Name">${n}</span>`;
-  tr.innerHTML=`<td>${nameCell}</td><td class="atk-col-hand">${isSpell?'<span class="atk-type" style="color:#7ab8c8">Spell</span>':`<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}">${selOpts}</select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td class="atk-col-dmg"><span class="atk-dmg" id="dmg-${id}" data-base="${w?w.damage?.dice||'':dmg}">${dmg}</span></td><td class="atk-col-type"><span class="atk-type">${type}</span></td><td class="atk-col-range"><span class="atk-type">${range}</span></td><td>${sid?'':`<button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
-  if(weaponId)tr.dataset.wid=weaponId;
-  tr.addEventListener('click',(e)=>{
-    if(e.target.classList.contains('hand-sel')||e.target.tagName==='OPTION'||e.target.classList.contains('del-btn')||e.target.classList.contains('atk-name'))return;
-    if(!editMode){if(isSpell){openSpellCard(n);}else{rollAtkRow(id);}}
+  const compBonus = isSpell ? bonus : calcWpnBonus(hand, dmg);
+  const selOpts = HAND_OPTS.map(o=>`<option value="${o.v}"${hand===o.v?' selected':''}>${o.l}</option>`).join('');
+  const hasWpnData = w != null;
+  const nameCell = hasWpnData
+    ? `<span class="atk-name has-link" onclick="event.stopPropagation();openWeaponCard('${weaponId}')" title="Click for weapon details">${n}</span>`
+    : `<span class="atk-name editable" data-ph="Name">${n}</span>`;
+
+  tr.innerHTML = `<td>${nameCell}</td><td class="atk-col-hand">${isSpell ? '<span class="atk-type" style="color:#7ab8c8">Spell</span>' : `<select class="hand-sel" onchange="updateHand(${id})" id="hs-${id}">${selOpts}</select>`}</td><td><span class="atk-bon${isSpell?' spell':''}" id="ab-${id}">${compBonus}</span></td><td class="atk-col-dmg"><span class="atk-dmg" id="dmg-${id}" data-base="${w?w.damage?.dice||'':dmg}">${dmg}</span></td><td class="atk-col-type"><span class="atk-type">${type}</span></td><td class="atk-col-range"><span class="atk-type">${range}</span></td><td>${sid?'':`<button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button>`}</td>`;
+
+  if(weaponId) tr.dataset.wid = weaponId;
+  tr.addEventListener('click', (e)=>{
+    if(e.target.classList.contains('hand-sel') || e.target.tagName==='OPTION' ||
+       e.target.classList.contains('del-btn')  || e.target.classList.contains('atk-name')) return;
+    if(!editMode) { if(isSpell) { openSpellCard(n); } else { rollAtkRow(id); } }
   });
-  tb.appendChild(tr);applyEditToEl(tr);
+  tb.appendChild(tr); applyEditToEl(tr);
 }
-function updateHand(id){
-  const s=document.getElementById('hs-'+id);if(!s)return;
-  const el=document.getElementById('ab-'+id);
-  const dmgEl=document.getElementById('dmg-'+id);
-  if(el)el.textContent=calcWpnBonus(s.value,'');
-  // If weapon has a DB entry, recalc displayed damage with new stat mod
-  const tr=document.querySelector(`[data-aid="${id}"]`);
-  if(tr&&tr.dataset.wid){
-    const w=weaponDB[tr.dataset.wid];
-    if(w&&dmgEl){
-      const o=handOpt(s.value);const statMod=aMod(o.stat);
-      const modStr=statMod>=0?'+'+statMod:''+statMod;
-      dmgEl.textContent=(w.damage?.dice||'')+modStr;
+
+// Recalculates the attack bonus and weapon damage when the hand selector changes.
+// For weapon-linked rows, the damage dice come from weaponDB; only the stat mod changes.
+function updateHand(id) {
+  const s = document.getElementById('hs-'+id); if(!s) return;
+  const el = document.getElementById('ab-'+id);
+  const dmgEl = document.getElementById('dmg-'+id);
+  if(el) el.textContent = calcWpnBonus(s.value, '');
+  const tr = document.querySelector(`[data-aid="${id}"]`);
+  if(tr && tr.dataset.wid) {
+    const w = weaponDB[tr.dataset.wid];
+    if(w && dmgEl) {
+      const o = handOpt(s.value);
+      const statMod = aMod(o.stat);
+      const modStr = statMod >= 0 ? '+'+statMod : ''+statMod;
+      dmgEl.textContent = (w.damage?.dice||'') + modStr;
     }
   }
   save();
 }
-function syncPreparedSpells(){
-  // Build the prepared spells table in the attacks tab
-  let tbody=document.getElementById('prepSpellBody');
-  const section=document.getElementById('prepSpellSection');
-  if(!tbody||!section)return;
-  tbody.innerHTML='';
-  const rows=Array.from(document.querySelectorAll('.spell-row[data-sid]'));
-  const prepared=rows.filter(r=>r.querySelector('.sp-prep')?.checked);
-  section.style.display=prepared.length?'':'none';
+
+// Rebuilds the Prepared Spells table in the Attacks tab from all spells
+// that have their P checkbox checked. Hides the section if none are prepared.
+function syncPreparedSpells() {
+  const tbody   = document.getElementById('prepSpellBody');
+  const section = document.getElementById('prepSpellSection');
+  if(!tbody || !section) return;
+  tbody.innerHTML = '';
+  const rows     = Array.from(document.querySelectorAll('.spell-row[data-sid]'));
+  const prepared = rows.filter(r=>r.querySelector('.sp-prep')?.checked);
+  section.style.display = prepared.length ? '' : 'none';
   prepared.forEach(row=>{
-    const n=row.querySelector('.sp-name')?.textContent.trim()||'Spell';
-    const lv=parseInt(row.dataset.lvl)||0;
-    const cast=row.querySelector('.sp-col.cast')?.textContent.trim()||'—';
-    const rng=row.querySelector('.sp-col.rng')?.textContent.trim()||'—';
-    const dur=row.querySelector('.sp-col.dur')?.textContent.trim()||'—';
-    const dbEntry=spellDB[n]||{};
-    const conc=dbEntry.concentration?'✦':'—';
-    const lvLabel=lv===0?'Cantrip':`${lv}${['','st','nd','rd'][lv]||'th'}`;
-    const tr=document.createElement('tr');
-    tr.style.cursor='pointer';
-    tr.innerHTML=`<td><span class="atk-name">${n}</span></td><td class="ps-col-cast"><span class="atk-type">${cast}</span></td><td class="ps-col-conc"><span class="atk-type" style="color:${dbEntry.concentration?'var(--ink-gold-dim)':'var(--text-faint)'}">${conc}</span></td><td class="ps-col-lvl"><span class="atk-type" style="color:#7ab8c8">${lvLabel}</span></td><td class="ps-col-range"><span class="atk-type">${rng}</span></td>`;
-    tr.addEventListener('click',()=>openSpellCard(n));
+    const n    = row.querySelector('.sp-name')?.textContent.trim()||'Spell';
+    const lv   = parseInt(row.dataset.lvl)||0;
+    const cast = row.querySelector('.sp-col.cast')?.textContent.trim()||'—';
+    const rng  = row.querySelector('.sp-col.rng')?.textContent.trim()||'—';
+    const dbEntry = spellDB[n]||{};
+    const conc    = dbEntry.concentration ? '✦' : '—';
+    const lvLabel = lv===0 ? 'Cantrip' : `${lv}${['','st','nd','rd'][lv]||'th'}`;
+    const tr = document.createElement('tr'); tr.style.cursor='pointer';
+    tr.innerHTML = `<td><span class="atk-name">${n}</span></td><td class="ps-col-cast"><span class="atk-type">${cast}</span></td><td class="ps-col-conc"><span class="atk-type" style="color:${dbEntry.concentration?'var(--ink-gold-dim)':'var(--text-faint)'}">${conc}</span></td><td class="ps-col-lvl"><span class="atk-type" style="color:#7ab8c8">${lvLabel}</span></td><td class="ps-col-range"><span class="atk-type">${rng}</span></td>`;
+    tr.addEventListener('click', ()=>openSpellCard(n));
     tbody.appendChild(tr);
   });
 }
-// Keep old name as alias so any remaining references don't break
-function syncSpellAtks(){syncPreparedSpells();}
-function rollAtkRow(id){
-  const tr=document.querySelector(`[data-aid="${id}"]`);if(!tr)return;
-  const nm=tr.querySelector('.atk-name').textContent.trim()||'Attack';
-  const bonEl=tr.querySelector('.atk-bon');const bonStr=bonEl?bonEl.textContent:'+0';const bon=parseInt(bonStr.replace(/^\+/,''))||0;
-  const dmgEl=tr.querySelector('.atk-dmg');const dmg=dmgEl?dmgEl.dataset.base||dmgEl.textContent.trim():'';
-  const isSpell=bonEl&&bonEl.classList.contains('spell');
-  curRollDmg=dmg;
-  rollDice({name:nm,type:isSpell?'Spell Attack':'Weapon Attack',bon,dmg:'',comps:[{l:'Attack Bonus',i:isSpell?'SP':'ATK',v:bon}],showHitMiss:true});
-}
-function rollDamageHit(){
-  if(!curRollDmg||curRollDmg==='—')return;
-  // Roll damage in the existing modal
-  const ds=document.getElementById('dDmgSec');const dr=document.getElementById('dDmgRows');
-  ds.style.display='block';dr.innerHTML='';
-  const r=rollFormula(curRollDmg,false);
-  if(r){dr.appendChild(mkRow(curRollDmg,'DMG',r.total,''));if(r.rolls.length>1){const e=document.createElement('div');e.className='dcalcrow';e.innerHTML=`<span class="dclbl" style="color:var(--text-faint);font-style:italic;">Rolls: [${r.rolls.join(', ')}]${r.mod?(r.mod>0?'+':'')+r.mod:''}</span>`;dr.appendChild(e);}}
-  document.getElementById('diceActionRow').classList.add('hide');
+
+// Legacy alias kept so any stale references in JSON don't break
+function syncSpellAtks() { syncPreparedSpells(); }
+
+// Rolls an attack for the row identified by id.
+// Stores the damage formula in curRollDmg so Hit→Roll Damage can use it.
+function rollAtkRow(id) {
+  const tr = document.querySelector(`[data-aid="${id}"]`); if(!tr) return;
+  const nm     = tr.querySelector('.atk-name').textContent.trim()||'Attack';
+  const bonEl  = tr.querySelector('.atk-bon');
+  const bonStr = bonEl ? bonEl.textContent : '+0';
+  const bon    = parseInt(bonStr.replace(/^\+/,''))||0;
+  const dmgEl  = tr.querySelector('.atk-dmg');
+  const dmg    = dmgEl ? dmgEl.dataset.base||dmgEl.textContent.trim() : '';
+  const isSpell = bonEl && bonEl.classList.contains('spell');
+  curRollDmg = dmg;
+  rollDice({name:nm, type:isSpell?'Spell Attack':'Weapon Attack', bon, dmg:'', comps:[{l:'Attack Bonus',i:isSpell?'SP':'ATK',v:bon}], showHitMiss:true});
 }
 
-// ── WEAPON CARD ───────────────────────────────────────────────────────────────
-function openWeaponCard(wid){
-  const w=weaponDB[wid];if(!w)return;
-  const card=document.getElementById('scCard');const inner=card.querySelector('.sc-card-inner');
-  document.getElementById('scName').textContent=w.name;
-  const props=(w.properties||[]).map(p=>p.replace(/_/g,' ')).join(', ')||'—';
-  const catType=`${w.category} ${w.type}`;
-  document.getElementById('scSubtitle').textContent=catType+(w.weapon_group?` · ${w.weapon_group}`:'');
-  const fields=document.getElementById('scFields');fields.innerHTML='';
-  const af=(l,v)=>{if(!v&&v!==0)return;const el=document.createElement('div');el.className='sc-field';el.innerHTML=`<strong>${l}:</strong> ${v}`;fields.appendChild(el);};
-  af('Damage',w.damage?(w.damage.dice+(w.versatile_damage?` / ${w.versatile_damage} (versatile)`:'')+' '+w.damage.type):'—');
-  af('Properties',props);
-  const rng=w.range?`${w.range.normal}/${w.range.long} ft`:(w.reach?`Reach ${w.reach} ft`:'5 ft');af('Range',rng);
-  if(w.weight!==undefined&&w.weight!==null)af('Weight',w.weight+' lb');
-  if(w.cost)af('Cost',`${w.cost.value} ${w.cost.unit}`);
-  if(w.notes)af('Notes',w.notes);
-  const wrap=document.getElementById('scDescWrap');wrap.innerHTML='';
+// Triggered by the Hit button in the dice popup.
+// Rolls damage using the formula stored in curRollDmg and shows it below the breakdown.
+function rollDamageHit() {
+  if(!curRollDmg || curRollDmg==='—') return;
+  const ds = document.getElementById('dDmgSec');
+  const dr = document.getElementById('dDmgRows');
+  ds.style.display='block'; dr.innerHTML='';
+  const r = rollFormula(curRollDmg, false);
+  if(r) {
+    dr.appendChild(mkRow(curRollDmg,'DMG',r.total,''));
+    if(r.rolls.length > 1) {
+      const e = document.createElement('div'); e.className='dcalcrow';
+      e.innerHTML = `<span class="dclbl" style="color:var(--text-faint);font-style:italic;">Rolls: [${r.rolls.join(', ')}]${r.mod?(r.mod>0?'+':'')+r.mod:''}</span>`;
+      dr.appendChild(e);
+    }
+  }
+  document.getElementById('diceActionRow').classList.remove('vis');
+}
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// WEAPON CARD
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Opens the spell/weapon card overlay populated with data from weaponDB.
+function openWeaponCard(wid) {
+  const w = weaponDB[wid]; if(!w) return;
+  document.getElementById('scName').textContent = w.name;
+  const props = (w.properties||[]).map(p=>p.replace(/_/g,' ')).join(', ')||'—';
+  const catType = `${w.category} ${w.type}`;
+  document.getElementById('scSubtitle').textContent = catType + (w.weapon_group ? ` · ${w.weapon_group}` : '');
+  const fields = document.getElementById('scFields'); fields.innerHTML='';
+  const af = (l,v)=>{ if(!v && v!==0) return; const el=document.createElement('div'); el.className='sc-field'; el.innerHTML=`<strong>${l}:</strong> ${v}`; fields.appendChild(el); };
+  af('Damage', w.damage ? (w.damage.dice + (w.versatile_damage?` / ${w.versatile_damage} (versatile)`:'') + ' ' + w.damage.type) : '—');
+  af('Properties', props);
+  const rng = w.range ? `${w.range.normal}/${w.range.long} ft` : (w.reach ? `Reach ${w.reach} ft` : '5 ft');
+  af('Range', rng);
+  if(w.weight !== undefined && w.weight !== null) af('Weight', w.weight+' lb');
+  if(w.cost) af('Cost', `${w.cost.value} ${w.cost.unit}`);
+  if(w.notes) af('Notes', w.notes);
+  document.getElementById('scDescWrap').innerHTML='';
   document.getElementById('scOverlay').classList.add('active');
 }
 
-// ── SPELLS ────────────────────────────────────────────────────────────────────
-function addSpell(n='',lv='',sch='',cast='',rng='',prep=false,eq=false,desc='',dur='',comp='',target='',classes='',higher='',section=null){
-  const lvNum=parseInt(lv)||0;const secId=section!==null?parseInt(section):lvNum;
-  const listEl=document.getElementById('spellList-'+secId)||document.getElementById('spellList-0');
-  const id=String(++spellCtr);
-  const dbEntry=spellDB[n]||{};
-  if(!spellDescs[n]){spellDescs[n]={desc:dbEntry.desc||desc||'',dur:dbEntry.dur||dur||'',comp:dbEntry.comp||comp||'',target:dbEntry.target||target||'',classes:dbEntry.classes||classes||'',higher:dbEntry.higher||higher||''};}
-  const row=document.createElement('div');row.className='spell-row';row.dataset.sid=id;row.dataset.lvl=lvNum;
-  const subMeta=[cast,rng,dur,sch].filter(Boolean).join(' · ');
-  const concBadge=dbEntry.concentration?'<span class="sp-conc-badge" title="Concentration">C</span>':'';
-  row.innerHTML=`<input type="checkbox" class="sp-prep" ${prep?'checked':''} onchange="syncPreparedSpells();save()"><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-col cast editable" data-ph="1 action">${cast}</span><span class="sp-col rng editable" data-ph="Self">${rng}</span><span class="sp-col dur editable" data-ph="Instant">${dur}</span><span class="sp-col sch editable" data-ph="School">${sch}</span>`;
-  const db=document.createElement('button');db.className='del-btn';db.textContent='✕';
-  db.onclick=(e)=>{e.stopPropagation();row.remove();syncPreparedSpells();save();};
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SPELLS
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Adds a spell row to the appropriate spell level list.
+// Merges data from spellDB (canonical) with any per-character description overrides
+// stored in spellDescs. The row includes a P checkbox, name, and inline metadata columns.
+function addSpell(n='', lv='', sch='', cast='', rng='', prep=false, eq=false, desc='', dur='', comp='', target='', classes='', higher='', section=null) {
+  const lvNum  = parseInt(lv)||0;
+  const secId  = section !== null ? parseInt(section) : lvNum;
+  const listEl = document.getElementById('spellList-'+secId) || document.getElementById('spellList-0');
+  const id     = String(++spellCtr);
+  const dbEntry = spellDB[n]||{};
+  if(!spellDescs[n]) {
+    spellDescs[n] = {
+      desc:    dbEntry.desc    || desc    || '',
+      dur:     dbEntry.dur     || dur     || '',
+      comp:    dbEntry.comp    || comp    || '',
+      target:  dbEntry.target  || target  || '',
+      classes: dbEntry.classes || classes || '',
+      higher:  dbEntry.higher  || higher  || ''
+    };
+  }
+  const row = document.createElement('div'); row.className='spell-row'; row.dataset.sid=id; row.dataset.lvl=lvNum;
+  const subMeta = [cast,rng,dur,sch].filter(Boolean).join(' · ');
+  const concBadge = dbEntry.concentration ? '<span class="sp-conc-badge" title="Concentration">C</span>' : '';
+  row.innerHTML = `<input type="checkbox" class="sp-prep" ${prep?'checked':''} onchange="syncPreparedSpells();save()"><div class="sp-name-cell"><span class="sp-name editable" data-ph="Spell name">${n}</span><span class="sp-meta-sub">${subMeta}</span></div><span class="sp-col cast editable" data-ph="1 action">${cast}</span><span class="sp-col rng editable" data-ph="Self">${rng}</span><span class="sp-col dur editable" data-ph="Instant">${dur}</span><span class="sp-col sch editable" data-ph="School">${sch}</span>`;
+  const db = document.createElement('button'); db.className='del-btn'; db.textContent='✕';
+  db.onclick = (e)=>{ e.stopPropagation(); row.remove(); syncPreparedSpells(); save(); };
   row.appendChild(db);
-  row.addEventListener('click',(e)=>{if(editMode||e.target.closest('.del-btn')||e.target.closest('.sp-prep'))return;openSpellCard(n);});
-  listEl.appendChild(row);applyEditToEl(row);
-  const sec=document.getElementById('spell-sec-'+secId);if(sec)sec.classList.add('open');
-  if(prep)syncPreparedSpells();
+  row.addEventListener('click', (e)=>{ if(editMode||e.target.closest('.del-btn')||e.target.closest('.sp-prep')) return; openSpellCard(n); });
+  listEl.appendChild(row); applyEditToEl(row);
+  const sec = document.getElementById('spell-sec-'+secId); if(sec) sec.classList.add('open');
+  if(prep) syncPreparedSpells();
 }
-function openAddSpellModal(){const lv=prompt('Spell level (0 for cantrip, 1-9):','1');if(lv===null)return;addSpell('',lv,'','','',false,false,'','','','','','',lv);save();}
-function openSpellCard(spellName){
-  const row=Array.from(document.querySelectorAll('.spell-row')).find(r=>r.querySelector('.sp-name')?.textContent.trim()===spellName);
-  if(!row)return;
-  const lv=row.dataset.lvl||'0';
-  const sch=row.querySelector('.sp-col.sch')?.textContent.trim()||'';
-  const cast=row.querySelector('.sp-col.cast')?.textContent.trim()||'';
-  const rng=row.querySelector('.sp-col.rng')?.textContent.trim()||'';
-  const dur=row.querySelector('.sp-col.dur')?.textContent.trim()||'';
-  const dbEntry=spellDB[spellName]||{};const override=spellDescs[spellName]||{};
-  const sd={desc:override.desc??dbEntry.desc??'',dur:override.dur??dbEntry.dur??dur,comp:override.comp??dbEntry.comp??'',target:override.target??dbEntry.target??'',classes:override.classes??dbEntry.classes??'',higher:override.higher??dbEntry.higher??''};
-  const _lvInt=parseInt(lv)||0;const lvLabel=_lvInt>0?`${_lvInt}${['','st','nd','rd'][_lvInt]||'th'} level${sch?' '+sch:''}`:sch?sch+' cantrip':'Cantrip';
-  document.getElementById('scName').textContent=spellName;
-  document.getElementById('scSubtitle').textContent=lvLabel;
-  const fields=document.getElementById('scFields');fields.innerHTML='';
-  const af=(l,v)=>{if(!v)return;const el=document.createElement('div');el.className='sc-field';el.innerHTML=`<strong>${l}:</strong> ${v}`;fields.appendChild(el);};
-  if(dbEntry.concentration)af('Concentration','✦ Yes');
-  af('Casting Time',cast);af('Range',rng);if(sd.target)af('Target',sd.target);af('Duration',dur||sd.dur||'');if(sd.comp)af('Components',sd.comp);if(sd.classes)af('Classes',sd.classes);
-  const wrap=document.getElementById('scDescWrap');wrap.innerHTML='';
-  if(editMode){
-    const lbl=document.createElement('div');lbl.className='sc-field';lbl.style.marginBottom='0.3rem';lbl.innerHTML='<strong>Description:</strong>';wrap.appendChild(lbl);
-    const ta=document.createElement('textarea');ta.className='sc-desc-edit';ta.rows=6;ta.value=sd.desc||'';
-    ta.oninput=()=>{if(!spellDescs[spellName])spellDescs[spellName]={...dbEntry};spellDescs[spellName].desc=ta.value;save();};
+
+// Prompts for a spell level and adds an empty spell row at that level
+function openAddSpellModal() {
+  const lv = prompt('Spell level (0 for cantrip, 1-9):', '1');
+  if(lv === null) return;
+  addSpell('', lv, '', '', '', false, false, '', '', '', '', '', '', lv);
+  save();
+}
+
+// Opens the spell detail card overlay for a given spell name.
+// Merges canonical spellDB data with any local overrides in spellDescs.
+// In edit mode shows a textarea for the description; in view mode shows formatted text.
+function openSpellCard(spellName) {
+  const row = Array.from(document.querySelectorAll('.spell-row')).find(r=>r.querySelector('.sp-name')?.textContent.trim()===spellName);
+  if(!row) return;
+  const lv   = row.dataset.lvl||'0';
+  const sch  = row.querySelector('.sp-col.sch')?.textContent.trim()||'';
+  const cast = row.querySelector('.sp-col.cast')?.textContent.trim()||'';
+  const rng  = row.querySelector('.sp-col.rng')?.textContent.trim()||'';
+  const dur  = row.querySelector('.sp-col.dur')?.textContent.trim()||'';
+  const dbEntry  = spellDB[spellName]||{};
+  const override = spellDescs[spellName]||{};
+  const sd = {
+    desc:    override.desc    ?? dbEntry.desc    ?? '',
+    dur:     override.dur     ?? dbEntry.dur     ?? dur,
+    comp:    override.comp    ?? dbEntry.comp    ?? '',
+    target:  override.target  ?? dbEntry.target  ?? '',
+    classes: override.classes ?? dbEntry.classes ?? '',
+    higher:  override.higher  ?? dbEntry.higher  ?? ''
+  };
+  const _lvInt  = parseInt(lv)||0;
+  const lvLabel = _lvInt>0 ? `${_lvInt}${['','st','nd','rd'][_lvInt]||'th'} level${sch?' '+sch:''}` : sch ? sch+' cantrip' : 'Cantrip';
+  document.getElementById('scName').textContent     = spellName;
+  document.getElementById('scSubtitle').textContent = lvLabel;
+  const fields = document.getElementById('scFields'); fields.innerHTML='';
+  const af = (l,v)=>{ if(!v) return; const el=document.createElement('div'); el.className='sc-field'; el.innerHTML=`<strong>${l}:</strong> ${v}`; fields.appendChild(el); };
+  if(dbEntry.concentration) af('Concentration','✦ Yes');
+  af('Casting Time', cast); af('Range', rng);
+  if(sd.target) af('Target', sd.target);
+  af('Duration', dur||sd.dur||'');
+  if(sd.comp) af('Components', sd.comp);
+  if(sd.classes) af('Classes', sd.classes);
+  const wrap = document.getElementById('scDescWrap'); wrap.innerHTML='';
+  if(editMode) {
+    const lbl = document.createElement('div'); lbl.className='sc-field'; lbl.style.marginBottom='0.3rem'; lbl.innerHTML='<strong>Description:</strong>'; wrap.appendChild(lbl);
+    const ta = document.createElement('textarea'); ta.className='sc-desc-edit'; ta.rows=6; ta.value=sd.desc||'';
+    ta.oninput = ()=>{ if(!spellDescs[spellName]) spellDescs[spellName]={...dbEntry}; spellDescs[spellName].desc=ta.value; save(); };
     wrap.appendChild(ta);
   } else {
-    if(sd.desc){const lbl=document.createElement('div');lbl.className='sc-field';lbl.style.marginBottom='0.4rem';lbl.innerHTML='<strong>Description:</strong>';wrap.appendChild(lbl);const p=document.createElement('p');p.className='sc-desc';p.textContent=sd.desc;wrap.appendChild(p);}
-    if(sd.higher){const h=document.createElement('p');h.className='sc-higher';h.innerHTML=`<strong>At Higher Levels.</strong> ${sd.higher}`;wrap.appendChild(h);}
+    if(sd.desc) {
+      const lbl=document.createElement('div'); lbl.className='sc-field'; lbl.style.marginBottom='0.4rem'; lbl.innerHTML='<strong>Description:</strong>'; wrap.appendChild(lbl);
+      const p=document.createElement('p'); p.className='sc-desc'; p.textContent=sd.desc; wrap.appendChild(p);
+    }
+    if(sd.higher) {
+      const h=document.createElement('p'); h.className='sc-higher'; h.innerHTML=`<strong>At Higher Levels.</strong> ${sd.higher}`; wrap.appendChild(h);
+    }
   }
   document.getElementById('scOverlay').classList.add('active');
 }
-function closeSpellCard(){document.getElementById('scOverlay').classList.remove('active');}
-function removeSpellAtk(sid){document.querySelector(`#atkBody [data-sid="${sid}"]`)?.remove();}
 
-// ── SENSES ────────────────────────────────────────────────────────────────────
-function openSens(){document.getElementById('sensOverlay').classList.add('active');}
-function closeSens(){document.getElementById('sensOverlay').classList.remove('active');}
+// Closes the spell/weapon card overlay
+function closeSpellCard() { document.getElementById('scOverlay').classList.remove('active'); }
 
-// ── INVENTORY ─────────────────────────────────────────────────────────────────
-function addInv(n='',q='1',v='',u='gp',eq=false,notes=''){
-  const tb=document.getElementById('invBody');const tr=document.createElement('tr');
-  const unitOpts=['gp','sp','cp'].map(x=>`<option value="${x}"${u===x?' selected':''}>${x}</option>`).join('');
-  const valTxt=(v&&v!=='—')?`${v}${u}`:'—';
-  tr.innerHTML=`<td><span class="inv-name editable" data-ph="Item name">${n}</span></td><td><span class="inv-qty editable always-edit" data-ph="1">${q}</span></td><td style="white-space:nowrap;"><span class="inv-val editable always-edit" data-ph="—">${v}</span><select class="inv-unit-sel">${unitOpts}</select><span class="inv-val-txt">${valTxt}</span></td><td><span class="editable" data-ph="Notes..." style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;">${notes}</span></td><td><button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button></td>`;
-  tr.querySelector('.inv-val')?.addEventListener('input',()=>updateInvValTxt(tr));
-  tr.querySelector('.inv-unit-sel')?.addEventListener('change',()=>updateInvValTxt(tr));
-  tb.appendChild(tr);applyEditToEl(tr);
+// Removes a spell attack row that was linked to a specific spell (by sid)
+function removeSpellAtk(sid) { document.querySelector(`#atkBody [data-sid="${sid}"]`)?.remove(); }
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SENSES OVERLAY
+// ═════════════════════════════════════════════════════════════════════════════
+
+function openSens()  { document.getElementById('sensOverlay').classList.add('active'); }
+function closeSens() { document.getElementById('sensOverlay').classList.remove('active'); }
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// INVENTORY
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Adds a row to the equipment table.
+// In view mode, value + unit are shown as a combined text (e.g. "10gp").
+// In edit mode, the value field and unit selector become editable separately.
+function addInv(n='', q='1', v='', u='gp', eq=false, notes='') {
+  const tb = document.getElementById('invBody');
+  const tr = document.createElement('tr');
+  const unitOpts = ['gp','sp','cp'].map(x=>`<option value="${x}"${u===x?' selected':''}>${x}</option>`).join('');
+  const valTxt = (v && v!=='—') ? `${v}${u}` : '—';
+  tr.innerHTML = `<td><span class="inv-name editable" data-ph="Item name">${n}</span></td><td><span class="inv-qty editable always-edit" data-ph="1">${q}</span></td><td style="white-space:nowrap;"><span class="inv-val editable always-edit" data-ph="—">${v}</span><select class="inv-unit-sel">${unitOpts}</select><span class="inv-val-txt">${valTxt}</span></td><td><span class="editable" data-ph="Notes..." style="font-family:var(--font-body);font-size:0.82rem;color:var(--text-faint);font-style:italic;">${notes}</span></td><td><button class="del-btn" onclick="this.closest('tr').remove();save()">✕</button></td>`;
+  tr.querySelector('.inv-val')?.addEventListener('input', ()=>updateInvValTxt(tr));
+  tr.querySelector('.inv-unit-sel')?.addEventListener('change', ()=>updateInvValTxt(tr));
+  tb.appendChild(tr); applyEditToEl(tr);
 }
-function updateInvValTxt(tr){
-  const v=tr.querySelector('.inv-val')?.textContent.trim()||'';
-  const u=tr.querySelector('.inv-unit-sel')?.value||'gp';
-  const txt=tr.querySelector('.inv-val-txt');
-  if(txt)txt.textContent=(v&&v!=='—')?`${v}${u}`:'—';
+
+// Keeps the read-only value text (e.g. "10gp") in sync when the editable value or unit changes
+function updateInvValTxt(tr) {
+  const v   = tr.querySelector('.inv-val')?.textContent.trim()||'';
+  const u   = tr.querySelector('.inv-unit-sel')?.value||'gp';
+  const txt = tr.querySelector('.inv-val-txt');
+  if(txt) txt.textContent = (v && v!=='—') ? `${v}${u}` : '—';
 }
 
-// ── INSPIRATION ───────────────────────────────────────────────────────────────
-function toggleInsp(){
-  const b=document.getElementById('inspBtn');b.classList.toggle('lit');
-  document.getElementById('inspLbl').textContent=b.classList.contains('lit')?'Inspired!':'No Inspiration';
+
+// ═════════════════════════════════════════════════════════════════════════════
+// INSPIRATION
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Toggles the inspiration state and updates the button label
+function toggleInsp() {
+  const b = document.getElementById('inspBtn'); b.classList.toggle('lit');
+  document.getElementById('inspLbl').textContent = b.classList.contains('lit') ? 'Inspired!' : 'No Inspiration';
   save();
 }
-function syncPortrait(src){
+
+// Syncs both portrait elements (mobile and desktop) to the given image src.
+// Hides placeholder text when a portrait is loaded, shows it when cleared.
+function syncPortrait(src) {
   ['portImg','portImgDesktop'].forEach(id=>{
-    const img=document.getElementById(id);if(!img)return;
-    if(src){img.src=src;img.style.display='block';}else{img.src='';img.style.display='none';}
+    const img = document.getElementById(id); if(!img) return;
+    if(src) { img.src=src; img.style.display='block'; }
+    else    { img.src=''; img.style.display='none'; }
   });
   ['portPlaceholder','portPlaceholderDesktop'].forEach(id=>{
-    const el=document.getElementById(id);if(el)el.style.display=src?'none':'';
+    const el = document.getElementById(id); if(el) el.style.display = src?'none':'';
   });
 }
-function loadPortrait(ev){const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{syncPortrait(e.target.result);save();};r.readAsDataURL(f);}
 
-// ── NPC LIST ──────────────────────────────────────────────────────────────────
-function buildNpcList(npcNotes){
-  const c=document.getElementById('npcList');c.innerHTML='';
+// Reads a portrait file from an input[type=file] element and stores it as base64.
+// The base64 data is saved to localStorage but stripped before GitHub commits
+// (the original URL is used instead to avoid bloating the JSON).
+function loadPortrait(ev) {
+  const f = ev.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = e=>{ syncPortrait(e.target.result); save(); };
+  r.readAsDataURL(f);
+}
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// RELATIONS TAB — NPC / LOCATION / ITEM LISTS
+// These lists are populated from shared JSON files (npcs.json, locations.json,
+// clues.json) so all characters see the same world data, but each character
+// can add their own notes on each entry (stored in the character sheet JSON).
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Builds the Known Characters list from npcDB + per-character notes
+function buildNpcList(npcNotes) {
+  const c = document.getElementById('npcList'); c.innerHTML='';
   npcDB.forEach(npc=>{
-    const notes=npcNotes?.[npc.id]||'';
-    const card=document.createElement('div');card.className='npc-card';
-    card.innerHTML=`
+    const notes = npcNotes?.[npc.id]||'';
+    const card  = document.createElement('div'); card.className='npc-card';
+    card.innerHTML = `
       <div class="npc-hdr" onclick="this.parentElement.classList.toggle('open')">
         <span class="npc-tog"></span>
         <span class="npc-name">${npc.name}</span>
@@ -1380,23 +1853,20 @@ function buildNpcList(npcNotes){
           <div class="npc-field"><strong>Last Known Location</strong>${npc.last_known_location}</div>
         </div>
         <span class="npc-notes-label">Your Notes</span>
-        <div class="npc-notes" data-npc="${npc.id}" data-ph="Add your notes about ${npc.name}..." contenteditable="false" oninput="saveNpcNote('${npc.id}',this.textContent.trim())">${notes}</div>
+        <div class="npc-notes" data-npc="${npc.id}" data-ph="Add your notes about ${npc.name}..." contenteditable="false" oninput="save()">${notes}</div>
       </div>`;
     c.appendChild(card);
   });
 }
-function saveNpcNote(npcId,val){
-  // save immediately into the gathered data
-  save();
-}
 
-function buildLocationList(sharedLocations, charNotes){
-  const c=document.getElementById('locationList');c.innerHTML='';
-  const notes=charNotes||{};
+// Builds the Known Locations list from shared location data + per-character notes
+function buildLocationList(sharedLocations, charNotes) {
+  const c = document.getElementById('locationList'); c.innerHTML='';
+  const notes = charNotes||{};
   (sharedLocations||[]).forEach(loc=>{
-    const noteVal=notes[loc.id]||'';
-    const card=document.createElement('div');card.className='npc-card';
-    card.innerHTML=`
+    const noteVal = notes[loc.id]||'';
+    const card = document.createElement('div'); card.className='npc-card';
+    card.innerHTML = `
       <div class="npc-hdr" onclick="this.parentElement.classList.toggle('open')">
         <span class="npc-tog"></span>
         <span class="npc-name">${loc.name}</span>
@@ -1405,8 +1875,8 @@ function buildLocationList(sharedLocations, charNotes){
       <div class="npc-body">
         <div class="npc-body-grid">
           <div class="npc-field npc-detail"><strong>Detail</strong>${loc.detail||''}</div>
-          ${loc.status?`<div class="npc-field"><strong>Status</strong>${loc.status}</div>`:''}
-          ${loc.region?`<div class="npc-field"><strong>Region</strong>${loc.region}</div>`:''}
+          ${loc.status ? `<div class="npc-field"><strong>Status</strong>${loc.status}</div>` : ''}
+          ${loc.region ? `<div class="npc-field"><strong>Region</strong>${loc.region}</div>` : ''}
         </div>
         <span class="npc-notes-label">Your Notes</span>
         <div class="npc-notes" data-loc="${loc.id}" data-ph="Add notes about ${loc.name}..." contenteditable="false" oninput="save()">${noteVal}</div>
@@ -1415,14 +1885,16 @@ function buildLocationList(sharedLocations, charNotes){
   });
 }
 
-function buildItemList(sharedItems, charNotes){
-  const c=document.getElementById('itemList');c.innerHTML='';
-  const notes=charNotes||{};
+// Builds the Known Items & Clues list from shared clue data + per-character notes.
+// Each item shows a session badge indicating when it was first introduced.
+function buildItemList(sharedItems, charNotes) {
+  const c = document.getElementById('itemList'); c.innerHTML='';
+  const notes = charNotes||{};
   (sharedItems||[]).forEach(item=>{
-    const noteVal=notes[item.id]||'';
-    const sessionBadge=item.session?`<span style="font-family:var(--font-heading);font-size:0.65rem;color:var(--ink-red-bright);margin-left:0.5rem;">Session ${item.session}</span>`:'';
-    const card=document.createElement('div');card.className='npc-card';
-    card.innerHTML=`
+    const noteVal      = notes[item.id]||'';
+    const sessionBadge = item.session ? `<span style="font-family:var(--font-heading);font-size:0.65rem;color:var(--ink-red-bright);margin-left:0.5rem;">Session ${item.session}</span>` : '';
+    const card = document.createElement('div'); card.className='npc-card';
+    card.innerHTML = `
       <div class="npc-hdr" onclick="this.parentElement.classList.toggle('open')">
         <span class="npc-tog"></span>
         <span class="npc-name">${item.name}</span>
@@ -1431,7 +1903,7 @@ function buildItemList(sharedItems, charNotes){
       <div class="npc-body">
         <div class="npc-body-grid">
           <div class="npc-field npc-detail"><strong>Detail</strong>${item.detail||''}</div>
-          ${item.category?`<div class="npc-field"><strong>Category</strong>${item.category}</div>`:''}
+          ${item.category ? `<div class="npc-field"><strong>Category</strong>${item.category}</div>` : ''}
         </div>
         <span class="npc-notes-label">Your Notes</span>
         <div class="npc-notes" data-item="${item.id}" data-ph="Add notes about ${item.name}..." contenteditable="false" oninput="save()">${noteVal}</div>
@@ -1440,432 +1912,865 @@ function buildItemList(sharedItems, charNotes){
   });
 }
 
-// ── TABS + SWIPE ──────────────────────────────────────────────────────────────
-const TAB_ORDER=['tab-char','tab-atk','tab-spells','tab-inv','tab-relations'];
-let _currentTabIdx=0;
 
-function switchTab(tabId, dir=null){
-  const idx=TAB_ORDER.indexOf(tabId);
-  if(idx<0)return;
-  const prev=_currentTabIdx;
-  if(idx===prev)return;
-  _currentTabIdx=idx;
+// ═════════════════════════════════════════════════════════════════════════════
+// TABS + SWIPE NAVIGATION
+// Five tabs in order: Character, Attacks, Spells, Inventory, Relations.
+// On mobile, left/right swipe switches tabs with a directional slide animation.
+// The tab bar scrolls to keep the active tab centred.
+// ═════════════════════════════════════════════════════════════════════════════
 
-  const goingRight=dir!==null?dir>0:(idx>prev);
-  const anim=goingRight?'slideInRight':'slideInLeft';
+const TAB_ORDER = ['tab-char','tab-atk','tab-spells','tab-inv','tab-relations'];
+const N = TAB_ORDER.length; // 5
+let _currentTabIdx = 0;
 
-  const panels=document.querySelectorAll('.tab-panel');
-  panels.forEach(p=>{p.classList.remove('active-slide');p.style.animation='';});
-  if(panels[idx]){
-    panels[idx].classList.add('active-slide');
-    panels[idx].style.animation=`${anim} 0.28s cubic-bezier(0.4,0,0.2,1) forwards`;
-  }
+// ── INFINITE CIRCULAR TAB CAROUSEL ───────────────────────────────────────────
+// The track has 15 buttons: 5 clones-left | 5 real | 5 clones-right
+// Track width = 300% of nav. Each button = 1/15 of track = 1/5 of nav.
+//
+// The active button always sits at the visual centre of the nav.
+// translateX is always expressed as a fraction of navWidth:
+//   position of button[i] centre = (i + 0.5) * (navW/15) - navW/2
+//   to centre button[i]: translateX = -( i * navW/15 - (navW - navW/15)/2 )
+//   simplified:          translateX = -(i - 7) * (navW/15)   [centre slot = index 7]
+//
+// The real active button is always in the real set (indices 5-9).
+// After an animation ends, if we've scrolled into clone territory we snap
+// back to the equivalent real position (no visible jump since they look identical).
+// ─────────────────────────────────────────────────────────────────────────────
 
-  document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
-  const activeBtn=document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
-  if(activeBtn){
-    activeBtn.classList.add('active');
-    const nav=document.getElementById('tabsNav');
-    nav.scrollTo({left:activeBtn.offsetLeft - nav.offsetWidth/2 + activeBtn.offsetWidth/2, behavior:'smooth'});
-  }
-
-  window.scrollTo({top:0,behavior:'instant'});
+// Returns the translateX needed to centre button at flat index i in the track
+function _tabTranslate(flatIdx) {
+  const nav = document.getElementById('tabsNav');
+  const navW = nav.offsetWidth;
+  const btnW = navW / N;  // each button is 1/5 of nav width
+  // Centre of nav = navW/2. Centre of button[flatIdx] = (flatIdx + 0.5) * btnW
+  // translateX to align: navW/2 - (flatIdx + 0.5)*btnW
+  return navW/2 - (flatIdx + 0.5) * btnW;
 }
 
-document.querySelectorAll('.tab-btn').forEach(b=>{b.addEventListener('click',()=>switchTab(b.dataset.tab));});
+// Updates visual classes (active, tab-near, default) on all 15 buttons
+// based on their circular distance from the active tab.
+function _updateTabClasses(activeTabIdx) {
+  const track = document.getElementById('tabsTrack');
+  const btns  = Array.from(track.querySelectorAll('.tab-btn'));
+  btns.forEach(btn => {
+    const tabIdx  = TAB_ORDER.indexOf(btn.dataset.tab);
+    const dist    = Math.min(
+      Math.abs(tabIdx - activeTabIdx),
+      N - Math.abs(tabIdx - activeTabIdx)
+    );
+    btn.classList.remove('active','tab-near');
+    if(dist === 0) btn.classList.add('active');
+    else if(dist === 1) btn.classList.add('tab-near');
+  });
+}
 
-// ── SWIPE ─────────────────────────────────────────────────────────────────────
+// Switches to tabId, animating the carousel in the given direction.
+// dir > 0 = rotate right (new tab is "after" current in circular order)
+// dir < 0 = rotate left  (new tab is "before" current)
+// dir = null infers from linear index comparison
+function switchTab(tabId, dir=null) {
+  const idx = TAB_ORDER.indexOf(tabId);
+  if(idx < 0) return;
+  const prev = _currentTabIdx;
+  if(idx === prev) return;
+
+  // Determine direction
+  let goDir = dir;
+  if(goDir === null) {
+    // Shortest circular path
+    const fwd = ((idx - prev) + N) % N;
+    goDir = fwd <= N/2 ? 1 : -1;
+  }
+
+  _currentTabIdx = idx;
+
+  // ── Animate tab content panel ────────────────────────────────────────────
+  const anim   = goDir > 0 ? 'slideInRight' : 'slideInLeft';
+  const panels = document.querySelectorAll('.tab-panel');
+  panels.forEach(p=>{ p.classList.remove('active-slide'); p.style.animation=''; });
+  if(panels[idx]) {
+    panels[idx].classList.add('active-slide');
+    panels[idx].style.animation = `${anim} 0.28s cubic-bezier(0.4,0,0.2,1) forwards`;
+  }
+
+  // ── Animate the tab bar ──────────────────────────────────────────────────
+  const track  = document.getElementById('tabsTrack');
+  const nav    = document.getElementById('tabsNav');
+  const navW   = nav.offsetWidth;
+  const btnW   = navW / N;
+
+  // Real set: flat indices 5-9. Clone-left: 0-4. Clone-right: 10-14.
+  // Current real flat index = 5 + prev
+  // Target real flat index  = 5 + idx
+  // If going right (goDir > 0) and target is to the left of current (wrap),
+  // we animate via the clone-right set instead, then snap back.
+
+  const curFlat = 5 + prev;
+  let   tgtFlat = 5 + idx;
+
+  // Determine how many steps in the chosen direction
+  let steps;
+  if(goDir > 0) {
+    steps = ((idx - prev) + N) % N;   // going right: idx is 'steps' ahead
+  } else {
+    steps = ((prev - idx) + N) % N;   // going left:  idx is 'steps' behind
+  }
+
+  // Flat index to animate TO (before any snap)
+  const animFlat = goDir > 0 ? curFlat + steps : curFlat - steps;
+
+  // Animate to animFlat, then snap to equivalent real position
+  _updateTabClasses(idx);
+  track.classList.add('animating');
+  track.style.transform = `translateX(${_tabTranslate(animFlat)}px)`;
+
+  // After animation, snap to the real set without transition
+  track.addEventListener('transitionend', function onEnd() {
+    track.removeEventListener('transitionend', onEnd);
+    track.classList.remove('animating');
+    track.style.transform = `translateX(${_tabTranslate(tgtFlat)}px)`;
+  }, {once:true});
+
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+// Click handler — real buttons only (clones also work since they carry data-tab)
+document.getElementById('tabsTrack').addEventListener('click', e=>{
+  const btn = e.target.closest('.tab-btn');
+  if(!btn) return;
+  const tabId = btn.dataset.tab;
+  if(!tabId || tabId === TAB_ORDER[_currentTabIdx]) return;
+  const idx = TAB_ORDER.indexOf(tabId);
+  // Direction: which side of centre did the user click?
+  const track   = document.getElementById('tabsTrack');
+  const allBtns = Array.from(track.querySelectorAll('.tab-btn'));
+  const flatIdx = allBtns.indexOf(btn);
+  const nav     = document.getElementById('tabsNav');
+  const btnCentre  = (flatIdx + 0.5) * (nav.offsetWidth / N);
+  const navCentre  = nav.offsetWidth / 2;
+  const dir = btnCentre > navCentre ? 1 : -1;
+  switchTab(tabId, dir);
+});
+
+// Swipe — circular wrap at both ends
 (()=>{
-  let tx=0,ty=0,tracking=false;
-  document.addEventListener('touchstart',e=>{
-    // Only ignore touches inside popups/overlays
-    if(e.target.closest('.wpick-list,.sc-card,.dice-modal,.pw-modal,.sens-modal'))return;
-    tx=e.touches[0].clientX;ty=e.touches[0].clientY;tracking=true;
-  },{passive:true});
-  document.addEventListener('touchend',e=>{
-    if(!tracking)return;tracking=false;
-    const dx=e.changedTouches[0].clientX-tx;
-    const dy=e.changedTouches[0].clientY-ty;
-    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.3)return;
-    if(dx<0&&_currentTabIdx<TAB_ORDER.length-1)switchTab(TAB_ORDER[_currentTabIdx+1],1);
-    else if(dx>0&&_currentTabIdx>0)switchTab(TAB_ORDER[_currentTabIdx-1],-1);
+  let tx=0, ty=0, tracking=false;
+  document.addEventListener('touchstart', e=>{
+    if(e.target.closest('.wpick-list,.sc-card,.dice-modal,.pw-modal,.sens-modal')) return;
+    tx=e.touches[0].clientX; ty=e.touches[0].clientY; tracking=true;
+  }, {passive:true});
+  document.addEventListener('touchend', e=>{
+    if(!tracking) return; tracking=false;
+    const dx = e.changedTouches[0].clientX - tx;
+    const dy = e.changedTouches[0].clientY - ty;
+    if(Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)*1.3) return;
+    if(dx < 0) switchTab(TAB_ORDER[(_currentTabIdx+1)%N],  1);
+    else        switchTab(TAB_ORDER[((_currentTabIdx-1+N)%N)], -1);
   });
 })();
 
-// ── SCROLL: show title when header-actions hidden ─────────────────────────────
+// Reposition carousel on window resize without animation
+window.addEventListener('resize', ()=>{
+  const track = document.getElementById('tabsTrack');
+  if(track) {
+    track.classList.remove('animating');
+    track.style.transform = `translateX(${_tabTranslate(5 + _currentTabIdx)}px)`;
+  }
+});
+// Reveals them again when scrolling up.
 (()=>{
-  const actions=document.getElementById('headerActions');
-  const name=document.getElementById('charName');
-  let lastY=0,ticking=false;
-  function update(){
-    const y=window.scrollY;
-    const hiding=y>60&&y>lastY;
-    actions.classList.toggle('hidden',hiding);
-    lastY=y;ticking=false;
+  const actions = document.getElementById('headerActions');
+  let lastY=0, ticking=false;
+  function update() {
+    const y = window.scrollY;
+    const hiding = y > 60 && y > lastY;
+    actions.classList.toggle('hidden', hiding);
+    lastY=y; ticking=false;
   }
-  window.addEventListener('scroll',()=>{if(!ticking){window.requestAnimationFrame(update);ticking=true;}});
+  window.addEventListener('scroll', ()=>{ if(!ticking){ window.requestAnimationFrame(update); ticking=true; } });
 })();
 
-// ── DICE ENGINE ───────────────────────────────────────────────────────────────
-const diceEngine=(function(){
-const VERTS=[[34.895,60.694,48.204],[-34.895,77.340,-5.089],[45.169,59.488,-40.570],[-45.169,25.822,67.216],[28.545,-23.870,76.422],[84.377,-3.063,9.807],[-45.169,-59.488,40.570],[45.169,-25.822,-67.216],[-84.377,3.063,-9.808],[-28.545,23.870,-76.422],[34.895,-77.340,5.089],[-34.895,-60.694,-48.204]];
-const FACES=[[0,1,2],[0,1,3],[0,2,5],[0,3,4],[0,4,5],[1,2,9],[1,3,8],[1,8,9],[2,5,7],[2,7,9],[3,4,6],[3,6,8],[4,5,10],[4,6,10],[5,7,10],[6,8,11],[6,10,11],[7,9,11],[7,10,11],[8,9,11]];
-const REST_RX=-44.435,REST_RY=-35.901;const D2R=Math.PI/180;
-const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]];const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];const nrm=v=>{const l=Math.sqrt(dot(v,v));return l<1e-9?v:[v[0]/l,v[1]/l,v[2]/l]};
-const rxF=(v,a)=>{const c=Math.cos(a),s=Math.sin(a);return[v[0],v[1]*c-v[2]*s,v[1]*s+v[2]*c]};
-const ryF=(v,a)=>{const c=Math.cos(a),s=Math.sin(a);return[v[0]*c+v[2]*s,v[1],-v[0]*s+v[2]*c]};
-const rotat=(v,a,b)=>ryF(rxF(v,a),b);const proj=v=>[v[0]+90,-v[1]+90];
-const short=(f,t)=>f+(((t-f)%360+540)%360-180);const easeOutBack=t=>{const c=2.70158;return 1+c*(t-1)**3+(c-1)*(t-1)**2;};
-const LIGHT=nrm([0.5,0.85,1.0]);
-let rx=REST_RX,ry=REST_RY,dState='idle',spinStart=0,spinDur=0,sfRx=0,sfRy=0,stRx=0,stRy=0,settleStart=0;
-const SETTLE_DUR=700;let dResult=0,resultOp=0,showNum=false,loopActive=false,rafId=null,lastT=0,onDone=null;
-function draw(){const canvas=document.getElementById('diceCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,180,180);const rxR=rx*D2R,ryR=ry*D2R,rv=VERTS.map(v=>rotat(v,rxR,ryR));FACES.map((f,i)=>({i,cz:(rv[f[0]][2]+rv[f[1]][2]+rv[f[2]][2])/3})).sort((a,b)=>a.cz-b.cz).forEach(({i})=>{const f=FACES[i],a=rv[f[0]],b=rv[f[1]],c=rv[f[2]];let fn=nrm(cross(sub(b,a),sub(c,a)));const fc=[(a[0]+b[0]+c[0])/3,(a[1]+b[1]+c[1])/3,(a[2]+b[2]+c[2])/3];if(dot(fn,fc)<0)fn=[-fn[0],-fn[1],-fn[2]];const front=fn[2]<=0,litN=front?fn:[-fn[0],-fn[1],-fn[2]];const diff=Math.max(0,dot(litN,LIGHT)),bright=front?(0.22+diff*0.70):0.08;const[ax,ay]=proj(a),[bx,by]=proj(b),[cx2,cy2]=proj(c);ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.lineTo(cx2,cy2);ctx.closePath();const t2=(i%5)*2;ctx.fillStyle=`rgb(${(14+t2+bright*105)|0},${(11+t2+bright*80)|0},${(6+t2+bright*48)|0})`;ctx.fill();ctx.strokeStyle=`rgba(200,169,110,${(front?(0.28+diff*0.50):0.10).toFixed(2)})`;ctx.lineWidth=1.8;ctx.lineJoin='round';ctx.stroke();});
-if(showNum&&resultOp>0){ctx.save();ctx.globalAlpha=resultOp;ctx.font=`700 ${dResult>=10?52:60}px Georgia,serif`;ctx.textAlign='center';ctx.textBaseline='middle';if(dResult===20){ctx.shadowColor='rgba(255,215,0,.9)';ctx.shadowBlur=22;ctx.fillStyle='#ffd700';}else if(dResult===1){ctx.shadowColor='rgba(200,50,50,.9)';ctx.shadowBlur=22;ctx.fillStyle='#cc3322';}else{ctx.shadowColor='rgba(0,0,0,.95)';ctx.shadowBlur=10;ctx.fillStyle='rgba(200,169,110,.95)';}ctx.fillText(String(dResult),90,90);ctx.restore();}}
-function loop(t){if(!loopActive){rafId=null;return;}const dt=Math.min((t-lastT)/1000,.05);lastT=t;if(dState==='idle'){ry+=dt*18;rx+=dt*5;rx=((rx%360)+360)%360;ry=((ry%360)+360)%360;}else if(dState==='spinning'){const el=(t-spinStart)/1000,p=Math.min(1,el/spinDur);const spd=(1-Math.pow(p,0.32))*720;rx+=dt*spd*0.7*(1+.25*Math.sin(el*3.1));ry+=dt*spd*(1+.25*Math.cos(el*2.3));if(p>=1){rx=((rx%360)+360)%360;ry=((ry%360)+360)%360;sfRx=rx;sfRy=ry;stRx=short(rx,REST_RX);stRy=short(ry,REST_RY);settleStart=t;dState='settling';}}else if(dState==='settling'){const p=Math.min(1,(t-settleStart)/SETTLE_DUR),e=easeOutBack(p);rx=sfRx+(stRx-sfRx)*e;ry=sfRy+(stRy-sfRy)*e;if(p>=1){rx=REST_RX;ry=REST_RY;dState='done';showNum=true;const fade=()=>{resultOp=Math.min(1,resultOp+.08);draw();if(resultOp<1)requestAnimationFrame(fade);};setTimeout(fade,60);if(onDone)setTimeout(onDone,80);}}draw();rafId=requestAnimationFrame(loop);}
-return{open(){rx=REST_RX;ry=REST_RY;dState='idle';showNum=false;resultOp=0;onDone=null;if(loopActive)return;loopActive=true;lastT=performance.now();rafId=requestAnimationFrame(t=>{lastT=t;rafId=requestAnimationFrame(loop);});},close(){loopActive=false;if(rafId){cancelAnimationFrame(rafId);rafId=null;}},roll(result,cb){if(dState==='spinning'||dState==='settling')return;dResult=result;showNum=false;resultOp=0;onDone=cb;spinDur=0.9+Math.random()*0.3;spinStart=performance.now();dState='spinning';}};
-})();
 
-// ── PARTICLE SYSTEM ───────────────────────────────────────────────────────────
-class DiceParticles{
-  constructor(canvas){this.canvas=canvas;this.ctx=canvas.getContext('2d');this.particles=[];this.running=false;this.rafId=null;}
-  resize(){const a=document.getElementById('diceArena');if(a){this.canvas.width=a.offsetWidth;this.canvas.height=a.offsetHeight;}}
-  burst(x,y,count=40){
-    for(let i=0;i<count;i++){
-      const angle=Math.random()*Math.PI*2,speed=1.5+Math.random()*4,size=1.5+Math.random()*3;
-      this.particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-2,size,life:1,decay:0.018+Math.random()*0.025,color:`hsl(${38+Math.random()*20},${60+Math.random()*30}%,${55+Math.random()*20}%)`});
+// ═════════════════════════════════════════════════════════════════════════════
+// DICE ENGINE  (IIFE — returns { open, close, roll })
+// Renders an icosahedron (d20) on a canvas using a painter's-algorithm rasteriser.
+// States: idle (slow spin), spinning (fast deceleration), settling (ease-out-back
+// snap to rest position), done (stopped, waiting for callback).
+// ═════════════════════════════════════════════════════════════════════════════
+
+const diceEngine = (function(){
+  // Icosahedron vertices and faces (unit sphere, radius ~100)
+  const VERTS=[[34.895,60.694,48.204],[-34.895,77.340,-5.089],[45.169,59.488,-40.570],[-45.169,25.822,67.216],[28.545,-23.870,76.422],[84.377,-3.063,9.807],[-45.169,-59.488,40.570],[45.169,-25.822,-67.216],[-84.377,3.063,-9.808],[-28.545,23.870,-76.422],[34.895,-77.340,5.089],[-34.895,-60.694,-48.204]];
+  const FACES=[[0,1,2],[0,1,3],[0,2,5],[0,3,4],[0,4,5],[1,2,9],[1,3,8],[1,8,9],[2,5,7],[2,7,9],[3,4,6],[3,6,8],[4,5,10],[4,6,10],[5,7,10],[6,8,11],[6,10,11],[7,9,11],[7,10,11],[8,9,11]];
+
+  const REST_RX=-44.435, REST_RY=-35.901; // resting orientation angles (degrees)
+  const D2R = Math.PI/180;                // degrees-to-radians factor
+
+  // Vector helpers
+  const dot   = (a,b) => a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+  const sub   = (a,b) => [a[0]-b[0],a[1]-b[1],a[2]-b[2]];
+  const cross = (a,b) => [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];
+  const nrm   = v => { const l=Math.sqrt(dot(v,v)); return l<1e-9?v:[v[0]/l,v[1]/l,v[2]/l]; };
+
+  // Rotation helpers
+  const rxF   = (v,a) => { const c=Math.cos(a),s=Math.sin(a); return [v[0], v[1]*c-v[2]*s, v[1]*s+v[2]*c]; };
+  const ryF   = (v,a) => { const c=Math.cos(a),s=Math.sin(a); return [v[0]*c+v[2]*s, v[1], -v[0]*s+v[2]*c]; };
+  const rotat = (v,a,b) => ryF(rxF(v,a),b);
+
+  // Project 3D point to 2D canvas (180×180, centred at 90,90)
+  const proj  = v => [v[0]+90, -v[1]+90];
+
+  // Shortest rotation path between two angles (avoids spinning the long way around)
+  const short = (f,t) => f + (((t-f)%360+540)%360-180);
+
+  // Easing for the settle snap: overshoots slightly then returns
+  const easeOutBack = t => { const c=2.70158; return 1+c*(t-1)**3+(c-1)*(t-1)**2; };
+
+  const LIGHT = nrm([0.5, 0.85, 1.0]); // directional light vector
+
+  // Animation state
+  let rx=REST_RX, ry=REST_RY, dState='idle';
+  let spinStart=0, spinDur=0;
+  let sfRx=0, sfRy=0, stRx=0, stRy=0, settleStart=0;
+  const SETTLE_DUR = 700; // ms for the settle animation
+
+  let loopActive=false, rafId=null, lastT=0, onDone=null;
+
+  // Draws the icosahedron at the current rx/ry angles using painter's algorithm
+  // (sort faces by z-depth, draw back-to-front). Each face is shaded by the dot
+  // product of its normal with the light direction.
+  function draw() {
+    const canvas = document.getElementById('diceCanvas'); if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0,0,180,180);
+    const rxR=rx*D2R, ryR=ry*D2R;
+    const rv = VERTS.map(v=>rotat(v,rxR,ryR));
+    FACES.map((f,i)=>({i, cz:(rv[f[0]][2]+rv[f[1]][2]+rv[f[2]][2])/3}))
+      .sort((a,b)=>a.cz-b.cz)
+      .forEach(({i})=>{
+        const f=FACES[i], a=rv[f[0]], b=rv[f[1]], c=rv[f[2]];
+        let fn = nrm(cross(sub(b,a),sub(c,a)));
+        const fc = [(a[0]+b[0]+c[0])/3,(a[1]+b[1]+c[1])/3,(a[2]+b[2]+c[2])/3];
+        if(dot(fn,fc)<0) fn=[-fn[0],-fn[1],-fn[2]];
+        const front=fn[2]<=0, litN=front?fn:[-fn[0],-fn[1],-fn[2]];
+        const diff=Math.max(0,dot(litN,LIGHT)), bright=front?(0.22+diff*0.70):0.08;
+        const [ax,ay]=proj(a),[bx,by]=proj(b),[cx2,cy2]=proj(c);
+        ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(bx,by); ctx.lineTo(cx2,cy2); ctx.closePath();
+        const t2=(i%5)*2;
+        ctx.fillStyle   = `rgb(${(14+t2+bright*105)|0},${(11+t2+bright*80)|0},${(6+t2+bright*48)|0})`;
+        ctx.fill();
+        ctx.strokeStyle = `rgba(200,169,110,${(front?(0.28+diff*0.50):0.10).toFixed(2)})`;
+        ctx.lineWidth=1.8; ctx.lineJoin='round'; ctx.stroke();
+      });
+  }
+
+  // Main animation loop. Advances rotation per state:
+  // idle: gentle slow spin. spinning: fast deceleration.
+  // settling: ease-out-back snap to rest. done: calls onDone callback.
+  function loop(t) {
+    if(!loopActive){ rafId=null; return; }
+    const dt = Math.min((t-lastT)/1000, .05); lastT=t;
+    if(dState==='idle') {
+      ry+=dt*18; rx+=dt*5;
+      rx=((rx%360)+360)%360; ry=((ry%360)+360)%360;
+    } else if(dState==='spinning') {
+      const el=(t-spinStart)/1000, p=Math.min(1,el/spinDur);
+      const spd=(1-Math.pow(p,0.32))*720;
+      rx+=dt*spd*0.7*(1+.25*Math.sin(el*3.1));
+      ry+=dt*spd*(1+.25*Math.cos(el*2.3));
+      if(p>=1){
+        rx=((rx%360)+360)%360; ry=((ry%360)+360)%360;
+        sfRx=rx; sfRy=ry;
+        stRx=short(rx,REST_RX); stRy=short(ry,REST_RY);
+        settleStart=t; dState='settling';
+      }
+    } else if(dState==='settling') {
+      const p=Math.min(1,(t-settleStart)/SETTLE_DUR), e=easeOutBack(p);
+      rx=sfRx+(stRx-sfRx)*e; ry=sfRy+(stRy-sfRy)*e;
+      if(p>=1){ rx=REST_RX; ry=REST_RY; dState='done'; if(onDone) setTimeout(onDone,80); }
     }
-    if(!this.running)this._start();
+    draw(); rafId=requestAnimationFrame(loop);
   }
-  _start(){
+
+  return {
+    // Starts the idle spin loop. Resets rotation to resting position.
+    // No-op if the loop is already running.
+    open() {
+      rx=REST_RX; ry=REST_RY; dState='idle'; onDone=null;
+      if(loopActive) return;
+      loopActive=true; lastT=performance.now();
+      rafId=requestAnimationFrame(t=>{ lastT=t; rafId=requestAnimationFrame(loop); });
+    },
+    // Stops the animation loop and cancels any pending rAF
+    close() {
+      loopActive=false;
+      if(rafId){ cancelAnimationFrame(rafId); rafId=null; }
+    },
+    // Begins a roll animation. cb is called once the die has settled.
+    // Ignored if a spin or settle is already in progress.
+    roll(result, cb) {
+      if(dState==='spinning'||dState==='settling') return;
+      onDone=cb;
+      spinDur=0.9+Math.random()*0.3;
+      spinStart=performance.now();
+      dState='spinning';
+    }
+  };
+})();
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// PARTICLE SYSTEM
+// Renders gold sparks on a transparent canvas overlaid on the dice arena.
+// Used for the fusion effect when the modifier bubble reaches the die.
+// ═════════════════════════════════════════════════════════════════════════════
+
+class DiceParticles {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx    = canvas.getContext('2d');
+    this.particles = [];
+    this.running   = false;
+    this.rafId     = null;
+  }
+
+  // Resizes the canvas to match the dice arena element dimensions
+  resize() {
+    const a = document.getElementById('diceArena');
+    if(a){ this.canvas.width=a.offsetWidth; this.canvas.height=a.offsetHeight; }
+  }
+
+  // Spawns count particles at (x, y) with random velocity, size, and gold hue.
+  // Starts the tick loop if it is not already running.
+  burst(x, y, count=40) {
+    for(let i=0; i<count; i++){
+      const angle=Math.random()*Math.PI*2, speed=1.5+Math.random()*4, size=1.5+Math.random()*3;
+      this.particles.push({
+        x, y,
+        vx: Math.cos(angle)*speed, vy: Math.sin(angle)*speed-2,
+        size, life:1, decay:0.018+Math.random()*0.025,
+        color:`hsl(${38+Math.random()*20},${60+Math.random()*30}%,${55+Math.random()*20}%)`
+      });
+    }
+    if(!this.running) this._start();
+  }
+
+  // Internal rAF loop: updates particle physics, fades by life, clears when all dead
+  _start() {
     this.running=true;
     const tick=()=>{
-      if(!this.running)return;
+      if(!this.running) return;
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
-      this.particles=this.particles.filter(p=>p.life>0);
-      this.particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=0.12;p.vx*=0.97;p.life-=p.decay;this.ctx.globalAlpha=Math.max(0,p.life);this.ctx.fillStyle=p.color;this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);this.ctx.fill();});
+      this.particles = this.particles.filter(p=>p.life>0);
+      this.particles.forEach(p=>{
+        p.x+=p.vx; p.y+=p.vy; p.vy+=0.12; p.vx*=0.97; p.life-=p.decay;
+        this.ctx.globalAlpha = Math.max(0,p.life);
+        this.ctx.fillStyle   = p.color;
+        this.ctx.beginPath(); this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2); this.ctx.fill();
+      });
       this.ctx.globalAlpha=1;
-      if(this.particles.length>0)this.rafId=requestAnimationFrame(tick);
-      else{this.running=false;this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);}
+      if(this.particles.length>0) this.rafId=requestAnimationFrame(tick);
+      else { this.running=false; this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height); }
     };
     this.rafId=requestAnimationFrame(tick);
   }
-  stop(){this.running=false;if(this.rafId)cancelAnimationFrame(this.rafId);this.particles=[];}
+
+  // Stops the loop immediately and clears all particles
+  stop() {
+    this.running=false;
+    if(this.rafId) cancelAnimationFrame(this.rafId);
+    this.particles=[];
+  }
 }
-let _diceParticles=null;
 
-function rollDice(cfg){curRoll=cfg;execRoll(cfg);}
-function execRoll(cfg){
-  const{name,type,bon,dmg,comps,showHitMiss}=cfg;
+let _diceParticles = null; // lazily initialised on first roll
 
-  // Init particle system
-  if(!_diceParticles)_diceParticles=new DiceParticles(document.getElementById('diceParticleCanvas'));
 
-  // Get UI elements
-  const d20El=document.getElementById('d20Result');
-  const finalEl=document.getElementById('finalResult');
-  const rollLbl=document.getElementById('rollLabel');
-  const modBubble=document.getElementById('modBubble');
-  const bkPanel=document.getElementById('dBkPanel');
-  const actionRow=document.getElementById('diceActionRow');
-  const dmgSec=document.getElementById('dDmgSec');
-  const dmgRows=document.getElementById('dDmgRows');
+// ═════════════════════════════════════════════════════════════════════════════
+// DICE ROLL ORCHESTRATION
+// rollDice(cfg) is the public entry point. cfg = { name, type, bon, dmg,
+// comps, showHitMiss }. comps is an array of { l, i, v } modifier components.
+//
+// Animation sequence:
+//   1. Die spins and settles
+//   2. d20 result appears on the die face
+//   3. 500ms pause
+//   4. Breakdown panel fades in; d20 row appears immediately
+//   5. Each modifier row appears with staggered delays (600ms, then 440ms each)
+//      while the running total bubble below the die updates
+//   6. Total row appears; 400ms later the bubble flies upward
+//   7. On arrival: particle burst, d20 number replaced by the final result
+//   8. If showHitMiss=true, Hit/Miss buttons appear 350ms later
+// ═════════════════════════════════════════════════════════════════════════════
 
-  // Reset
-  document.getElementById('dRollName').textContent=name;
-  document.getElementById('dRollType').textContent=type||'d20';
-  d20El.textContent='';d20El.className='d20-result norm';
-  finalEl.textContent='';finalEl.className='final-result';finalEl.style.color='';
-  rollLbl.textContent='';rollLbl.className='roll-label';
-  modBubble.style.cssText='opacity:0;';modBubble.textContent='';modBubble.className='mod-bubble';
-  bkPanel.innerHTML='';bkPanel.className='dbkpanel';
-  dmgSec.style.display='none';dmgRows.innerHTML='';
+let _rollId = 0; // incremented each roll to invalidate stale setTimeout callbacks
+
+// Stores the config and delegates to execRoll
+function rollDice(cfg) { curRoll=cfg; execRoll(cfg); }
+
+// Main roll execution. Uses a rollId guard so all pending async callbacks from
+// a previous roll are silently discarded if a new roll starts.
+function execRoll(cfg) {
+  const {name, type, bon, dmg, comps, showHitMiss} = cfg;
+
+  // Capture this roll's ID; live() returns false if a newer roll has started
+  const myRollId = ++_rollId;
+  const live = () => myRollId === _rollId;
+
+  // Init or reset particles
+  if(!_diceParticles) _diceParticles = new DiceParticles(document.getElementById('diceParticleCanvas'));
+  _diceParticles.stop();
+
+  // DOM references
+  const d20El    = document.getElementById('d20Result');
+  const finalEl  = document.getElementById('finalResult');
+  const rollLbl  = document.getElementById('rollLabel');
+  const modBubble= document.getElementById('modBubble');
+  const bkPanel  = document.getElementById('dBkPanel');
+  const actionRow= document.getElementById('diceActionRow');
+  const dmgSec   = document.getElementById('dDmgSec');
+  const dmgRows  = document.getElementById('dDmgRows');
+
+  // Full reset — no residue from a previous roll
+  document.getElementById('dRollName').textContent = name;
+  document.getElementById('dRollType').textContent = type||'d20';
+  d20El.textContent='';   d20El.className='d20-result norm';
+  finalEl.textContent=''; finalEl.className='final-result'; finalEl.style.color='';
+  rollLbl.textContent=''; rollLbl.className='roll-label';
+  modBubble.removeAttribute('style'); // clears transform/transition/opacity from previous roll
+  modBubble.textContent=''; modBubble.className='mod-bubble';
+  bkPanel.innerHTML=''; bkPanel.className='dbkpanel';
+  dmgSec.style.display='none'; dmgRows.innerHTML='';
   actionRow.classList.remove('vis');
-  if(showHitMiss)actionRow.classList.add('has-damage');
-  else actionRow.classList.remove('has-damage');
+  // Only reserve space for action buttons if this roll will have damage
+  if(showHitMiss) actionRow.classList.add('has-damage');
+  else            actionRow.classList.remove('has-damage');
 
-  const d20=Math.floor(Math.random()*20)+1;
-  const total=d20+(bon||0);
-  const isCrit=d20===20,isFumb=d20===1;
+  const d20    = Math.floor(Math.random()*20)+1;
+  const total  = d20 + (bon||0);
+  const isCrit = d20===20, isFumb = d20===1;
 
   document.getElementById('diceOverlay').classList.add('active');
   diceEngine.open();
 
-  diceEngine.roll(d20,()=>{
-    // STEP 1 — show d20 on die
-    d20El.textContent=d20;
-    d20El.className='d20-result '+(isCrit?'crit':isFumb?'fumb':'norm');
-    requestAnimationFrame(()=>d20El.classList.add('vis'));
+  diceEngine.roll(d20, ()=>{
+    if(!live()) return;
 
-    // Crit / Fumble label
-    if(isCrit){rollLbl.textContent='Critical!';rollLbl.className='roll-label crit';setTimeout(()=>rollLbl.classList.add('vis'),200);}
-    else if(isFumb){rollLbl.textContent='Fumble';rollLbl.className='roll-label fumb';setTimeout(()=>rollLbl.classList.add('vis'),200);}
+    // Step 1 — show d20 result number on the die face
+    d20El.textContent = d20;
+    d20El.className   = 'd20-result ' + (isCrit?'crit':isFumb?'fumb':'norm');
+    requestAnimationFrame(()=>{ if(live()) d20El.classList.add('vis'); });
 
-    // STEP 2 — 500ms delay then show breakdown panel
+    // Crit / Fumble label appears below the number with a short delay
+    if(isCrit)     { rollLbl.textContent='Critical!'; rollLbl.className='roll-label crit'; setTimeout(()=>{ if(live()) rollLbl.classList.add('vis'); }, 200); }
+    else if(isFumb){ rollLbl.textContent='Fumble';    rollLbl.className='roll-label fumb'; setTimeout(()=>{ if(live()) rollLbl.classList.add('vis'); }, 200); }
+
+    // Step 2 — 500ms pause, then reveal the breakdown panel
     setTimeout(()=>{
+      if(!live()) return;
       bkPanel.classList.add('vis');
-      const rows=[];
-      const addRow=(label,icon,val,cls,isTot=false)=>{
-        const r=document.createElement('div');
-        r.className='dcalcrow'+(isTot?' totrow':'');
-        const sign=typeof val==='number'?(val>0&&icon!=='D20'&&icon!=='='?'+'+val:''+val):''+val;
-        r.innerHTML=`<span class="dclbl"><span class="dico">${icon}</span>${label}</span><span class="dcval ${cls}">${sign}</span>`;
-        bkPanel.appendChild(r);rows.push(r);
-      };
-      addRow('d20 Roll','D20',d20,isCrit?'pos':isFumb?'neg':'');
-      (comps||[]).forEach(c=>addRow(c.l,c.i,c.v,c.v>=0?'pos':'neg'));
-      addRow('Total','=',total,'tot',true);
 
-      // STEP 3 — animate rows + mod bubble
-      let runningMod=0,delay=0;
-      setTimeout(()=>rows[0].classList.add('vis'),0);
-      (comps||[]).forEach((c,ci)=>{
-        delay+=ci===0?600:440;
+      // Build all rows up front (hidden); they will be revealed one by one
+      const rows = [];
+      const addRow = (label, icon, val, cls, isTot=false)=>{
+        const r  = document.createElement('div');
+        r.className = 'dcalcrow' + (isTot ? ' totrow' : '');
+        const sign = typeof val==='number' ? (val>0&&icon!=='D20'&&icon!=='='?'+'+val:''+val) : ''+val;
+        r.innerHTML = `<span class="dclbl"><span class="dico">${icon}</span>${label}</span><span class="dcval ${cls}">${sign}</span>`;
+        bkPanel.appendChild(r); rows.push(r);
+      };
+      addRow('d20 Roll','D20', d20,   isCrit?'pos':isFumb?'neg':'');
+      (comps||[]).forEach(c => addRow(c.l, c.i, c.v, c.v>=0?'pos':'neg'));
+      addRow('Total','=', total, 'tot', true);
+
+      // Step 3 — reveal rows with staggered delays; update mod bubble as each modifier appears
+      let runningMod=0, delay=0;
+      setTimeout(()=>{ if(live()) rows[0].classList.add('vis'); }, 0); // d20 row immediately
+
+      (comps||[]).forEach((c, ci)=>{
+        delay += ci===0 ? 600 : 440;
         setTimeout(()=>{
+          if(!live()) return;
           rows[ci+1].classList.add('vis');
-          runningMod+=c.v;
-          modBubble.style.opacity='1';
-          modBubble.textContent=(runningMod>=0?'+':'')+runningMod;
-          modBubble.className='mod-bubble '+(runningMod>0?'pos':runningMod<0?'neg':'zero');
-        },delay);
+          runningMod += c.v;
+          modBubble.style.opacity = '1';
+          modBubble.textContent   = (runningMod>=0?'+':'')+runningMod;
+          modBubble.className     = 'mod-bubble ' + (runningMod>0?'pos':runningMod<0?'neg':'zero');
+        }, delay);
       });
 
-      // STEP 4 — total row + fusion
-      const fusionDelay=delay+320;
-      setTimeout(()=>rows[rows.length-1].classList.add('vis'),fusionDelay);
+      // Step 4 — reveal total row, then animate the bubble flying up to fuse with the die
+      const fusionDelay = delay + 320;
+      setTimeout(()=>{ if(live()) rows[rows.length-1].classList.add('vis'); }, fusionDelay);
 
       setTimeout(()=>{
-        // Fly mod bubble up
-        const arena=document.getElementById('diceArena');
-        const diceWrap=arena.querySelector('.d3d-wrap');
-        const arenaRect=arena.getBoundingClientRect();
-        const diceRect=diceWrap.getBoundingClientRect();
-        const dieX=diceRect.left-arenaRect.left+diceRect.width/2;
-        const dieY=diceRect.top-arenaRect.top+diceRect.height/2;
-        const startY=modBubble.offsetTop;
-        const endY=dieY-modBubble.offsetHeight;
-        modBubble.style.transition='transform 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.5s ease';
-        modBubble.style.transform=`translateY(${endY-startY-20}px) scale(1.3)`;
-        modBubble.style.opacity='0';
+        if(!live()) return;
+        // Calculate how far the bubble needs to travel to reach the centre of the die
+        const arena    = document.getElementById('diceArena');
+        const diceWrap = arena.querySelector('.d3d-wrap');
+        const arenaRect= arena.getBoundingClientRect();
+        const diceRect = diceWrap.getBoundingClientRect();
+        const dieX = diceRect.left - arenaRect.left + diceRect.width/2;
+        const dieY = diceRect.top  - arenaRect.top  + diceRect.height/2;
+        const startY = modBubble.offsetTop;
+        const endY   = dieY - modBubble.offsetHeight;
+        modBubble.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1),opacity 0.5s ease';
+        modBubble.style.transform  = `translateY(${endY-startY-20}px) scale(1.3)`;
+        modBubble.style.opacity    = '0';
 
-        // On arrival: particles + final result
+        // Step 5 — on arrival: burst particles and show the final result
         setTimeout(()=>{
+          if(!live()) return;
           _diceParticles.resize();
-          _diceParticles.burst(dieX,dieY,45);
-          d20El.classList.remove('vis');
-          rollLbl.classList.remove('vis');
-          finalEl.textContent=total;
-          if(isCrit)finalEl.style.color='#ffd700';
-          else if(isFumb)finalEl.style.color='#cc3322';
-          requestAnimationFrame(()=>finalEl.classList.add('vis'));
-          if(showHitMiss)setTimeout(()=>actionRow.classList.add('vis'),350);
-        },480);
-      },fusionDelay+400);
-    },500);
+          _diceParticles.burst(dieX, dieY, 45);
+          d20El.classList.remove('vis');  // hide the d20 number
+          rollLbl.classList.remove('vis'); // hide crit/fumble label
+          finalEl.textContent = total;
+          if(isCrit)      finalEl.style.color = '#ffd700'; // gold for crit
+          else if(isFumb) finalEl.style.color = '#cc3322'; // red for fumble
+          requestAnimationFrame(()=>{ if(live()) finalEl.classList.add('vis'); });
+          if(showHitMiss) setTimeout(()=>{ if(live()) actionRow.classList.add('vis'); }, 350);
+        }, 480);
+      }, fusionDelay + 400);
+    }, 500);
   });
 }
 
-function mkRow(label,icon,val,vc,tot=false){const r=document.createElement('div');r.className='dcalcrow'+(tot?' totrow':'');const vs=typeof val==='number'?(val>0&&icon!=='D20'&&icon!=='='?'+'+val:''+val):''+val;r.innerHTML=`<span class="dclbl"><span class="dico">${icon}</span>${label}</span><span class="dcval ${vc}">${vs}</span>`;return r;}
-
-function rollDamageHit(){
-  if(!curRollDmg||curRollDmg==='—')return;
-  const ds=document.getElementById('dDmgSec');const dr=document.getElementById('dDmgRows');
-  ds.style.display='block';dr.innerHTML='';
-  const r=rollFormula(curRollDmg,false);
-  if(r){dr.appendChild(mkRow(curRollDmg,'DMG',r.total,''));if(r.rolls.length>1){const e=document.createElement('div');e.className='dcalcrow';e.innerHTML=`<span class="dclbl" style="color:var(--text-faint);font-style:italic;">Rolls: [${r.rolls.join(', ')}]${r.mod?(r.mod>0?'+':'')+r.mod:''}</span>`;dr.appendChild(e);}}
-  document.getElementById('diceActionRow').classList.remove('vis');
+// Creates a single breakdown row element: [icon box | label ............. value]
+function mkRow(label, icon, val, vc, tot=false) {
+  const r  = document.createElement('div');
+  r.className = 'dcalcrow' + (tot ? ' totrow' : '');
+  const vs = typeof val==='number' ? (val>0&&icon!=='D20'&&icon!=='='?'+'+val:''+val) : ''+val;
+  r.innerHTML = `<span class="dclbl"><span class="dico">${icon}</span>${label}</span><span class="dcval ${vc}">${vs}</span>`;
+  return r;
 }
 
-function closeDice(){
+// Rolls a damage formula string (e.g. "2d6+3") and returns { rolls, mod, total }.
+// If crit=true, doubles the number of dice.
+function rollFormula(f, crit=false) {
+  const m = f.match(/(\d+)d(\d+)([+-]\d+)?/i); if(!m) return null;
+  let cnt = parseInt(m[1]); const si=parseInt(m[2]); const mo=parseInt(m[3]||'0');
+  if(crit) cnt*=2;
+  const rolls=[]; for(let i=0;i<cnt;i++) rolls.push(Math.floor(Math.random()*si)+1);
+  return {rolls, mod:mo, total:rolls.reduce((a,b)=>a+b,0)+mo};
+}
+
+// Closes the dice popup and stops all in-flight animations.
+// Incrementing _rollId silently cancels every pending setTimeout from the current roll.
+function closeDice() {
+  _rollId++;
   document.getElementById('diceOverlay').classList.remove('active');
   diceEngine.close();
-  if(_diceParticles)_diceParticles.stop();
-  const mb=document.getElementById('modBubble');
-  mb.style.transition='none';mb.style.transform='';mb.style.opacity='0';
+  if(_diceParticles) _diceParticles.stop();
+  const mb = document.getElementById('modBubble');
+  mb.removeAttribute('style'); mb.textContent=''; mb.className='mod-bubble';
 }
-document.getElementById('diceOverlay').addEventListener('click',function(e){if(e.target===this)closeDice();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDice();closeSpellCard();closeSens();closeWeaponPicker();}});
-// Touch to close spell card on mobile
-document.getElementById('scOverlay').addEventListener('touchend',function(e){if(e.target===this)closeSpellCard();});
 
-// ── SAVE / GATHER ─────────────────────────────────────────────────────────────
-function g(id){const e=document.getElementById(id);return e?e.textContent:'';}
-function set(id,v){const e=document.getElementById(id);if(e)e.textContent=v||'';}
-function gather(){
-  const d={v:3,
-    cn:g('charName'),cc:g('charClass'),cl:g('charLevel'),cr:g('charRace'),bg:g('charBg'),al:g('charAl'),
-    player:g('charPlayer'),
-    ac:g('armorClass'),mhp:g('maxHP'),hd:g('hitDice'),hdu:hdUsedCount,
-    chp:g('currentHP'),thp:g('tempHP'),
+// Close dice popup when clicking the dark overlay background
+document.getElementById('diceOverlay').addEventListener('click', function(e){ if(e.target===this) closeDice(); });
+
+// Global keyboard shortcuts: Escape closes any open popup
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){ closeDice(); closeSpellCard(); closeSens(); closeWeaponPicker(); }
+});
+
+// Touch-close for spell card on mobile (touchend instead of click for better feel)
+document.getElementById('scOverlay').addEventListener('touchend', function(e){ if(e.target===this) closeSpellCard(); });
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// GATHER — serialise the current sheet state to a plain object
+// Called before every save (localStorage buffer and GitHub).
+// The returned object matches the character sheet JSON schema.
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Shorthand: read textContent of an element by id
+function g(id)     { const e=document.getElementById(id); return e?e.textContent:''; }
+
+// Shorthand: set textContent of an element by id
+function set(id,v) { const e=document.getElementById(id); if(e) e.textContent=v||''; }
+
+// Serialises all sheet fields into a single object ready for JSON.stringify.
+// This is the canonical representation that maps 1:1 to the *-sheet.json files.
+function gather() {
+  const d = {v:3,
+    cn:g('charName'), cc:g('charClass'), cl:g('charLevel'), cr:g('charRace'),
+    bg:g('charBg'),   al:g('charAl'),   player:g('charPlayer'),
+    ac:g('armorClass'), mhp:g('maxHP'), hd:g('hitDice'), hdu:hdUsedCount,
+    chp:g('currentHP'), thp:g('tempHP'),
     speed:g('charSpeed'),
-    spellClass:g('spellClass'),combatNotes:g('combatNotes'),invNotes:g('invNotes'),
-    sensesDarkvision:g('sensesDarkvision'),sensesOther:g('sensesOther'),
-    insp:document.getElementById('inspBtn').classList.contains('lit'),
-    sc:{},sp:{},sk:{},sa:document.getElementById('spellAbility').value,
-    slots:{},port:document.getElementById('portImg').src,
-    feats:[],atks:[],spells:[],sdescs:{},inv:[],ds:[],npc_notes:{},location_notes:[],item_notes:[],
-    personality:{traits:g('pTraits'),ideals:g('pIdeals'),bonds:g('pBonds'),flaws:g('pFlaws')},
+    spellClass:g('spellClass'), combatNotes:g('combatNotes'), invNotes:g('invNotes'),
+    sensesDarkvision:g('sensesDarkvision'), sensesOther:g('sensesOther'),
+    insp: document.getElementById('inspBtn').classList.contains('lit'),
+    sc:{}, sp:{}, sk:{}, sa: document.getElementById('spellAbility').value,
+    slots:{}, port: document.getElementById('portImg').src,
+    feats:[], atks:[], spells:[], sdescs:{}, inv:[], ds:[],
+    npc_notes:{}, location_notes:[], item_notes:[],
+    personality:  {traits:g('pTraits'),ideals:g('pIdeals'),bonds:g('pBonds'),flaws:g('pFlaws')},
     proficiencies:{languages:g('profLanguages'),armor:g('profArmor'),weapons:g('profWeapons'),instruments:g('profInstruments'),tools:g('profTools'),other:g('profOther')}
   };
-  ABILITIES.forEach(a=>d.sc[a]=document.getElementById('sc-'+a)?.textContent||'10');
-  SAVES.forEach(s=>{const e=document.getElementById(s.id+'-p');d.sp[s.id]=e?e.checked:false;});
-  SKILLS.forEach(s=>{d.sk[s.id]=getSkillState(s.id);});
-  for(let i=1;i<=9;i++){const t=document.getElementById('st-'+i);const ps=document.querySelectorAll(`#sp-${i} .slot-pip`);d.slots[i]={t:t?t.textContent:'0',u:Array.from(ps).filter(p=>p.classList.contains('used')).length};}
+  ABILITIES.forEach(a => d.sc[a] = document.getElementById('sc-'+a)?.textContent||'10');
+  SAVES.forEach(s=>{  const e=document.getElementById(s.id+'-p'); d.sp[s.id]=e?e.checked:false; });
+  SKILLS.forEach(s=>{ d.sk[s.id]=getSkillState(s.id); });
+  for(let i=1;i<=9;i++){
+    const t  = document.getElementById('st-'+i);
+    const ps = document.querySelectorAll(`#sp-${i} .slot-pip`);
+    d.slots[i]={t:t?t.textContent:'0', u:Array.from(ps).filter(p=>p.classList.contains('used')).length};
+  }
   document.querySelectorAll('#featList .feat-item').forEach(it=>d.feats.push({n:it.querySelector('.feat-name').textContent,s:it.querySelector('.feat-src').textContent,d:it.querySelector('.feat-desc').textContent,o:it.classList.contains('open')}));
-  document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{const hs=tr.querySelector('.hand-sel');d.atks.push({n:tr.querySelector('.atk-name').textContent,id:tr.dataset.wid||null,h:hs?hs.value:'main-s',dmg:tr.querySelector('.atk-dmg')?.dataset.base||tr.querySelector('.atk-dmg')?.textContent||'',t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});});
+  document.querySelectorAll('#atkBody tr:not([data-sid])').forEach(tr=>{
+    const hs=tr.querySelector('.hand-sel');
+    d.atks.push({n:tr.querySelector('.atk-name').textContent,id:tr.dataset.wid||null,h:hs?hs.value:'main-s',dmg:tr.querySelector('.atk-dmg')?.dataset.base||tr.querySelector('.atk-dmg')?.textContent||'',t:tr.querySelectorAll('.atk-type')[0]?.textContent||'',r:tr.querySelectorAll('.atk-type')[1]?.textContent||'',no:tr.querySelector('.atk-notes')?.textContent||''});
+  });
   document.querySelectorAll('.spell-row[data-sid]').forEach(row=>d.spells.push({p:row.querySelector('.sp-prep').checked,l:row.dataset.lvl||'0',n:row.querySelector('.sp-name').textContent}));
   Object.entries(spellDescs).forEach(([nm,val])=>{const db=spellDB[nm]||{};if(Object.keys(val).some(k=>val[k]&&val[k]!==db[k]))d.sdescs[nm]=val;});
-  document.querySelectorAll('#invBody tr').forEach(tr=>{const tds=tr.querySelectorAll('td');const uSel=tds[2]?.querySelector('select');d.inv.push({n:tds[0]?.querySelector('[data-ph]')?.textContent||'',q:tds[1]?.querySelector('[data-ph]')?.textContent||'1',v:tds[2]?.querySelector('.inv-val')?.textContent||'',u:uSel?uSel.value:'gp',no:tds[3]?.querySelector('[data-ph]')?.textContent||''});});
+  document.querySelectorAll('#invBody tr').forEach(tr=>{
+    const tds=tr.querySelectorAll('td'); const uSel=tds[2]?.querySelector('select');
+    d.inv.push({n:tds[0]?.querySelector('[data-ph]')?.textContent||'',q:tds[1]?.querySelector('[data-ph]')?.textContent||'1',v:tds[2]?.querySelector('.inv-val')?.textContent||'',u:uSel?uSel.value:'gp',no:tds[3]?.querySelector('[data-ph]')?.textContent||''});
+  });
   const coinGet=cls=>{const l=document.querySelector(cls);return l&&l.nextElementSibling?l.nextElementSibling.textContent||'0':'0';};
   d.coins={gp:coinGet('.coin-gp'),sp:coinGet('.coin-sp'),cp:coinGet('.coin-cp')};
-  // NPC notes
   document.querySelectorAll('.npc-notes[data-npc]').forEach(el=>{d.npc_notes[el.dataset.npc]=el.textContent.trim();});
-  // Location notes
   d.location_notes={};
   document.querySelectorAll('.npc-notes[data-loc]').forEach(el=>{d.location_notes[el.dataset.loc]=el.textContent.trim();});
-  // Item/clue notes
   d.item_notes={};
   document.querySelectorAll('.npc-notes[data-item]').forEach(el=>{d.item_notes[el.dataset.item]=el.textContent.trim();});
-  d.ds=Array.from(document.querySelectorAll('.dm')).map(m=>m.classList.contains('marked'));
+  d.ds = Array.from(document.querySelectorAll('.dm')).map(m=>m.classList.contains('marked'));
   return d;
 }
-function applyData(d){
-  if(!d)return;
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// APPLY DATA — deserialise a character object back into the DOM
+// Called on page load (from GitHub JSON or localStorage), and also when the
+// character switches between cached and live data during the merge step.
+// ═════════════════════════════════════════════════════════════════════════════
+
+function applyData(d) {
+  if(!d) return;
   updatePageTitle(d.cn||'');
-  set('charName',d.cn);set('charClass',d.cc);set('charLevel',d.cl);set('charRace',d.cr);set('charBg',d.bg);set('charAl',d.al);
-  set('charPlayer',d.player);
-  set('armorClass',d.ac);set('maxHP',d.mhp);set('hitDice',d.hd);
-  set('currentHP',d.chp);set('tempHP',d.thp||'—');
+  set('charName',d.cn); set('charClass',d.cc); set('charLevel',d.cl); set('charRace',d.cr);
+  set('charBg',d.bg);   set('charAl',d.al);   set('charPlayer',d.player);
+  set('armorClass',d.ac); set('maxHP',d.mhp); set('hitDice',d.hd);
+  set('currentHP',d.chp); set('tempHP',d.thp||'—');
   set('charSpeed',d.speed);
-  set('spellClass',d.spellClass);set('combatNotes',d.combatNotes);set('invNotes',d.invNotes);
-  // hidden fields for senses
-  let dvEl=document.getElementById('sensesDarkvision');if(!dvEl){dvEl=document.createElement('span');dvEl.id='sensesDarkvision';dvEl.style.display='none';document.body.appendChild(dvEl);}dvEl.textContent=d.sensesDarkvision||'';
-  let osEl=document.getElementById('sensesOther');if(!osEl){osEl=document.createElement('span');osEl.id='sensesOther';osEl.style.display='none';document.body.appendChild(osEl);}osEl.textContent=d.sensesOther||'';
-  // Temp HP: show — if 0 or empty
-  const thp=d.thp;const thpEl=document.getElementById('tempHP');if(thpEl){const thpEmpty=(!thp||thp==='0'||thp===0);thpEl.textContent=thpEmpty?'—':thp;thpEl.classList.toggle('empty',thpEmpty);}
+  set('spellClass',d.spellClass); set('combatNotes',d.combatNotes); set('invNotes',d.invNotes);
+
+  // Senses are stored in hidden elements (not visible as regular fields)
+  let dvEl=document.getElementById('sensesDarkvision');
+  if(!dvEl){dvEl=document.createElement('span');dvEl.id='sensesDarkvision';dvEl.style.display='none';document.body.appendChild(dvEl);}
+  dvEl.textContent=d.sensesDarkvision||'';
+  let osEl=document.getElementById('sensesOther');
+  if(!osEl){osEl=document.createElement('span');osEl.id='sensesOther';osEl.style.display='none';document.body.appendChild(osEl);}
+  osEl.textContent=d.sensesOther||'';
+
+  // Temp HP displays — if zero, show the em-dash placeholder
+  const thp=d.thp; const thpEl=document.getElementById('tempHP');
+  if(thpEl){const thpEmpty=(!thp||thp==='0'||thp===0);thpEl.textContent=thpEmpty?'—':thp;thpEl.classList.toggle('empty',thpEmpty);}
+
   // Inspiration
   const inspBtn=document.getElementById('inspBtn');
   if(d.insp){inspBtn.classList.add('lit');document.getElementById('inspLbl').textContent='Inspired!';}
   else{inspBtn.classList.remove('lit');document.getElementById('inspLbl').textContent='No Inspiration';}
-  if(d.sc)ABILITIES.forEach(a=>{const el=document.getElementById('sc-'+a);if(el)el.textContent=d.sc[a]||'10';});
-  if(d.sp)SAVES.forEach(sv=>{const e=document.getElementById(sv.id+'-p');if(e)e.checked=d.sp[sv.id]||false;});
-  if(d.sk)SKILLS.forEach(sk=>{const pip=document.getElementById(sk.id+'-p');if(pip){const val=d.sk[sk.id];// backward compat: true→1, false→0, number as-is
-    pip.dataset.state=String(val===true?1:val===false?0:parseInt(val)||0);}});
+
+  if(d.sc) ABILITIES.forEach(a=>{const el=document.getElementById('sc-'+a);if(el)el.textContent=d.sc[a]||'10';});
+  if(d.sp) SAVES.forEach(sv=>{const e=document.getElementById(sv.id+'-p');if(e)e.checked=d.sp[sv.id]||false;});
+
+  // Skills — backward compatible: stored boolean (old) is treated as 1/0
+  if(d.sk) SKILLS.forEach(sk=>{
+    const pip=document.getElementById(sk.id+'-p');
+    if(pip){ const val=d.sk[sk.id]; pip.dataset.state=String(val===true?1:val===false?0:parseInt(val)||0); }
+  });
+
   if(d.personality){set('pTraits',d.personality.traits);set('pIdeals',d.personality.ideals);set('pBonds',d.personality.bonds);set('pFlaws',d.personality.flaws);}
-  if(d.proficiencies&&typeof d.proficiencies==='object'){const p=d.proficiencies;['languages','armor','weapons','instruments','tools','other'].forEach(k=>{const el=document.getElementById('prof'+k.charAt(0).toUpperCase()+k.slice(1));if(el&&p[k]!=null)el.textContent=p[k];});}
-  if(d.sa){document.getElementById('spellAbility').value=d.sa;document.getElementById('spellAbilityTxt').textContent={int:'INT',wis:'WIS',cha:'CHA'}[d.sa]||d.sa.toUpperCase();}
-  setTimeout(()=>{const sc=document.getElementById('spellClass');const cc=document.getElementById('charClass');if(sc&&cc&&(!sc.textContent||sc.textContent==='—'))sc.textContent=cc.textContent||'—';},100);
-  // Slots — read t from JSON, build pips, then apply used count
+  if(d.proficiencies&&typeof d.proficiencies==='object'){
+    const p=d.proficiencies;
+    ['languages','armor','weapons','instruments','tools','other'].forEach(k=>{
+      const el=document.getElementById('prof'+k.charAt(0).toUpperCase()+k.slice(1));
+      if(el&&p[k]!=null) el.textContent=p[k];
+    });
+  }
+  if(d.sa){
+    document.getElementById('spellAbility').value=d.sa;
+    document.getElementById('spellAbilityTxt').textContent={int:'INT',wis:'WIS',cha:'CHA'}[d.sa]||d.sa.toUpperCase();
+  }
+  // Spell class defaults to character class if not explicitly set
+  setTimeout(()=>{
+    const sc=document.getElementById('spellClass'); const cc=document.getElementById('charClass');
+    if(sc&&cc&&(!sc.textContent||sc.textContent==='—')) sc.textContent=cc.textContent||'—';
+  },100);
+
+  // Slots: total from JSON (source of truth), used from the data (session state)
   if(d.slots){
     for(let i=1;i<=9;i++){
-      const s=d.slots[i];if(!s)continue;
-      const t=document.getElementById('st-'+i);
-      if(t)t.textContent=String(s.t||'0');
+      const s=d.slots[i]; if(!s) continue;
+      const t=document.getElementById('st-'+i); if(t) t.textContent=String(s.t||'0');
       rebuildPips(i);
-      // apply used pips after rebuild
       const u=s.u||0;
       const pips=document.querySelectorAll(`#sp-${i} .slot-pip`);
-      for(let j=0;j<u&&j<pips.length;j++)pips[j].classList.add('used');
+      for(let j=0;j<u&&j<pips.length;j++) pips[j].classList.add('used');
     }
   }
-  if(d.port&&d.port.trim()){syncPortrait(d.port);}else{syncPortrait('');}
-  document.getElementById('featList').innerHTML='';
+
+  if(d.port&&d.port.trim()) syncPortrait(d.port); else syncPortrait('');
+
+  // Features
+  document.getElementById('featList').innerHTML=''; 
   (d.feats||[]).forEach(f=>{addFeat(f.n,f.s,f.d);if(f.o){const its=document.querySelectorAll('#featList .feat-item');its[its.length-1].classList.add('open');}});
-  document.getElementById('atkBody').innerHTML='';atkCtr=0;
+
+  // Attacks — weapon-linked rows inherit stats from weaponDB; free-form rows use stored values
+  document.getElementById('atkBody').innerHTML=''; atkCtr=0;
   (d.atks||[]).forEach(a=>{
     let hand=a.h||'main-s';
-    if(!hand.includes('-')){const s=a.st||'str';hand={main:`main-${s[0]}`,ranged:`ranged-${s[0]}`,off:`off-${s[0]}`}[hand]||'main-s';}
-    if(a.id&&weaponDB[a.id]){
-      // weapon-linked: name from sheet, everything else from weaponDB
-      addAtk(a.n,hand,'','','','','',false,null,a.id);
-    } else {
-      // free-form: use all values from sheet JSON
-      addAtk(a.n,hand,'',a.dmg||'',a.t||'',a.r||'',a.no||'',false,null,null);
-    }
+    if(!hand.includes('-')){ const s=a.st||'str'; hand={main:`main-${s[0]}`,ranged:`ranged-${s[0]}`,off:`off-${s[0]}`}[hand]||'main-s'; }
+    if(a.id&&weaponDB[a.id]) addAtk(a.n,hand,'','','','','',false,null,a.id);
+    else                     addAtk(a.n,hand,'',a.dmg||'',a.t||'',a.r||'',a.no||'',false,null,null);
   });
-  for(let i=0;i<=9;i++){const el=document.getElementById('spellList-'+i);if(el)el.innerHTML='';}spellCtr=0;
+
+  // Spells — clear all lists first, then re-add in order
+  for(let i=0;i<=9;i++){const el=document.getElementById('spellList-'+i);if(el)el.innerHTML='';}
+  spellCtr=0;
   Object.keys(spellDescs).forEach(k=>delete spellDescs[k]);
-  if(d.sdescs){Object.keys(d.sdescs).forEach(nm=>{const val=d.sdescs[nm];spellDescs[nm]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val;});}
-  (d.spells||[]).forEach(s=>{const db=spellDB[s.n]||{};const lv=s.l!==undefined?String(s.l):String(db.level||0);addSpell(s.n,lv,db.school||'',db.cast_time||'',db.range||'',s.p,s.e,db.desc||'',db.dur||'',db.comp||'',db.target||'',db.classes||'',db.higher||'',lv);});
+  if(d.sdescs){ Object.keys(d.sdescs).forEach(nm=>{ const val=d.sdescs[nm]; spellDescs[nm]=typeof val==='string'?{desc:val,dur:'',comp:'',target:'',classes:'',higher:''}:val; }); }
+  (d.spells||[]).forEach(s=>{ const db=spellDB[s.n]||{}; const lv=s.l!==undefined?String(s.l):String(db.level||0); addSpell(s.n,lv,db.school||'',db.cast_time||'',db.range||'',s.p,s.e,db.desc||'',db.dur||'',db.comp||'',db.target||'',db.classes||'',db.higher||'',lv); });
+
+  // Inventory
   document.getElementById('invBody').innerHTML='';
   (d.inv||[]).forEach(i=>addInv(i.n,i.q,i.v,i.u||'gp',i.e||false,i.no));
-  if(d.coins){const coinGet=(cls,key)=>{const l=document.querySelector(cls);if(l&&l.nextElementSibling)l.nextElementSibling.textContent=d.coins[key]||'0';};coinGet('.coin-gp','gp');coinGet('.coin-sp','sp');coinGet('.coin-cp','cp');}
-  // NPC notes
-  if(d.npc_notes)buildNpcList(d.npc_notes);
-  // Location and item lists are rebuilt from shared JSON + per-char notes in init
-  // Just update notes on existing cards if already built
-  if(d.location_notes){document.querySelectorAll('.npc-notes[data-loc]').forEach(el=>{el.textContent=d.location_notes[el.dataset.loc]||'';});}
-  if(d.item_notes){document.querySelectorAll('.npc-notes[data-item]').forEach(el=>{el.textContent=d.item_notes[el.dataset.item]||'';});}
-  // HD pips
+  if(d.coins){
+    const coinGet=(cls,key)=>{const l=document.querySelector(cls);if(l&&l.nextElementSibling)l.nextElementSibling.textContent=d.coins[key]||'0';};
+    coinGet('.coin-gp','gp'); coinGet('.coin-sp','sp'); coinGet('.coin-cp','cp');
+  }
+
+  // Relations lists — NPCs use npcDB; locations/items update existing cards' notes in place
+  if(d.npc_notes) buildNpcList(d.npc_notes);
+  if(d.location_notes){ document.querySelectorAll('.npc-notes[data-loc]').forEach(el=>{el.textContent=d.location_notes[el.dataset.loc]||'';}); }
+  if(d.item_notes){     document.querySelectorAll('.npc-notes[data-item]').forEach(el=>{el.textContent=d.item_notes[el.dataset.item]||'';}); }
+
+  // Hit dice pips
   rebuildHDPips(parseInt(d.hdu)||0);
-  if(d.ds){const ms=document.querySelectorAll('.dm');d.ds.forEach((m,i)=>{if(ms[i]&&m)ms[i].classList.add('marked');});}
+
+  // Death save markers
+  if(d.ds){ const ms=document.querySelectorAll('.dm'); d.ds.forEach((m,i)=>{ if(ms[i]&&m) ms[i].classList.add('marked'); }); }
+
   recalc();
 }
 
-// ── GITHUB SAVE ───────────────────────────────────────────────────────────────
+
+// ═════════════════════════════════════════════════════════════════════════════
+// GITHUB SAVE
+// Commits the gathered character data to GitHub as a JSON file.
+// The GitHub token is XOR-obfuscated to prevent trivial scraping; it is not
+// truly secret since it exists in the browser, but deters casual inspection.
+// ═════════════════════════════════════════════════════════════════════════════
+
 const _tk=[37,8,6,7,3,11,62,52,83,68,29,80,67,46,52,38,41,30,126,105,114,45,48,90,19,5,44,42,85,7,27,82,30,48,37,62,35,46,104,105,119,14,43,87,78,25,44,40,99,2,113,84,31,33,18,57,0,35,75,127,21,50,27,22,47,36,16,41,74,86,53,14,55,62,70,8,88,16,113,118,6,35,42,37,38,19,56,113,69,72,118,81,4];
-const _kk='BaroviaD20';function _rt(){return _tk.map((c,i)=>String.fromCharCode(c^_kk.charCodeAt(i%_kk.length))).join('');}
-const GH_USER='ormaugh',GH_REPO='barovia';
-function setIndicator(state,msg){const el=document.getElementById('saveIndicator');el.className='save-indicator '+state;el.textContent=msg;if(state==='saved')setTimeout(()=>{el.className='save-indicator';el.textContent='';},3000);}
-async function saveToGitHub(){
-  if(!_initComplete)return;
-  setIndicator('saving','Guardando…');
-  const data=gather();const portSrc=document.getElementById('portImg').src||'';if(portSrc.startsWith('data:'))data.port=_lastJsonPort||'';else data.port=portSrc;
-  const content=JSON.stringify(data,null,2);const encoded=btoa(unescape(encodeURIComponent(content)));
-  const filePath=`${CHAR_KEY}-sheet.json`;
-  try{
-    const shaRes=await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`,{headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json'}});
-    let sha='';if(shaRes.ok){const shaData=await shaRes.json();sha=shaData.sha||'';}
-    const putRes=await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`,{method:'PUT',headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:`Update ${filePath} — ${new Date().toLocaleString('es-ES',{timeZone:'Europe/Madrid'})}`,content:encoded,sha:sha||undefined})});
-    if(putRes.ok){setIndicator('saved','✓ Guardado');clearLocal();_dirty=false;}
-    else{setIndicator('error','✗ Error: '+putRes.status);}
-  }catch(e){setIndicator('error','✗ Sin conexión');}
+const _kk = 'BaroviaD20';
+// Decodes the obfuscated token at call time
+function _rt() { return _tk.map((c,i)=>String.fromCharCode(c^_kk.charCodeAt(i%_kk.length))).join(''); }
+
+const GH_USER = 'ormaugh', GH_REPO = 'barovia';
+
+// Updates the save indicator element with the given CSS state and message
+function setIndicator(state, msg) {
+  const el = document.getElementById('saveIndicator');
+  el.className = 'save-indicator ' + state;
+  el.textContent = msg;
+  if(state==='saved') setTimeout(()=>{ el.className='save-indicator'; el.textContent=''; }, 3000);
 }
 
-// ── WEAPON PICKER ─────────────────────────────────────────────────────────────
-function openWeaponPicker(){
+// Serialises the sheet, fetches the current file SHA from GitHub (needed for
+// the PUT to succeed), then PUTs the new content. Clears localStorage on success.
+// Strips base64 portrait data before committing (replaces with last known URL).
+async function saveToGitHub() {
+  if(!_initComplete) return;
+  setIndicator('saving','Guardando…');
+  const data = gather();
+  const portSrc = document.getElementById('portImg').src||'';
+  if(portSrc.startsWith('data:')) data.port = _lastJsonPort||''; // don't commit base64
+  else data.port = portSrc;
+  const content  = JSON.stringify(data, null, 2);
+  const encoded  = btoa(unescape(encodeURIComponent(content)));
+  const filePath = `${CHAR_KEY}-sheet.json`;
+  try {
+    const shaRes  = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`, {headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json'}});
+    let sha=''; if(shaRes.ok){ const shaData=await shaRes.json(); sha=shaData.sha||''; }
+    const putRes  = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${filePath}`, {method:'PUT',headers:{Authorization:`token ${_rt()}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:`Update ${filePath} — ${new Date().toLocaleString('es-ES',{timeZone:'Europe/Madrid'})}`,content:encoded,sha:sha||undefined})});
+    if(putRes.ok){ setIndicator('saved','✓ Guardado'); clearLocal(); _dirty=false; }
+    else          { setIndicator('error','✗ Error: '+putRes.status); }
+  } catch(e) { setIndicator('error','✗ Sin conexión'); }
+}
+
+
+// ═════════════════════════════════════════════════════════════════════════════
+// WEAPON PICKER POPUP
+// A searchable list of all weapons from weaponDB, shown in edit mode.
+// Selecting a weapon adds it as a new linked attack row.
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Opens the weapon picker popup and focuses the search field
+function openWeaponPicker() {
   document.getElementById('wpickOverlay').classList.add('active');
   document.getElementById('wpickSearch').value='';
   filterWeaponPicker('');
-  setTimeout(()=>document.getElementById('wpickSearch').focus(),80);
+  setTimeout(()=>document.getElementById('wpickSearch').focus(), 80);
 }
-function closeWeaponPicker(){
+
+// Closes the weapon picker popup
+function closeWeaponPicker() {
   document.getElementById('wpickOverlay').classList.remove('active');
 }
-function filterWeaponPicker(q){
-  const list=document.getElementById('wpickList');
-  list.innerHTML='';
-  const search=q.toLowerCase().trim();
-  const weapons=Object.values(weaponDB);
-  const filtered=search?weapons.filter(w=>w.name.toLowerCase().includes(search)):weapons;
+
+// Filters the weapon list by the search query and rebuilds the rows.
+// Each row shows weapon name, governing stat (FUE/DES/FUE-DES for finesse),
+// and damage dice. Clicking a row adds the weapon and closes the picker.
+function filterWeaponPicker(q) {
+  const list   = document.getElementById('wpickList'); list.innerHTML='';
+  const search = q.toLowerCase().trim();
+  const weapons = Object.values(weaponDB);
+  const filtered = search ? weapons.filter(w=>w.name.toLowerCase().includes(search)) : weapons;
   if(!filtered.length){
     const empty=document.createElement('div');
     empty.style.cssText='padding:1.5rem;text-align:center;font-family:var(--font-body);font-style:italic;color:var(--text-faint);font-size:0.88rem;';
     empty.textContent='No se encontraron armas.';
-    list.appendChild(empty);
-    return;
+    list.appendChild(empty); return;
   }
   filtered.forEach(w=>{
-    const stat=w.properties?.includes('finesse')?'FUE/DES':
-               (w.type==='ranged')?'DES':'FUE';
-    const dmg=w.damage?(w.damage.dice+' '+w.damage.type):'—';
-    const row=document.createElement('div');row.className='wpick-row';
+    const stat = w.properties?.includes('finesse') ? 'FUE/DES' : (w.type==='ranged' ? 'DES' : 'FUE');
+    const dmg  = w.damage ? (w.damage.dice+' '+w.damage.type) : '—';
+    const row  = document.createElement('div'); row.className='wpick-row';
     row.innerHTML=`<span class="wpick-name">${w.name}</span><span class="wpick-stat">${stat}</span><span class="wpick-dmg">${dmg}</span>`;
-    row.addEventListener('click',()=>{
-      // Determine default hand based on weapon type and properties
+    row.addEventListener('click', ()=>{
       let hand='main-s';
-      if(w.type==='ranged') hand='ranged-d';
+      if(w.type==='ranged')                   hand='ranged-d';
       else if(w.properties?.includes('finesse')) hand='main-d';
-      addAtk(w.name,hand,'','','','','',false,null,w.id);
-      save();
-      closeWeaponPicker();
+      addAtk(w.name, hand, '', '', '', '', '', false, null, w.id);
+      save(); closeWeaponPicker();
     });
     list.appendChild(row);
   });
 }
-const LS_TTL = 60 * 60 * 1000; // 1 hour in ms
-let _dirty = false; // tracks unsaved changes since last GitHub save
 
-function saveLocal(){
+
+// ═════════════════════════════════════════════════════════════════════════════
+// LOCAL STORAGE BUFFER
+// Acts as a 1-hour crash-recovery buffer for unsaved session state.
+// The full character data is written here 2 seconds after any input event.
+// On load, if a valid non-expired buffer exists, session state fields
+// (HP, slots used, inspiration, death saves, notes) are merged with the
+// freshly-fetched JSON from GitHub (which is the source of truth for all
+// character definition fields).
+// GitHub save clears the buffer on success.
+// ═════════════════════════════════════════════════════════════════════════════
+
+const LS_TTL = 60 * 60 * 1000; // 1 hour TTL in milliseconds
+let _dirty = false; // true when there are unsaved changes since the last GitHub commit
+
+// Writes the current sheet state to localStorage with a timestamp.
+// Only fires after _initComplete to avoid saving the blank pre-load state.
+function saveLocal() {
   if(!_initComplete) return;
   try {
     const payload = { data: gather(), ts: Date.now() };
@@ -1874,120 +2779,134 @@ function saveLocal(){
   } catch(e) {}
 }
 
-function loadLocal(){
+// Reads the localStorage buffer. Returns null if it is absent, expired, or corrupt.
+// Supports the old format (plain object without ts) for backward compatibility,
+// but does not treat it as expired — just returns it as-is.
+function loadLocal() {
   try {
-    const raw = localStorage.getItem(LS_KEY);
-    if(!raw) return null;
+    const raw = localStorage.getItem(LS_KEY); if(!raw) return null;
     const payload = JSON.parse(raw);
-    // Support both old format (plain object) and new format (with ts)
-    if(payload && payload.ts && payload.data){
-      if(Date.now() - payload.ts > LS_TTL){
-        localStorage.removeItem(LS_KEY);
-        return null;
-      }
+    if(payload && payload.ts && payload.data) {
+      if(Date.now() - payload.ts > LS_TTL){ localStorage.removeItem(LS_KEY); return null; }
       return payload.data;
     }
-    // Old format — return as-is but don't trust slots.t
-    return payload;
+    return payload; // old format
   } catch(e) { return null; }
 }
 
-function clearLocal(){
+// Removes the localStorage buffer entry (called after a successful GitHub save)
+function clearLocal() {
   try { localStorage.removeItem(LS_KEY); } catch(e) {}
 }
 
-// Debounced local buffer write — 2s after last input
+// Debounced buffer write — fires 2 seconds after the last input/change event
 let saveTimer;
-function save(){
+function save() {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(saveLocal, 2000);
 }
-document.addEventListener('input', save);
+document.addEventListener('input',  save);
 document.addEventListener('change', save);
 
-// Autosave to GitHub every 5 minutes if dirty
-setInterval(async () => {
-  if(_initComplete && _dirty){
-    await saveToGitHub();
-  }
-}, 5 * 60 * 1000);
+// Autosave to GitHub every 5 minutes if there are pending unsaved changes
+setInterval(async ()=>{ if(_initComplete && _dirty) await saveToGitHub(); }, 5*60*1000);
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
-buildAbils();buildSaves();buildSkills();buildSlots();
-// Init first tab visible
+
+// ═════════════════════════════════════════════════════════════════════════════
+// INITIALISATION
+// Load order: weapons.json → spells.json → {char}-sheet.json → npcs.json
+// (in series so that spells and weapons are available when the character data
+// is applied to the DOM). Location and clue lists load in parallel afterwards.
+// If the character JSON is not found, falls back to localStorage only.
+// ═════════════════════════════════════════════════════════════════════════════
+
+// Build static DOM structures and mark the first tab visible
+buildAbils(); buildSaves(); buildSkills(); buildSlots();
 (()=>{
-  const panels=document.querySelectorAll('.tab-panel');
-  if(panels[0])panels[0].classList.add('active-slide');
+  const panels = document.querySelectorAll('.tab-panel');
+  if(panels[0]) panels[0].classList.add('active-slide');
+  // Position carousel at first tab (real set index 5 = tab-char) without animation
+  _updateTabClasses(0);
+  const track = document.getElementById('tabsTrack');
+  track.style.transform = `translateX(${_tabTranslate(5)}px)`;
 })();
 
-// Load weapons.json first, then spells.json, then character JSON, then npcs.json
 fetch('weapons.json')
-  .then(r=>r.ok?r.json():{weapons:[]})
-  .catch(()=>({weapons:[]}))
-  .then(db=>{(db.weapons||[]).forEach(w=>{weaponDB[w.id]=w;});})
+  .then(r=>r.ok?r.json():{weapons:[]}).catch(()=>({weapons:[]}))
+  .then(db=>{ (db.weapons||[]).forEach(w=>{ weaponDB[w.id]=w; }); })
   .finally(()=>{
 
 fetch('spells.json')
-  .then(r=>r.ok?r.json():{})
-  .catch(()=>({}))
-  .then(db=>{Object.assign(spellDB,db);})
+  .then(r=>r.ok?r.json():{}).catch(()=>({}))
+  .then(db=>{ Object.assign(spellDB, db); })
   .finally(()=>{
 
 fetch(JSON_FILE)
   .then(r=>r.ok?r.json():Promise.reject('not found'))
   .then(jsonData=>{
-    _lastJsonPort=jsonData.port||'';
-    const lsData=loadLocal();
-    if(lsData){
-      // Merge: server JSON is source of truth for character definition.
-      // Local buffer only provides session state: current HP, used slots, insp, death saves, notes.
+    _lastJsonPort = jsonData.port||'';
+    const lsData  = loadLocal();
+
+    if(lsData) {
+      // Merge: GitHub JSON = source of truth for character definition
+      //        localStorage = session state (HP, slots used, insp, death saves, notes)
       const mergedSlots={};
       for(let i=1;i<=9;i++){
-        const jsonSlot=jsonData.slots?.[i]||{t:'0',u:0};
-        const lsSlot=lsData.slots?.[i]||{};
-        mergedSlots[i]={t:jsonSlot.t, u:lsSlot.u??0}; // total from JSON, used from local
+        const jsonSlot = jsonData.slots?.[i]||{t:'0',u:0};
+        const lsSlot   = lsData.slots?.[i]||{};
+        mergedSlots[i] = {t:jsonSlot.t, u:lsSlot.u??0}; // totals from JSON, used from local
       }
-      const merged={
-        v:jsonData.v,cn:jsonData.cn,cc:jsonData.cc,cl:jsonData.cl,cr:jsonData.cr,
-        bg:jsonData.bg,al:jsonData.al,player:jsonData.player,
-        ac:jsonData.ac,mhp:jsonData.mhp,hd:jsonData.hd,speed:jsonData.speed,
-        sc:jsonData.sc,sp:jsonData.sp,sk:jsonData.sk,sa:jsonData.sa,
+      const merged = {
+        v:jsonData.v, cn:jsonData.cn, cc:jsonData.cc, cl:jsonData.cl, cr:jsonData.cr,
+        bg:jsonData.bg, al:jsonData.al, player:jsonData.player,
+        ac:jsonData.ac, mhp:jsonData.mhp, hd:jsonData.hd, speed:jsonData.speed,
+        sc:jsonData.sc, sp:jsonData.sp, sk:jsonData.sk, sa:jsonData.sa,
         port:jsonData.port||lsData.port,
-        feats:jsonData.feats,atks:jsonData.atks,spells:jsonData.spells,
-        sdescs:Object.assign({},lsData.sdescs||{},jsonData.sdescs||{}),
-        inv:jsonData.inv,coins:jsonData.coins,proficiencies:jsonData.proficiencies,
-        personality:jsonData.personality,spellClass:jsonData.spellClass,
-        sensesDarkvision:jsonData.sensesDarkvision,sensesOther:jsonData.sensesOther,
-        combatNotes:jsonData.combatNotes,invNotes:jsonData.invNotes,
-        // session state from local buffer
-        insp:lsData.insp,chp:lsData.chp,thp:lsData.thp,hdu:lsData.hdu,
-        slots:mergedSlots,
-        ds:lsData.ds,
-        npc_notes:Object.assign({},jsonData.npc_notes||{},lsData.npc_notes||{}),
+        feats:jsonData.feats, atks:jsonData.atks, spells:jsonData.spells,
+        sdescs:Object.assign({}, lsData.sdescs||{}, jsonData.sdescs||{}),
+        inv:jsonData.inv, coins:jsonData.coins, proficiencies:jsonData.proficiencies,
+        personality:jsonData.personality, spellClass:jsonData.spellClass,
+        sensesDarkvision:jsonData.sensesDarkvision, sensesOther:jsonData.sensesOther,
+        combatNotes:jsonData.combatNotes, invNotes:jsonData.invNotes,
+        // session state from local buffer:
+        insp:lsData.insp, chp:lsData.chp, thp:lsData.thp, hdu:lsData.hdu,
+        slots:mergedSlots, ds:lsData.ds,
+        npc_notes:     Object.assign({},jsonData.npc_notes||{},    lsData.npc_notes||{}),
         location_notes:Object.assign({},jsonData.location_notes||{},lsData.location_notes||{}),
-        item_notes:Object.assign({},jsonData.item_notes||{},lsData.item_notes||{}),
+        item_notes:    Object.assign({},jsonData.item_notes||{},    lsData.item_notes||{})
       };
       applyData(merged);
-    } else {applyData(jsonData);}
+    } else {
+      applyData(jsonData);
+    }
+
     lockEdit();
-    _initComplete=true;
+    _initComplete = true;
     syncPreparedSpells();
-    // load NPC list, locations and clues (non-blocking, parallel)
-    fetch('npcs.json').then(r=>r.ok?r.json():{npcs:[]}).catch(()=>({npcs:[]})).then(db=>{npcDB=db.npcs||[];const notes=gather().npc_notes||{};buildNpcList(notes);});
-    const charNotes=gather();
-    fetch('locations.json').then(r=>r.ok?r.json():{locations:[]}).catch(()=>({locations:[]})).then(db=>{buildLocationList(db.locations||[],charNotes.location_notes||{});});
-    fetch('clues.json').then(r=>r.ok?r.json():{clues:[]}).catch(()=>({clues:[]})).then(db=>{buildItemList(db.clues||[],charNotes.item_notes||{});});
+
+    // Load relations data in parallel (non-blocking)
+    fetch('npcs.json').then(r=>r.ok?r.json():{npcs:[]}).catch(()=>({npcs:[]}))
+      .then(db=>{ npcDB=db.npcs||[]; const notes=gather().npc_notes||{}; buildNpcList(notes); });
+    const charNotes = gather();
+    fetch('locations.json').then(r=>r.ok?r.json():{locations:[]}).catch(()=>({locations:[]}))
+      .then(db=>{ buildLocationList(db.locations||[], charNotes.location_notes||{}); });
+    fetch('clues.json').then(r=>r.ok?r.json():{clues:[]}).catch(()=>({clues:[]}))
+      .then(db=>{ buildItemList(db.clues||[], charNotes.item_notes||{}); });
   })
   .catch(()=>{
-    const lsData=loadLocal();
-    if(lsData){try{lsData.spells=[];lsData.sdescs={};applyData(lsData);}catch(e){recalc();}}else{recalc();}
+    // Character JSON not found — fall back to localStorage if available
+    const lsData = loadLocal();
+    if(lsData){ try{ lsData.spells=[]; lsData.sdescs={}; applyData(lsData); }catch(e){ recalc(); } }
+    else { recalc(); }
     lockEdit();
-    _initComplete=true;
+    _initComplete = true;
     syncPreparedSpells();
-    const charNotes=gather();
-    fetch('locations.json').then(r=>r.ok?r.json():{locations:[]}).catch(()=>({locations:[]})).then(db=>{buildLocationList(db.locations||[],charNotes.location_notes||{});});
-    fetch('clues.json').then(r=>r.ok?r.json():{clues:[]}).catch(()=>({clues:[]})).then(db=>{buildItemList(db.clues||[],charNotes.item_notes||{});});
-    console.warn(JSON_FILE+' not found — using localStorage only.');
+    const charNotes = gather();
+    fetch('locations.json').then(r=>r.ok?r.json():{locations:[]}).catch(()=>({locations:[]}))
+      .then(db=>{ buildLocationList(db.locations||[], charNotes.location_notes||{}); });
+    fetch('clues.json').then(r=>r.ok?r.json():{clues:[]}).catch(()=>({clues:[]}))
+      .then(db=>{ buildItemList(db.clues||[], charNotes.item_notes||{}); });
+    console.warn(JSON_FILE + ' not found — using localStorage only.');
   });
 
 }); // end spells finally
