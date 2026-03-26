@@ -101,61 +101,61 @@
       "n": "Ascendencia Feérica",
       "s": "Elfa de Luna",
       "d": "Tienes ventaja en las tiradas de salvación contra ser hechizado, y la magia no puede dormirte.",
-      "o": false
+      "o": true
     },
     {
       "n": "Visión en la Oscuridad",
       "s": "Elfa de Luna",
       "d": "Puedes ver en luz tenue dentro de 18m como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes distinguir el color en la oscuridad, solo tonos de gris.",
-      "o": false
+      "o": true
     },
     {
       "n": "Trance",
       "s": "Elfa de Luna",
       "d": "Los elfos no necesitan dormir. En cambio, meditan profundamente durante 4 horas al día. Tras descansar así, obtienes el mismo beneficio que un humano con 8 horas de sueño.",
-      "o": false
+      "o": true
     },
     {
       "n": "Entrenamiento en Armas Élfico",
       "s": "Elfa de Luna",
       "d": "Tienes competencia con la espada larga, la espada corta, el arco corto y el arco largo.",
-      "o": false
+      "o": true
     },
     {
       "n": "Especialización",
       "s": "Pícaro 1",
       "d": "Tienes especialización (doble bonificador de competencia) en dos habilidades: Sigilo (+7) y Engaño (+3).",
-      "o": false
+      "o": true
     },
     {
       "n": "Ataque Furtivo",
       "s": "Pícaro 1",
       "d": "Una vez por turno, puedes infligir 2d6 de daño adicional a una criatura que impactes si tienes ventaja en la tirada de ataque, o si un enemigo del objetivo está a 1,5m de él y no tienes desventaja.",
-      "o": false
+      "o": true
     },
     {
       "n": "Jerga de Ladrones",
       "s": "Pícaro 1",
       "d": "Has aprendido la jerga de ladrones, una mezcla secreta de dialecto, argot y código que te permite ocultar mensajes en conversaciones aparentemente normales.",
-      "o": false
+      "o": true
     },
     {
       "n": "Acción Astuta",
       "s": "Pícaro 2",
       "d": "Puedes realizar una acción adicional en cada uno de tus turnos para ejecutar la acción Correr, Desenganchar o Esconderse.",
-      "o": false
+      "o": true
     },
     {
       "n": "Manos Rápidas",
       "s": "Pícaro 3 — Ladrón",
       "d": "Puedes usar la acción adicional de Acción Astuta para hacer una prueba de Destreza (Juego de Manos), usar tus herramientas de ladrón para desactivar una trampa o abrir una cerradura, o realizar la acción Usar un Objeto.",
-      "o": false
+      "o": true
     },
     {
       "n": "Trabajo en las Alturas",
       "s": "Pícaro 3 — Ladrón",
       "d": "Tienes una velocidad de escalada igual a tu velocidad de movimiento. Además, cuando realizas un salto en carrera, la distancia cubierta aumenta en un número de metros igual a tu modificador de Destreza (+3 metros).",
-      "o": false
+      "o": true
     }
   ],
   "atks": [
@@ -346,7 +346,7 @@
     false
   ],
   "npc_notes": {
-    "parriwimple": "Test",
+    "parriwimple": "",
     "bildrath": "",
     "doru": "",
     "donavich": "",
