@@ -185,15 +185,6 @@
       "t": "piercing",
       "r": "20/60ft",
       "no": ""
-    },
-    {
-      "n": "Shortsword, Silvered",
-      "id": "shortsword_silvered",
-      "h": "main-d",
-      "dmg": "1d6",
-      "t": "piercing",
-      "r": "5ft",
-      "no": ""
     }
   ],
   "spells": [],
