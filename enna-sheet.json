@@ -328,6 +328,13 @@
       "v": "",
       "u": "gp",
       "no": ""
+    },
+    {
+      "n": "Test",
+      "q": "2",
+      "v": "10",
+      "u": "gp",
+      "no": "Test"
     }
   ],
   "ds": [
@@ -339,7 +346,7 @@
     false
   ],
   "npc_notes": {
-    "parriwimple": "",
+    "parriwimple": "Test",
     "bildrath": "",
     "doru": "",
     "donavich": "",
@@ -348,7 +355,6 @@
     "mirabel": "",
     "sorbia": "",
     "ismark": "",
-    "vistani_woman_tavern": "",
     "rose_durst": "",
     "thorn_durst": "",
     "madam_eva": ""
