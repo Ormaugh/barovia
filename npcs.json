@@ -51,8 +51,8 @@
     {
       "id": "mirabel",
       "name": "Mirabel",
-      "title": "Camp Invitation",
-      "detail": "Vistani woman who specifically invited Kaelos to the camp by the river.",
+      "title": "Vistani Spy - Camp Invitation",
+      "detail": "Vistani woman who flirted with Kaelos in the tavern the night the group arrived — no prior acquaintance. Extended an invitation to the camp by the river. Whether the interest was personal or the group was being observed and she was the one sent to make contact is an open question. The Vistani have their own relationship with Strahd.",
       "appearance": "Younger than the others, a laugh that arrives before her words, coin-threaded hair that catches every light source in the room.",
       "last_known_location": "Blood of the Vine Tavern, Village of Barovia — invitation to Vistani camp"
     },
@@ -71,14 +71,6 @@
       "detail": "Son of the dead burgomaster Kolyan. Asked the party to escort Ireena to Vallaki. Trustworthy. Carries the weight of a village on his face.",
       "appearance": "Broad-shouldered man in his thirties, dark circles under steady eyes, plain clothes that have seen better years.",
       "last_known_location": "Village of Barovia — tavern and mansion"
-    },
-    {
-      "id": "vistani_woman_tavern",
-      "name": "Vistani Woman (Tavern)",
-      "title": "Kaelos' Contact",
-      "detail": "A Vistani woman at the tavern who knows Kaelos personally. Wants to see him at the Vistani camp by the river.",
-      "appearance": "Dark eyes, layered skirts, an ease of movement that suggests she belongs wherever she stands.",
-      "last_known_location": "Blood of the Vine Tavern, Village of Barovia"
     },
     {
       "id": "rose_durst",
@@ -100,7 +92,7 @@
       "id": "madam_eva",
       "name": "Madam Eva",
       "title": "The Card Reader",
-      "detail": "The Vistani seer who read the party's tarokka cards at The Wayfarer before they were pulled into Barovia. Five objects named. One enemy. She said they would be drawn to that place whether they wished it or not.",
+      "detail": "The Vistani seer who read the party's Tarokka cards at The Wayfarer before they were pulled into Barovia. Five objects named. One enemy. She said they would be drawn to that place whether they wished it or not.",
       "appearance": "Ancient, hunched under shawls so layered they seem structural. Eyes entirely white, voice entirely certain. The cards moved in her hands like they were alive.",
       "last_known_location": "The Wayfarer Tavern — before the mist"
     }
