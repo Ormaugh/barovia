@@ -6,12 +6,13 @@
   "cr": "Gnome",
   "bg": "Soldado",
   "al": "Legal Bueno",
+  "player": "Edith",
   "ac": "18",
   "mhp": "28",
   "hd": "3d10",
+  "hdu": 0,
   "chp": "28",
-  "thp": "",
-  "hdu": "",
+  "thp": "—",
   "speed": "25ft",
   "spellClass": "Paladin",
   "combatNotes": "COMBOS Y TÁCTICAS (Paladín 3 — Juramento de los Ancestros):\n• Golpe Divino: decidir DESPUÉS de que el ataque impacte — gastar un espacio de conjuro para 2d8 radiante (+1d8 vs no-muertos/diablos). Guardar espacios para impactos confirmados.\n• Mejor valor de golpe: espacio de nivel 2 = 3d8 radiante. A nivel 3 es daño explosivo masivo.\n• Bendición (concentración): +1d4 a todas las tiradas de ataque y salvaciones de hasta 3 aliados — lanzar antes del combate.\n• Golpe Aprisionador (concentración, juramento): lanzar antes de atacar; si impacta, el objetivo debe salvar FUE o queda inmovilizado. Seguir con golpe divino.\n• Ira de la Naturaleza (Canalizar Divinidad): inmovilizar un objetivo a 3m, salvación de FUE o DES. Usar para neutralizar un enemigo melé peligroso. En Barovia, las enredaderas que invoca son espectrales y pálidas — la naturaleza corrompida responde de todos modos.\n• Imposición de Manos (reserva de 15 PG): estabilizar aliados caídos en emergencias (acción, pero ahorra un espacio de conjuro).\n• NOTA DE JURAMENTO: La fe de Sarda no depende de un dios — es un pacto con la luz misma. No se rompe por silencio divino. Se rompe si ella apaga la llama. En Barovia, mantenerla activa es resistencia.\n• Consejo: abrir con Bendición, luego Golpe Aprisionador + Golpe Divino.",
@@ -36,30 +37,30 @@
     "sv-cha": true
   },
   "sk": {
-    "sk-acr": false,
-    "sk-ani": false,
-    "sk-arc": false,
-    "sk-ath": true,
-    "sk-dec": false,
-    "sk-his": false,
-    "sk-ins": true,
-    "sk-int": true,
-    "sk-inv": false,
-    "sk-med": false,
-    "sk-nat": false,
-    "sk-per": true,
-    "sk-prf": false,
-    "sk-prs": false,
-    "sk-rel": false,
-    "sk-soh": false,
-    "sk-ste": false,
-    "sk-sur": false
+    "sk-acr": 0,
+    "sk-ani": 0,
+    "sk-arc": 0,
+    "sk-ath": 1,
+    "sk-dec": 0,
+    "sk-his": 0,
+    "sk-ins": 1,
+    "sk-int": 1,
+    "sk-inv": 0,
+    "sk-med": 0,
+    "sk-nat": 0,
+    "sk-per": 1,
+    "sk-prf": 0,
+    "sk-prs": 0,
+    "sk-rel": 0,
+    "sk-soh": 0,
+    "sk-ste": 0,
+    "sk-sur": 0
   },
   "sa": "cha",
   "slots": {
     "1": {
       "t": "3",
-      "u": 0
+      "u": 1
     },
     "2": {
       "t": "0",
@@ -161,17 +162,29 @@
     {
       "n": "Mace (Lucero)",
       "id": "mace",
-      "h": "main-s"
+      "h": "main-s",
+      "dmg": "1d6",
+      "t": "bludgeoning",
+      "r": "5ft",
+      "no": ""
     },
     {
       "n": "Javelin",
       "id": "javelin",
-      "h": "ranged-s"
+      "h": "ranged-s",
+      "dmg": "1d6",
+      "t": "piercing",
+      "r": "30/120ft",
+      "no": ""
     },
     {
       "n": "Light Crossbow",
       "id": "light_crossbow",
-      "h": "ranged-d"
+      "h": "ranged-d",
+      "dmg": "1d8",
+      "t": "piercing",
+      "r": "80/320ft",
+      "no": ""
     }
   ],
   "spells": [
@@ -241,97 +254,98 @@
       "n": "Shield of Faith"
     }
   ],
+  "sdescs": {},
   "inv": [
     {
       "n": "Cota de malla",
       "q": "1",
       "v": "75",
-      "no": "Armadura pesada. CA 16. Desventaja en Sigilo.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Armadura pesada. CA 16. Desventaja en Sigilo."
     },
     {
       "n": "Escudo",
       "q": "1",
       "v": "10",
-      "no": "+2 CA. Puede imponer desventaja al atacante (reacción).",
-      "unit": "gp"
+      "u": "gp",
+      "no": "+2 CA. Puede imponer desventaja al atacante (reacción)."
     },
     {
       "n": "Símbolo sagrado",
       "q": "1",
       "v": "",
-      "no": "Piedra pulida con una marca rúnica grabada por ella misma. No procede de ninguna institución — es la materialización de su pacto personal con la luz. Foco de conjuración.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Piedra pulida con una marca rúnica grabada por ella misma. No procede de ninguna institución — es la materialización de su pacto personal con la luz. Foco de conjuración."
     },
     {
       "n": "Maza (Lucero)",
       "q": "1",
       "v": "",
-      "no": "Arma principal. Plateada. Efectiva contra hombres lobo y ciertos no-muertos.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "Arma principal. Plateada. Efectiva contra hombres lobo y ciertos no-muertos."
     },
     {
       "n": "Jabalina",
       "q": "1",
       "v": "1",
-      "no": "Arrojadiza o melé.",
-      "unit": "sp"
+      "u": "gp",
+      "no": "Arrojadiza o melé."
     },
     {
       "n": "Ballesta ligera",
       "q": "1",
       "v": "25",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Cuerda de cáñamo",
       "q": "1",
       "v": "1",
-      "no": "15 metros.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "15 metros."
     },
     {
       "n": "Antorchas",
       "q": "10",
       "v": "",
-      "no": "",
-      "unit": "cp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Utensilios de cocina",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "gp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Odre de agua",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "sp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Insignia de rango — Regimiento de Caballería",
       "q": "1",
       "v": "",
-      "no": "Recuerdo del trasfondo militar.",
-      "unit": ""
+      "u": "gp",
+      "no": "Recuerdo del trasfondo militar."
     },
     {
       "n": "Trofeo de batalla",
       "q": "1",
       "v": "",
-      "no": "Trofeo de una batalla pasada. Origen sin especificar.",
-      "unit": ""
+      "u": "gp",
+      "no": "Trofeo de una batalla pasada. Origen sin especificar."
     },
     {
       "n": "Baraja de cartas",
       "q": "1",
       "v": "",
-      "no": "Competencia: juegos de cartas (Póker).",
-      "unit": ""
+      "u": "gp",
+      "no": "Competencia: juegos de cartas (Póker)."
     }
   ],
   "ds": [
@@ -342,42 +356,21 @@
     false,
     false
   ],
-  "personality": {
-    "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
-    "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
-    "bonds": "Daría mi vida por aquellos a quienes he jurado proteger.",
-    "flaws": "Poco respeto por quienes muestran poco espíritu combativo."
-  },
-  "proficiencies": {
-    "languages": "Común, Gnómico",
-    "armor": "Todas las armaduras, escudos",
-    "weapons": "Armas simples, armas marciales",
-    "instruments": "—",
-    "tools": "Juegos de cartas (Póker)",
-    "other": "Símbolo sagrado (foco de conjuración)"
-  },
-  "coins": {
-    "gp": "10",
-    "sp": "0",
-    "cp": "0"
-  },
-  "player": "Edith",
   "npc_notes": {
     "parriwimple": "",
     "bildrath": "",
     "doru": "",
     "donavich": "",
     "ireena": "",
+    "alenka": "",
+    "mirabel": "",
+    "sorbia": "",
     "ismark": "",
     "vistani_woman_tavern": "",
     "rose_durst": "",
     "thorn_durst": "",
-    "alenka": "",
-    "mirabel": "",
-    "sorbia": "",
     "madam_eva": ""
   },
-  "sdescs": {},
   "location_notes": {
     "church_morninglord": "",
     "burgomaster_mansion": "",
@@ -403,5 +396,24 @@
     "unidentified_potion": "",
     "tarokka_reading": "",
     "dire_wolf_eyes": ""
+  },
+  "personality": {
+    "traits": "Me encanta ser fuerte y romper cosas. Llevo luz y esperanza allá donde voy.",
+    "ideals": "Hago lo que debo y obedezco la ley — hasta que deja de tener sentido.",
+    "bonds": "Daría mi vida por aquellos a quienes he jurado proteger.",
+    "flaws": "Poco respeto por quienes muestran poco espíritu combativo."
+  },
+  "proficiencies": {
+    "languages": "Común, Gnómico",
+    "armor": "Todas las armaduras, escudos",
+    "weapons": "Armas simples, armas marciales",
+    "instruments": "—",
+    "tools": "Juegos de cartas (Póker)",
+    "other": "Símbolo sagrado (foco de conjuración)"
+  },
+  "coins": {
+    "gp": "10",
+    "sp": "0",
+    "cp": "0"
   }
 }
