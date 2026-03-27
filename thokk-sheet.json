@@ -176,6 +176,15 @@
       "t": "piercing",
       "r": "100/400ft",
       "no": ""
+    },
+    {
+      "n": "Shortsword, Silvered",
+      "id": "shortsword_silvered",
+      "h": "main-s",
+      "dmg": "1d6",
+      "t": "piercing",
+      "r": "5ft",
+      "no": ""
     }
   ],
   "spells": [
@@ -257,6 +266,13 @@
       "v": "",
       "u": "gp",
       "no": "Pin decorativo pequeño. Razón desconocida."
+    },
+    {
+      "n": "",
+      "q": "1",
+      "v": "",
+      "u": "gp",
+      "no": ""
     }
   ],
   "ds": [
