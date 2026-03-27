@@ -60,7 +60,7 @@
   "slots": {
     "1": {
       "t": "3",
-      "u": 2
+      "u": 3
     },
     "2": {
       "t": "0",
@@ -185,6 +185,15 @@
       "t": "piercing",
       "r": "80/320ft",
       "no": ""
+    },
+    {
+      "n": "Shortsword, Silvered",
+      "id": "shortsword_silvered",
+      "h": "main-d",
+      "dmg": "1d6",
+      "t": "piercing",
+      "r": "5ft",
+      "no": ""
     }
   ],
   "spells": [
@@ -209,12 +218,12 @@
       "n": "Bless"
     },
     {
-      "p": true,
+      "p": false,
       "l": "1",
       "n": "Protection from Evil and Good"
     },
     {
-      "p": false,
+      "p": true,
       "l": "1",
       "n": "Thunderous Smite"
     },
