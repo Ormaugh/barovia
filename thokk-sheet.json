@@ -6,12 +6,13 @@
   "cr": "Half-Orc",
   "bg": "Forastero",
   "al": "Caótico Neutral",
+  "player": "Miguel",
   "ac": "13",
   "mhp": "36",
   "hd": "3d12",
+  "hdu": 0,
   "chp": "36",
-  "thp": "",
-  "hdu": "",
+  "thp": "—",
   "speed": "30ft",
   "spellClass": "Barbarian",
   "combatNotes": "COMBOS Y TÁCTICAS (Bárbaro 3 — Guerrero Tótem Oso):\n• Furia primero (acción adicional) antes de entrar en melé — resistencia a TODO el daño no psíquico mientras el tótem Oso está activo.\n• Ataque Temerario: ventaja en todos tus ataques de FUE este turno, pero los enemigos tienen ventaja contra ti — aceptable cuando estás en furia (daño reducido a la mitad).\n• Hacha grande base: 1d12+6 en furia (+4 FUE, +2 furia). En crítico: tirar 1d12 extra (Ataques Salvajes).\n• Combo de presa: Ataque Temerario para ventaja → impactar → usar el segundo ataque (Ataque Extra en nivel 5, aún no) o aferrar para inmovilizar al objetivo para los aliados.\n• Sentido del Peligro: ventaja en salvaciones de DES contra efectos visibles (trampas, bolas de fuego) — estar atento a lo que hay delante.\n• Hablar con Animales (solo ritual): interrogar fauna para obtener información de reconocimiento antes del combate.\n• Ballesta pesada: usar solo cuando el melé no es opción — el bonificador de daño de Furia no aplica a distancia.\n• Consejo: entrar en Furia, cargar contra la amenaza más grande, Ataque Temerario. Eres el absorbedor de daño — protege a los más frágiles.",
@@ -36,26 +37,26 @@
     "sv-cha": false
   },
   "sk": {
-    "sk-acr": false,
-    "sk-ani": true,
-    "sk-arc": false,
-    "sk-ath": true,
-    "sk-dec": false,
-    "sk-his": false,
-    "sk-ins": false,
-    "sk-int": false,
-    "sk-inv": false,
-    "sk-med": false,
-    "sk-nat": true,
-    "sk-per": false,
-    "sk-prf": false,
-    "sk-prs": false,
-    "sk-rel": false,
-    "sk-soh": false,
-    "sk-ste": false,
-    "sk-sur": true
+    "sk-acr": 0,
+    "sk-ani": 1,
+    "sk-arc": 0,
+    "sk-ath": 1,
+    "sk-dec": 0,
+    "sk-his": 0,
+    "sk-ins": 0,
+    "sk-int": 0,
+    "sk-inv": 0,
+    "sk-med": 0,
+    "sk-nat": 1,
+    "sk-per": 0,
+    "sk-prf": 0,
+    "sk-prs": 0,
+    "sk-rel": 0,
+    "sk-soh": 0,
+    "sk-ste": 0,
+    "sk-sur": 1
   },
-  "sa": "str",
+  "sa": "",
   "slots": {
     "1": {
       "t": "0",
@@ -100,31 +101,31 @@
       "n": "Visión en la Oscuridad",
       "s": "Semiorco",
       "d": "Puedes ver en luz tenue dentro de 18m como si fuera luz brillante, y en oscuridad como si fuera luz tenue. No puedes distinguir el color en la oscuridad, solo tonos de gris.",
-      "o": false
+      "o": true
     },
     {
       "n": "Resistencia Implacable",
       "s": "Semiorco",
       "d": "Cuando te reducen a 0 puntos de golpe pero no te matan de inmediato, puedes caer a 1 punto de golpe en su lugar. Una vez usado, no puedes volver a hacerlo hasta terminar un descanso largo.",
-      "o": false
+      "o": true
     },
     {
       "n": "Ataques Salvajes",
       "s": "Semiorco",
       "d": "Cuando obtienes un golpe crítico con un ataque de arma melé, puedes tirar uno de los dados de daño del arma una vez más y añadirlo al daño extra del crítico.",
-      "o": false
+      "o": true
     },
     {
       "n": "Furia",
       "s": "Bárbaro 1",
       "d": "En tu turno, puedes entrar en furia como acción adicional. Mientras estás en furia: ventaja en pruebas y salvaciones de FUE, +2 al daño melé, resistencia al daño contundente/perforante/cortante. La furia dura 1 minuto. 3 usos por descanso largo a nivel 3.",
-      "o": false
+      "o": true
     },
     {
       "n": "Defensa Sin Armadura",
       "s": "Bárbaro 1",
       "d": "Mientras no llevas armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución. Puedes usar escudo y seguir obteniendo este beneficio.",
-      "o": false
+      "o": true
     },
     {
       "n": "Espíritu Tótem: Oso",
@@ -161,12 +162,20 @@
     {
       "n": "Greataxe",
       "id": "greataxe",
-      "h": "main-s"
+      "h": "main-s",
+      "dmg": "1d12",
+      "t": "slashing",
+      "r": "5ft",
+      "no": ""
     },
     {
       "n": "Heavy Crossbow",
       "id": "heavy_crossbow",
-      "h": "ranged-d"
+      "h": "ranged-d",
+      "dmg": "1d10",
+      "t": "piercing",
+      "r": "100/400ft",
+      "no": ""
     }
   ],
   "spells": [
@@ -204,50 +213,50 @@
       "n": "Hacha grande",
       "q": "1",
       "v": "30",
-      "no": "A dos manos. 1d12 cortante.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "A dos manos. 1d12 cortante."
     },
     {
       "n": "Ballesta pesada",
       "q": "1",
       "v": "50",
-      "no": "1d10 perforante. Carga.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "1d10 perforante. Carga."
     },
     {
       "n": "Tótem de hueso de hombre lobo",
       "q": "1",
       "v": "",
-      "no": "Objeto tótem. Hueso y piel.",
-      "unit": ""
+      "u": "gp",
+      "no": "Objeto tótem. Hueso y piel."
     },
     {
       "n": "Saco de dormir",
       "q": "1",
       "v": "",
-      "no": "",
-      "unit": "sp"
+      "u": "gp",
+      "no": ""
     },
     {
       "n": "Cuerda de cáñamo",
       "q": "1",
       "v": "1",
-      "no": "15 metros.",
-      "unit": "gp"
+      "u": "gp",
+      "no": "15 metros."
     },
     {
       "n": "Acordeón desafinado",
       "q": "1",
       "v": "",
-      "no": "Deteriorado. Produce sonido. A duras penas.",
-      "unit": ""
+      "u": "gp",
+      "no": "Deteriorado. Produce sonido. A duras penas."
     },
     {
       "n": "Pin de rana verde",
       "q": "1",
       "v": "",
-      "no": "Pin decorativo pequeño. Razón desconocida.",
-      "unit": ""
+      "u": "gp",
+      "no": "Pin decorativo pequeño. Razón desconocida."
     }
   ],
   "ds": [
@@ -258,39 +267,18 @@
     false,
     false
   ],
-  "personality": {
-    "traits": "Cuido de mis compañeros como si fueran mis crías.",
-    "ideals": "El honor por encima de todo.",
-    "bonds": "El clan es lo que más importa.",
-    "flaws": "Actúo sin cautela."
-  },
-  "proficiencies": {
-    "languages": "Común, Orco, (elección pendiente)",
-    "armor": "Armadura ligera, armadura media, escudos",
-    "weapons": "Armas simples, armas marciales",
-    "instruments": "Acordeón",
-    "tools": "—",
-    "other": "—"
-  },
-  "coins": {
-    "gp": "10",
-    "sp": "0",
-    "cp": "0"
-  },
-  "player": "Miguel",
   "npc_notes": {
     "parriwimple": "",
     "bildrath": "",
     "doru": "",
     "donavich": "",
     "ireena": "",
-    "ismark": "",
-    "vistani_woman_tavern": "",
-    "rose_durst": "",
-    "thorn_durst": "",
     "alenka": "",
     "mirabel": "",
     "sorbia": "",
+    "ismark": "",
+    "rose_durst": "",
+    "thorn_durst": "",
     "madam_eva": ""
   },
   "location_notes": {
@@ -318,5 +306,24 @@
     "unidentified_potion": "",
     "tarokka_reading": "",
     "dire_wolf_eyes": ""
+  },
+  "personality": {
+    "traits": "Cuido de mis compañeros como si fueran mis crías.",
+    "ideals": "El honor por encima de todo.",
+    "bonds": "El clan es lo que más importa.",
+    "flaws": "Actúo sin cautela."
+  },
+  "proficiencies": {
+    "languages": "Común, Orco, (elección pendiente)",
+    "armor": "Armadura ligera, armadura media, escudos",
+    "weapons": "Armas simples, armas marciales",
+    "instruments": "Acordeón",
+    "tools": "—",
+    "other": "—"
+  },
+  "coins": {
+    "gp": "10",
+    "sp": "0",
+    "cp": "0"
   }
 }
