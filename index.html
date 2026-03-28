@@ -536,22 +536,13 @@
             filter: sepia(0.05) contrast(1.08) brightness(1.0);
         }
 
-        /* Portrait overlay gradient */
+        /* Portrait overlay gradient + vignette */
         .party-card__portrait::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 60%;
-            background: linear-gradient(to top, var(--bg-card) 0%, rgba(26,20,16,0.7) 50%, transparent 100%);
-            z-index: 1;
-        }
-
-        /* Vignette corners */
-        .party-card__portrait::before {
             content: '';
             position: absolute;
             inset: 0;
             background:
+                linear-gradient(to top, var(--bg-card) 0%, rgba(26,20,16,0.7) 50%, transparent 100%),
                 radial-gradient(ellipse 100% 100% at 50% 50%, transparent 60%, rgba(7,5,4,0.5) 100%);
             z-index: 1;
             pointer-events: none;
@@ -855,15 +846,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: shimmer 4s linear infinite;
-        }
-
-        /* ============================================================
-           PARTY SECTION - placeholders for step 4
-        ============================================================ */
-        #party {
-            background: linear-gradient(to bottom, var(--bg-void), var(--bg-deep), var(--bg-void));
-            border-top: 1px solid var(--border-gold);
-            border-bottom: 1px solid var(--border-gold);
         }
 
         /* ============================================================
@@ -1600,7 +1582,7 @@
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            background: rgba(176, 32, 32, 0.5););
+            background: rgba(176, 32, 32, 0.5);
             border: 2px solid rgba(255,255,255,0.25);
             box-shadow: 0 0 0 2px rgba(139,26,26,0.3), 0 2px 8px rgba(0,0,0,0.5);
             transform: translate(-50%, -50%);
