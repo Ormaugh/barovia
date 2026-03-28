@@ -1,12 +1,52 @@
 {
   "npcs": [
     {
-      "id": "parriwimple",
-      "name": "Parriwimple",
-      "title": "Silent Enforcer",
-      "detail": "Bildrath's nephew. Large, quiet, always nearby.",
-      "appearance": "Heavyset human youth, slow eyes, perpetually expressionless. Stands like furniture until needed.",
-      "last_known_location": "Bildrath's Mercantile, Village of Barovia"
+      "id": "strahd_servant",
+      "name": "Sirviente de Strahd",
+      "title": "Mensajero",
+      "detail": "Figura encapuchada y encorvada que esperaba bajo el arco de las puertas de Ravenloft con una linterna de aceite. Entregó la carta de invitación de Strahd al grupo. Solo dijo su nombre cuando Sarda le preguntó: un sirviente del maestro Strahd. Echó a andar hacia el castillo sin añadir nada más. Su naturaleza exacta no fue determinada.",
+      "appearance": "Figura encapuchada, encorvada, casi jorobada. Linterna de aceite en la mano. Rostro no visible bajo la capucha.",
+      "last_known_location": "Puertas de Ravenloft — caminando hacia el castillo"
+    },
+    {
+      "id": "ireena",
+      "name": "Ireena Kolyana",
+      "title": "Tatyana Reborn",
+      "detail": "Burgomaster's daughter. Carries the soul of Strahd's ancient beloved Tatyana. Target of Strahd's obsession. Capable and direct. Currently travelling with the group toward Vallaki.",
+      "appearance": "Auburn hair, composed expression, moves with the deliberate calm of someone who has learned not to show fear. A bag already packed.",
+      "last_known_location": "Svalich Road — travelling with the group, Session 7"
+    },
+    {
+      "id": "ismark",
+      "name": "Ismark Kolyanovich",
+      "title": "Burgomaster's Son",
+      "detail": "Son of the dead burgomaster Kolyan. Asked the party to escort Ireena to Vallaki. Delivered two silvered weapons before their departure. Trustworthy. Carries the weight of a village on his face.",
+      "appearance": "Broad-shouldered man in his thirties, dark circles under steady eyes, plain clothes that have seen better years.",
+      "last_known_location": "Burgomaster's Mansion, Village of Barovia — watched the group leave"
+    },
+    {
+      "id": "mirabel",
+      "name": "Mirabel",
+      "title": "Camp Invitation",
+      "detail": "Vistani woman who flirted with Kaelos in the tavern the night the group arrived — no prior acquaintance. Extended an invitation to the camp by the river. Whether the interest was personal or the group was being observed and she was the one sent to make contact is an open question. The Vistani have their own relationship with Strahd.",
+      "appearance": "Younger than the others, a laugh that arrives before her words, coin-threaded hair that catches every light source in the room.",
+      "last_known_location": "Blood of the Vine Tavern, Village of Barovia — Vistani camp presumed"
+    },
+    {
+      "id": "alenka",
+      "name": "Alenka",
+      "title": "Vistani Spy",
+      "detail": "One of three Vistani women at the Blood of the Vine Tavern. Watchful and observant. Likely the one who informs Strahd of the group's movements — had ample time to report before the group reached the Ravenloft crossroads.",
+      "appearance": "Copper-skinned woman with silver rings on every finger, watchful in the way that people are who are paid to observe.",
+      "last_known_location": "Blood of the Vine Tavern, Village of Barovia — Vistani camp presumed"
+    },
+    {
+      "id": "sorbia",
+      "name": "Sorbia",
+      "title": "Vistani Elder",
+      "detail": "Third Vistani woman at the tavern. Quieter than the others, watching more than speaking.",
+      "appearance": "Older, heavily layered clothes, a scar along her jaw that she makes no effort to hide. Eyes like still water.",
+      "last_known_location": "Blood of the Vine Tavern, Village of Barovia — Vistani camp presumed"
     },
     {
       "id": "bildrath",
@@ -17,12 +57,12 @@
       "last_known_location": "Bildrath's Mercantile, Village of Barovia"
     },
     {
-      "id": "doru",
-      "name": "Doru",
-      "title": "Chained Spawn",
-      "detail": "Donavich's son. Followed a monster hunter to Ravenloft and returned as vampire spawn. Chained in the church basement. If Strahd dies, Doru is freed.",
-      "appearance": "Heard but never seen — only his voice and the sounds of chains from below the church floor.",
-      "last_known_location": "Church of the Morninglord basement, Village of Barovia"
+      "id": "parriwimple",
+      "name": "Parriwimple",
+      "title": "Silent Enforcer",
+      "detail": "Bildrath's nephew. Large, quiet, always nearby.",
+      "appearance": "Heavyset human youth, slow eyes, perpetually expressionless. Stands like furniture until needed.",
+      "last_known_location": "Bildrath's Mercantile, Village of Barovia"
     },
     {
       "id": "donavich",
@@ -33,44 +73,12 @@
       "last_known_location": "Church of the Morninglord, Village of Barovia"
     },
     {
-      "id": "ireena",
-      "name": "Ireena Kolyana",
-      "title": "Tatyana Reborn",
-      "detail": "Burgomaster's daughter. Carries the soul of Strahd's ancient beloved Tatyana. Target of Strahd's obsession. Capable and direct. Goal: escort her safely to Vallaki.",
-      "appearance": "Auburn hair, composed expression, moves with the deliberate calm of someone who has learned not to show fear. A bag already packed.",
-      "last_known_location": "Burgomaster's Mansion, Village of Barovia"
-    },
-        {
-      "id": "alenka",
-      "name": "Alenka",
-      "title": "Vistani Spy",
-      "detail": "One of three Vistani women at The Wayfarer. Present during the tarokka reading. Connection to the camp by the river.",
-      "appearance": "Copper-skinned woman with silver rings on every finger, watchful in the way that people are who are paid to observe.",
-      "last_known_location": "Blood of the Vine Tavern, Village of Barovia"
-    },
-    {
-      "id": "mirabel",
-      "name": "Mirabel",
-      "title": "Vistani Spy - Camp Invitation",
-      "detail": "Vistani woman who flirted with Kaelos in the tavern the night the group arrived — no prior acquaintance. Extended an invitation to the camp by the river. Whether the interest was personal or the group was being observed and she was the one sent to make contact is an open question. The Vistani have their own relationship with Strahd.",
-      "appearance": "Younger than the others, a laugh that arrives before her words, coin-threaded hair that catches every light source in the room.",
-      "last_known_location": "Blood of the Vine Tavern, Village of Barovia — invitation to Vistani camp"
-    },
-    {
-      "id": "sorbia",
-      "name": "Sorbia",
-      "title": "Vistani Spy",
-      "detail": "Third Vistani woman at the tavern. Quieter than the others, watching more than speaking.",
-      "appearance": "Older, heavily layered clothes, a scar along her jaw that she makes no effort to hide. Eyes like still water.",
-      "last_known_location": "Blood of the Vine Tavern, Village of Barovia"
-    },
-    {
-      "id": "ismark",
-      "name": "Ismark Kolyanovich",
-      "title": "Burgomaster's Son",
-      "detail": "Son of the dead burgomaster Kolyan. Asked the party to escort Ireena to Vallaki. Trustworthy. Carries the weight of a village on his face.",
-      "appearance": "Broad-shouldered man in his thirties, dark circles under steady eyes, plain clothes that have seen better years.",
-      "last_known_location": "Village of Barovia — tavern and mansion"
+      "id": "doru",
+      "name": "Doru",
+      "title": "Chained Spawn",
+      "detail": "Donavich's son. Followed a monster hunter to Ravenloft and returned as vampire spawn. Chained in the church basement. If Strahd dies, Doru is freed.",
+      "appearance": "Heard but never seen — only his voice and the sounds of chains from below the church floor.",
+      "last_known_location": "Church of the Morninglord basement, Village of Barovia"
     },
     {
       "id": "rose_durst",
@@ -84,7 +92,7 @@
       "id": "thorn_durst",
       "name": "Thorn Durst",
       "title": "Possessive Ghost",
-      "detail": "Ghost of the Durst House. Briefly possessed Sarda's body out of panic. His fear ran through her until the group reached ground level.",
+      "detail": "Ghost of the Durst House. Briefly possessed Sarda's body out of panic. His fear ran through her until the group crossed the threshold of the house. Left Sarda at the moment they stepped outside.",
       "appearance": "A boy younger than Rose, translucent, perpetually on the verge of crying but never quite doing it.",
       "last_known_location": "Death House, Svalich Road — status unknown after the party fled"
     },
@@ -92,9 +100,9 @@
       "id": "madam_eva",
       "name": "Madam Eva",
       "title": "The Card Reader",
-      "detail": "The Vistani seer who read the party's Tarokka cards at The Wayfarer before they were pulled into Barovia. Five objects named. One enemy. She said they would be drawn to that place whether they wished it or not.",
+      "detail": "The Vistani seer who read the party's tarokka cards at The Wayfarer before they were pulled into Barovia. Five objects named. One enemy. She said they would be drawn to that place whether they wished it or not. Likely resides at the Vistani camp by the river — not yet visited by the group.",
       "appearance": "Ancient, hunched under shawls so layered they seem structural. Eyes entirely white, voice entirely certain. The cards moved in her hands like they were alive.",
-      "last_known_location": "The Wayfarer Tavern — before the mist"
+      "last_known_location": "The Wayfarer Tavern — before the mist. Vistani camp presumed current location."
     }
   ]
 }

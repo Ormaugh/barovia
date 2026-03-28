@@ -1,0 +1,87 @@
+{
+  "id": 7,
+  "roman": "VII",
+  "eyebrow": "La carta y el carromato",
+  "title": "La Carretera al Oeste",
+  "subtitle": "Villa de Barovia · Svalich Road · Las Puertas de Ravenloft",
+  "opener": "La niebla no pregunta. Toma lo que toma, devuelve lo que devuelve, y el grupo aprendió hace tiempo que no tiene sentido buscarle lógica. Kaelos y Dara desaparecieron en el banco de niebla. Thokk emergió de él. Barovia hizo un intercambio que nadie autorizó, y el único comentario posible era seguir andando.",
+  "sections": [
+    {
+      "heading": "La despedida y las espadas",
+      "paragraphs": [
+        "Ismark los esperaba en el umbral de la mansión. Tenía dos espadas plateadas — una para Sarda, una para Thokk. Las entregó sin ceremonia, como quien liquida una deuda antes de que la otra parte cambie de opinión. Ireena ya estaba lista: bolsa pequeña, capa oscura, expresión de alguien que ha tomado una decisión y no piensa revisarla.",
+        "La despedida fue lo que era. Ismark levantó una mano cuando el carro se alejó. Las ventanas de la aldea estaban cerradas como siempre. Alguna cortina se movió. Nadie salió."
+      ]
+    },
+    {
+      "heading": "La niebla — lo que se fue y lo que vino",
+      "paragraphs": [
+        "A poco de salir de la aldea, un banco de niebla densa cerró el camino. Kaelos y Dara desaparecieron en él. Del mismo banco emergió Thokk, con un cuchillo en la mano y la expresión de alguien que acaba de llegar de algún sitio pero no sabe de cuál.",
+        "Barovia no explicó nada. Nunca lo hace. El grupo absorbió el intercambio con la resignación de quien lleva suficiente tiempo en el valle para saber que pedir explicaciones es un gasto de energía que no se puede permitir."
+      ]
+    },
+    {
+      "heading": "El puente",
+      "paragraphs": [
+        "A un par de horas de camino, un puente de piedra cruzaba un río serio — ancho, embravecido, con una caída de unos diez metros desde el tablero hasta el agua. El río fluía de oeste a este, desde la zona del castillo hacia la aldea, rápido y frío. La niebla que levantaba era húmeda y helada. Cruzaron sin detenerse."
+      ]
+    },
+    {
+      "heading": "El árbol y el ahorcado",
+      "paragraphs": [
+        "Horas después del puente, en el lado derecho del camino: un árbol gigante y muy antiguo, sin hojas, con las ramas casi horizontales y entrelazadas. De una de ellas colgaba un hombre. Ropa de viajero — alguien de fuera, como ellos.",
+        "Parte del grupo bajó del carro a investigar. El hombre llevaba días muerto, quizás una semana. En el bolsillo interior de la capa había una carta sin terminar dirigida a alguien llamado Petra, en un lugar que no existe dentro de Barovia. El texto mencionaba a los gitanos del río — amables, con comida caliente, que no hacen preguntas. Y que siempre miran hacia el castillo. La carta no terminaba. La última línea nunca se escribió. En la muñeca, un vendaje limpio hecho con tela de colores llamativos. Debajo: una marca de mordisco, cicatrizada.",
+        "Del bosque emergieron cinco zombis y un Aparecido mientras el grupo tenía la atención puesta en el cuerpo. El árbol era el señuelo. El combate fue en el camino, con el carro a la espalda y el bosque cerrando los flancos. El Aparecido fue lo último en caer. El ahorcado siguió colgando cuando terminó."
+      ]
+    },
+    {
+      "heading": "El carromato de Strahd",
+      "paragraphs": [
+        "En el cruce hacia Ravenloft, un carromato negro esperaba detenido en el camino. Negro completo — madera, techo, cortinas. Tirado por dos caballos. Sarda abrió su percepción divina antes de acercarse: los caballos eran animales normales, sin rastro de lo que no debería estar vivo.",
+        "La puerta del carromato se abrió sola cuando el grupo se aproximó. Dentro: oscuridad y silencio. El grupo discutió. Nadie subió. Dejaron el carromato en el cruce y siguieron por la carretera principal hacia el oeste."
+      ]
+    },
+    {
+      "heading": "Las puertas de Ravenloft — la carta",
+      "paragraphs": [
+        "Las puertas que dan acceso al camino hacia Ravenloft estaban abiertas. Las mismas estatuas que las puertas de entrada al valle, algo mejor conservadas. Bajo el arco, protegiéndose de la humedad con una linterna de aceite en la mano: una figura encapuchada, encorvada. Sarda se adelantó. ¿Quién eres? Un sirviente, señorita. ¿De quién? Del maestro Strahd.",
+        "La figura entregó una carta y echó a andar hacia el castillo sin añadir nada más. La carta, escrita con la caligrafía precisa de alguien que lleva siglos practicando, era una invitación a cenar en Ravenloft en tres días. Strahd se presentaba como señor de Barovia y anfitrión, reconocía al grupo como sus súbditos, y prometía pasaje seguro hasta el castillo y trato civilizado en su mesa. Firmado: Strahd von Zarovich, Conde de Barovia.",
+        "El grupo leyó la carta. Discutió sus implicaciones. Sarda se la guardó."
+      ]
+    },
+    {
+      "heading": "El descanso",
+      "paragraphs": [
+        "Acamparon cerca de las puertas, bajo la lógica de que la carta de Strahd era también una especie de escudo — nada bajo su dominio tocaría a sus invitados esa noche. La lógica era discutible. Funcionó. La noche pasó sin incidentes. Por la mañana, Vallaki seguía al oeste y el castillo seguía al norte, y el grupo tenía tres días para decidir qué hacía con la invitación."
+      ]
+    }
+  ],
+  "sidebar": {
+    "acquired": [
+      "Espada plateada (Sarda) — entregada por Ismark",
+      "Espada plateada (Thokk) — entregada por Ismark",
+      "Carta de Strahd von Zarovich — invitación a cenar en Ravenloft en tres días (Sarda)"
+    ],
+    "known": [
+      "Thokk emergió de la niebla donde desaparecieron Kaelos y Dara — Barovia hizo un intercambio sin explicación",
+      "El ahorcado era un aventurero forastero — su carta menciona a los gitanos del río mirando siempre hacia el castillo",
+      "La marca en la muñeca del ahorcado es de mordisco de vampiro, vendada con tela Vistani",
+      "El carromato de Strahd esperaba en el cruce a Ravenloft — los caballos eran normales, la puerta se abrió sola",
+      "Strahd ha invitado al grupo a cenar en tres días — promete pasaje seguro y trato civilizado",
+      "El campamento Vistani no fue visitado — el grupo pasó de largo por ir con Ireena"
+    ],
+    "unanswered": [
+      "¿Quién era exactamente el aventurero ahorcado y cuánto tiempo lleva en Barovia?",
+      "¿Qué había dentro del carromato de Strahd?",
+      "¿Qué significa aceptar — o rechazar — la invitación a cenar?",
+      "¿Dónde están Kaelos y Dara?",
+      "¿Qué sabe el campamento Vistani del grupo — Alenka ya tuvo tiempo de informar?"
+    ],
+    "people": [
+      "Ireena Kolyana — viaja con el grupo, en silencio, atenta",
+      "Ismark — se quedó en la aldea, los vio marchar",
+      "Sirviente de Strahd — figura encapuchada, entregó la carta, no dijo nada más"
+    ],
+    "milestone": "El grupo tiene una invitación de Strahd. Tres días. Vallaki sigue siendo el destino inmediato."
+  }
+}
