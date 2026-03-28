@@ -1,44 +1,34 @@
 {
   "locations": [
     {
-      "id": "ravenloft_crossroads",
-      "name": "Cruce de Ravenloft",
-      "title": "El desvío al castillo",
-      "detail": "El punto donde la carretera principal hacia Vallaki se cruza con el camino que sube hacia Ravenloft. Aquí esperaba el carromato negro de Strahd — tirado por caballos normales, puerta que se abrió sola. El grupo no subió. Las puertas del camino al castillo estaban abiertas y custodiadas por el sirviente que entregó la carta de invitación.",
-      "status": "Visitado — de paso en Sesión 7",
-      "region": "Svalich Road, entre Villa de Barovia y Vallaki"
+      "id": "iron_gates",
+      "name": "The Iron Gates",
+      "title": "The Valley's Entrance",
+      "detail": "Enormous iron gates flanked by crumbling statues. They opened as the party approached. When they looked back, the gates had closed. There is no leaving.",
+      "status": "Passed through — one way",
+      "region": "Eastern edge of Barovia",
+      "map_x": 3750,
+      "map_y": 1620
     },
     {
-      "id": "castle_ravenloft",
-      "name": "Castle Ravenloft",
-      "title": "Strahd's Seat",
-      "detail": "The castle where Strahd von Zarovich resides. Doru followed a monster hunter here and came back as vampire spawn. Madam Eva's reading said the party would be drawn to the enemy's place whether they wished it or not. The group has now received a formal dinner invitation — three days, safe passage guaranteed, signed by Strahd himself.",
-      "status": "Invitation received — not approached",
-      "region": "Central Barovia, on a high spur"
+      "id": "death_house",
+      "name": "Death House",
+      "title": "The Durst Mansion",
+      "detail": "A pristine manor on the Svalich Road that pulled the party inside and refused to let them leave. The Durst cult used it as an offering box for Strahd. The altar demanded a sacrifice. The party refused. The Shambling Mound chose not to follow them out.",
+      "status": "Escaped",
+      "region": "Svalich Road, east of the village",
+      "map_x": 3320,
+      "map_y": 1850
     },
     {
-      "id": "vallaki",
-      "name": "Vallaki",
-      "title": "Destination",
-      "detail": "A walled town to the west, described as safer than the village. The party has committed to escorting Ireena here. Neither the route nor what awaits them there is known.",
-      "status": "Destination — not yet reached",
-      "region": "Western Barovia"
-    },
-    {
-      "id": "vistani_camp_river",
-      "name": "Vistani Camp",
-      "title": "Camp by the River",
-      "detail": "A Vistani camp west of the village, by the river. Mirabel extended an invitation to Kaelos the night the group arrived in the village — whether out of personal interest or something more deliberate is unknown. The group passed it by without stopping — they were travelling with Ireena and judged the risk too high. The Vistani have their own relationship with Strahd, one the party does not yet understand. Madam Eva, the seer who read the cards at The Wayfarer before the group entered Barovia, is likely here. Alenka had ample time to report the group's movements and Ireena's presence before they reached the Ravenloft crossroads.",
-      "status": "Not visited — passed by in Session 7",
-      "region": "West of the Village of Barovia, by the river"
-    },
-    {
-      "id": "church_morninglord",
-      "name": "Church of the Morninglord",
-      "title": "Father Donavich's Church",
-      "detail": "The village church, still standing. Father Donavich performs rites here and keeps a door in the floor shut. Behind it: his son Doru, chained and changed. The Morning Lord has been very quiet.",
-      "status": "Visited",
-      "region": "Village of Barovia"
+      "id": "village_barovia",
+      "name": "Village of Barovia",
+      "title": "The Silent Village",
+      "detail": "The only settlement the party has spent time in. Shuttered windows, bolted doors, and a population that has learned to disappear at the sound of hooves. The burgomaster is dead. The church still stands.",
+      "status": "Visited — party has left",
+      "region": "Eastern Barovia",
+      "map_x": 3150,
+      "map_y": 1800
     },
     {
       "id": "burgomaster_mansion",
@@ -46,6 +36,14 @@
       "title": "Kolyan's House",
       "detail": "Claw marks in the doors. Gouges in the shutters. Tracks in the mud that don't belong to anything natural. Kolyan Indirovich is buried. Ireena had a bag packed. The house is empty now.",
       "status": "Visited — party has moved on",
+      "region": "Village of Barovia"
+    },
+    {
+      "id": "church_morninglord",
+      "name": "Church of the Morninglord",
+      "title": "Father Donavich's Church",
+      "detail": "The village church, still standing. Father Donavich performs rites here and keeps a door in the floor shut. Behind it: his son Doru, chained and changed. The Morning Lord has been very quiet.",
+      "status": "Visited",
       "region": "Village of Barovia"
     },
     {
@@ -65,28 +63,64 @@
       "region": "Village of Barovia"
     },
     {
-      "id": "village_barovia",
-      "name": "Village of Barovia",
-      "title": "The Silent Village",
-      "detail": "The only settlement the party has spent time in. Shuttered windows, bolted doors, and a population that has learned to disappear at the sound of hooves. The burgomaster is dead. The church still stands.",
-      "status": "Visited — party has left",
-      "region": "Eastern Barovia"
+      "id": "vistani_camp_river",
+      "name": "Vistani Camp",
+      "title": "Camp by the River",
+      "detail": "A Vistani camp west of the village, by the river. Mirabel extended an invitation to Kaelos the night the group arrived in the village — whether out of personal interest or something more deliberate is unknown. The group passed it by without stopping. Madam Eva, the seer who read the cards at The Wayfarer before the group entered Barovia, is likely here.",
+      "status": "Not visited — passed by in Session 7",
+      "region": "West of the Village of Barovia, by the river",
+      "map_x": 2640,
+      "map_y": 1830
     },
     {
-      "id": "death_house",
-      "name": "Death House",
-      "title": "The Durst Mansion",
-      "detail": "A pristine manor on the Svalich Road that pulled the party inside and refused to let them leave. The Durst cult used it as an offering box for Strahd. The altar demanded a sacrifice. The party refused. The Shambling Mound chose not to follow them out.",
-      "status": "Escaped",
-      "region": "Svalich Road, east of the village"
+      "id": "ravenloft_crossroads",
+      "name": "Ravenloft Crossroads",
+      "title": "The Turn to the Castle",
+      "detail": "The point where the main road to Vallaki crosses the path that climbs toward Ravenloft. Strahd's black carriage was waiting here — drawn by ordinary horses, its door opening on its own. The group did not go up. The gates to the castle road stood open, guarded by the servant who delivered the dinner invitation.",
+      "status": "Passed through — Session 7",
+      "region": "Svalich Road, between the Village of Barovia and Vallaki",
+      "map_x": 2400,
+      "map_y": 1400
     },
     {
-      "id": "iron_gates",
-      "name": "The Iron Gates",
-      "title": "The Valley's Entrance",
-      "detail": "Enormous iron gates flanked by crumbling statues. They opened as the party approached. When they looked back, the gates had closed. There is no leaving.",
-      "status": "Passed through — one way",
-      "region": "Eastern edge of Barovia"
+      "id": "castle_ravenloft",
+      "name": "Castle Ravenloft",
+      "title": "Strahd's Seat",
+      "detail": "The castle where Strahd von Zarovich resides. Doru followed a monster hunter here and came back as vampire spawn. The group has now received a formal dinner invitation — three days, safe passage guaranteed, signed by Strahd himself.",
+      "status": "Invitation received — not approached",
+      "region": "Central Barovia, on a high spur",
+      "map_x": 2860,
+      "map_y": 1450
+    },
+    {
+      "id": "vallaki",
+      "name": "Vallaki",
+      "title": "First Destination",
+      "detail": "A walled town to the west, described as safer than the village. The party has committed to escorting Ireena here. What awaits them inside the walls is not yet known.",
+      "status": "Destination — not yet reached",
+      "region": "Western Barovia",
+      "map_x": 1600,
+      "map_y": 980
+    },
+    {
+      "id": "krezk",
+      "name": "Krezk",
+      "title": "The Sanctuary Beyond",
+      "detail": "A walled village further west and further from the castle than Vallaki. Father Donavich mentioned it as a possible refuge for Ireena — the Abbey of Saint Markovia sits on the hill above the village and was once a place of genuine healing. Whether it still is, he did not say with certainty. The party knows the name and the direction. Nothing more.",
+      "status": "Known — not yet reached",
+      "region": "Northwestern Barovia",
+      "map_x": 480,
+      "map_y": 900
+    },
+    {
+      "id": "amber_temple",
+      "name": "Amber Temple",
+      "title": "Where Strahd Found His Power",
+      "detail": "Ismark mentioned it in passing — a temple somewhere in the mountains where Strahd acquired the powers that made him what he is. Beyond that, the party knows nothing. The temple does not appear on any map they have seen.",
+      "status": "Known by name only — location unknown",
+      "region": "Mount Ghakis, southern Barovia",
+      "map_x": 1360,
+      "map_y": 2480
     }
   ]
 }

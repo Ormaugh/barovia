@@ -1,87 +1,87 @@
 {
   "id": 7,
   "roman": "VII",
-  "eyebrow": "La carta y el carromato",
-  "title": "La Carretera al Oeste",
-  "subtitle": "Villa de Barovia · Svalich Road · Las Puertas de Ravenloft",
-  "opener": "La niebla no pregunta. Toma lo que toma, devuelve lo que devuelve, y el grupo aprendió hace tiempo que no tiene sentido buscarle lógica. Kaelos y Dara desaparecieron en el banco de niebla. Thokk emergió de él. Barovia hizo un intercambio que nadie autorizó, y el único comentario posible era seguir andando.",
+  "eyebrow": "The Letter and the Carriage",
+  "title": "The Road West",
+  "subtitle": "Village of Barovia · Svalich Road · The Gates of Ravenloft",
+  "opener": "The mist doesn't ask. It takes what it takes, returns what it returns, and the group learned long ago that looking for logic in it is a waste of effort. Kaelos and Dara disappeared into the bank of fog. Thokk emerged from it. Barovia made an exchange nobody authorised, and the only possible response was to keep walking.",
   "sections": [
     {
-      "heading": "La despedida y las espadas",
+      "heading": "The Farewell and the Swords",
       "paragraphs": [
-        "Ismark los esperaba en el umbral de la mansión. Tenía dos espadas plateadas — una para Sarda, una para Thokk. Las entregó sin ceremonia, como quien liquida una deuda antes de que la otra parte cambie de opinión. Ireena ya estaba lista: bolsa pequeña, capa oscura, expresión de alguien que ha tomado una decisión y no piensa revisarla.",
-        "La despedida fue lo que era. Ismark levantó una mano cuando el carro se alejó. Las ventanas de la aldea estaban cerradas como siempre. Alguna cortina se movió. Nadie salió."
+        "Ismark was waiting at the mansion threshold. He had two silver swords — one for Sarda, one for Thokk. He handed them over without ceremony, like someone settling a debt before the other party changes their mind. Ireena was already ready: small bag, dark cloak, the expression of someone who has made a decision and does not intend to revisit it.",
+        "The farewell was what it was. Ismark raised a hand as the cart moved off. The village windows were shut as always. A curtain shifted somewhere. Nobody came out."
       ]
     },
     {
-      "heading": "La niebla — lo que se fue y lo que vino",
+      "heading": "The Mist — What Left and What Came Back",
       "paragraphs": [
-        "A poco de salir de la aldea, un banco de niebla densa cerró el camino. Kaelos y Dara desaparecieron en él. Del mismo banco emergió Thokk, con un cuchillo en la mano y la expresión de alguien que acaba de llegar de algún sitio pero no sabe de cuál.",
-        "Barovia no explicó nada. Nunca lo hace. El grupo absorbió el intercambio con la resignación de quien lleva suficiente tiempo en el valle para saber que pedir explicaciones es un gasto de energía que no se puede permitir."
+        "Shortly after leaving the village, a dense bank of mist closed across the road. Kaelos and Dara disappeared into it. From that same bank emerged Thokk, a knife in his hand and the expression of someone who has just arrived from somewhere but doesn't know where.",
+        "Barovia offered no explanation. It never does. The group absorbed the exchange with the resignation of people who have been in the valley long enough to know that asking for answers is an expenditure of energy they cannot afford."
       ]
     },
     {
-      "heading": "El puente",
+      "heading": "The Bridge",
       "paragraphs": [
-        "A un par de horas de camino, un puente de piedra cruzaba un río serio — ancho, embravecido, con una caída de unos diez metros desde el tablero hasta el agua. El río fluía de oeste a este, desde la zona del castillo hacia la aldea, rápido y frío. La niebla que levantaba era húmeda y helada. Cruzaron sin detenerse."
+        "A couple of hours down the road, a stone bridge crossed a serious river — wide, running hard, with a drop of about ten metres from the deck to the water below. The river ran west to east, from the direction of the castle toward the village, fast and cold. The mist rising off it was wet and freezing. They crossed without stopping."
       ]
     },
     {
-      "heading": "El árbol y el ahorcado",
+      "heading": "The Tree and the Hanged Man",
       "paragraphs": [
-        "Horas después del puente, en el lado derecho del camino: un árbol gigante y muy antiguo, sin hojas, con las ramas casi horizontales y entrelazadas. De una de ellas colgaba un hombre. Ropa de viajero — alguien de fuera, como ellos.",
-        "Parte del grupo bajó del carro a investigar. El hombre llevaba días muerto, quizás una semana. En el bolsillo interior de la capa había una carta sin terminar dirigida a alguien llamado Petra, en un lugar que no existe dentro de Barovia. El texto mencionaba a los gitanos del río — amables, con comida caliente, que no hacen preguntas. Y que siempre miran hacia el castillo. La carta no terminaba. La última línea nunca se escribió. En la muñeca, un vendaje limpio hecho con tela de colores llamativos. Debajo: una marca de mordisco, cicatrizada.",
-        "Del bosque emergieron cinco zombis y un Aparecido mientras el grupo tenía la atención puesta en el cuerpo. El árbol era el señuelo. El combate fue en el camino, con el carro a la espalda y el bosque cerrando los flancos. El Aparecido fue lo último en caer. El ahorcado siguió colgando cuando terminó."
+        "Hours past the bridge, on the right side of the road: a massive and very old tree, leafless, with nearly horizontal branches twisted together. A man was hanging from one of them. Traveller's clothes — someone from outside, like them.",
+        "Part of the group climbed down from the cart to investigate. The man had been dead for days, perhaps a week. Enna handled cutting the body down. In the inner pocket of his cloak was an unfinished letter addressed to someone named Petra, in a place that does not exist inside Barovia. The text mentioned the river gypsies — friendly, with warm food, who ask no questions. And who always look toward the castle. The letter did not finish. The last line was never written. On his wrist, a clean bandage made from brightly coloured cloth.",
+        "Five zombies and a Wight emerged from the forest while the group's attention was on the body. The tree was the decoy. The fight was on the road, with the cart at their backs and the forest closing in on the flanks. When the Wight fell, the last zombie fleeing from Laucian's holy symbol dropped dead where it stood."
       ]
     },
     {
-      "heading": "El carromato de Strahd",
+      "heading": "Strahd's Carriage",
       "paragraphs": [
-        "En el cruce hacia Ravenloft, un carromato negro esperaba detenido en el camino. Negro completo — madera, techo, cortinas. Tirado por dos caballos. Sarda abrió su percepción divina antes de acercarse: los caballos eran animales normales, sin rastro de lo que no debería estar vivo.",
-        "La puerta del carromato se abrió sola cuando el grupo se aproximó. Dentro: oscuridad y silencio. El grupo discutió. Nadie subió. Dejaron el carromato en el cruce y siguieron por la carretera principal hacia el oeste."
+        "At the crossroads toward Ravenloft, a black carriage waited motionless in the road. Black throughout — wood, roof, curtains. Drawn by two horses. Sarda opened her divine sense before approaching: the horses were ordinary animals, no trace of what should not still be alive.",
+        "The carriage door opened on its own as the group drew near. Inside: darkness and silence. The group debated. Nobody got in. They left the carriage at the crossroads and continued west along the main road."
       ]
     },
     {
-      "heading": "Las puertas de Ravenloft — la carta",
+      "heading": "The Gates of Ravenloft — The Letter",
       "paragraphs": [
-        "Las puertas que dan acceso al camino hacia Ravenloft estaban abiertas. Las mismas estatuas que las puertas de entrada al valle, algo mejor conservadas. Bajo el arco, protegiéndose de la humedad con una linterna de aceite en la mano: una figura encapuchada, encorvada. Sarda se adelantó. ¿Quién eres? Un sirviente, señorita. ¿De quién? Del maestro Strahd.",
-        "La figura entregó una carta y echó a andar hacia el castillo sin añadir nada más. La carta, escrita con la caligrafía precisa de alguien que lleva siglos practicando, era una invitación a cenar en Ravenloft en tres días. Strahd se presentaba como señor de Barovia y anfitrión, reconocía al grupo como sus súbditos, y prometía pasaje seguro hasta el castillo y trato civilizado en su mesa. Firmado: Strahd von Zarovich, Conde de Barovia.",
-        "El grupo leyó la carta. Discutió sus implicaciones. Sarda se la guardó."
+        "The gates giving access to the road toward Ravenloft stood open. The same statues as the valley's entrance gates, somewhat better preserved. Sheltering from the damp beneath the arch, an oil lantern in hand: a hunched, hooded figure. Sarda stepped forward. Who are you? A servant, miss. Whose? Of master Strahd.",
+        "The figure handed over a letter and began walking toward the castle without adding anything further. The letter, written in the precise hand of someone who has had centuries to practise, was a dinner invitation to Ravenloft in three days' time. Strahd introduced himself as lord of Barovia and host, acknowledged the group as his subjects, and promised safe passage to the castle and civilised treatment at his table. Signed: Strahd von Zarovich, Count of Barovia.",
+        "The group read the letter. Discussed its implications. Sarda kept it."
       ]
     },
     {
-      "heading": "El descanso",
+      "heading": "The Rest",
       "paragraphs": [
-        "Acamparon cerca de las puertas, bajo la lógica de que la carta de Strahd era también una especie de escudo — nada bajo su dominio tocaría a sus invitados esa noche. La lógica era discutible. Funcionó. La noche pasó sin incidentes. Por la mañana, Vallaki seguía al oeste y el castillo seguía al norte, y el grupo tenía tres días para decidir qué hacía con la invitación."
+        "They camped near the gates, on the logic that Strahd's letter was also a kind of shield — nothing under his dominion would touch his invited guests that night. The logic was debatable. It worked. The night passed without incident. In the morning, Vallaki was still to the west and the castle was still to the north, and the group had three days to decide what to do with the invitation."
       ]
     }
   ],
   "sidebar": {
     "acquired": [
-      "Espada plateada (Sarda) — entregada por Ismark",
-      "Espada plateada (Thokk) — entregada por Ismark",
-      "Carta de Strahd von Zarovich — invitación a cenar en Ravenloft en tres días (Sarda)"
+      "Silver sword (Sarda) — given by Ismark",
+      "Silver sword (Thokk) — given by Ismark",
+      "Letter from Strahd von Zarovich — dinner invitation to Ravenloft in three days (Sarda)"
     ],
     "known": [
-      "Thokk emergió de la niebla donde desaparecieron Kaelos y Dara — Barovia hizo un intercambio sin explicación",
-      "El ahorcado era un aventurero forastero — su carta menciona a los gitanos del río mirando siempre hacia el castillo",
-      "La marca en la muñeca del ahorcado es de mordisco de vampiro, vendada con tela Vistani",
-      "El carromato de Strahd esperaba en el cruce a Ravenloft — los caballos eran normales, la puerta se abrió sola",
-      "Strahd ha invitado al grupo a cenar en tres días — promete pasaje seguro y trato civilizado",
-      "El campamento Vistani no fue visitado — el grupo pasó de largo por ir con Ireena"
+      "Thokk emerged from the mist where Kaelos and Dara disappeared — Barovia made an exchange with no explanation",
+      "The hanged man was an outsider adventurer — his letter mentions the river gypsies always looking toward the castle",
+      "The mark on the hanged man's wrist is a vampire bite, bandaged with Vistani cloth",
+      "Strahd's carriage was waiting at the Ravenloft crossroads — the horses were ordinary, the door opened on its own",
+      "Strahd has invited the group to dinner in three days — he promises safe passage and civilised treatment",
+      "The Vistani camp was not visited — the group passed by to avoid stopping with Ireena"
     ],
     "unanswered": [
-      "¿Quién era exactamente el aventurero ahorcado y cuánto tiempo lleva en Barovia?",
-      "¿Qué había dentro del carromato de Strahd?",
-      "¿Qué significa aceptar — o rechazar — la invitación a cenar?",
-      "¿Dónde están Kaelos y Dara?",
-      "¿Qué sabe el campamento Vistani del grupo — Alenka ya tuvo tiempo de informar?"
+      "Who exactly was the hanged adventurer, and how long had he been in Barovia?",
+      "What was inside Strahd's carriage?",
+      "What does it mean to accept — or refuse — the dinner invitation?",
+      "Where are Kaelos and Dara?",
+      "What does the Vistani camp know about the group — Alenka had time to report before they reached the crossroads?"
     ],
     "people": [
-      "Ireena Kolyana — viaja con el grupo, en silencio, atenta",
-      "Ismark — se quedó en la aldea, los vio marchar",
-      "Sirviente de Strahd — figura encapuchada, entregó la carta, no dijo nada más"
+      "Ireena Kolyana — travelling with the group, quiet, watchful",
+      "Ismark — stayed in the village, watched them leave",
+      "Strahd's servant — hooded figure, delivered the letter, said nothing more"
     ],
-    "milestone": "El grupo tiene una invitación de Strahd. Tres días. Vallaki sigue siendo el destino inmediato."
+    "milestone": "The group holds an invitation from Strahd. Three days. Vallaki remains the immediate destination."
   }
 }
