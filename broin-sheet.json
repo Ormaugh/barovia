@@ -14,7 +14,7 @@
   "chp": "11",
   "thp": "—",
   "speed": "25ft",
-  "spellClass": "—",
+  "spellClass": "Monk",
   "combatNotes": "ESTILO DE COMBATE (Monje 1 — el Camino aún no ha elegido):\n• Defensa sin armadura: CA 15 (10 + DEX 2 + SAB 3). Sin armadura ni escudo.\n• Artes marciales: dado 1d4 con armas de monje. Usa DEX para atacar y dañar (FUE 6 es trivial). Tras un ataque con acción, puedes hacer un ataque sin armas como acción adicional.\n• Ataque sin armas: +4 al ataque, 1d4+2 contundente. Económico, fluido, sin estilo reconocible todavía.\n• Bastón de cuartillo: arma de monje. Versátil (1d6 a una mano, 1d8 a dos manos). Daño con DEX por artes marciales.\n• Punto de Ki: 1 disponible. Aún sin características de Ki — esas llegan al nivel 2.\n• Tenacidad enana: +1 PG por nivel (ya incluido).\n• Resistencia enana: ventaja en TS contra veneno; resistencia al daño por veneno.\n• Visión en la oscuridad 60 ft (18 m).\n• Notas de carácter en combate: silencioso y casi aburrido. Esquiva, golpea, anota mentalmente. Si algo le parece digno de mención, sonríe ligeramente — eso debería preocupar a sus enemigos. El Camino del Monje Borracho no se manifiesta hasta el nivel 3.\n• Afinidad con la piedra: doble competencia en Historia cuando el tema es piedra u origen mineral (+5 en lugar de +3).\n• Investigador (rasgo erudito): si no sabe algo, sabe exactamente dónde o quién lo sabe.",
   "invNotes": "Equipo deliberadamente austero. Llegó a Karumdar con una nota y se va con un bastón. Trescientos diez años de vida caben en una mochila ligera y eso, sospecha, debería decirle algo.",
   "sensesDarkvision": "60 ft.",
@@ -29,11 +29,11 @@
     "cha": "13"
   },
   "sp": {
-    "sv-str": false,
+    "sv-str": true,
     "sv-dex": true,
     "sv-con": false,
     "sv-int": false,
-    "sv-wis": true,
+    "sv-wis": false,
     "sv-cha": false
   },
   "sk": {
@@ -42,7 +42,7 @@
     "sk-arc": 1,
     "sk-ath": 0,
     "sk-dec": 0,
-    "sk-his": 2,
+    "sk-his": 1,
     "sk-ins": 1,
     "sk-int": 0,
     "sk-inv": 0,
@@ -58,15 +58,42 @@
   },
   "sa": "wis",
   "slots": {
-    "1": {"t": "0", "u": 0},
-    "2": {"t": "0", "u": 0},
-    "3": {"t": "0", "u": 0},
-    "4": {"t": "0", "u": 0},
-    "5": {"t": "0", "u": 0},
-    "6": {"t": "0", "u": 0},
-    "7": {"t": "0", "u": 0},
-    "8": {"t": "0", "u": 0},
-    "9": {"t": "0", "u": 0}
+    "1": {
+      "t": "0",
+      "u": 0
+    },
+    "2": {
+      "t": "0",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
   },
   "port": "https://ormaugh.github.io/barovia/portraits/broin.png",
   "feats": [
@@ -122,46 +149,46 @@
   "atks": [
     {
       "n": "Ataque sin armas",
-      "id": "",
+      "id": null,
       "h": "main-d",
       "dmg": "1d4+2",
       "t": "bludgeoning",
       "r": "5ft",
-      "no": "Ataque base de monje. Usa DEX por Artes Marciales (+2 al daño). Como acción adicional tras un ataque normal."
+      "no": ""
     },
     {
-      "n": "Bastón de cuartillo (1m)",
-      "id": "",
+      "n": "Bastón (1m)",
+      "id": null,
       "h": "main-d",
       "dmg": "1d6+2",
       "t": "bludgeoning",
       "r": "5ft",
-      "no": "Arma de monje. A una mano (versátil). Usa DEX por Artes Marciales."
+      "no": ""
     },
     {
-      "n": "Bastón de cuartillo (2m)",
-      "id": "",
+      "n": "Bastón (2m)",
+      "id": null,
       "h": "main-d",
       "dmg": "1d8+2",
       "t": "bludgeoning",
       "r": "5ft",
-      "no": "Arma de monje. A dos manos (versátil — daño aumentado). Usa DEX por Artes Marciales."
+      "no": ""
     },
     {
       "n": "Dardo",
-      "id": "",
+      "id": null,
       "h": "ranged-d",
       "dmg": "1d4+2",
       "t": "piercing",
       "r": "20/60ft",
-      "no": "10 dardos en su cinturón. Arma simple a distancia (usa DEX por defecto al ser arma a distancia). NO es arma de monje, así que tras lanzarlo no puede encadenar el ataque sin armas como acción adicional."
+      "no": ""
     }
   ],
   "spells": [],
   "sdescs": {},
   "inv": [
     {
-      "n": "Bastón de cuartillo",
+      "n": "Bastón",
       "q": "1",
       "v": "2",
       "u": "sp",
@@ -182,7 +209,7 @@
       "no": "Cerveza de raíces de hongos del barril que dejó casi listo en Karumdar. Cuando se acabe, será otro problema."
     },
     {
-      "n": "Diario de viaje (casi lleno)",
+      "n": "Diario de viaje",
       "q": "1",
       "v": "",
       "u": "gp",
@@ -252,10 +279,58 @@
       "no": "Recuerdo del trasfondo de erudito. Lo identifica como antiguo maestro de Karumdar ante quien sepa reconocerlo — que son pocos."
     }
   ],
-  "ds": [false, false, false, false, false, false],
-  "npc_notes": {},
-  "location_notes": {},
-  "item_notes": {},
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "npc_notes": {
+    "strahd_servant": "",
+    "ireena": "",
+    "ismark": "",
+    "mirabel": "",
+    "alenka": "",
+    "sorbia": "",
+    "bildrath": "",
+    "parriwimple": "",
+    "donavich": "",
+    "doru": "",
+    "rose_durst": "",
+    "thorn_durst": "",
+    "madam_eva": ""
+  },
+  "location_notes": {
+    "iron_gates": "",
+    "death_house": "",
+    "village_barovia": "",
+    "burgomaster_mansion": "",
+    "church_morninglord": "",
+    "bildrath_mercantile": "",
+    "blood_vine_tavern": "",
+    "vistani_camp_river": "",
+    "ravenloft_crossroads": "",
+    "castle_ravenloft": "",
+    "vallaki": "",
+    "krezk": "",
+    "amber_temple": ""
+  },
+  "item_notes": {
+    "tatyana_soul": "",
+    "doru_fate": "",
+    "vampire_weaknesses": "",
+    "altar_chant": "",
+    "strahd_letter_durst": "",
+    "rose_thorn_truth": "",
+    "durst_dollhouse": "",
+    "dark_carriage": "",
+    "barovia_map": "",
+    "unidentified_potion": "",
+    "tarokka_reading": "",
+    "dire_wolf_eyes": ""
+  },
   "personality": {
     "traits": "Cuando algo le sorprende o le parece interesante, saca el diario y escribe antes de reaccionar. Sus compañeros aprenderán que si Brôin anota algo, probablemente están a punto de meterse en problemas. — Habla a los jóvenes aventureros como si fueran alumnos del templo: con paciencia infinita, frases cortas y silencios incómodos que duran demasiado. No lo hace con condescendencia. O eso cree él.",
     "ideals": "Las hazañas no escritas mueren con quienes las vivieron. Alguien tiene que estar ahí para contarlo, aunque ese alguien huela a mosto y duerma mal.",
