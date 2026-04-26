@@ -1,0 +1,160 @@
+{
+  "character": "broin",
+  "book_title": "Piedra, Puño y Camino",
+  "book_subtitle": "memorias de un monje sin destino",
+  "chapter": "Capítulo Segundo",
+  "entries": [
+    {
+      "id": 1,
+      "session_ref": 0,
+      "title": "Sobre la partida",
+      "location": "A medio día de camino al sur de Karumdar, al pie del desfiladero",
+      "time_of_day": "Atardecer, primera noche a la intemperie",
+      "weather": "Cielo claro, viento de montaña, frío limpio",
+      "party_present": ["Brôin", "Nocti"],
+      "is_placeholder": true,
+      "pages": [
+        {
+          "type": "text",
+          "content": "Karumdar quedó atrás antes del mediodía. No miré atrás. Boldur me enseñó hace dos siglos que los adioses mirados dos veces dejan de ser adioses. Caminé hasta que el sol empezó a caer y ahora escribo con el bastón apoyado en una roca que probablemente estuvo aquí antes que mi monasterio. Me parece una buena primera compañera de viaje."
+        },
+        {
+          "type": "text",
+          "content": "Dejé una nota en la sala de meditación. No estoy seguro de haberla escrito bien. La reescribí cuatro veces y, a la quinta, me dije que si había tardado cuatro intentos era porque ninguna palabra era la correcta, y que la quinta tampoco lo sería, pero al menos sería corta. Corta es honesta, casi siempre."
+        },
+        {
+          "type": "quote",
+          "content": "He enseñado todo lo que sé. Ahora necesito aprender lo que no sé. El segundo capítulo no puede escribirse desde aquí. Cuidad el barril de raíces — está casi listo."
+        },
+        {
+          "type": "text",
+          "content": "El barril me preocupa más de lo que debería. Son ocho meses de fermentación y el punto justo es cuestión de una semana. Durnok Piedrahielo tiene paladar de piedra y lengua de muchacho. Le dejé instrucciones, pero las instrucciones se leen una vez y se olvidan dos. Anoto aquí, por si algún día vuelvo a probar aquel barril y no está como debería: yo avisé."
+        },
+        {
+          "type": "ornament",
+          "style": "divider"
+        },
+        {
+          "type": "text",
+          "content": "Nocti se adapta mejor de lo que esperaba. Lleva toda la tarde volando en círculos amplios sobre el desfiladero, bajando cada cierto tiempo a posarse en mi hombro como si viniera a comprobar que sigo aquí. Supongo que para un cuervo que ha vivido tres años mirando por la misma ventana, el cielo abierto debe ser una revelación. O una amenaza. Con los cuervos nunca se sabe."
+        },
+        {
+          "type": "text",
+          "content": "Me he sentado a escribir esto antes de encender fuego. He aprendido que, si no escribo nada más salir del monasterio, dentro de un año la primera página de este capítulo será una reconstrucción de memoria y no una memoria. Las reconstrucciones son mentiras bonitas. El segundo capítulo no debe empezar con una mentira bonita."
+        },
+        {
+          "type": "margin_note",
+          "content": "Releído dos semanas después. La frase de las mentiras bonitas me sigue pareciendo correcta. La frase del barril ya no. Durnok sabrá."
+        },
+        {
+          "type": "text",
+          "content": "Escribo con la última luz. El bastón, el diario, la cantimplora, cinco pergaminos, diez piezas de oro y el cuervo. Es poco equipaje para trescientos diez años de vida, y sospecho que eso debería decirme algo. Anotaré qué, cuando lo sepa."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "session_ref": 0,
+      "title": "Sobre compañeros impredecibles",
+      "location": "Posada del Martillo Gris, aldea de Corralvieja",
+      "time_of_day": "Noche cerrada, después de la cena",
+      "weather": "Llovizna gris, viento del norte",
+      "party_present": ["Brôin", "Nocti", "(pendiente de confirmar)"],
+      "is_placeholder": true,
+      "pages": [
+        {
+          "type": "text",
+          "content": "Esta noche me senté a una mesa con cuatro desconocidos. Los dejaré sin nombre hasta que demuestren que merecen tinta. Llevo hora y media observándolos y he aprendido lo suficiente para iniciar el cuaderno de campo. Son material. No sé todavía si son buen material, pero son, desde luego, material."
+        },
+        {
+          "type": "text",
+          "content": "Primera observación general: hablan demasiado y se escuchan poco. Esto es lo más humano que he visto en años. En Karumdar, los novicios aprenden a callar antes que a hablar. Aquí parece que aprenden a hablar antes que a existir. No es un defecto. Es un dato. Los datos no son defectos hasta que se prueba que lo son."
+        },
+        {
+          "type": "ornament",
+          "style": "dots"
+        },
+        {
+          "type": "text",
+          "content": "Sujeto A — humana, joven, de manos nerviosas. Tres cicatrices visibles, ninguna reciente. Mira las salidas antes que a las personas. Eso dice más de su pasado que cualquier cosa que haya contado en voz alta. Tardé diez minutos en entender que no estaba nerviosa: estaba preparada. Son cosas distintas."
+        },
+        {
+          "type": "text",
+          "content": "Sujeto B — medio elfo, voz afilada y sonrisa lenta. Contó dos anécdotas y en ambas salió bien parado. Nadie sale bien parado dos veces seguidas sin editar. No lo juzgo. Yo también edito, solo que en otra dirección."
+        },
+        {
+          "type": "text",
+          "content": "Sujeto C — humano grande, silencio amable, mirada de quien ya ha decidido que el mundo le debe menos de lo que el mundo cree. Me cayó bien desde el principio, lo cual es sospechoso. Conviene revisar esa impresión en tres días."
+        },
+        {
+          "type": "text",
+          "content": "Sujeto D — no sé qué es. Dice que es media elfa y puede que lo sea, pero lleva la mano izquierda enguantada incluso para comer. Uno no se enguanta para comer a menos que tenga algo que esconder o algo que cuidar. Ambas posibilidades son interesantes."
+        },
+        {
+          "type": "ornament",
+          "style": "divider"
+        },
+        {
+          "type": "text",
+          "content": "Les pregunté, uno por uno, por qué estaban en Corralvieja. Las cuatro respuestas fueron distintas. Dos de ellas eran probablemente ciertas. No anotaré aquí cuáles. Prefiero comprobarlo."
+        },
+        {
+          "type": "margin_note",
+          "content": "Añadido al día siguiente. Sujeto C se ofreció a pagarme la cerveza. Rechacé. No conviene deber nada a desconocidos en la primera noche. A la tercera, quizá."
+        },
+        {
+          "type": "text",
+          "content": "Cuando cerré el diario y me levanté para subir a la habitación, el Sujeto B me preguntó si siempre escribía durante las conversaciones ajenas. Le respondí que sí. Me preguntó por qué. Le dije que porque las conversaciones ajenas se pierden más rápido que las propias, y alguien tiene que ocuparse. Se rió. Los otros tres no."
+        },
+        {
+          "type": "text",
+          "content": "Sospecho que mañana viajaremos juntos. Ninguno lo ha dicho aún, pero la posada nos tiene a los cinco rumbo al mismo paso de montaña y ya hemos empezado a mirar los mapas ajenos sin disimulo. Es el principio de algo. No me pronuncio sobre qué."
+        },
+        {
+          "type": "text",
+          "content": "Nocti no se ha movido del alféizar en toda la noche. Observa a los cuatro como si llevase tomando notas desde antes que yo. Empiezo a sospechar que una parte del Capítulo Segundo se escribirá a cuatro ojos."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "session_ref": 0,
+      "title": "Sobre cerveza mediocre y silencios útiles",
+      "location": "Taberna «El Yunque Torcido», cruce de caminos al este del río",
+      "time_of_day": "Mediodía, más tarde de lo que debería",
+      "weather": "Sol pálido entre nubes",
+      "party_present": ["Brôin", "Nocti"],
+      "is_placeholder": true,
+      "pages": [
+        {
+          "type": "text",
+          "content": "La cerveza de esta casa es mediocre. No es mala — eso sería digno de estudio — es sencillamente mediocre, que es el estado más insultante al que puede aspirar una cerveza. Pedí una segunda por educación hacia el tabernero y porque mediocre no es motivo para levantarse de una silla cómoda."
+        },
+        {
+          "type": "text",
+          "content": "Olí la jarra treinta segundos antes de beber, como acostumbro. El tabernero me observaba mientras olía. Cuando por fin bebí, esperó respuesta. No la di. El silencio fue suficiente. Pagó solo media, lo cual confirma que él también sabe cómo está su cerveza. Los silencios son contratos más honestos que las palabras."
+        },
+        {
+          "type": "ornament",
+          "style": "dots"
+        },
+        {
+          "type": "text",
+          "content": "Tres mesas más allá, un muchacho discutía con su hermano. El hermano le había explicado tres veces por qué no debía apostar al dado de cara marcada. El muchacho apostó. Perdió. Volvió a la mesa, cogió el último florín de su hermano sin mirarle, y dijo que esta vez seguro. El hermano cerró los ojos muy despacio."
+        },
+        {
+          "type": "text",
+          "content": "Reconocí el gesto. Lo he hecho doscientas veces. Es lo que se hace cuando ya no quedan palabras que sirvan, y antes de que la boca intente pronunciarlas de todos modos. Ese hermano lleva dentro un monje pequeño que aún no sabe que lo es."
+        },
+        {
+          "type": "margin_note",
+          "content": "El muchacho perdió también esa mano. Obviamente."
+        },
+        {
+          "type": "text",
+          "content": "Anoto aquí, por completitud, que la estupidez evitable es el único pecado que me impacienta. La estupidez inevitable — la que no se vio venir, la que se cometió por primera vez — es, en cambio, el material del que están hechos la mayoría de los héroes. La diferencia entre una y otra es un solo aprendizaje. Por eso enseñaba. Por eso escribo."
+        }
+      ]
+    }
+  ]
+}

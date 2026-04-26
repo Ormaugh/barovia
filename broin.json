@@ -1,0 +1,32 @@
+{
+  "name": "Brôin Piedraplana",
+  "race": "Enano de las Colinas",
+  "class": "Monje",
+  "level": 1,
+  "alignment": "Caótico Bueno",
+  "age": 310,
+  "height_m": 1.32,
+  "weight_kg": 75,
+  "origin": "Karumdar, Earthfast Mountains",
+  "monastery": "Karumdar — El Hueco en la Montaña",
+  "background": "Erudito",
+  "portrait": "diary-assets/broin-portrait.jpg",
+  "companion": {
+    "name": "Nocti",
+    "species": "Cuervo",
+    "note": "Apareció un día en la ventana del monasterio y nunca se fue. Lo acompaña en el viaje."
+  },
+  "book": {
+    "title": "Piedra, Puño y Camino",
+    "subtitle": "memorias de un monje sin destino",
+    "current_chapter": "Capítulo Segundo",
+    "chapter_status": "Iniciado el día de su partida de Karumdar. Setenta y tres páginas en blanco esperando."
+  },
+  "epigraph": "He enseñado todo lo que sé. Ahora necesito aprender lo que no sé.",
+  "epigraph_source": "Nota de despedida de Brôin Piedraplana, Karumdar, año desconocido.",
+  "mantra": "Que la piedra lo forme.",
+  "ideal": "Las hazañas no escritas mueren con quienes las vivieron. Alguien tiene que estar ahí para contarlo, aunque ese alguien huela a mosto y duerma mal.",
+  "bond": "Escribe una crónica titulada «Piedra, Puño y Camino». El primer capítulo, sobre sus 200 años en Karumdar, ya está completo. El segundo acaba de empezar.",
+  "flaw": "Doscientos años enseñando le dieron paciencia para casi todo — excepto la estupidez evitable.",
+  "dedication": "A Boldur Granitorojo, que me recogió de la piedra y me enseñó a escuchar. A los ochenta discípulos que formé y que a todos enterré a mi modo, en tinta. A Karumdar, que es familia, hogar y costumbre. Y a quien, sin saberlo, vaya a convertirse en materia del segundo capítulo: perdóname por anotarte."
+}
