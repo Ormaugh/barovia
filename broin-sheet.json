@@ -14,6 +14,357 @@
   "chp": "11",
   "thp": "—",
   "speed": "25ft",
+  "spellClass": "Monk",
+  "combatNotes": "ESTILO DE COMBATE (Monje 1 — el Camino aún no ha elegido):\n• Defensa sin armadura: CA 15 (10 + DEX 2 + SAB 3). Sin armadura ni escudo.\n• Artes marciales: dado 1d4 con armas de monje. Usa DEX para atacar y dañar (FUE 6 es trivial). Tras un ataque con acción, puedes hacer un ataque sin armas como acción adicional.\n• Ataque sin armas: +4 al ataque, 1d4+2 contundente. Económico, fluido, sin estilo reconocible todavía.\n• Bastón de cuartillo: arma de monje. Versátil (1d6 a una mano, 1d8 a dos manos). Daño con DEX por artes marciales.\n• Punto de Ki: 1 disponible. Aún sin características de Ki — esas llegan al nivel 2.\n• Tenacidad enana: +1 PG por nivel (ya incluido).\n• Resistencia enana: ventaja en TS contra veneno; resistencia al daño por veneno.\n• Visión en la oscuridad 60 ft (18 m).\n• Notas de carácter en combate: silencioso y casi aburrido. Esquiva, golpea, anota mentalmente. Si algo le parece digno de mención, sonríe ligeramente — eso debería preocupar a sus enemigos. El Camino del Monje Borracho no se manifiesta hasta el nivel 3.\n• Afinidad con la piedra: doble competencia en Historia cuando el tema es piedra u origen mineral (+5 en lugar de +3).\n• Investigador (rasgo erudito): si no sabe algo, sabe exactamente dónde o quién lo sabe.",
+  "invNotes": "Equipo deliberadamente austero. Llegó a Karumdar con una nota y se va con un bastón. Trescientos diez años de vida caben en una mochila ligera y eso, sospecha, debería decirle algo.",
+  "sensesDarkvision": "60 ft.",
+  "sensesOther": "—",
+  "insp": false,
+  "sc": {
+    "str": "6",
+    "dex": "15",
+    "con": "14",
+    "int": "12",
+    "wis": "16",
+    "cha": "13"
+  },
+  "sp": {
+    "sv-str": false,
+    "sv-dex": true,
+    "sv-con": false,
+    "sv-int": false,
+    "sv-wis": true,
+    "sv-cha": false
+  },
+  "sk": {
+    "sk-acr": 1,
+    "sk-ani": 0,
+    "sk-arc": 1,
+    "sk-ath": 0,
+    "sk-dec": 0,
+    "sk-his": 2,
+    "sk-ins": 1,
+    "sk-int": 0,
+    "sk-inv": 0,
+    "sk-med": 0,
+    "sk-nat": 0,
+    "sk-per": 0,
+    "sk-prf": 0,
+    "sk-prs": 0,
+    "sk-rel": 0,
+    "sk-soh": 0,
+    "sk-ste": 0,
+    "sk-sur": 0
+  },
+  "sa": "wis",
+  "slots": {
+    "1": {
+      "t": "0",
+      "u": 0
+    },
+    "2": {
+      "t": "0",
+      "u": 0
+    },
+    "3": {
+      "t": "0",
+      "u": 0
+    },
+    "4": {
+      "t": "0",
+      "u": 0
+    },
+    "5": {
+      "t": "0",
+      "u": 0
+    },
+    "6": {
+      "t": "0",
+      "u": 0
+    },
+    "7": {
+      "t": "0",
+      "u": 0
+    },
+    "8": {
+      "t": "0",
+      "u": 0
+    },
+    "9": {
+      "t": "0",
+      "u": 0
+    }
+  },
+  "port": "https://ormaugh.github.io/barovia/portraits/broin.png",
+  "feats": [
+    {
+      "n": "Visión en la Oscuridad",
+      "s": "Enano",
+      "d": "Acostumbrado a la vida bajo tierra, tienes visión superior en oscuridad y luz tenue. A 18 m, ves luz tenue como si fuera luz brillante, y oscuridad como si fuera luz tenue. No distingues colores en la oscuridad, solo tonos de gris.",
+      "o": false
+    },
+    {
+      "n": "Resistencia Enana",
+      "s": "Enano",
+      "d": "Tienes ventaja en tiradas de salvación contra veneno, y resistencia al daño por veneno.",
+      "o": false
+    },
+    {
+      "n": "Entrenamiento de Combate Enano",
+      "s": "Enano",
+      "d": "Tienes competencia con hacha de guerra, hacha de mano, martillo de guerra y martillo ligero.",
+      "o": false
+    },
+    {
+      "n": "Afinidad con la Piedra",
+      "s": "Enano de las Colinas",
+      "d": "Cuando hagas una tirada de Inteligencia (Historia) relacionada con piedra u origen mineral, considera que tienes competencia y aplica el doble del bono de competencia (+5 en total).",
+      "o": true
+    },
+    {
+      "n": "Tenacidad Enana",
+      "s": "Enano de las Colinas",
+      "d": "Tu máximo de puntos de golpe aumenta en 1, y aumenta en 1 más cada vez que ganas un nivel. Ya incluido en los 11 PG actuales.",
+      "o": true
+    },
+    {
+      "n": "Defensa sin Armadura",
+      "s": "Monje 1",
+      "d": "Si no llevas armadura ni escudo, tu Clase de Armadura es 10 + tu modificador de Destreza (+2) + tu modificador de Sabiduría (+3) = 15.",
+      "o": true
+    },
+    {
+      "n": "Artes Marciales",
+      "s": "Monje 1",
+      "d": "Mientras no lleves armadura, escudo ni armas que no sean de monje: puedes usar Destreza en lugar de Fuerza para atacar y dañar con armas de monje y ataques sin armas. El dado de daño base es 1d4 (sube con el nivel). Tras un ataque con acción, puedes hacer un ataque sin armas como acción adicional.",
+      "o": true
+    },
+    {
+      "n": "Investigador",
+      "s": "Erudito",
+      "d": "Cuando intentes recordar información y no consigues recordarla, sabes exactamente dónde y de quién obtenerla — generalmente bibliotecas, gremios, escolares vivos, monasterios u otras fuentes de saber.",
+      "o": true
+    }
+  ],
+  "atks": [
+    {
+      "n": "Ataque sin armas",
+      "id": null,
+      "h": "main-d",
+      "dmg": "1d4",
+      "t": "bludgeoning",
+      "r": "5ft",
+      "no": ""
+    },
+    {
+      "n": "Bastón de cuartillo",
+      "id": null,
+      "h": "main-d",
+      "dmg": "1d6",
+      "t": "bludgeoning",
+      "r": "5ft",
+      "no": ""
+    },
+    {
+      "n": "Dardo",
+      "id": null,
+      "h": "ranged-d",
+      "dmg": "1d4",
+      "t": "piercing",
+      "r": "20/60ft",
+      "no": ""
+    }
+  ],
+  "spells": [],
+  "sdescs": {},
+  "inv": [
+    {
+      "n": "Bastón de cuartillo",
+      "q": "1",
+      "v": "2",
+      "u": "sp",
+      "no": "Arma principal y compañera de viaje. Apoyo en marchas largas y arma de monje versátil (1d6 / 1d8 a dos manos)."
+    },
+    {
+      "n": "Dardos",
+      "q": "10",
+      "v": "5",
+      "u": "cp",
+      "no": "Arrojadizos. En el cinturón."
+    },
+    {
+      "n": "Cantimplora de fermentado",
+      "q": "1",
+      "v": "",
+      "u": "gp",
+      "no": "Cerveza de raíces de hongos del barril que dejó casi listo en Karumdar. Cuando se acabe, será otro problema."
+    },
+    {
+      "n": "Diario de viaje (casi lleno)",
+      "q": "1",
+      "v": "",
+      "u": "gp",
+      "no": "Capítulo Primero completo: doscientos años en Karumdar. Capítulo Segundo recién iniciado. Setenta y tres páginas en blanco esperando. Algunas anotaciones están en clave que solo él entiende."
+    },
+    {
+      "n": "Tintero y pluma",
+      "q": "1",
+      "v": "",
+      "u": "gp",
+      "no": "Tinta de bayas de tejón ahumada. Mancha la pluma a la primera frase y a Brôin las yemas de los dedos para tres días."
+    },
+    {
+      "n": "Pergaminos en blanco",
+      "q": "5",
+      "v": "1",
+      "u": "gp",
+      "no": "Para cartas, contratos y emergencias narrativas que aún no han ocurrido."
+    },
+    {
+      "n": "Ropa de viaje y sandalias",
+      "q": "1",
+      "v": "",
+      "u": "gp",
+      "no": "Hábito de monje pardo. Cinturón ancho con varias hebillas. Sandalias resistentes — los enanos monjes prefieren no perder contacto con la piedra."
+    },
+    {
+      "n": "Mochila ligera",
+      "q": "1",
+      "v": "2",
+      "u": "gp",
+      "no": "Contiene casi todo lo demás. Tiene un compartimento secreto que Brôin todavía no ha decidido para qué usar."
+    },
+    {
+      "n": "Bolsa de cuero",
+      "q": "1",
+      "v": "",
+      "u": "gp",
+      "no": "Para el oro y los pequeños imprevistos. Cordón doble."
+    },
+    {
+      "n": "Pieza de jabón",
+      "q": "1",
+      "v": "2",
+      "u": "cp",
+      "no": "Disciplina monástica."
+    },
+    {
+      "n": "Yesquero",
+      "q": "1",
+      "v": "5",
+      "u": "sp",
+      "no": "Encender un fuego no es magia. Es paciencia."
+    },
+    {
+      "n": "Cuerda de cáñamo",
+      "q": "1",
+      "v": "1",
+      "u": "gp",
+      "no": "15 metros."
+    },
+    {
+      "n": "Raciones de viaje",
+      "q": "5",
+      "v": "5",
+      "u": "sp",
+      "no": "Pan duro, queso seco, frutos secos. Karumdar empaca austero."
+    },
+    {
+      "n": "Insignia de erudito (sello del archivo de Karumdar)",
+      "q": "1",
+      "v": "",
+      "u": "gp",
+      "no": "Recuerdo del trasfondo de erudito. Lo identifica como antiguo maestro de Karumdar ante quien sepa reconocerlo — que son pocos."
+    }
+  ],
+  "ds": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "npc_notes": {
+    "strahd_servant": "",
+    "ireena": "",
+    "ismark": "",
+    "mirabel": "",
+    "alenka": "",
+    "sorbia": "",
+    "bildrath": "",
+    "parriwimple": "",
+    "donavich": "",
+    "doru": "",
+    "rose_durst": "",
+    "thorn_durst": "",
+    "madam_eva": ""
+  },
+  "location_notes": {
+    "iron_gates": "",
+    "death_house": "",
+    "village_barovia": "",
+    "burgomaster_mansion": "",
+    "church_morninglord": "",
+    "bildrath_mercantile": "",
+    "blood_vine_tavern": "",
+    "vistani_camp_river": "",
+    "ravenloft_crossroads": "",
+    "castle_ravenloft": "",
+    "vallaki": "",
+    "krezk": "",
+    "amber_temple": ""
+  },
+  "item_notes": {
+    "tatyana_soul": "",
+    "doru_fate": "",
+    "vampire_weaknesses": "",
+    "altar_chant": "",
+    "strahd_letter_durst": "",
+    "rose_thorn_truth": "",
+    "durst_dollhouse": "",
+    "dark_carriage": "",
+    "barovia_map": "",
+    "unidentified_potion": "",
+    "tarokka_reading": "",
+    "dire_wolf_eyes": ""
+  },
+  "personality": {
+    "traits": "Cuando algo le sorprende o le parece interesante, saca el diario y escribe antes de reaccionar. Sus compañeros aprenderán que si Brôin anota algo, probablemente están a punto de meterse en problemas. — Habla a los jóvenes aventureros como si fueran alumnos del templo: con paciencia infinita, frases cortas y silencios incómodos que duran demasiado. No lo hace con condescendencia. O eso cree él.",
+    "ideals": "Las hazañas no escritas mueren con quienes las vivieron. Alguien tiene que estar ahí para contarlo, aunque ese alguien huela a mosto y duerma mal.",
+    "bonds": "Escribe una crónica titulada «Piedra, Puño y Camino». El primer capítulo, sobre sus 200 años en Karumdar, ya está completo. El segundo acaba de empezar. Tiene setenta y tres páginas en blanco esperando.",
+    "flaws": "Doscientos años enseñando le dieron paciencia para casi todo — excepto la estupidez evitable. Cuando alguien hace algo que ya explicó tres veces, cierra el diario muy despacio y guarda silencio. Ese silencio es peor que cualquier regañina."
+  },
+  "proficiencies": {
+    "languages": "Común, Enano, Élfico, Dracónico",
+    "armor": "—",
+    "weapons": "Armas simples, armas enanas (hacha de guerra, hacha de mano, martillo de guerra, martillo ligero), armas de monje",
+    "instruments": "—",
+    "tools": "Herramientas de cervecero",
+    "other": "Sin armadura · Sin escudo (pierde Defensa sin Armadura si las usa)"
+  },
+  "coins": {
+    "gp": "10",
+    "sp": "0",
+    "cp": "0"
+  }
+}
+{
+  "v": 3,
+  "cn": "Brôin Piedraplana",
+  "cc": "Monk",
+  "cl": "1",
+  "cr": "Hill Dwarf",
+  "bg": "Erudito",
+  "al": "Caótico Bueno",
+  "player": "",
+  "ac": "15",
+  "mhp": "11",
+  "hd": "1d8",
+  "hdu": 0,
+  "chp": "11",
+  "thp": "—",
+  "speed": "25ft",
   "spellClass": "—",
   "combatNotes": "ESTILO DE COMBATE (Monje 1 — el Camino aún no ha elegido):\n• Defensa sin armadura: CA 15 (10 + DEX 2 + SAB 3). Sin armadura ni escudo.\n• Artes marciales: dado 1d4 con armas de monje. Usa DEX para atacar y dañar (FUE 6 es trivial). Tras un ataque con acción, puedes hacer un ataque sin armas como acción adicional.\n• Ataque sin armas: +4 al ataque, 1d4+2 contundente. Económico, fluido, sin estilo reconocible todavía.\n• Bastón de cuartillo: arma de monje. Versátil (1d6 a una mano, 1d8 a dos manos). Daño con DEX por artes marciales.\n• Punto de Ki: 1 disponible. Aún sin características de Ki — esas llegan al nivel 2.\n• Tenacidad enana: +1 PG por nivel (ya incluido).\n• Resistencia enana: ventaja en TS contra veneno; resistencia al daño por veneno.\n• Visión en la oscuridad 60 ft (18 m).\n• Notas de carácter en combate: silencioso y casi aburrido. Esquiva, golpea, anota mentalmente. Si algo le parece digno de mención, sonríe ligeramente — eso debería preocupar a sus enemigos. El Camino del Monje Borracho no se manifiesta hasta el nivel 3.\n• Afinidad con la piedra: doble competencia en Historia cuando el tema es piedra u origen mineral (+5 en lugar de +3).\n• Investigador (rasgo erudito): si no sabe algo, sabe exactamente dónde o quién lo sabe.",
   "invNotes": "Equipo deliberadamente austero. Llegó a Karumdar con una nota y se va con un bastón. Trescientos diez años de vida caben en una mochila ligera y eso, sospecha, debería decirle algo.",
