@@ -101,49 +101,49 @@
       "n": "Visión en la Oscuridad",
       "s": "Enano",
       "d": "Acostumbrado a la vida bajo tierra, tienes visión superior en oscuridad y luz tenue. A 18 m, ves luz tenue como si fuera luz brillante, y oscuridad como si fuera luz tenue. No distingues colores en la oscuridad, solo tonos de gris.",
-      "o": true
+      "o": false
     },
     {
       "n": "Resistencia Enana",
       "s": "Enano",
       "d": "Tienes ventaja en tiradas de salvación contra veneno, y resistencia al daño por veneno.",
-      "o": true
+      "o": false
     },
     {
       "n": "Entrenamiento de Combate Enano",
       "s": "Enano",
       "d": "Tienes competencia con hacha de guerra, hacha de mano, martillo de guerra y martillo ligero.",
-      "o": true
+      "o": false
     },
     {
       "n": "Afinidad con la Piedra",
       "s": "Enano de las Colinas",
       "d": "Cuando hagas una tirada de Inteligencia (Historia) relacionada con piedra u origen mineral, considera que tienes competencia y aplica el doble del bono de competencia (+5 en total).",
-      "o": true
+      "o": false
     },
     {
       "n": "Tenacidad Enana",
       "s": "Enano de las Colinas",
       "d": "Tu máximo de puntos de golpe aumenta en 1, y aumenta en 1 más cada vez que ganas un nivel. Ya incluido en los 11 PG actuales.",
-      "o": true
+      "o": false
     },
     {
       "n": "Defensa sin Armadura",
       "s": "Monje 1",
       "d": "Si no llevas armadura ni escudo, tu Clase de Armadura es 10 + tu modificador de Destreza (+2) + tu modificador de Sabiduría (+3) = 15.",
-      "o": true
+      "o": false
     },
     {
       "n": "Artes Marciales",
       "s": "Monje 1",
       "d": "Mientras no lleves armadura, escudo ni armas que no sean de monje: puedes usar Destreza en lugar de Fuerza para atacar y dañar con armas de monje y ataques sin armas. El dado de daño base es 1d4 (sube con el nivel). Tras un ataque con acción, puedes hacer un ataque sin armas como acción adicional.",
-      "o": true
+      "o": false
     },
     {
       "n": "Investigador",
       "s": "Erudito",
       "d": "Cuando intentes recordar información y no consigues recordarla, sabes exactamente dónde y de quién obtenerla — generalmente bibliotecas, gremios, escolares vivos, monasterios u otras fuentes de saber.",
-      "o": true
+      "o": false
     }
   ],
   "atks": [
@@ -346,7 +346,7 @@
     "other": "Sin armadura · Sin escudo (pierde Defensa sin Armadura si las usa)"
   },
   "coins": {
-    "gp": "10",
+    "gp": "0",
     "sp": "0",
     "cp": "0"
   }
